@@ -1,0 +1,15 @@
+
+# FieldNameUpdatedEvent
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**id** | **String** |  |  [optional]
+**name** | **String** |  |  [optional]
+**type** | [**FieldType**](FieldType.md) |  |  [optional]
+**previousName** | **String** |  |  [optional]
+**portfolioId** | **String** |  |  [optional]
+**portfolioPlan** | [**PortfolioPlan**](PortfolioPlan.md) |  |  [optional]
+
+
+
