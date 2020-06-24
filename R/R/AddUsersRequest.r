@@ -51,7 +51,7 @@ AddUsersRequest <- R6::R6Class(
       AddUsersRequestObject
     },
     fromJSON = function(AddUsersRequestJson) {
-      AddUsersRequestObject <- jsonlite::fromJSON(AddUsersRequestJson)
+      AddUsersRequestObject <- dlensFromJSON(AddUsersRequestJson)
       if (!is.null(AddUsersRequestObject$`emailIds`)) {
         self$`emailIds` <- AddUsersRequestObject$`emailIds`
       }
@@ -75,7 +75,7 @@ AddUsersRequest <- R6::R6Class(
       )
     },
     fromJSONString = function(AddUsersRequestJson) {
-      AddUsersRequestObject <- jsonlite::fromJSON(AddUsersRequestJson)
+      AddUsersRequestObject <- dlensFromJSON(AddUsersRequestJson)
       self$`emailIds` <- AddUsersRequestObject$`emailIds`
       self$`message` <- AddUsersRequestObject$`message`
       self$`doNotNotify` <- AddUsersRequestObject$`doNotNotify`

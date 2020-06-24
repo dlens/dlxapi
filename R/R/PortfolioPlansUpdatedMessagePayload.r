@@ -34,7 +34,7 @@ PortfolioPlansUpdatedMessagePayload <- R6::R6Class(
       PortfolioPlansUpdatedMessagePayloadObject
     },
     fromJSON = function(PortfolioPlansUpdatedMessagePayloadJson) {
-      PortfolioPlansUpdatedMessagePayloadObject <- jsonlite::fromJSON(PortfolioPlansUpdatedMessagePayloadJson)
+      PortfolioPlansUpdatedMessagePayloadObject <- dlensFromJSON(PortfolioPlansUpdatedMessagePayloadJson)
       if (!is.null(PortfolioPlansUpdatedMessagePayloadObject$`portfolioPlans`)) {
         self$`portfolioPlans` <- lapply(PortfolioPlansUpdatedMessagePayloadObject$`portfolioPlans`, function(x) {
           portfolioPlansObject <- PortfolioPlan$new()
@@ -52,7 +52,7 @@ PortfolioPlansUpdatedMessagePayload <- R6::R6Class(
       )
     },
     fromJSONString = function(PortfolioPlansUpdatedMessagePayloadJson) {
-      PortfolioPlansUpdatedMessagePayloadObject <- jsonlite::fromJSON(PortfolioPlansUpdatedMessagePayloadJson)
+      PortfolioPlansUpdatedMessagePayloadObject <- dlensFromJSON(PortfolioPlansUpdatedMessagePayloadJson)
       self$`portfolioPlans` <- lapply(PortfolioPlansUpdatedMessagePayloadObject$`portfolioPlans`, function(x) PortfolioPlan$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
     }
   )

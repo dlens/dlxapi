@@ -24,7 +24,7 @@ ExportFormatType <- R6::R6Class(
       ExportFormatTypeObject
     },
     fromJSON = function(ExportFormatTypeJson) {
-      ExportFormatTypeObject <- jsonlite::fromJSON(ExportFormatTypeJson)
+      ExportFormatTypeObject <- dlensFromJSON(ExportFormatTypeJson)
     },
     toJSONString = function() {
        sprintf(
@@ -33,7 +33,7 @@ ExportFormatType <- R6::R6Class(
       )
     },
     fromJSONString = function(ExportFormatTypeJson) {
-      ExportFormatTypeObject <- jsonlite::fromJSON(ExportFormatTypeJson)
+      ExportFormatTypeObject <- dlensFromJSON(ExportFormatTypeJson)
     }
   )
 )

@@ -51,7 +51,7 @@ KloudlessFile <- R6::R6Class(
       KloudlessFileObject
     },
     fromJSON = function(KloudlessFileJson) {
-      KloudlessFileObject <- jsonlite::fromJSON(KloudlessFileJson)
+      KloudlessFileObject <- dlensFromJSON(KloudlessFileJson)
       if (!is.null(KloudlessFileObject$`token`)) {
         self$`token` <- KloudlessFileObject$`token`
       }
@@ -75,7 +75,7 @@ KloudlessFile <- R6::R6Class(
       )
     },
     fromJSONString = function(KloudlessFileJson) {
-      KloudlessFileObject <- jsonlite::fromJSON(KloudlessFileJson)
+      KloudlessFileObject <- dlensFromJSON(KloudlessFileJson)
       self$`token` <- KloudlessFileObject$`token`
       self$`accountId` <- KloudlessFileObject$`accountId`
       self$`fileId` <- KloudlessFileObject$`fileId`

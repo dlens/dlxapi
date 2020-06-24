@@ -70,7 +70,7 @@ Users <- R6::R6Class(
       UsersObject
     },
     fromJSON = function(UsersJson) {
-      UsersObject <- jsonlite::fromJSON(UsersJson)
+      UsersObject <- dlensFromJSON(UsersJson)
       if (!is.null(UsersObject$`href`)) {
         self$`href` <- UsersObject$`href`
       }
@@ -108,7 +108,7 @@ Users <- R6::R6Class(
       )
     },
     fromJSONString = function(UsersJson) {
-      UsersObject <- jsonlite::fromJSON(UsersJson)
+      UsersObject <- dlensFromJSON(UsersJson)
       self$`href` <- UsersObject$`href`
       self$`offset` <- UsersObject$`offset`
       self$`limit` <- UsersObject$`limit`

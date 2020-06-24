@@ -24,7 +24,7 @@ SpreadsheetReportProgressStatus <- R6::R6Class(
       SpreadsheetReportProgressStatusObject
     },
     fromJSON = function(SpreadsheetReportProgressStatusJson) {
-      SpreadsheetReportProgressStatusObject <- jsonlite::fromJSON(SpreadsheetReportProgressStatusJson)
+      SpreadsheetReportProgressStatusObject <- dlensFromJSON(SpreadsheetReportProgressStatusJson)
     },
     toJSONString = function() {
        sprintf(
@@ -33,7 +33,7 @@ SpreadsheetReportProgressStatus <- R6::R6Class(
       )
     },
     fromJSONString = function(SpreadsheetReportProgressStatusJson) {
-      SpreadsheetReportProgressStatusObject <- jsonlite::fromJSON(SpreadsheetReportProgressStatusJson)
+      SpreadsheetReportProgressStatusObject <- dlensFromJSON(SpreadsheetReportProgressStatusJson)
     }
   )
 )

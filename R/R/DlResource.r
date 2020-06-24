@@ -60,7 +60,7 @@ DlResource <- R6::R6Class(
       DlResourceObject
     },
     fromJSON = function(DlResourceJson) {
-      DlResourceObject <- jsonlite::fromJSON(DlResourceJson)
+      DlResourceObject <- dlensFromJSON(DlResourceJson)
       if (!is.null(DlResourceObject$`href`)) {
         self$`href` <- DlResourceObject$`href`
       }
@@ -89,7 +89,7 @@ DlResource <- R6::R6Class(
       )
     },
     fromJSONString = function(DlResourceJson) {
-      DlResourceObject <- jsonlite::fromJSON(DlResourceJson)
+      DlResourceObject <- dlensFromJSON(DlResourceJson)
       self$`href` <- DlResourceObject$`href`
       self$`id` <- DlResourceObject$`id`
       self$`createdAt` <- DlResourceObject$`createdAt`

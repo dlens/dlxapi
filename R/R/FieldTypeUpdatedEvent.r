@@ -78,7 +78,7 @@ FieldTypeUpdatedEvent <- R6::R6Class(
       FieldTypeUpdatedEventObject
     },
     fromJSON = function(FieldTypeUpdatedEventJson) {
-      FieldTypeUpdatedEventObject <- jsonlite::fromJSON(FieldTypeUpdatedEventJson)
+      FieldTypeUpdatedEventObject <- dlensFromJSON(FieldTypeUpdatedEventJson)
       if (!is.null(FieldTypeUpdatedEventObject$`id`)) {
         self$`id` <- FieldTypeUpdatedEventObject$`id`
       }
@@ -123,7 +123,7 @@ FieldTypeUpdatedEvent <- R6::R6Class(
       )
     },
     fromJSONString = function(FieldTypeUpdatedEventJson) {
-      FieldTypeUpdatedEventObject <- jsonlite::fromJSON(FieldTypeUpdatedEventJson)
+      FieldTypeUpdatedEventObject <- dlensFromJSON(FieldTypeUpdatedEventJson)
       self$`id` <- FieldTypeUpdatedEventObject$`id`
       self$`name` <- FieldTypeUpdatedEventObject$`name`
       FieldTypeObject <- FieldType$new()

@@ -51,7 +51,7 @@ RiskFieldDetail <- R6::R6Class(
       RiskFieldDetailObject
     },
     fromJSON = function(RiskFieldDetailJson) {
-      RiskFieldDetailObject <- jsonlite::fromJSON(RiskFieldDetailJson)
+      RiskFieldDetailObject <- dlensFromJSON(RiskFieldDetailJson)
       if (!is.null(RiskFieldDetailObject$`type`)) {
         typeObject <- RiskType$new()
         typeObject$fromJSON(jsonlite::toJSON(RiskFieldDetailObject$type, auto_unbox = TRUE))
@@ -77,7 +77,7 @@ RiskFieldDetail <- R6::R6Class(
       )
     },
     fromJSONString = function(RiskFieldDetailJson) {
-      RiskFieldDetailObject <- jsonlite::fromJSON(RiskFieldDetailJson)
+      RiskFieldDetailObject <- dlensFromJSON(RiskFieldDetailJson)
       RiskTypeObject <- RiskType$new()
       self$`type` <- RiskTypeObject$fromJSON(jsonlite::toJSON(RiskFieldDetailObject$type, auto_unbox = TRUE))
       self$`projectCount` <- RiskFieldDetailObject$`projectCount`

@@ -78,7 +78,7 @@ ProjectPortfolioPlanFieldValueDeletedEvent <- R6::R6Class(
       ProjectPortfolioPlanFieldValueDeletedEventObject
     },
     fromJSON = function(ProjectPortfolioPlanFieldValueDeletedEventJson) {
-      ProjectPortfolioPlanFieldValueDeletedEventObject <- jsonlite::fromJSON(ProjectPortfolioPlanFieldValueDeletedEventJson)
+      ProjectPortfolioPlanFieldValueDeletedEventObject <- dlensFromJSON(ProjectPortfolioPlanFieldValueDeletedEventJson)
       if (!is.null(ProjectPortfolioPlanFieldValueDeletedEventObject$`id`)) {
         self$`id` <- ProjectPortfolioPlanFieldValueDeletedEventObject$`id`
       }
@@ -123,7 +123,7 @@ ProjectPortfolioPlanFieldValueDeletedEvent <- R6::R6Class(
       )
     },
     fromJSONString = function(ProjectPortfolioPlanFieldValueDeletedEventJson) {
-      ProjectPortfolioPlanFieldValueDeletedEventObject <- jsonlite::fromJSON(ProjectPortfolioPlanFieldValueDeletedEventJson)
+      ProjectPortfolioPlanFieldValueDeletedEventObject <- dlensFromJSON(ProjectPortfolioPlanFieldValueDeletedEventJson)
       self$`id` <- ProjectPortfolioPlanFieldValueDeletedEventObject$`id`
       self$`name` <- ProjectPortfolioPlanFieldValueDeletedEventObject$`name`
       FieldObject <- Field$new()

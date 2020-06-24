@@ -69,7 +69,7 @@ AuthorizationCodeGeneratedEvent <- R6::R6Class(
       AuthorizationCodeGeneratedEventObject
     },
     fromJSON = function(AuthorizationCodeGeneratedEventJson) {
-      AuthorizationCodeGeneratedEventObject <- jsonlite::fromJSON(AuthorizationCodeGeneratedEventJson)
+      AuthorizationCodeGeneratedEventObject <- dlensFromJSON(AuthorizationCodeGeneratedEventJson)
       if (!is.null(AuthorizationCodeGeneratedEventObject$`id`)) {
         self$`id` <- AuthorizationCodeGeneratedEventObject$`id`
       }
@@ -105,7 +105,7 @@ AuthorizationCodeGeneratedEvent <- R6::R6Class(
       )
     },
     fromJSONString = function(AuthorizationCodeGeneratedEventJson) {
-      AuthorizationCodeGeneratedEventObject <- jsonlite::fromJSON(AuthorizationCodeGeneratedEventJson)
+      AuthorizationCodeGeneratedEventObject <- dlensFromJSON(AuthorizationCodeGeneratedEventJson)
       self$`id` <- AuthorizationCodeGeneratedEventObject$`id`
       UserObject <- User$new()
       self$`user` <- UserObject$fromJSON(jsonlite::toJSON(AuthorizationCodeGeneratedEventObject$user, auto_unbox = TRUE))

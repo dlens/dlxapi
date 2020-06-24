@@ -117,7 +117,7 @@ PortfolioPlanInsights <- R6::R6Class(
       PortfolioPlanInsightsObject
     },
     fromJSON = function(PortfolioPlanInsightsJson) {
-      PortfolioPlanInsightsObject <- jsonlite::fromJSON(PortfolioPlanInsightsJson)
+      PortfolioPlanInsightsObject <- dlensFromJSON(PortfolioPlanInsightsJson)
       if (!is.null(PortfolioPlanInsightsObject$`href`)) {
         self$`href` <- PortfolioPlanInsightsObject$`href`
       }
@@ -190,7 +190,7 @@ PortfolioPlanInsights <- R6::R6Class(
       )
     },
     fromJSONString = function(PortfolioPlanInsightsJson) {
-      PortfolioPlanInsightsObject <- jsonlite::fromJSON(PortfolioPlanInsightsJson)
+      PortfolioPlanInsightsObject <- dlensFromJSON(PortfolioPlanInsightsJson)
       self$`href` <- PortfolioPlanInsightsObject$`href`
       self$`id` <- PortfolioPlanInsightsObject$`id`
       self$`createdAt` <- PortfolioPlanInsightsObject$`createdAt`

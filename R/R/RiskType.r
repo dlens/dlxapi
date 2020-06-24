@@ -24,7 +24,7 @@ RiskType <- R6::R6Class(
       RiskTypeObject
     },
     fromJSON = function(RiskTypeJson) {
-      RiskTypeObject <- jsonlite::fromJSON(RiskTypeJson)
+      RiskTypeObject <- dlensFromJSON(RiskTypeJson)
     },
     toJSONString = function() {
        sprintf(
@@ -33,7 +33,7 @@ RiskType <- R6::R6Class(
       )
     },
     fromJSONString = function(RiskTypeJson) {
-      RiskTypeObject <- jsonlite::fromJSON(RiskTypeJson)
+      RiskTypeObject <- dlensFromJSON(RiskTypeJson)
     }
   )
 )

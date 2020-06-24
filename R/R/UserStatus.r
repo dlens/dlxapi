@@ -24,7 +24,7 @@ UserStatus <- R6::R6Class(
       UserStatusObject
     },
     fromJSON = function(UserStatusJson) {
-      UserStatusObject <- jsonlite::fromJSON(UserStatusJson)
+      UserStatusObject <- dlensFromJSON(UserStatusJson)
     },
     toJSONString = function() {
        sprintf(
@@ -33,7 +33,7 @@ UserStatus <- R6::R6Class(
       )
     },
     fromJSONString = function(UserStatusJson) {
-      UserStatusObject <- jsonlite::fromJSON(UserStatusJson)
+      UserStatusObject <- dlensFromJSON(UserStatusJson)
     }
   )
 )

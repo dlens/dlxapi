@@ -60,7 +60,7 @@ ResourcePoolBudgetAmount <- R6::R6Class(
       ResourcePoolBudgetAmountObject
     },
     fromJSON = function(ResourcePoolBudgetAmountJson) {
-      ResourcePoolBudgetAmountObject <- jsonlite::fromJSON(ResourcePoolBudgetAmountJson)
+      ResourcePoolBudgetAmountObject <- dlensFromJSON(ResourcePoolBudgetAmountJson)
       if (!is.null(ResourcePoolBudgetAmountObject$`resourcePool`)) {
         resourcePoolObject <- ResourcePool$new()
         resourcePoolObject$fromJSON(jsonlite::toJSON(ResourcePoolBudgetAmountObject$resourcePool, auto_unbox = TRUE))
@@ -95,7 +95,7 @@ ResourcePoolBudgetAmount <- R6::R6Class(
       )
     },
     fromJSONString = function(ResourcePoolBudgetAmountJson) {
-      ResourcePoolBudgetAmountObject <- jsonlite::fromJSON(ResourcePoolBudgetAmountJson)
+      ResourcePoolBudgetAmountObject <- dlensFromJSON(ResourcePoolBudgetAmountJson)
       ResourcePoolObject <- ResourcePool$new()
       self$`resourcePool` <- ResourcePoolObject$fromJSON(jsonlite::toJSON(ResourcePoolBudgetAmountObject$resourcePool, auto_unbox = TRUE))
       TimePeriodObject <- TimePeriod$new()

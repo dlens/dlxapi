@@ -24,7 +24,7 @@ TimePeriodType <- R6::R6Class(
       TimePeriodTypeObject
     },
     fromJSON = function(TimePeriodTypeJson) {
-      TimePeriodTypeObject <- jsonlite::fromJSON(TimePeriodTypeJson)
+      TimePeriodTypeObject <- dlensFromJSON(TimePeriodTypeJson)
     },
     toJSONString = function() {
        sprintf(
@@ -33,7 +33,7 @@ TimePeriodType <- R6::R6Class(
       )
     },
     fromJSONString = function(TimePeriodTypeJson) {
-      TimePeriodTypeObject <- jsonlite::fromJSON(TimePeriodTypeJson)
+      TimePeriodTypeObject <- dlensFromJSON(TimePeriodTypeJson)
     }
   )
 )

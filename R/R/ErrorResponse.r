@@ -42,7 +42,7 @@ ErrorResponse <- R6::R6Class(
       ErrorResponseObject
     },
     fromJSON = function(ErrorResponseJson) {
-      ErrorResponseObject <- jsonlite::fromJSON(ErrorResponseJson)
+      ErrorResponseObject <- dlensFromJSON(ErrorResponseJson)
       if (!is.null(ErrorResponseObject$`code`)) {
         self$`code` <- ErrorResponseObject$`code`
       }
@@ -61,7 +61,7 @@ ErrorResponse <- R6::R6Class(
       )
     },
     fromJSONString = function(ErrorResponseJson) {
-      ErrorResponseObject <- jsonlite::fromJSON(ErrorResponseJson)
+      ErrorResponseObject <- dlensFromJSON(ErrorResponseJson)
       self$`code` <- ErrorResponseObject$`code`
       self$`message` <- ErrorResponseObject$`message`
     }

@@ -24,7 +24,7 @@ RecommendationType <- R6::R6Class(
       RecommendationTypeObject
     },
     fromJSON = function(RecommendationTypeJson) {
-      RecommendationTypeObject <- jsonlite::fromJSON(RecommendationTypeJson)
+      RecommendationTypeObject <- dlensFromJSON(RecommendationTypeJson)
     },
     toJSONString = function() {
        sprintf(
@@ -33,7 +33,7 @@ RecommendationType <- R6::R6Class(
       )
     },
     fromJSONString = function(RecommendationTypeJson) {
-      RecommendationTypeObject <- jsonlite::fromJSON(RecommendationTypeJson)
+      RecommendationTypeObject <- dlensFromJSON(RecommendationTypeJson)
     }
   )
 )

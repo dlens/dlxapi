@@ -78,7 +78,7 @@ SubPortfolioAddedEvent <- R6::R6Class(
       SubPortfolioAddedEventObject
     },
     fromJSON = function(SubPortfolioAddedEventJson) {
-      SubPortfolioAddedEventObject <- jsonlite::fromJSON(SubPortfolioAddedEventJson)
+      SubPortfolioAddedEventObject <- dlensFromJSON(SubPortfolioAddedEventJson)
       if (!is.null(SubPortfolioAddedEventObject$`id`)) {
         self$`id` <- SubPortfolioAddedEventObject$`id`
       }
@@ -121,7 +121,7 @@ SubPortfolioAddedEvent <- R6::R6Class(
       )
     },
     fromJSONString = function(SubPortfolioAddedEventJson) {
-      SubPortfolioAddedEventObject <- jsonlite::fromJSON(SubPortfolioAddedEventJson)
+      SubPortfolioAddedEventObject <- dlensFromJSON(SubPortfolioAddedEventJson)
       self$`id` <- SubPortfolioAddedEventObject$`id`
       self$`portfolioId` <- SubPortfolioAddedEventObject$`portfolioId`
       self$`name` <- SubPortfolioAddedEventObject$`name`

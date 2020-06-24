@@ -34,7 +34,7 @@ ProjectsCreatedMessagePayload <- R6::R6Class(
       ProjectsCreatedMessagePayloadObject
     },
     fromJSON = function(ProjectsCreatedMessagePayloadJson) {
-      ProjectsCreatedMessagePayloadObject <- jsonlite::fromJSON(ProjectsCreatedMessagePayloadJson)
+      ProjectsCreatedMessagePayloadObject <- dlensFromJSON(ProjectsCreatedMessagePayloadJson)
       if (!is.null(ProjectsCreatedMessagePayloadObject$`projects`)) {
         self$`projects` <- lapply(ProjectsCreatedMessagePayloadObject$`projects`, function(x) {
           projectsObject <- Project$new()
@@ -52,7 +52,7 @@ ProjectsCreatedMessagePayload <- R6::R6Class(
       )
     },
     fromJSONString = function(ProjectsCreatedMessagePayloadJson) {
-      ProjectsCreatedMessagePayloadObject <- jsonlite::fromJSON(ProjectsCreatedMessagePayloadJson)
+      ProjectsCreatedMessagePayloadObject <- dlensFromJSON(ProjectsCreatedMessagePayloadJson)
       self$`projects` <- lapply(ProjectsCreatedMessagePayloadObject$`projects`, function(x) Project$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
     }
   )

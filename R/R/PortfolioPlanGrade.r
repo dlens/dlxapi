@@ -60,7 +60,7 @@ PortfolioPlanGrade <- R6::R6Class(
       PortfolioPlanGradeObject
     },
     fromJSON = function(PortfolioPlanGradeJson) {
-      PortfolioPlanGradeObject <- jsonlite::fromJSON(PortfolioPlanGradeJson)
+      PortfolioPlanGradeObject <- dlensFromJSON(PortfolioPlanGradeJson)
       if (!is.null(PortfolioPlanGradeObject$`type`)) {
         typeObject <- PlanType$new()
         typeObject$fromJSON(jsonlite::toJSON(PortfolioPlanGradeObject$type, auto_unbox = TRUE))
@@ -95,7 +95,7 @@ PortfolioPlanGrade <- R6::R6Class(
       )
     },
     fromJSONString = function(PortfolioPlanGradeJson) {
-      PortfolioPlanGradeObject <- jsonlite::fromJSON(PortfolioPlanGradeJson)
+      PortfolioPlanGradeObject <- dlensFromJSON(PortfolioPlanGradeJson)
       PlanTypeObject <- PlanType$new()
       self$`type` <- PlanTypeObject$fromJSON(jsonlite::toJSON(PortfolioPlanGradeObject$type, auto_unbox = TRUE))
       GradeObject <- Grade$new()

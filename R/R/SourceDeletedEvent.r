@@ -60,7 +60,7 @@ SourceDeletedEvent <- R6::R6Class(
       SourceDeletedEventObject
     },
     fromJSON = function(SourceDeletedEventJson) {
-      SourceDeletedEventObject <- jsonlite::fromJSON(SourceDeletedEventJson)
+      SourceDeletedEventObject <- dlensFromJSON(SourceDeletedEventJson)
       if (!is.null(SourceDeletedEventObject$`id`)) {
         self$`id` <- SourceDeletedEventObject$`id`
       }
@@ -93,7 +93,7 @@ SourceDeletedEvent <- R6::R6Class(
       )
     },
     fromJSONString = function(SourceDeletedEventJson) {
-      SourceDeletedEventObject <- jsonlite::fromJSON(SourceDeletedEventJson)
+      SourceDeletedEventObject <- dlensFromJSON(SourceDeletedEventJson)
       self$`id` <- SourceDeletedEventObject$`id`
       self$`name` <- SourceDeletedEventObject$`name`
       SourceTypeObject <- SourceType$new()

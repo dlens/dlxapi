@@ -33,7 +33,7 @@ DataUpdatedMessagePayload <- R6::R6Class(
       DataUpdatedMessagePayloadObject
     },
     fromJSON = function(DataUpdatedMessagePayloadJson) {
-      DataUpdatedMessagePayloadObject <- jsonlite::fromJSON(DataUpdatedMessagePayloadJson)
+      DataUpdatedMessagePayloadObject <- dlensFromJSON(DataUpdatedMessagePayloadJson)
       if (!is.null(DataUpdatedMessagePayloadObject$`message`)) {
         self$`message` <- DataUpdatedMessagePayloadObject$`message`
       }
@@ -47,7 +47,7 @@ DataUpdatedMessagePayload <- R6::R6Class(
       )
     },
     fromJSONString = function(DataUpdatedMessagePayloadJson) {
-      DataUpdatedMessagePayloadObject <- jsonlite::fromJSON(DataUpdatedMessagePayloadJson)
+      DataUpdatedMessagePayloadObject <- dlensFromJSON(DataUpdatedMessagePayloadJson)
       self$`message` <- DataUpdatedMessagePayloadObject$`message`
     }
   )

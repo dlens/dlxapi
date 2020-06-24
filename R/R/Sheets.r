@@ -70,7 +70,7 @@ Sheets <- R6::R6Class(
       SheetsObject
     },
     fromJSON = function(SheetsJson) {
-      SheetsObject <- jsonlite::fromJSON(SheetsJson)
+      SheetsObject <- dlensFromJSON(SheetsJson)
       if (!is.null(SheetsObject$`href`)) {
         self$`href` <- SheetsObject$`href`
       }
@@ -108,7 +108,7 @@ Sheets <- R6::R6Class(
       )
     },
     fromJSONString = function(SheetsJson) {
-      SheetsObject <- jsonlite::fromJSON(SheetsJson)
+      SheetsObject <- dlensFromJSON(SheetsJson)
       self$`href` <- SheetsObject$`href`
       self$`offset` <- SheetsObject$`offset`
       self$`limit` <- SheetsObject$`limit`

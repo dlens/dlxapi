@@ -70,7 +70,7 @@ Permissions <- R6::R6Class(
       PermissionsObject
     },
     fromJSON = function(PermissionsJson) {
-      PermissionsObject <- jsonlite::fromJSON(PermissionsJson)
+      PermissionsObject <- dlensFromJSON(PermissionsJson)
       if (!is.null(PermissionsObject$`href`)) {
         self$`href` <- PermissionsObject$`href`
       }
@@ -108,7 +108,7 @@ Permissions <- R6::R6Class(
       )
     },
     fromJSONString = function(PermissionsJson) {
-      PermissionsObject <- jsonlite::fromJSON(PermissionsJson)
+      PermissionsObject <- dlensFromJSON(PermissionsJson)
       self$`href` <- PermissionsObject$`href`
       self$`offset` <- PermissionsObject$`offset`
       self$`limit` <- PermissionsObject$`limit`

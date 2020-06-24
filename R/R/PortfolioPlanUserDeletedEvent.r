@@ -60,7 +60,7 @@ PortfolioPlanUserDeletedEvent <- R6::R6Class(
       PortfolioPlanUserDeletedEventObject
     },
     fromJSON = function(PortfolioPlanUserDeletedEventJson) {
-      PortfolioPlanUserDeletedEventObject <- jsonlite::fromJSON(PortfolioPlanUserDeletedEventJson)
+      PortfolioPlanUserDeletedEventObject <- dlensFromJSON(PortfolioPlanUserDeletedEventJson)
       if (!is.null(PortfolioPlanUserDeletedEventObject$`id`)) {
         self$`id` <- PortfolioPlanUserDeletedEventObject$`id`
       }
@@ -93,7 +93,7 @@ PortfolioPlanUserDeletedEvent <- R6::R6Class(
       )
     },
     fromJSONString = function(PortfolioPlanUserDeletedEventJson) {
-      PortfolioPlanUserDeletedEventObject <- jsonlite::fromJSON(PortfolioPlanUserDeletedEventJson)
+      PortfolioPlanUserDeletedEventObject <- dlensFromJSON(PortfolioPlanUserDeletedEventJson)
       self$`id` <- PortfolioPlanUserDeletedEventObject$`id`
       PortfolioPlanObject <- PortfolioPlan$new()
       self$`portfolioPlan` <- PortfolioPlanObject$fromJSON(jsonlite::toJSON(PortfolioPlanUserDeletedEventObject$portfolioPlan, auto_unbox = TRUE))

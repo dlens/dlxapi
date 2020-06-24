@@ -69,7 +69,7 @@ PortfolioPlanDescriptionUpdatedEvent <- R6::R6Class(
       PortfolioPlanDescriptionUpdatedEventObject
     },
     fromJSON = function(PortfolioPlanDescriptionUpdatedEventJson) {
-      PortfolioPlanDescriptionUpdatedEventObject <- jsonlite::fromJSON(PortfolioPlanDescriptionUpdatedEventJson)
+      PortfolioPlanDescriptionUpdatedEventObject <- dlensFromJSON(PortfolioPlanDescriptionUpdatedEventJson)
       if (!is.null(PortfolioPlanDescriptionUpdatedEventObject$`id`)) {
         self$`id` <- PortfolioPlanDescriptionUpdatedEventObject$`id`
       }
@@ -105,7 +105,7 @@ PortfolioPlanDescriptionUpdatedEvent <- R6::R6Class(
       )
     },
     fromJSONString = function(PortfolioPlanDescriptionUpdatedEventJson) {
-      PortfolioPlanDescriptionUpdatedEventObject <- jsonlite::fromJSON(PortfolioPlanDescriptionUpdatedEventJson)
+      PortfolioPlanDescriptionUpdatedEventObject <- dlensFromJSON(PortfolioPlanDescriptionUpdatedEventJson)
       self$`id` <- PortfolioPlanDescriptionUpdatedEventObject$`id`
       self$`description` <- PortfolioPlanDescriptionUpdatedEventObject$`description`
       self$`previousDescription` <- PortfolioPlanDescriptionUpdatedEventObject$`previousDescription`

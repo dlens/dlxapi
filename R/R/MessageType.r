@@ -24,7 +24,7 @@ MessageType <- R6::R6Class(
       MessageTypeObject
     },
     fromJSON = function(MessageTypeJson) {
-      MessageTypeObject <- jsonlite::fromJSON(MessageTypeJson)
+      MessageTypeObject <- dlensFromJSON(MessageTypeJson)
     },
     toJSONString = function() {
        sprintf(
@@ -33,7 +33,7 @@ MessageType <- R6::R6Class(
       )
     },
     fromJSONString = function(MessageTypeJson) {
-      MessageTypeObject <- jsonlite::fromJSON(MessageTypeJson)
+      MessageTypeObject <- dlensFromJSON(MessageTypeJson)
     }
   )
 )

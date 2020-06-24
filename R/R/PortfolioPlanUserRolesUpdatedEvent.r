@@ -80,7 +80,7 @@ PortfolioPlanUserRolesUpdatedEvent <- R6::R6Class(
       PortfolioPlanUserRolesUpdatedEventObject
     },
     fromJSON = function(PortfolioPlanUserRolesUpdatedEventJson) {
-      PortfolioPlanUserRolesUpdatedEventObject <- jsonlite::fromJSON(PortfolioPlanUserRolesUpdatedEventJson)
+      PortfolioPlanUserRolesUpdatedEventObject <- dlensFromJSON(PortfolioPlanUserRolesUpdatedEventJson)
       if (!is.null(PortfolioPlanUserRolesUpdatedEventObject$`id`)) {
         self$`id` <- PortfolioPlanUserRolesUpdatedEventObject$`id`
       }
@@ -131,7 +131,7 @@ PortfolioPlanUserRolesUpdatedEvent <- R6::R6Class(
       )
     },
     fromJSONString = function(PortfolioPlanUserRolesUpdatedEventJson) {
-      PortfolioPlanUserRolesUpdatedEventObject <- jsonlite::fromJSON(PortfolioPlanUserRolesUpdatedEventJson)
+      PortfolioPlanUserRolesUpdatedEventObject <- dlensFromJSON(PortfolioPlanUserRolesUpdatedEventJson)
       self$`id` <- PortfolioPlanUserRolesUpdatedEventObject$`id`
       PortfolioPlanObject <- PortfolioPlan$new()
       self$`portfolioPlan` <- PortfolioPlanObject$fromJSON(jsonlite::toJSON(PortfolioPlanUserRolesUpdatedEventObject$portfolioPlan, auto_unbox = TRUE))

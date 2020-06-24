@@ -78,7 +78,7 @@ SpreadsheetReportProgressMessagePayload <- R6::R6Class(
       SpreadsheetReportProgressMessagePayloadObject
     },
     fromJSON = function(SpreadsheetReportProgressMessagePayloadJson) {
-      SpreadsheetReportProgressMessagePayloadObject <- jsonlite::fromJSON(SpreadsheetReportProgressMessagePayloadJson)
+      SpreadsheetReportProgressMessagePayloadObject <- dlensFromJSON(SpreadsheetReportProgressMessagePayloadJson)
       if (!is.null(SpreadsheetReportProgressMessagePayloadObject$`portfolioId`)) {
         self$`portfolioId` <- SpreadsheetReportProgressMessagePayloadObject$`portfolioId`
       }
@@ -123,7 +123,7 @@ SpreadsheetReportProgressMessagePayload <- R6::R6Class(
       )
     },
     fromJSONString = function(SpreadsheetReportProgressMessagePayloadJson) {
-      SpreadsheetReportProgressMessagePayloadObject <- jsonlite::fromJSON(SpreadsheetReportProgressMessagePayloadJson)
+      SpreadsheetReportProgressMessagePayloadObject <- dlensFromJSON(SpreadsheetReportProgressMessagePayloadJson)
       self$`portfolioId` <- SpreadsheetReportProgressMessagePayloadObject$`portfolioId`
       self$`spreadsheetId` <- SpreadsheetReportProgressMessagePayloadObject$`spreadsheetId`
       self$`sheetName` <- SpreadsheetReportProgressMessagePayloadObject$`sheetName`

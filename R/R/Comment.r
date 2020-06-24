@@ -96,7 +96,7 @@ Comment <- R6::R6Class(
       CommentObject
     },
     fromJSON = function(CommentJson) {
-      CommentObject <- jsonlite::fromJSON(CommentJson)
+      CommentObject <- dlensFromJSON(CommentJson)
       if (!is.null(CommentObject$`href`)) {
         self$`href` <- CommentObject$`href`
       }
@@ -147,7 +147,7 @@ Comment <- R6::R6Class(
       )
     },
     fromJSONString = function(CommentJson) {
-      CommentObject <- jsonlite::fromJSON(CommentJson)
+      CommentObject <- dlensFromJSON(CommentJson)
       self$`href` <- CommentObject$`href`
       self$`id` <- CommentObject$`id`
       self$`createdAt` <- CommentObject$`createdAt`

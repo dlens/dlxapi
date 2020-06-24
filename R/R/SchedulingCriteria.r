@@ -24,7 +24,7 @@ SchedulingCriteria <- R6::R6Class(
       SchedulingCriteriaObject
     },
     fromJSON = function(SchedulingCriteriaJson) {
-      SchedulingCriteriaObject <- jsonlite::fromJSON(SchedulingCriteriaJson)
+      SchedulingCriteriaObject <- dlensFromJSON(SchedulingCriteriaJson)
     },
     toJSONString = function() {
        sprintf(
@@ -33,7 +33,7 @@ SchedulingCriteria <- R6::R6Class(
       )
     },
     fromJSONString = function(SchedulingCriteriaJson) {
-      SchedulingCriteriaObject <- jsonlite::fromJSON(SchedulingCriteriaJson)
+      SchedulingCriteriaObject <- dlensFromJSON(SchedulingCriteriaJson)
     }
   )
 )

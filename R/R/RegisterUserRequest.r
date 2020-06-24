@@ -59,7 +59,7 @@ RegisterUserRequest <- R6::R6Class(
       RegisterUserRequestObject
     },
     fromJSON = function(RegisterUserRequestJson) {
-      RegisterUserRequestObject <- jsonlite::fromJSON(RegisterUserRequestJson)
+      RegisterUserRequestObject <- dlensFromJSON(RegisterUserRequestJson)
       if (!is.null(RegisterUserRequestObject$`userRegistrationToken`)) {
         self$`userRegistrationToken` <- RegisterUserRequestObject$`userRegistrationToken`
       }
@@ -88,7 +88,7 @@ RegisterUserRequest <- R6::R6Class(
       )
     },
     fromJSONString = function(RegisterUserRequestJson) {
-      RegisterUserRequestObject <- jsonlite::fromJSON(RegisterUserRequestJson)
+      RegisterUserRequestObject <- dlensFromJSON(RegisterUserRequestJson)
       self$`userRegistrationToken` <- RegisterUserRequestObject$`userRegistrationToken`
       self$`emailId` <- RegisterUserRequestObject$`emailId`
       self$`landingPage` <- RegisterUserRequestObject$`landingPage`

@@ -24,7 +24,7 @@ ConstraintType <- R6::R6Class(
       ConstraintTypeObject
     },
     fromJSON = function(ConstraintTypeJson) {
-      ConstraintTypeObject <- jsonlite::fromJSON(ConstraintTypeJson)
+      ConstraintTypeObject <- dlensFromJSON(ConstraintTypeJson)
     },
     toJSONString = function() {
        sprintf(
@@ -33,7 +33,7 @@ ConstraintType <- R6::R6Class(
       )
     },
     fromJSONString = function(ConstraintTypeJson) {
-      ConstraintTypeObject <- jsonlite::fromJSON(ConstraintTypeJson)
+      ConstraintTypeObject <- dlensFromJSON(ConstraintTypeJson)
     }
   )
 )

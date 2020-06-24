@@ -51,7 +51,7 @@ BalanceFieldDetail <- R6::R6Class(
       BalanceFieldDetailObject
     },
     fromJSON = function(BalanceFieldDetailJson) {
-      BalanceFieldDetailObject <- jsonlite::fromJSON(BalanceFieldDetailJson)
+      BalanceFieldDetailObject <- dlensFromJSON(BalanceFieldDetailJson)
       if (!is.null(BalanceFieldDetailObject$`categoryName`)) {
         self$`categoryName` <- BalanceFieldDetailObject$`categoryName`
       }
@@ -75,7 +75,7 @@ BalanceFieldDetail <- R6::R6Class(
       )
     },
     fromJSONString = function(BalanceFieldDetailJson) {
-      BalanceFieldDetailObject <- jsonlite::fromJSON(BalanceFieldDetailJson)
+      BalanceFieldDetailObject <- dlensFromJSON(BalanceFieldDetailJson)
       self$`categoryName` <- BalanceFieldDetailObject$`categoryName`
       self$`actual` <- BalanceFieldDetailObject$`actual`
       self$`expected` <- BalanceFieldDetailObject$`expected`

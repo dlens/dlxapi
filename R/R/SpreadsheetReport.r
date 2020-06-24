@@ -96,7 +96,7 @@ SpreadsheetReport <- R6::R6Class(
       SpreadsheetReportObject
     },
     fromJSON = function(SpreadsheetReportJson) {
-      SpreadsheetReportObject <- jsonlite::fromJSON(SpreadsheetReportJson)
+      SpreadsheetReportObject <- dlensFromJSON(SpreadsheetReportJson)
       if (!is.null(SpreadsheetReportObject$`portfolioId`)) {
         self$`portfolioId` <- SpreadsheetReportObject$`portfolioId`
       }
@@ -153,7 +153,7 @@ SpreadsheetReport <- R6::R6Class(
       )
     },
     fromJSONString = function(SpreadsheetReportJson) {
-      SpreadsheetReportObject <- jsonlite::fromJSON(SpreadsheetReportJson)
+      SpreadsheetReportObject <- dlensFromJSON(SpreadsheetReportJson)
       self$`portfolioId` <- SpreadsheetReportObject$`portfolioId`
       self$`spreadsheetId` <- SpreadsheetReportObject$`spreadsheetId`
       self$`sheetName` <- SpreadsheetReportObject$`sheetName`

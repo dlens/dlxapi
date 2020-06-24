@@ -70,7 +70,7 @@ Properties <- R6::R6Class(
       PropertiesObject
     },
     fromJSON = function(PropertiesJson) {
-      PropertiesObject <- jsonlite::fromJSON(PropertiesJson)
+      PropertiesObject <- dlensFromJSON(PropertiesJson)
       if (!is.null(PropertiesObject$`href`)) {
         self$`href` <- PropertiesObject$`href`
       }
@@ -108,7 +108,7 @@ Properties <- R6::R6Class(
       )
     },
     fromJSONString = function(PropertiesJson) {
-      PropertiesObject <- jsonlite::fromJSON(PropertiesJson)
+      PropertiesObject <- dlensFromJSON(PropertiesJson)
       self$`href` <- PropertiesObject$`href`
       self$`offset` <- PropertiesObject$`offset`
       self$`limit` <- PropertiesObject$`limit`

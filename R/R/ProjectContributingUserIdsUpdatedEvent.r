@@ -80,7 +80,7 @@ ProjectContributingUserIdsUpdatedEvent <- R6::R6Class(
       ProjectContributingUserIdsUpdatedEventObject
     },
     fromJSON = function(ProjectContributingUserIdsUpdatedEventJson) {
-      ProjectContributingUserIdsUpdatedEventObject <- jsonlite::fromJSON(ProjectContributingUserIdsUpdatedEventJson)
+      ProjectContributingUserIdsUpdatedEventObject <- dlensFromJSON(ProjectContributingUserIdsUpdatedEventJson)
       if (!is.null(ProjectContributingUserIdsUpdatedEventObject$`id`)) {
         self$`id` <- ProjectContributingUserIdsUpdatedEventObject$`id`
       }
@@ -121,7 +121,7 @@ ProjectContributingUserIdsUpdatedEvent <- R6::R6Class(
       )
     },
     fromJSONString = function(ProjectContributingUserIdsUpdatedEventJson) {
-      ProjectContributingUserIdsUpdatedEventObject <- jsonlite::fromJSON(ProjectContributingUserIdsUpdatedEventJson)
+      ProjectContributingUserIdsUpdatedEventObject <- dlensFromJSON(ProjectContributingUserIdsUpdatedEventJson)
       self$`id` <- ProjectContributingUserIdsUpdatedEventObject$`id`
       self$`name` <- ProjectContributingUserIdsUpdatedEventObject$`name`
       self$`contributingUserIds` <- ProjectContributingUserIdsUpdatedEventObject$`contributingUserIds`

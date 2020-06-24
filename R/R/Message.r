@@ -51,7 +51,7 @@ Message <- R6::R6Class(
       MessageObject
     },
     fromJSON = function(MessageJson) {
-      MessageObject <- jsonlite::fromJSON(MessageJson)
+      MessageObject <- dlensFromJSON(MessageJson)
       if (!is.null(MessageObject$`type`)) {
         typeObject <- MessageType$new()
         typeObject$fromJSON(jsonlite::toJSON(MessageObject$type, auto_unbox = TRUE))
@@ -81,7 +81,7 @@ Message <- R6::R6Class(
       )
     },
     fromJSONString = function(MessageJson) {
-      MessageObject <- jsonlite::fromJSON(MessageJson)
+      MessageObject <- dlensFromJSON(MessageJson)
       MessageTypeObject <- MessageType$new()
       self$`type` <- MessageTypeObject$fromJSON(jsonlite::toJSON(MessageObject$type, auto_unbox = TRUE))
       HeaderObject <- Header$new()

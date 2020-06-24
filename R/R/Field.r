@@ -158,7 +158,7 @@ Field <- R6::R6Class(
       FieldObject
     },
     fromJSON = function(FieldJson) {
-      FieldObject <- jsonlite::fromJSON(FieldJson)
+      FieldObject <- dlensFromJSON(FieldJson)
       if (!is.null(FieldObject$`href`)) {
         self$`href` <- FieldObject$`href`
       }
@@ -256,7 +256,7 @@ Field <- R6::R6Class(
       )
     },
     fromJSONString = function(FieldJson) {
-      FieldObject <- jsonlite::fromJSON(FieldJson)
+      FieldObject <- dlensFromJSON(FieldJson)
       self$`href` <- FieldObject$`href`
       self$`id` <- FieldObject$`id`
       self$`createdAt` <- FieldObject$`createdAt`

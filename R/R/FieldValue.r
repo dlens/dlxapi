@@ -104,7 +104,7 @@ FieldValue <- R6::R6Class(
       FieldValueObject
     },
     fromJSON = function(FieldValueJson) {
-      FieldValueObject <- jsonlite::fromJSON(FieldValueJson)
+      FieldValueObject <- dlensFromJSON(FieldValueJson)
       if (!is.null(FieldValueObject$`field`)) {
         fieldObject <- Field$new()
         fieldObject$fromJSON(jsonlite::toJSON(FieldValueObject$field, auto_unbox = TRUE))
@@ -166,7 +166,7 @@ FieldValue <- R6::R6Class(
       )
     },
     fromJSONString = function(FieldValueJson) {
-      FieldValueObject <- jsonlite::fromJSON(FieldValueJson)
+      FieldValueObject <- dlensFromJSON(FieldValueJson)
       FieldObject <- Field$new()
       self$`field` <- FieldObject$fromJSON(jsonlite::toJSON(FieldValueObject$field, auto_unbox = TRUE))
       ProjectObject <- Project$new()

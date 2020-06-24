@@ -24,7 +24,7 @@ RoleType <- R6::R6Class(
       RoleTypeObject
     },
     fromJSON = function(RoleTypeJson) {
-      RoleTypeObject <- jsonlite::fromJSON(RoleTypeJson)
+      RoleTypeObject <- dlensFromJSON(RoleTypeJson)
     },
     toJSONString = function() {
        sprintf(
@@ -33,7 +33,7 @@ RoleType <- R6::R6Class(
       )
     },
     fromJSONString = function(RoleTypeJson) {
-      RoleTypeObject <- jsonlite::fromJSON(RoleTypeJson)
+      RoleTypeObject <- dlensFromJSON(RoleTypeJson)
     }
   )
 )

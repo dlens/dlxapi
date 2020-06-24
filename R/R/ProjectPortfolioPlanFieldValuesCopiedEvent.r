@@ -79,7 +79,7 @@ ProjectPortfolioPlanFieldValuesCopiedEvent <- R6::R6Class(
       ProjectPortfolioPlanFieldValuesCopiedEventObject
     },
     fromJSON = function(ProjectPortfolioPlanFieldValuesCopiedEventJson) {
-      ProjectPortfolioPlanFieldValuesCopiedEventObject <- jsonlite::fromJSON(ProjectPortfolioPlanFieldValuesCopiedEventJson)
+      ProjectPortfolioPlanFieldValuesCopiedEventObject <- dlensFromJSON(ProjectPortfolioPlanFieldValuesCopiedEventJson)
       if (!is.null(ProjectPortfolioPlanFieldValuesCopiedEventObject$`id`)) {
         self$`id` <- ProjectPortfolioPlanFieldValuesCopiedEventObject$`id`
       }
@@ -126,7 +126,7 @@ ProjectPortfolioPlanFieldValuesCopiedEvent <- R6::R6Class(
       )
     },
     fromJSONString = function(ProjectPortfolioPlanFieldValuesCopiedEventJson) {
-      ProjectPortfolioPlanFieldValuesCopiedEventObject <- jsonlite::fromJSON(ProjectPortfolioPlanFieldValuesCopiedEventJson)
+      ProjectPortfolioPlanFieldValuesCopiedEventObject <- dlensFromJSON(ProjectPortfolioPlanFieldValuesCopiedEventJson)
       self$`id` <- ProjectPortfolioPlanFieldValuesCopiedEventObject$`id`
       self$`name` <- ProjectPortfolioPlanFieldValuesCopiedEventObject$`name`
       self$`fieldValues` <- lapply(ProjectPortfolioPlanFieldValuesCopiedEventObject$`fieldValues`, function(x) ProjectFieldValue$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))

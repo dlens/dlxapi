@@ -42,7 +42,7 @@ TimePeriod <- R6::R6Class(
       TimePeriodObject
     },
     fromJSON = function(TimePeriodJson) {
-      TimePeriodObject <- jsonlite::fromJSON(TimePeriodJson)
+      TimePeriodObject <- dlensFromJSON(TimePeriodJson)
       if (!is.null(TimePeriodObject$`startDate`)) {
         self$`startDate` <- TimePeriodObject$`startDate`
       }
@@ -63,7 +63,7 @@ TimePeriod <- R6::R6Class(
       )
     },
     fromJSONString = function(TimePeriodJson) {
-      TimePeriodObject <- jsonlite::fromJSON(TimePeriodJson)
+      TimePeriodObject <- dlensFromJSON(TimePeriodJson)
       self$`startDate` <- TimePeriodObject$`startDate`
       TimePeriodTypeObject <- TimePeriodType$new()
       self$`type` <- TimePeriodTypeObject$fromJSON(jsonlite::toJSON(TimePeriodObject$type, auto_unbox = TRUE))

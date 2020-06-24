@@ -24,7 +24,7 @@ OperationType <- R6::R6Class(
       OperationTypeObject
     },
     fromJSON = function(OperationTypeJson) {
-      OperationTypeObject <- jsonlite::fromJSON(OperationTypeJson)
+      OperationTypeObject <- dlensFromJSON(OperationTypeJson)
     },
     toJSONString = function() {
        sprintf(
@@ -33,7 +33,7 @@ OperationType <- R6::R6Class(
       )
     },
     fromJSONString = function(OperationTypeJson) {
-      OperationTypeObject <- jsonlite::fromJSON(OperationTypeJson)
+      OperationTypeObject <- dlensFromJSON(OperationTypeJson)
     }
   )
 )

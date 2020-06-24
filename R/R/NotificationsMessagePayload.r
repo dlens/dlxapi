@@ -43,7 +43,7 @@ NotificationsMessagePayload <- R6::R6Class(
       NotificationsMessagePayloadObject
     },
     fromJSON = function(NotificationsMessagePayloadJson) {
-      NotificationsMessagePayloadObject <- jsonlite::fromJSON(NotificationsMessagePayloadJson)
+      NotificationsMessagePayloadObject <- dlensFromJSON(NotificationsMessagePayloadJson)
       if (!is.null(NotificationsMessagePayloadObject$`activities`)) {
         self$`activities` <- lapply(NotificationsMessagePayloadObject$`activities`, function(x) {
           activitiesObject <- Activity$new()
@@ -66,7 +66,7 @@ NotificationsMessagePayload <- R6::R6Class(
       )
     },
     fromJSONString = function(NotificationsMessagePayloadJson) {
-      NotificationsMessagePayloadObject <- jsonlite::fromJSON(NotificationsMessagePayloadJson)
+      NotificationsMessagePayloadObject <- dlensFromJSON(NotificationsMessagePayloadJson)
       self$`activities` <- lapply(NotificationsMessagePayloadObject$`activities`, function(x) Activity$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
       self$`portfolioId` <- NotificationsMessagePayloadObject$`portfolioId`
     }

@@ -78,7 +78,7 @@ Spreadsheet <- R6::R6Class(
       SpreadsheetObject
     },
     fromJSON = function(SpreadsheetJson) {
-      SpreadsheetObject <- jsonlite::fromJSON(SpreadsheetJson)
+      SpreadsheetObject <- dlensFromJSON(SpreadsheetJson)
       if (!is.null(SpreadsheetObject$`href`)) {
         self$`href` <- SpreadsheetObject$`href`
       }
@@ -119,7 +119,7 @@ Spreadsheet <- R6::R6Class(
       )
     },
     fromJSONString = function(SpreadsheetJson) {
-      SpreadsheetObject <- jsonlite::fromJSON(SpreadsheetJson)
+      SpreadsheetObject <- dlensFromJSON(SpreadsheetJson)
       self$`href` <- SpreadsheetObject$`href`
       self$`id` <- SpreadsheetObject$`id`
       self$`createdAt` <- SpreadsheetObject$`createdAt`

@@ -50,7 +50,7 @@ Permission <- R6::R6Class(
       PermissionObject
     },
     fromJSON = function(PermissionJson) {
-      PermissionObject <- jsonlite::fromJSON(PermissionJson)
+      PermissionObject <- dlensFromJSON(PermissionJson)
       if (!is.null(PermissionObject$`type`)) {
         typeObject <- PermissionType$new()
         typeObject$fromJSON(jsonlite::toJSON(PermissionObject$type, auto_unbox = TRUE))
@@ -78,7 +78,7 @@ Permission <- R6::R6Class(
       )
     },
     fromJSONString = function(PermissionJson) {
-      PermissionObject <- jsonlite::fromJSON(PermissionJson)
+      PermissionObject <- dlensFromJSON(PermissionJson)
       PermissionTypeObject <- PermissionType$new()
       self$`type` <- PermissionTypeObject$fromJSON(jsonlite::toJSON(PermissionObject$type, auto_unbox = TRUE))
       FieldObject <- Field$new()

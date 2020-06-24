@@ -43,7 +43,7 @@ PortfolioPlansWithProjects <- R6::R6Class(
       PortfolioPlansWithProjectsObject
     },
     fromJSON = function(PortfolioPlansWithProjectsJson) {
-      PortfolioPlansWithProjectsObject <- jsonlite::fromJSON(PortfolioPlansWithProjectsJson)
+      PortfolioPlansWithProjectsObject <- dlensFromJSON(PortfolioPlansWithProjectsJson)
       if (!is.null(PortfolioPlansWithProjectsObject$`id`)) {
         self$`id` <- PortfolioPlansWithProjectsObject$`id`
       }
@@ -66,7 +66,7 @@ PortfolioPlansWithProjects <- R6::R6Class(
       )
     },
     fromJSONString = function(PortfolioPlansWithProjectsJson) {
-      PortfolioPlansWithProjectsObject <- jsonlite::fromJSON(PortfolioPlansWithProjectsJson)
+      PortfolioPlansWithProjectsObject <- dlensFromJSON(PortfolioPlansWithProjectsJson)
       self$`id` <- PortfolioPlansWithProjectsObject$`id`
       self$`projects` <- lapply(PortfolioPlansWithProjectsObject$`projects`, function(x) PortfolioPlanWithProjects$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
     }

@@ -34,7 +34,7 @@ ResourcePoolsDeletedMessagePayload <- R6::R6Class(
       ResourcePoolsDeletedMessagePayloadObject
     },
     fromJSON = function(ResourcePoolsDeletedMessagePayloadJson) {
-      ResourcePoolsDeletedMessagePayloadObject <- jsonlite::fromJSON(ResourcePoolsDeletedMessagePayloadJson)
+      ResourcePoolsDeletedMessagePayloadObject <- dlensFromJSON(ResourcePoolsDeletedMessagePayloadJson)
       if (!is.null(ResourcePoolsDeletedMessagePayloadObject$`resourcePools`)) {
         self$`resourcePools` <- lapply(ResourcePoolsDeletedMessagePayloadObject$`resourcePools`, function(x) {
           resourcePoolsObject <- ResourcePool$new()
@@ -52,7 +52,7 @@ ResourcePoolsDeletedMessagePayload <- R6::R6Class(
       )
     },
     fromJSONString = function(ResourcePoolsDeletedMessagePayloadJson) {
-      ResourcePoolsDeletedMessagePayloadObject <- jsonlite::fromJSON(ResourcePoolsDeletedMessagePayloadJson)
+      ResourcePoolsDeletedMessagePayloadObject <- dlensFromJSON(ResourcePoolsDeletedMessagePayloadJson)
       self$`resourcePools` <- lapply(ResourcePoolsDeletedMessagePayloadObject$`resourcePools`, function(x) ResourcePool$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
     }
   )

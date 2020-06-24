@@ -24,7 +24,7 @@ PortfolioPlanUserRole <- R6::R6Class(
       PortfolioPlanUserRoleObject
     },
     fromJSON = function(PortfolioPlanUserRoleJson) {
-      PortfolioPlanUserRoleObject <- jsonlite::fromJSON(PortfolioPlanUserRoleJson)
+      PortfolioPlanUserRoleObject <- dlensFromJSON(PortfolioPlanUserRoleJson)
     },
     toJSONString = function() {
        sprintf(
@@ -33,7 +33,7 @@ PortfolioPlanUserRole <- R6::R6Class(
       )
     },
     fromJSONString = function(PortfolioPlanUserRoleJson) {
-      PortfolioPlanUserRoleObject <- jsonlite::fromJSON(PortfolioPlanUserRoleJson)
+      PortfolioPlanUserRoleObject <- dlensFromJSON(PortfolioPlanUserRoleJson)
     }
   )
 )

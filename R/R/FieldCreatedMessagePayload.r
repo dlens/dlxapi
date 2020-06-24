@@ -34,7 +34,7 @@ FieldCreatedMessagePayload <- R6::R6Class(
       FieldCreatedMessagePayloadObject
     },
     fromJSON = function(FieldCreatedMessagePayloadJson) {
-      FieldCreatedMessagePayloadObject <- jsonlite::fromJSON(FieldCreatedMessagePayloadJson)
+      FieldCreatedMessagePayloadObject <- dlensFromJSON(FieldCreatedMessagePayloadJson)
       if (!is.null(FieldCreatedMessagePayloadObject$`fields`)) {
         self$`fields` <- lapply(FieldCreatedMessagePayloadObject$`fields`, function(x) {
           fieldsObject <- Field$new()
@@ -52,7 +52,7 @@ FieldCreatedMessagePayload <- R6::R6Class(
       )
     },
     fromJSONString = function(FieldCreatedMessagePayloadJson) {
-      FieldCreatedMessagePayloadObject <- jsonlite::fromJSON(FieldCreatedMessagePayloadJson)
+      FieldCreatedMessagePayloadObject <- dlensFromJSON(FieldCreatedMessagePayloadJson)
       self$`fields` <- lapply(FieldCreatedMessagePayloadObject$`fields`, function(x) Field$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
     }
   )

@@ -70,7 +70,7 @@ Comments <- R6::R6Class(
       CommentsObject
     },
     fromJSON = function(CommentsJson) {
-      CommentsObject <- jsonlite::fromJSON(CommentsJson)
+      CommentsObject <- dlensFromJSON(CommentsJson)
       if (!is.null(CommentsObject$`href`)) {
         self$`href` <- CommentsObject$`href`
       }
@@ -108,7 +108,7 @@ Comments <- R6::R6Class(
       )
     },
     fromJSONString = function(CommentsJson) {
-      CommentsObject <- jsonlite::fromJSON(CommentsJson)
+      CommentsObject <- dlensFromJSON(CommentsJson)
       self$`href` <- CommentsObject$`href`
       self$`offset` <- CommentsObject$`offset`
       self$`limit` <- CommentsObject$`limit`

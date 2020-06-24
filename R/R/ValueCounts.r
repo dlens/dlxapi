@@ -70,7 +70,7 @@ ValueCounts <- R6::R6Class(
       ValueCountsObject
     },
     fromJSON = function(ValueCountsJson) {
-      ValueCountsObject <- jsonlite::fromJSON(ValueCountsJson)
+      ValueCountsObject <- dlensFromJSON(ValueCountsJson)
       if (!is.null(ValueCountsObject$`href`)) {
         self$`href` <- ValueCountsObject$`href`
       }
@@ -108,7 +108,7 @@ ValueCounts <- R6::R6Class(
       )
     },
     fromJSONString = function(ValueCountsJson) {
-      ValueCountsObject <- jsonlite::fromJSON(ValueCountsJson)
+      ValueCountsObject <- dlensFromJSON(ValueCountsJson)
       self$`href` <- ValueCountsObject$`href`
       self$`offset` <- ValueCountsObject$`offset`
       self$`limit` <- ValueCountsObject$`limit`

@@ -24,7 +24,7 @@ PermissionType <- R6::R6Class(
       PermissionTypeObject
     },
     fromJSON = function(PermissionTypeJson) {
-      PermissionTypeObject <- jsonlite::fromJSON(PermissionTypeJson)
+      PermissionTypeObject <- dlensFromJSON(PermissionTypeJson)
     },
     toJSONString = function() {
        sprintf(
@@ -33,7 +33,7 @@ PermissionType <- R6::R6Class(
       )
     },
     fromJSONString = function(PermissionTypeJson) {
-      PermissionTypeObject <- jsonlite::fromJSON(PermissionTypeJson)
+      PermissionTypeObject <- dlensFromJSON(PermissionTypeJson)
     }
   )
 )

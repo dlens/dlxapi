@@ -60,7 +60,7 @@ Operation <- R6::R6Class(
       OperationObject
     },
     fromJSON = function(OperationJson) {
-      OperationObject <- jsonlite::fromJSON(OperationJson)
+      OperationObject <- dlensFromJSON(OperationJson)
       if (!is.null(OperationObject$`op`)) {
         opObject <- OperationType$new()
         opObject$fromJSON(jsonlite::toJSON(OperationObject$op, auto_unbox = TRUE))
@@ -91,7 +91,7 @@ Operation <- R6::R6Class(
       )
     },
     fromJSONString = function(OperationJson) {
-      OperationObject <- jsonlite::fromJSON(OperationJson)
+      OperationObject <- dlensFromJSON(OperationJson)
       OperationTypeObject <- OperationType$new()
       self$`op` <- OperationTypeObject$fromJSON(jsonlite::toJSON(OperationObject$op, auto_unbox = TRUE))
       self$`from` <- OperationObject$`from`

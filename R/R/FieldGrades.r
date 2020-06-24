@@ -70,7 +70,7 @@ FieldGrades <- R6::R6Class(
       FieldGradesObject
     },
     fromJSON = function(FieldGradesJson) {
-      FieldGradesObject <- jsonlite::fromJSON(FieldGradesJson)
+      FieldGradesObject <- dlensFromJSON(FieldGradesJson)
       if (!is.null(FieldGradesObject$`href`)) {
         self$`href` <- FieldGradesObject$`href`
       }
@@ -108,7 +108,7 @@ FieldGrades <- R6::R6Class(
       )
     },
     fromJSONString = function(FieldGradesJson) {
-      FieldGradesObject <- jsonlite::fromJSON(FieldGradesJson)
+      FieldGradesObject <- dlensFromJSON(FieldGradesJson)
       self$`href` <- FieldGradesObject$`href`
       self$`offset` <- FieldGradesObject$`offset`
       self$`limit` <- FieldGradesObject$`limit`

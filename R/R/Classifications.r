@@ -70,7 +70,7 @@ Classifications <- R6::R6Class(
       ClassificationsObject
     },
     fromJSON = function(ClassificationsJson) {
-      ClassificationsObject <- jsonlite::fromJSON(ClassificationsJson)
+      ClassificationsObject <- dlensFromJSON(ClassificationsJson)
       if (!is.null(ClassificationsObject$`href`)) {
         self$`href` <- ClassificationsObject$`href`
       }
@@ -108,7 +108,7 @@ Classifications <- R6::R6Class(
       )
     },
     fromJSONString = function(ClassificationsJson) {
-      ClassificationsObject <- jsonlite::fromJSON(ClassificationsJson)
+      ClassificationsObject <- dlensFromJSON(ClassificationsJson)
       self$`href` <- ClassificationsObject$`href`
       self$`offset` <- ClassificationsObject$`offset`
       self$`limit` <- ClassificationsObject$`limit`

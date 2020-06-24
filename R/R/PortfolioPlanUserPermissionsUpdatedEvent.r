@@ -90,7 +90,7 @@ PortfolioPlanUserPermissionsUpdatedEvent <- R6::R6Class(
       PortfolioPlanUserPermissionsUpdatedEventObject
     },
     fromJSON = function(PortfolioPlanUserPermissionsUpdatedEventJson) {
-      PortfolioPlanUserPermissionsUpdatedEventObject <- jsonlite::fromJSON(PortfolioPlanUserPermissionsUpdatedEventJson)
+      PortfolioPlanUserPermissionsUpdatedEventObject <- dlensFromJSON(PortfolioPlanUserPermissionsUpdatedEventJson)
       if (!is.null(PortfolioPlanUserPermissionsUpdatedEventObject$`id`)) {
         self$`id` <- PortfolioPlanUserPermissionsUpdatedEventObject$`id`
       }
@@ -150,7 +150,7 @@ PortfolioPlanUserPermissionsUpdatedEvent <- R6::R6Class(
       )
     },
     fromJSONString = function(PortfolioPlanUserPermissionsUpdatedEventJson) {
-      PortfolioPlanUserPermissionsUpdatedEventObject <- jsonlite::fromJSON(PortfolioPlanUserPermissionsUpdatedEventJson)
+      PortfolioPlanUserPermissionsUpdatedEventObject <- dlensFromJSON(PortfolioPlanUserPermissionsUpdatedEventJson)
       self$`id` <- PortfolioPlanUserPermissionsUpdatedEventObject$`id`
       PortfolioPlanObject <- PortfolioPlan$new()
       self$`portfolioPlan` <- PortfolioPlanObject$fromJSON(jsonlite::toJSON(PortfolioPlanUserPermissionsUpdatedEventObject$portfolioPlan, auto_unbox = TRUE))

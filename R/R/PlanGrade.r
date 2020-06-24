@@ -87,7 +87,7 @@ PlanGrade <- R6::R6Class(
       PlanGradeObject
     },
     fromJSON = function(PlanGradeJson) {
-      PlanGradeObject <- jsonlite::fromJSON(PlanGradeJson)
+      PlanGradeObject <- dlensFromJSON(PlanGradeJson)
       if (!is.null(PlanGradeObject$`href`)) {
         self$`href` <- PlanGradeObject$`href`
       }
@@ -137,7 +137,7 @@ PlanGrade <- R6::R6Class(
       )
     },
     fromJSONString = function(PlanGradeJson) {
-      PlanGradeObject <- jsonlite::fromJSON(PlanGradeJson)
+      PlanGradeObject <- dlensFromJSON(PlanGradeJson)
       self$`href` <- PlanGradeObject$`href`
       self$`id` <- PlanGradeObject$`id`
       self$`createdAt` <- PlanGradeObject$`createdAt`

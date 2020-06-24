@@ -33,7 +33,7 @@ CommentDeletedMessagePayload <- R6::R6Class(
       CommentDeletedMessagePayloadObject
     },
     fromJSON = function(CommentDeletedMessagePayloadJson) {
-      CommentDeletedMessagePayloadObject <- jsonlite::fromJSON(CommentDeletedMessagePayloadJson)
+      CommentDeletedMessagePayloadObject <- dlensFromJSON(CommentDeletedMessagePayloadJson)
       if (!is.null(CommentDeletedMessagePayloadObject$`comment`)) {
         commentObject <- Comment$new()
         commentObject$fromJSON(jsonlite::toJSON(CommentDeletedMessagePayloadObject$comment, auto_unbox = TRUE))
@@ -49,7 +49,7 @@ CommentDeletedMessagePayload <- R6::R6Class(
       )
     },
     fromJSONString = function(CommentDeletedMessagePayloadJson) {
-      CommentDeletedMessagePayloadObject <- jsonlite::fromJSON(CommentDeletedMessagePayloadJson)
+      CommentDeletedMessagePayloadObject <- dlensFromJSON(CommentDeletedMessagePayloadJson)
       CommentObject <- Comment$new()
       self$`comment` <- CommentObject$fromJSON(jsonlite::toJSON(CommentDeletedMessagePayloadObject$comment, auto_unbox = TRUE))
     }

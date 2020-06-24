@@ -118,7 +118,7 @@ Mail <- R6::R6Class(
       MailObject
     },
     fromJSON = function(MailJson) {
-      MailObject <- jsonlite::fromJSON(MailJson)
+      MailObject <- dlensFromJSON(MailJson)
       if (!is.null(MailObject$`from`)) {
         self$`from` <- MailObject$`from`
       }
@@ -181,7 +181,7 @@ Mail <- R6::R6Class(
       )
     },
     fromJSONString = function(MailJson) {
-      MailObject <- jsonlite::fromJSON(MailJson)
+      MailObject <- dlensFromJSON(MailJson)
       self$`from` <- MailObject$`from`
       self$`replyTo` <- MailObject$`replyTo`
       self$`replyToDisplayName` <- MailObject$`replyToDisplayName`

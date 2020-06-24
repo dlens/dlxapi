@@ -69,7 +69,7 @@ PortfolioNameUpdatedEvent <- R6::R6Class(
       PortfolioNameUpdatedEventObject
     },
     fromJSON = function(PortfolioNameUpdatedEventJson) {
-      PortfolioNameUpdatedEventObject <- jsonlite::fromJSON(PortfolioNameUpdatedEventJson)
+      PortfolioNameUpdatedEventObject <- dlensFromJSON(PortfolioNameUpdatedEventJson)
       if (!is.null(PortfolioNameUpdatedEventObject$`id`)) {
         self$`id` <- PortfolioNameUpdatedEventObject$`id`
       }
@@ -105,7 +105,7 @@ PortfolioNameUpdatedEvent <- R6::R6Class(
       )
     },
     fromJSONString = function(PortfolioNameUpdatedEventJson) {
-      PortfolioNameUpdatedEventObject <- jsonlite::fromJSON(PortfolioNameUpdatedEventJson)
+      PortfolioNameUpdatedEventObject <- dlensFromJSON(PortfolioNameUpdatedEventJson)
       self$`id` <- PortfolioNameUpdatedEventObject$`id`
       self$`portfolioId` <- PortfolioNameUpdatedEventObject$`portfolioId`
       self$`name` <- PortfolioNameUpdatedEventObject$`name`

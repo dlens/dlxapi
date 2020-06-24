@@ -60,7 +60,7 @@ Classification <- R6::R6Class(
       ClassificationObject
     },
     fromJSON = function(ClassificationJson) {
-      ClassificationObject <- jsonlite::fromJSON(ClassificationJson)
+      ClassificationObject <- dlensFromJSON(ClassificationJson)
       if (!is.null(ClassificationObject$`phrase`)) {
         self$`phrase` <- ClassificationObject$`phrase`
       }
@@ -89,7 +89,7 @@ Classification <- R6::R6Class(
       )
     },
     fromJSONString = function(ClassificationJson) {
-      ClassificationObject <- jsonlite::fromJSON(ClassificationJson)
+      ClassificationObject <- dlensFromJSON(ClassificationJson)
       self$`phrase` <- ClassificationObject$`phrase`
       self$`type` <- ClassificationObject$`type`
       self$`targetType` <- ClassificationObject$`targetType`

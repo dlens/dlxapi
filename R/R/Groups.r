@@ -70,7 +70,7 @@ Groups <- R6::R6Class(
       GroupsObject
     },
     fromJSON = function(GroupsJson) {
-      GroupsObject <- jsonlite::fromJSON(GroupsJson)
+      GroupsObject <- dlensFromJSON(GroupsJson)
       if (!is.null(GroupsObject$`href`)) {
         self$`href` <- GroupsObject$`href`
       }
@@ -108,7 +108,7 @@ Groups <- R6::R6Class(
       )
     },
     fromJSONString = function(GroupsJson) {
-      GroupsObject <- jsonlite::fromJSON(GroupsJson)
+      GroupsObject <- dlensFromJSON(GroupsJson)
       self$`href` <- GroupsObject$`href`
       self$`offset` <- GroupsObject$`offset`
       self$`limit` <- GroupsObject$`limit`

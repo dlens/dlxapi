@@ -51,7 +51,7 @@ MinifiedYearlyFieldValue <- R6::R6Class(
       MinifiedYearlyFieldValueObject
     },
     fromJSON = function(MinifiedYearlyFieldValueJson) {
-      MinifiedYearlyFieldValueObject <- jsonlite::fromJSON(MinifiedYearlyFieldValueJson)
+      MinifiedYearlyFieldValueObject <- dlensFromJSON(MinifiedYearlyFieldValueJson)
       if (!is.null(MinifiedYearlyFieldValueObject$`nv`)) {
         self$`nv` <- MinifiedYearlyFieldValueObject$`nv`
       }
@@ -75,7 +75,7 @@ MinifiedYearlyFieldValue <- R6::R6Class(
       )
     },
     fromJSONString = function(MinifiedYearlyFieldValueJson) {
-      MinifiedYearlyFieldValueObject <- jsonlite::fromJSON(MinifiedYearlyFieldValueJson)
+      MinifiedYearlyFieldValueObject <- dlensFromJSON(MinifiedYearlyFieldValueJson)
       self$`nv` <- MinifiedYearlyFieldValueObject$`nv`
       self$`ct` <- MinifiedYearlyFieldValueObject$`ct`
       self$`fmn` <- MinifiedYearlyFieldValueObject$`fmn`

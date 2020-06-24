@@ -79,7 +79,7 @@ FieldValues <- R6::R6Class(
       FieldValuesObject
     },
     fromJSON = function(FieldValuesJson) {
-      FieldValuesObject <- jsonlite::fromJSON(FieldValuesJson)
+      FieldValuesObject <- dlensFromJSON(FieldValuesJson)
       if (!is.null(FieldValuesObject$`href`)) {
         self$`href` <- FieldValuesObject$`href`
       }
@@ -124,7 +124,7 @@ FieldValues <- R6::R6Class(
       )
     },
     fromJSONString = function(FieldValuesJson) {
-      FieldValuesObject <- jsonlite::fromJSON(FieldValuesJson)
+      FieldValuesObject <- dlensFromJSON(FieldValuesJson)
       self$`href` <- FieldValuesObject$`href`
       self$`offset` <- FieldValuesObject$`offset`
       self$`limit` <- FieldValuesObject$`limit`

@@ -78,7 +78,7 @@ PortfolioTimeIntervalUpdatedEvent <- R6::R6Class(
       PortfolioTimeIntervalUpdatedEventObject
     },
     fromJSON = function(PortfolioTimeIntervalUpdatedEventJson) {
-      PortfolioTimeIntervalUpdatedEventObject <- jsonlite::fromJSON(PortfolioTimeIntervalUpdatedEventJson)
+      PortfolioTimeIntervalUpdatedEventObject <- dlensFromJSON(PortfolioTimeIntervalUpdatedEventJson)
       if (!is.null(PortfolioTimeIntervalUpdatedEventObject$`id`)) {
         self$`id` <- PortfolioTimeIntervalUpdatedEventObject$`id`
       }
@@ -123,7 +123,7 @@ PortfolioTimeIntervalUpdatedEvent <- R6::R6Class(
       )
     },
     fromJSONString = function(PortfolioTimeIntervalUpdatedEventJson) {
-      PortfolioTimeIntervalUpdatedEventObject <- jsonlite::fromJSON(PortfolioTimeIntervalUpdatedEventJson)
+      PortfolioTimeIntervalUpdatedEventObject <- dlensFromJSON(PortfolioTimeIntervalUpdatedEventJson)
       self$`id` <- PortfolioTimeIntervalUpdatedEventObject$`id`
       self$`portfolioId` <- PortfolioTimeIntervalUpdatedEventObject$`portfolioId`
       self$`name` <- PortfolioTimeIntervalUpdatedEventObject$`name`

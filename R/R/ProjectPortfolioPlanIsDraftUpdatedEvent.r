@@ -76,7 +76,7 @@ ProjectPortfolioPlanIsDraftUpdatedEvent <- R6::R6Class(
       ProjectPortfolioPlanIsDraftUpdatedEventObject
     },
     fromJSON = function(ProjectPortfolioPlanIsDraftUpdatedEventJson) {
-      ProjectPortfolioPlanIsDraftUpdatedEventObject <- jsonlite::fromJSON(ProjectPortfolioPlanIsDraftUpdatedEventJson)
+      ProjectPortfolioPlanIsDraftUpdatedEventObject <- dlensFromJSON(ProjectPortfolioPlanIsDraftUpdatedEventJson)
       if (!is.null(ProjectPortfolioPlanIsDraftUpdatedEventObject$`id`)) {
         self$`id` <- ProjectPortfolioPlanIsDraftUpdatedEventObject$`id`
       }
@@ -117,7 +117,7 @@ ProjectPortfolioPlanIsDraftUpdatedEvent <- R6::R6Class(
       )
     },
     fromJSONString = function(ProjectPortfolioPlanIsDraftUpdatedEventJson) {
-      ProjectPortfolioPlanIsDraftUpdatedEventObject <- jsonlite::fromJSON(ProjectPortfolioPlanIsDraftUpdatedEventJson)
+      ProjectPortfolioPlanIsDraftUpdatedEventObject <- dlensFromJSON(ProjectPortfolioPlanIsDraftUpdatedEventJson)
       self$`id` <- ProjectPortfolioPlanIsDraftUpdatedEventObject$`id`
       self$`name` <- ProjectPortfolioPlanIsDraftUpdatedEventObject$`name`
       self$`isDraft` <- ProjectPortfolioPlanIsDraftUpdatedEventObject$`isDraft`

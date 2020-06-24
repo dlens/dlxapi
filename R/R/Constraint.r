@@ -130,7 +130,7 @@ Constraint <- R6::R6Class(
       ConstraintObject
     },
     fromJSON = function(ConstraintJson) {
-      ConstraintObject <- jsonlite::fromJSON(ConstraintJson)
+      ConstraintObject <- dlensFromJSON(ConstraintJson)
       if (!is.null(ConstraintObject$`href`)) {
         self$`href` <- ConstraintObject$`href`
       }
@@ -211,7 +211,7 @@ Constraint <- R6::R6Class(
       )
     },
     fromJSONString = function(ConstraintJson) {
-      ConstraintObject <- jsonlite::fromJSON(ConstraintJson)
+      ConstraintObject <- dlensFromJSON(ConstraintJson)
       self$`href` <- ConstraintObject$`href`
       self$`id` <- ConstraintObject$`id`
       self$`createdAt` <- ConstraintObject$`createdAt`

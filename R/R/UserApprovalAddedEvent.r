@@ -60,7 +60,7 @@ UserApprovalAddedEvent <- R6::R6Class(
       UserApprovalAddedEventObject
     },
     fromJSON = function(UserApprovalAddedEventJson) {
-      UserApprovalAddedEventObject <- jsonlite::fromJSON(UserApprovalAddedEventJson)
+      UserApprovalAddedEventObject <- dlensFromJSON(UserApprovalAddedEventJson)
       if (!is.null(UserApprovalAddedEventObject$`id`)) {
         self$`id` <- UserApprovalAddedEventObject$`id`
       }
@@ -91,7 +91,7 @@ UserApprovalAddedEvent <- R6::R6Class(
       )
     },
     fromJSONString = function(UserApprovalAddedEventJson) {
-      UserApprovalAddedEventObject <- jsonlite::fromJSON(UserApprovalAddedEventJson)
+      UserApprovalAddedEventObject <- dlensFromJSON(UserApprovalAddedEventJson)
       self$`id` <- UserApprovalAddedEventObject$`id`
       UserObject <- User$new()
       self$`user` <- UserObject$fromJSON(jsonlite::toJSON(UserApprovalAddedEventObject$user, auto_unbox = TRUE))

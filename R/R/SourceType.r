@@ -24,7 +24,7 @@ SourceType <- R6::R6Class(
       SourceTypeObject
     },
     fromJSON = function(SourceTypeJson) {
-      SourceTypeObject <- jsonlite::fromJSON(SourceTypeJson)
+      SourceTypeObject <- dlensFromJSON(SourceTypeJson)
     },
     toJSONString = function() {
        sprintf(
@@ -33,7 +33,7 @@ SourceType <- R6::R6Class(
       )
     },
     fromJSONString = function(SourceTypeJson) {
-      SourceTypeObject <- jsonlite::fromJSON(SourceTypeJson)
+      SourceTypeObject <- dlensFromJSON(SourceTypeJson)
     }
   )
 )

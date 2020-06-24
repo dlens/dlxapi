@@ -33,7 +33,7 @@ PortfolioArchivedMessagePayload <- R6::R6Class(
       PortfolioArchivedMessagePayloadObject
     },
     fromJSON = function(PortfolioArchivedMessagePayloadJson) {
-      PortfolioArchivedMessagePayloadObject <- jsonlite::fromJSON(PortfolioArchivedMessagePayloadJson)
+      PortfolioArchivedMessagePayloadObject <- dlensFromJSON(PortfolioArchivedMessagePayloadJson)
       if (!is.null(PortfolioArchivedMessagePayloadObject$`portfolio`)) {
         portfolioObject <- Portfolio$new()
         portfolioObject$fromJSON(jsonlite::toJSON(PortfolioArchivedMessagePayloadObject$portfolio, auto_unbox = TRUE))
@@ -49,7 +49,7 @@ PortfolioArchivedMessagePayload <- R6::R6Class(
       )
     },
     fromJSONString = function(PortfolioArchivedMessagePayloadJson) {
-      PortfolioArchivedMessagePayloadObject <- jsonlite::fromJSON(PortfolioArchivedMessagePayloadJson)
+      PortfolioArchivedMessagePayloadObject <- dlensFromJSON(PortfolioArchivedMessagePayloadJson)
       PortfolioObject <- Portfolio$new()
       self$`portfolio` <- PortfolioObject$fromJSON(jsonlite::toJSON(PortfolioArchivedMessagePayloadObject$portfolio, auto_unbox = TRUE))
     }

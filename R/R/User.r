@@ -131,7 +131,7 @@ User <- R6::R6Class(
       UserObject
     },
     fromJSON = function(UserJson) {
-      UserObject <- jsonlite::fromJSON(UserJson)
+      UserObject <- dlensFromJSON(UserJson)
       if (!is.null(UserObject$`href`)) {
         self$`href` <- UserObject$`href`
       }
@@ -204,7 +204,7 @@ User <- R6::R6Class(
       )
     },
     fromJSONString = function(UserJson) {
-      UserObject <- jsonlite::fromJSON(UserJson)
+      UserObject <- dlensFromJSON(UserJson)
       self$`href` <- UserObject$`href`
       self$`id` <- UserObject$`id`
       self$`createdAt` <- UserObject$`createdAt`

@@ -114,7 +114,7 @@ Source <- R6::R6Class(
       SourceObject
     },
     fromJSON = function(SourceJson) {
-      SourceObject <- jsonlite::fromJSON(SourceJson)
+      SourceObject <- dlensFromJSON(SourceJson)
       if (!is.null(SourceObject$`href`)) {
         self$`href` <- SourceObject$`href`
       }
@@ -183,7 +183,7 @@ Source <- R6::R6Class(
       )
     },
     fromJSONString = function(SourceJson) {
-      SourceObject <- jsonlite::fromJSON(SourceJson)
+      SourceObject <- dlensFromJSON(SourceJson)
       self$`href` <- SourceObject$`href`
       self$`id` <- SourceObject$`id`
       self$`createdAt` <- SourceObject$`createdAt`

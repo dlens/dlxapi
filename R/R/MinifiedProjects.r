@@ -85,7 +85,7 @@ MinifiedProjects <- R6::R6Class(
       MinifiedProjectsObject
     },
     fromJSON = function(MinifiedProjectsJson) {
-      MinifiedProjectsObject <- jsonlite::fromJSON(MinifiedProjectsJson)
+      MinifiedProjectsObject <- dlensFromJSON(MinifiedProjectsJson)
       if (!is.null(MinifiedProjectsObject$`fidx`)) {
         self$`fidx` <- MinifiedProjectsObject$`fidx`
       }
@@ -133,7 +133,7 @@ MinifiedProjects <- R6::R6Class(
       )
     },
     fromJSONString = function(MinifiedProjectsJson) {
-      MinifiedProjectsObject <- jsonlite::fromJSON(MinifiedProjectsJson)
+      MinifiedProjectsObject <- dlensFromJSON(MinifiedProjectsJson)
       self$`fidx` <- MinifiedProjectsObject$`fidx`
       self$`tidx` <- MinifiedProjectsObject$`tidx`
       self$`uidx` <- MinifiedProjectsObject$`uidx`

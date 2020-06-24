@@ -130,7 +130,7 @@ ProjectFieldValueUpdatedEvent <- R6::R6Class(
       ProjectFieldValueUpdatedEventObject
     },
     fromJSON = function(ProjectFieldValueUpdatedEventJson) {
-      ProjectFieldValueUpdatedEventObject <- jsonlite::fromJSON(ProjectFieldValueUpdatedEventJson)
+      ProjectFieldValueUpdatedEventObject <- dlensFromJSON(ProjectFieldValueUpdatedEventJson)
       if (!is.null(ProjectFieldValueUpdatedEventObject$`id`)) {
         self$`id` <- ProjectFieldValueUpdatedEventObject$`id`
       }
@@ -205,7 +205,7 @@ ProjectFieldValueUpdatedEvent <- R6::R6Class(
       )
     },
     fromJSONString = function(ProjectFieldValueUpdatedEventJson) {
-      ProjectFieldValueUpdatedEventObject <- jsonlite::fromJSON(ProjectFieldValueUpdatedEventJson)
+      ProjectFieldValueUpdatedEventObject <- dlensFromJSON(ProjectFieldValueUpdatedEventJson)
       self$`id` <- ProjectFieldValueUpdatedEventObject$`id`
       self$`name` <- ProjectFieldValueUpdatedEventObject$`name`
       FieldObject <- Field$new()

@@ -69,7 +69,7 @@ ResourcePoolDeletedEvent <- R6::R6Class(
       ResourcePoolDeletedEventObject
     },
     fromJSON = function(ResourcePoolDeletedEventJson) {
-      ResourcePoolDeletedEventObject <- jsonlite::fromJSON(ResourcePoolDeletedEventJson)
+      ResourcePoolDeletedEventObject <- dlensFromJSON(ResourcePoolDeletedEventJson)
       if (!is.null(ResourcePoolDeletedEventObject$`id`)) {
         self$`id` <- ResourcePoolDeletedEventObject$`id`
       }
@@ -107,7 +107,7 @@ ResourcePoolDeletedEvent <- R6::R6Class(
       )
     },
     fromJSONString = function(ResourcePoolDeletedEventJson) {
-      ResourcePoolDeletedEventObject <- jsonlite::fromJSON(ResourcePoolDeletedEventJson)
+      ResourcePoolDeletedEventObject <- dlensFromJSON(ResourcePoolDeletedEventJson)
       self$`id` <- ResourcePoolDeletedEventObject$`id`
       self$`name` <- ResourcePoolDeletedEventObject$`name`
       FieldObject <- Field$new()

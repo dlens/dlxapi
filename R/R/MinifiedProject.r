@@ -79,7 +79,7 @@ MinifiedProject <- R6::R6Class(
       MinifiedProjectObject
     },
     fromJSON = function(MinifiedProjectJson) {
-      MinifiedProjectObject <- jsonlite::fromJSON(MinifiedProjectJson)
+      MinifiedProjectObject <- dlensFromJSON(MinifiedProjectJson)
       if (!is.null(MinifiedProjectObject$`id`)) {
         self$`id` <- MinifiedProjectObject$`id`
       }
@@ -120,7 +120,7 @@ MinifiedProject <- R6::R6Class(
       )
     },
     fromJSONString = function(MinifiedProjectJson) {
-      MinifiedProjectObject <- jsonlite::fromJSON(MinifiedProjectJson)
+      MinifiedProjectObject <- dlensFromJSON(MinifiedProjectJson)
       self$`id` <- MinifiedProjectObject$`id`
       self$`n` <- MinifiedProjectObject$`n`
       self$`pos` <- MinifiedProjectObject$`pos`

@@ -79,7 +79,7 @@ DlcPortfolio <- R6::R6Class(
       DlcPortfolioObject
     },
     fromJSON = function(DlcPortfolioJson) {
-      DlcPortfolioObject <- jsonlite::fromJSON(DlcPortfolioJson)
+      DlcPortfolioObject <- dlensFromJSON(DlcPortfolioJson)
       if (!is.null(DlcPortfolioObject$`id`)) {
         self$`id` <- DlcPortfolioObject$`id`
       }
@@ -118,7 +118,7 @@ DlcPortfolio <- R6::R6Class(
       )
     },
     fromJSONString = function(DlcPortfolioJson) {
-      DlcPortfolioObject <- jsonlite::fromJSON(DlcPortfolioJson)
+      DlcPortfolioObject <- dlensFromJSON(DlcPortfolioJson)
       self$`id` <- DlcPortfolioObject$`id`
       self$`url` <- DlcPortfolioObject$`url`
       self$`taskUrl` <- DlcPortfolioObject$`taskUrl`

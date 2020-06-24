@@ -24,7 +24,7 @@ MessageDestinationType <- R6::R6Class(
       MessageDestinationTypeObject
     },
     fromJSON = function(MessageDestinationTypeJson) {
-      MessageDestinationTypeObject <- jsonlite::fromJSON(MessageDestinationTypeJson)
+      MessageDestinationTypeObject <- dlensFromJSON(MessageDestinationTypeJson)
     },
     toJSONString = function() {
        sprintf(
@@ -33,7 +33,7 @@ MessageDestinationType <- R6::R6Class(
       )
     },
     fromJSONString = function(MessageDestinationTypeJson) {
-      MessageDestinationTypeObject <- jsonlite::fromJSON(MessageDestinationTypeJson)
+      MessageDestinationTypeObject <- dlensFromJSON(MessageDestinationTypeJson)
     }
   )
 )

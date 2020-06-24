@@ -79,7 +79,7 @@ ResourcePoolCreatedEvent <- R6::R6Class(
       ResourcePoolCreatedEventObject
     },
     fromJSON = function(ResourcePoolCreatedEventJson) {
-      ResourcePoolCreatedEventObject <- jsonlite::fromJSON(ResourcePoolCreatedEventJson)
+      ResourcePoolCreatedEventObject <- dlensFromJSON(ResourcePoolCreatedEventJson)
       if (!is.null(ResourcePoolCreatedEventObject$`id`)) {
         self$`id` <- ResourcePoolCreatedEventObject$`id`
       }
@@ -126,7 +126,7 @@ ResourcePoolCreatedEvent <- R6::R6Class(
       )
     },
     fromJSONString = function(ResourcePoolCreatedEventJson) {
-      ResourcePoolCreatedEventObject <- jsonlite::fromJSON(ResourcePoolCreatedEventJson)
+      ResourcePoolCreatedEventObject <- dlensFromJSON(ResourcePoolCreatedEventJson)
       self$`id` <- ResourcePoolCreatedEventObject$`id`
       self$`name` <- ResourcePoolCreatedEventObject$`name`
       self$`budgetAmounts` <- lapply(ResourcePoolCreatedEventObject$`budgetAmounts`, function(x) ResourcePoolBudgetAmount$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))

@@ -60,7 +60,7 @@ FieldValuePatchItem <- R6::R6Class(
       FieldValuePatchItemObject
     },
     fromJSON = function(FieldValuePatchItemJson) {
-      FieldValuePatchItemObject <- jsonlite::fromJSON(FieldValuePatchItemJson)
+      FieldValuePatchItemObject <- dlensFromJSON(FieldValuePatchItemJson)
       if (!is.null(FieldValuePatchItemObject$`projectId`)) {
         self$`projectId` <- FieldValuePatchItemObject$`projectId`
       }
@@ -93,7 +93,7 @@ FieldValuePatchItem <- R6::R6Class(
       )
     },
     fromJSONString = function(FieldValuePatchItemJson) {
-      FieldValuePatchItemObject <- jsonlite::fromJSON(FieldValuePatchItemJson)
+      FieldValuePatchItemObject <- dlensFromJSON(FieldValuePatchItemJson)
       self$`projectId` <- FieldValuePatchItemObject$`projectId`
       self$`fieldId` <- FieldValuePatchItemObject$`fieldId`
       TimePeriodObject <- TimePeriod$new()

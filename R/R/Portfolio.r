@@ -204,7 +204,7 @@ Portfolio <- R6::R6Class(
       PortfolioObject
     },
     fromJSON = function(PortfolioJson) {
-      PortfolioObject <- jsonlite::fromJSON(PortfolioJson)
+      PortfolioObject <- dlensFromJSON(PortfolioJson)
       if (!is.null(PortfolioObject$`href`)) {
         self$`href` <- PortfolioObject$`href`
       }
@@ -335,7 +335,7 @@ Portfolio <- R6::R6Class(
       )
     },
     fromJSONString = function(PortfolioJson) {
-      PortfolioObject <- jsonlite::fromJSON(PortfolioJson)
+      PortfolioObject <- dlensFromJSON(PortfolioJson)
       self$`href` <- PortfolioObject$`href`
       self$`id` <- PortfolioObject$`id`
       self$`createdAt` <- PortfolioObject$`createdAt`

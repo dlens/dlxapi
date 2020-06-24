@@ -24,7 +24,7 @@ PropertyName <- R6::R6Class(
       PropertyNameObject
     },
     fromJSON = function(PropertyNameJson) {
-      PropertyNameObject <- jsonlite::fromJSON(PropertyNameJson)
+      PropertyNameObject <- dlensFromJSON(PropertyNameJson)
     },
     toJSONString = function() {
        sprintf(
@@ -33,7 +33,7 @@ PropertyName <- R6::R6Class(
       )
     },
     fromJSONString = function(PropertyNameJson) {
-      PropertyNameObject <- jsonlite::fromJSON(PropertyNameJson)
+      PropertyNameObject <- dlensFromJSON(PropertyNameJson)
     }
   )
 )

@@ -153,7 +153,7 @@ Mapping <- R6::R6Class(
       MappingObject
     },
     fromJSON = function(MappingJson) {
-      MappingObject <- jsonlite::fromJSON(MappingJson)
+      MappingObject <- dlensFromJSON(MappingJson)
       if (!is.null(MappingObject$`href`)) {
         self$`href` <- MappingObject$`href`
       }
@@ -240,7 +240,7 @@ Mapping <- R6::R6Class(
       )
     },
     fromJSONString = function(MappingJson) {
-      MappingObject <- jsonlite::fromJSON(MappingJson)
+      MappingObject <- dlensFromJSON(MappingJson)
       self$`href` <- MappingObject$`href`
       self$`id` <- MappingObject$`id`
       self$`createdAt` <- MappingObject$`createdAt`

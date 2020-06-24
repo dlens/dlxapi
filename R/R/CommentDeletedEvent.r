@@ -87,7 +87,7 @@ CommentDeletedEvent <- R6::R6Class(
       CommentDeletedEventObject
     },
     fromJSON = function(CommentDeletedEventJson) {
-      CommentDeletedEventObject <- jsonlite::fromJSON(CommentDeletedEventJson)
+      CommentDeletedEventObject <- dlensFromJSON(CommentDeletedEventJson)
       if (!is.null(CommentDeletedEventObject$`id`)) {
         self$`id` <- CommentDeletedEventObject$`id`
       }
@@ -133,7 +133,7 @@ CommentDeletedEvent <- R6::R6Class(
       )
     },
     fromJSONString = function(CommentDeletedEventJson) {
-      CommentDeletedEventObject <- jsonlite::fromJSON(CommentDeletedEventJson)
+      CommentDeletedEventObject <- dlensFromJSON(CommentDeletedEventJson)
       self$`id` <- CommentDeletedEventObject$`id`
       self$`portfolioId` <- CommentDeletedEventObject$`portfolioId`
       self$`userId` <- CommentDeletedEventObject$`userId`

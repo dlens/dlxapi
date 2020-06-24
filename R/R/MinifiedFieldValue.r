@@ -67,7 +67,7 @@ MinifiedFieldValue <- R6::R6Class(
       MinifiedFieldValueObject
     },
     fromJSON = function(MinifiedFieldValueJson) {
-      MinifiedFieldValueObject <- jsonlite::fromJSON(MinifiedFieldValueJson)
+      MinifiedFieldValueObject <- dlensFromJSON(MinifiedFieldValueJson)
       if (!is.null(MinifiedFieldValueObject$`v`)) {
         self$`v` <- MinifiedFieldValueObject$`v`
       }
@@ -103,7 +103,7 @@ MinifiedFieldValue <- R6::R6Class(
       )
     },
     fromJSONString = function(MinifiedFieldValueJson) {
-      MinifiedFieldValueObject <- jsonlite::fromJSON(MinifiedFieldValueJson)
+      MinifiedFieldValueObject <- dlensFromJSON(MinifiedFieldValueJson)
       self$`v` <- MinifiedFieldValueObject$`v`
       self$`nv` <- MinifiedFieldValueObject$`nv`
       self$`bv` <- MinifiedFieldValueObject$`bv`

@@ -87,7 +87,7 @@ ResourcePoolBudgetAmountUpdatedEvent <- R6::R6Class(
       ResourcePoolBudgetAmountUpdatedEventObject
     },
     fromJSON = function(ResourcePoolBudgetAmountUpdatedEventJson) {
-      ResourcePoolBudgetAmountUpdatedEventObject <- jsonlite::fromJSON(ResourcePoolBudgetAmountUpdatedEventJson)
+      ResourcePoolBudgetAmountUpdatedEventObject <- dlensFromJSON(ResourcePoolBudgetAmountUpdatedEventJson)
       if (!is.null(ResourcePoolBudgetAmountUpdatedEventObject$`id`)) {
         self$`id` <- ResourcePoolBudgetAmountUpdatedEventObject$`id`
       }
@@ -135,7 +135,7 @@ ResourcePoolBudgetAmountUpdatedEvent <- R6::R6Class(
       )
     },
     fromJSONString = function(ResourcePoolBudgetAmountUpdatedEventJson) {
-      ResourcePoolBudgetAmountUpdatedEventObject <- jsonlite::fromJSON(ResourcePoolBudgetAmountUpdatedEventJson)
+      ResourcePoolBudgetAmountUpdatedEventObject <- dlensFromJSON(ResourcePoolBudgetAmountUpdatedEventJson)
       self$`id` <- ResourcePoolBudgetAmountUpdatedEventObject$`id`
       self$`name` <- ResourcePoolBudgetAmountUpdatedEventObject$`name`
       self$`budgetAmount` <- ResourcePoolBudgetAmountUpdatedEventObject$`budgetAmount`

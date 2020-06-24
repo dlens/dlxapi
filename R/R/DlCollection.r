@@ -60,7 +60,7 @@ DlCollection <- R6::R6Class(
       DlCollectionObject
     },
     fromJSON = function(DlCollectionJson) {
-      DlCollectionObject <- jsonlite::fromJSON(DlCollectionJson)
+      DlCollectionObject <- dlensFromJSON(DlCollectionJson)
       if (!is.null(DlCollectionObject$`href`)) {
         self$`href` <- DlCollectionObject$`href`
       }
@@ -89,7 +89,7 @@ DlCollection <- R6::R6Class(
       )
     },
     fromJSONString = function(DlCollectionJson) {
-      DlCollectionObject <- jsonlite::fromJSON(DlCollectionJson)
+      DlCollectionObject <- dlensFromJSON(DlCollectionJson)
       self$`href` <- DlCollectionObject$`href`
       self$`offset` <- DlCollectionObject$`offset`
       self$`limit` <- DlCollectionObject$`limit`

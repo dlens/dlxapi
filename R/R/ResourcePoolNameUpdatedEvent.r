@@ -69,7 +69,7 @@ ResourcePoolNameUpdatedEvent <- R6::R6Class(
       ResourcePoolNameUpdatedEventObject
     },
     fromJSON = function(ResourcePoolNameUpdatedEventJson) {
-      ResourcePoolNameUpdatedEventObject <- jsonlite::fromJSON(ResourcePoolNameUpdatedEventJson)
+      ResourcePoolNameUpdatedEventObject <- dlensFromJSON(ResourcePoolNameUpdatedEventJson)
       if (!is.null(ResourcePoolNameUpdatedEventObject$`id`)) {
         self$`id` <- ResourcePoolNameUpdatedEventObject$`id`
       }
@@ -105,7 +105,7 @@ ResourcePoolNameUpdatedEvent <- R6::R6Class(
       )
     },
     fromJSONString = function(ResourcePoolNameUpdatedEventJson) {
-      ResourcePoolNameUpdatedEventObject <- jsonlite::fromJSON(ResourcePoolNameUpdatedEventJson)
+      ResourcePoolNameUpdatedEventObject <- dlensFromJSON(ResourcePoolNameUpdatedEventJson)
       self$`id` <- ResourcePoolNameUpdatedEventObject$`id`
       self$`name` <- ResourcePoolNameUpdatedEventObject$`name`
       self$`previousName` <- ResourcePoolNameUpdatedEventObject$`previousName`

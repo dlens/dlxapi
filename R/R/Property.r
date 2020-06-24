@@ -42,7 +42,7 @@ Property <- R6::R6Class(
       PropertyObject
     },
     fromJSON = function(PropertyJson) {
-      PropertyObject <- jsonlite::fromJSON(PropertyJson)
+      PropertyObject <- dlensFromJSON(PropertyJson)
       if (!is.null(PropertyObject$`name`)) {
         nameObject <- PropertyName$new()
         nameObject$fromJSON(jsonlite::toJSON(PropertyObject$name, auto_unbox = TRUE))
@@ -63,7 +63,7 @@ Property <- R6::R6Class(
       )
     },
     fromJSONString = function(PropertyJson) {
-      PropertyObject <- jsonlite::fromJSON(PropertyJson)
+      PropertyObject <- dlensFromJSON(PropertyJson)
       PropertyNameObject <- PropertyName$new()
       self$`name` <- PropertyNameObject$fromJSON(jsonlite::toJSON(PropertyObject$name, auto_unbox = TRUE))
       self$`value` <- PropertyObject$`value`

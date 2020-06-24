@@ -80,7 +80,7 @@ WhatsIn <- R6::R6Class(
       WhatsInObject
     },
     fromJSON = function(WhatsInJson) {
-      WhatsInObject <- jsonlite::fromJSON(WhatsInJson)
+      WhatsInObject <- dlensFromJSON(WhatsInJson)
       if (!is.null(WhatsInObject$`projectSummaries`)) {
         self$`projectSummaries` <- lapply(WhatsInObject$`projectSummaries`, function(x) {
           projectSummariesObject <- ProjectSummary$new()
@@ -127,7 +127,7 @@ WhatsIn <- R6::R6Class(
       )
     },
     fromJSONString = function(WhatsInJson) {
-      WhatsInObject <- jsonlite::fromJSON(WhatsInJson)
+      WhatsInObject <- dlensFromJSON(WhatsInJson)
       self$`projectSummaries` <- lapply(WhatsInObject$`projectSummaries`, function(x) ProjectSummary$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
       self$`portfolioPlansWithProjects` <- lapply(WhatsInObject$`portfolioPlansWithProjects`, function(x) PortfolioPlansWithProjects$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
       self$`maxSize` <- WhatsInObject$`maxSize`

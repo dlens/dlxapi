@@ -24,7 +24,7 @@ PlanType <- R6::R6Class(
       PlanTypeObject
     },
     fromJSON = function(PlanTypeJson) {
-      PlanTypeObject <- jsonlite::fromJSON(PlanTypeJson)
+      PlanTypeObject <- dlensFromJSON(PlanTypeJson)
     },
     toJSONString = function() {
        sprintf(
@@ -33,7 +33,7 @@ PlanType <- R6::R6Class(
       )
     },
     fromJSONString = function(PlanTypeJson) {
-      PlanTypeObject <- jsonlite::fromJSON(PlanTypeJson)
+      PlanTypeObject <- dlensFromJSON(PlanTypeJson)
     }
   )
 )

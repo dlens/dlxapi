@@ -33,7 +33,7 @@ Attributes <- R6::R6Class(
       AttributesObject
     },
     fromJSON = function(AttributesJson) {
-      AttributesObject <- jsonlite::fromJSON(AttributesJson)
+      AttributesObject <- dlensFromJSON(AttributesJson)
       if (!is.null(AttributesObject$`timeInterval`)) {
         timeIntervalObject <- TimeInterval$new()
         timeIntervalObject$fromJSON(jsonlite::toJSON(AttributesObject$timeInterval, auto_unbox = TRUE))
@@ -49,7 +49,7 @@ Attributes <- R6::R6Class(
       )
     },
     fromJSONString = function(AttributesJson) {
-      AttributesObject <- jsonlite::fromJSON(AttributesJson)
+      AttributesObject <- dlensFromJSON(AttributesJson)
       TimeIntervalObject <- TimeInterval$new()
       self$`timeInterval` <- TimeIntervalObject$fromJSON(jsonlite::toJSON(AttributesObject$timeInterval, auto_unbox = TRUE))
     }

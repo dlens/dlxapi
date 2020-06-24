@@ -43,7 +43,7 @@ Warnings <- R6::R6Class(
       WarningsObject
     },
     fromJSON = function(WarningsJson) {
-      WarningsObject <- jsonlite::fromJSON(WarningsJson)
+      WarningsObject <- dlensFromJSON(WarningsJson)
       if (!is.null(WarningsObject$`size`)) {
         self$`size` <- WarningsObject$`size`
       }
@@ -62,7 +62,7 @@ Warnings <- R6::R6Class(
       )
     },
     fromJSONString = function(WarningsJson) {
-      WarningsObject <- jsonlite::fromJSON(WarningsJson)
+      WarningsObject <- dlensFromJSON(WarningsJson)
       self$`size` <- WarningsObject$`size`
       self$`messages` <- WarningsObject$`messages`
     }

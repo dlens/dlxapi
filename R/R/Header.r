@@ -60,7 +60,7 @@ Header <- R6::R6Class(
       HeaderObject
     },
     fromJSON = function(HeaderJson) {
-      HeaderObject <- jsonlite::fromJSON(HeaderJson)
+      HeaderObject <- dlensFromJSON(HeaderJson)
       if (!is.null(HeaderObject$`destination`)) {
         self$`destination` <- HeaderObject$`destination`
       }
@@ -89,7 +89,7 @@ Header <- R6::R6Class(
       )
     },
     fromJSONString = function(HeaderJson) {
-      HeaderObject <- jsonlite::fromJSON(HeaderJson)
+      HeaderObject <- dlensFromJSON(HeaderJson)
       self$`destination` <- HeaderObject$`destination`
       self$`username` <- HeaderObject$`username`
       self$`firstName` <- HeaderObject$`firstName`

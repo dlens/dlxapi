@@ -122,7 +122,7 @@ BudgetAllocation <- R6::R6Class(
       BudgetAllocationObject
     },
     fromJSON = function(BudgetAllocationJson) {
-      BudgetAllocationObject <- jsonlite::fromJSON(BudgetAllocationJson)
+      BudgetAllocationObject <- dlensFromJSON(BudgetAllocationJson)
       if (!is.null(BudgetAllocationObject$`resourcePoolName`)) {
         self$`resourcePoolName` <- BudgetAllocationObject$`resourcePoolName`
       }
@@ -181,7 +181,7 @@ BudgetAllocation <- R6::R6Class(
       )
     },
     fromJSONString = function(BudgetAllocationJson) {
-      BudgetAllocationObject <- jsonlite::fromJSON(BudgetAllocationJson)
+      BudgetAllocationObject <- dlensFromJSON(BudgetAllocationJson)
       self$`resourcePoolName` <- BudgetAllocationObject$`resourcePoolName`
       self$`resourcePoolId` <- BudgetAllocationObject$`resourcePoolId`
       self$`yearlyBudgets` <- BudgetAllocationObject$`yearlyBudgets`

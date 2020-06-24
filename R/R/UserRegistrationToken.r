@@ -60,7 +60,7 @@ UserRegistrationToken <- R6::R6Class(
       UserRegistrationTokenObject
     },
     fromJSON = function(UserRegistrationTokenJson) {
-      UserRegistrationTokenObject <- jsonlite::fromJSON(UserRegistrationTokenJson)
+      UserRegistrationTokenObject <- dlensFromJSON(UserRegistrationTokenJson)
       if (!is.null(UserRegistrationTokenObject$`portfolioId`)) {
         self$`portfolioId` <- UserRegistrationTokenObject$`portfolioId`
       }
@@ -93,7 +93,7 @@ UserRegistrationToken <- R6::R6Class(
       )
     },
     fromJSONString = function(UserRegistrationTokenJson) {
-      UserRegistrationTokenObject <- jsonlite::fromJSON(UserRegistrationTokenJson)
+      UserRegistrationTokenObject <- dlensFromJSON(UserRegistrationTokenJson)
       self$`portfolioId` <- UserRegistrationTokenObject$`portfolioId`
       GroupObject <- Group$new()
       self$`group` <- GroupObject$fromJSON(jsonlite::toJSON(UserRegistrationTokenObject$group, auto_unbox = TRUE))

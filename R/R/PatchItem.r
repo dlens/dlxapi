@@ -42,7 +42,7 @@ PatchItem <- R6::R6Class(
       PatchItemObject
     },
     fromJSON = function(PatchItemJson) {
-      PatchItemObject <- jsonlite::fromJSON(PatchItemJson)
+      PatchItemObject <- dlensFromJSON(PatchItemJson)
       if (!is.null(PatchItemObject$`id`)) {
         self$`id` <- PatchItemObject$`id`
       }
@@ -63,7 +63,7 @@ PatchItem <- R6::R6Class(
       )
     },
     fromJSONString = function(PatchItemJson) {
-      PatchItemObject <- jsonlite::fromJSON(PatchItemJson)
+      PatchItemObject <- dlensFromJSON(PatchItemJson)
       self$`id` <- PatchItemObject$`id`
       OperationsObject <- Operations$new()
       self$`operations` <- OperationsObject$fromJSON(jsonlite::toJSON(PatchItemObject$operations, auto_unbox = TRUE))

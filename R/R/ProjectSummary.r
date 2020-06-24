@@ -51,7 +51,7 @@ ProjectSummary <- R6::R6Class(
       ProjectSummaryObject
     },
     fromJSON = function(ProjectSummaryJson) {
-      ProjectSummaryObject <- jsonlite::fromJSON(ProjectSummaryJson)
+      ProjectSummaryObject <- dlensFromJSON(ProjectSummaryJson)
       if (!is.null(ProjectSummaryObject$`id`)) {
         self$`id` <- ProjectSummaryObject$`id`
       }
@@ -75,7 +75,7 @@ ProjectSummary <- R6::R6Class(
       )
     },
     fromJSONString = function(ProjectSummaryJson) {
-      ProjectSummaryObject <- jsonlite::fromJSON(ProjectSummaryJson)
+      ProjectSummaryObject <- dlensFromJSON(ProjectSummaryJson)
       self$`id` <- ProjectSummaryObject$`id`
       self$`name` <- ProjectSummaryObject$`name`
       self$`request` <- ProjectSummaryObject$`request`

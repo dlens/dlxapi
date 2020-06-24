@@ -57,7 +57,7 @@ FieldValuesCollectionInfo <- R6::R6Class(
       FieldValuesCollectionInfoObject
     },
     fromJSON = function(FieldValuesCollectionInfoJson) {
-      FieldValuesCollectionInfoObject <- jsonlite::fromJSON(FieldValuesCollectionInfoJson)
+      FieldValuesCollectionInfoObject <- dlensFromJSON(FieldValuesCollectionInfoJson)
       if (!is.null(FieldValuesCollectionInfoObject$`hasDuplicateValues`)) {
         self$`hasDuplicateValues` <- FieldValuesCollectionInfoObject$`hasDuplicateValues`
       }
@@ -86,7 +86,7 @@ FieldValuesCollectionInfo <- R6::R6Class(
       )
     },
     fromJSONString = function(FieldValuesCollectionInfoJson) {
-      FieldValuesCollectionInfoObject <- jsonlite::fromJSON(FieldValuesCollectionInfoJson)
+      FieldValuesCollectionInfoObject <- dlensFromJSON(FieldValuesCollectionInfoJson)
       self$`hasDuplicateValues` <- FieldValuesCollectionInfoObject$`hasDuplicateValues`
       self$`hasBlankValues` <- FieldValuesCollectionInfoObject$`hasBlankValues`
       self$`totalValue` <- FieldValuesCollectionInfoObject$`totalValue`

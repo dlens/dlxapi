@@ -33,7 +33,7 @@ SpreadsheetReportProgress <- R6::R6Class(
       SpreadsheetReportProgressObject
     },
     fromJSON = function(SpreadsheetReportProgressJson) {
-      SpreadsheetReportProgressObject <- jsonlite::fromJSON(SpreadsheetReportProgressJson)
+      SpreadsheetReportProgressObject <- dlensFromJSON(SpreadsheetReportProgressJson)
       if (!is.null(SpreadsheetReportProgressObject$`status`)) {
         statusObject <- SpreadsheetReportProgressStatus$new()
         statusObject$fromJSON(jsonlite::toJSON(SpreadsheetReportProgressObject$status, auto_unbox = TRUE))
@@ -49,7 +49,7 @@ SpreadsheetReportProgress <- R6::R6Class(
       )
     },
     fromJSONString = function(SpreadsheetReportProgressJson) {
-      SpreadsheetReportProgressObject <- jsonlite::fromJSON(SpreadsheetReportProgressJson)
+      SpreadsheetReportProgressObject <- dlensFromJSON(SpreadsheetReportProgressJson)
       SpreadsheetReportProgressStatusObject <- SpreadsheetReportProgressStatus$new()
       self$`status` <- SpreadsheetReportProgressStatusObject$fromJSON(jsonlite::toJSON(SpreadsheetReportProgressObject$status, auto_unbox = TRUE))
     }

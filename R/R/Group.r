@@ -95,7 +95,7 @@ Group <- R6::R6Class(
       GroupObject
     },
     fromJSON = function(GroupJson) {
-      GroupObject <- jsonlite::fromJSON(GroupJson)
+      GroupObject <- dlensFromJSON(GroupJson)
       if (!is.null(GroupObject$`href`)) {
         self$`href` <- GroupObject$`href`
       }
@@ -146,7 +146,7 @@ Group <- R6::R6Class(
       )
     },
     fromJSONString = function(GroupJson) {
-      GroupObject <- jsonlite::fromJSON(GroupJson)
+      GroupObject <- dlensFromJSON(GroupJson)
       self$`href` <- GroupObject$`href`
       self$`id` <- GroupObject$`id`
       self$`createdAt` <- GroupObject$`createdAt`

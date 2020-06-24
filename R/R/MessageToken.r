@@ -51,7 +51,7 @@ MessageToken <- R6::R6Class(
       MessageTokenObject
     },
     fromJSON = function(MessageTokenJson) {
-      MessageTokenObject <- jsonlite::fromJSON(MessageTokenJson)
+      MessageTokenObject <- dlensFromJSON(MessageTokenJson)
       if (!is.null(MessageTokenObject$`token`)) {
         self$`token` <- MessageTokenObject$`token`
       }
@@ -75,7 +75,7 @@ MessageToken <- R6::R6Class(
       )
     },
     fromJSONString = function(MessageTokenJson) {
-      MessageTokenObject <- jsonlite::fromJSON(MessageTokenJson)
+      MessageTokenObject <- dlensFromJSON(MessageTokenJson)
       self$`token` <- MessageTokenObject$`token`
       self$`expirationInMillis` <- MessageTokenObject$`expirationInMillis`
       self$`destination` <- MessageTokenObject$`destination`

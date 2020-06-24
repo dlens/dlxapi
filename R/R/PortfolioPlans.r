@@ -70,7 +70,7 @@ PortfolioPlans <- R6::R6Class(
       PortfolioPlansObject
     },
     fromJSON = function(PortfolioPlansJson) {
-      PortfolioPlansObject <- jsonlite::fromJSON(PortfolioPlansJson)
+      PortfolioPlansObject <- dlensFromJSON(PortfolioPlansJson)
       if (!is.null(PortfolioPlansObject$`href`)) {
         self$`href` <- PortfolioPlansObject$`href`
       }
@@ -108,7 +108,7 @@ PortfolioPlans <- R6::R6Class(
       )
     },
     fromJSONString = function(PortfolioPlansJson) {
-      PortfolioPlansObject <- jsonlite::fromJSON(PortfolioPlansJson)
+      PortfolioPlansObject <- dlensFromJSON(PortfolioPlansJson)
       self$`href` <- PortfolioPlansObject$`href`
       self$`offset` <- PortfolioPlansObject$`offset`
       self$`limit` <- PortfolioPlansObject$`limit`

@@ -24,7 +24,7 @@ ActivityType <- R6::R6Class(
       ActivityTypeObject
     },
     fromJSON = function(ActivityTypeJson) {
-      ActivityTypeObject <- jsonlite::fromJSON(ActivityTypeJson)
+      ActivityTypeObject <- dlensFromJSON(ActivityTypeJson)
     },
     toJSONString = function() {
        sprintf(
@@ -33,7 +33,7 @@ ActivityType <- R6::R6Class(
       )
     },
     fromJSONString = function(ActivityTypeJson) {
-      ActivityTypeObject <- jsonlite::fromJSON(ActivityTypeJson)
+      ActivityTypeObject <- dlensFromJSON(ActivityTypeJson)
     }
   )
 )

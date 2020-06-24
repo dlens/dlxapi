@@ -69,7 +69,7 @@ AccessTokenGeneratedEvent <- R6::R6Class(
       AccessTokenGeneratedEventObject
     },
     fromJSON = function(AccessTokenGeneratedEventJson) {
-      AccessTokenGeneratedEventObject <- jsonlite::fromJSON(AccessTokenGeneratedEventJson)
+      AccessTokenGeneratedEventObject <- dlensFromJSON(AccessTokenGeneratedEventJson)
       if (!is.null(AccessTokenGeneratedEventObject$`id`)) {
         self$`id` <- AccessTokenGeneratedEventObject$`id`
       }
@@ -105,7 +105,7 @@ AccessTokenGeneratedEvent <- R6::R6Class(
       )
     },
     fromJSONString = function(AccessTokenGeneratedEventJson) {
-      AccessTokenGeneratedEventObject <- jsonlite::fromJSON(AccessTokenGeneratedEventJson)
+      AccessTokenGeneratedEventObject <- dlensFromJSON(AccessTokenGeneratedEventJson)
       self$`id` <- AccessTokenGeneratedEventObject$`id`
       UserObject <- User$new()
       self$`user` <- UserObject$fromJSON(jsonlite::toJSON(AccessTokenGeneratedEventObject$user, auto_unbox = TRUE))

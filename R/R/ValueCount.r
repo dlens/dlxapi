@@ -42,7 +42,7 @@ ValueCount <- R6::R6Class(
       ValueCountObject
     },
     fromJSON = function(ValueCountJson) {
-      ValueCountObject <- jsonlite::fromJSON(ValueCountJson)
+      ValueCountObject <- dlensFromJSON(ValueCountJson)
       if (!is.null(ValueCountObject$`value`)) {
         self$`value` <- ValueCountObject$`value`
       }
@@ -61,7 +61,7 @@ ValueCount <- R6::R6Class(
       )
     },
     fromJSONString = function(ValueCountJson) {
-      ValueCountObject <- jsonlite::fromJSON(ValueCountJson)
+      ValueCountObject <- dlensFromJSON(ValueCountJson)
       self$`value` <- ValueCountObject$`value`
       self$`count` <- ValueCountObject$`count`
     }

@@ -106,7 +106,7 @@ BudgetAllocations <- R6::R6Class(
       BudgetAllocationsObject
     },
     fromJSON = function(BudgetAllocationsJson) {
-      BudgetAllocationsObject <- jsonlite::fromJSON(BudgetAllocationsJson)
+      BudgetAllocationsObject <- dlensFromJSON(BudgetAllocationsJson)
       if (!is.null(BudgetAllocationsObject$`href`)) {
         self$`href` <- BudgetAllocationsObject$`href`
       }
@@ -168,7 +168,7 @@ BudgetAllocations <- R6::R6Class(
       )
     },
     fromJSONString = function(BudgetAllocationsJson) {
-      BudgetAllocationsObject <- jsonlite::fromJSON(BudgetAllocationsJson)
+      BudgetAllocationsObject <- dlensFromJSON(BudgetAllocationsJson)
       self$`href` <- BudgetAllocationsObject$`href`
       self$`offset` <- BudgetAllocationsObject$`offset`
       self$`limit` <- BudgetAllocationsObject$`limit`

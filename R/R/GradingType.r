@@ -24,7 +24,7 @@ GradingType <- R6::R6Class(
       GradingTypeObject
     },
     fromJSON = function(GradingTypeJson) {
-      GradingTypeObject <- jsonlite::fromJSON(GradingTypeJson)
+      GradingTypeObject <- dlensFromJSON(GradingTypeJson)
     },
     toJSONString = function() {
        sprintf(
@@ -33,7 +33,7 @@ GradingType <- R6::R6Class(
       )
     },
     fromJSONString = function(GradingTypeJson) {
-      GradingTypeObject <- jsonlite::fromJSON(GradingTypeJson)
+      GradingTypeObject <- dlensFromJSON(GradingTypeJson)
     }
   )
 )

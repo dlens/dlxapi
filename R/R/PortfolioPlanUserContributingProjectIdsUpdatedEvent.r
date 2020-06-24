@@ -80,7 +80,7 @@ PortfolioPlanUserContributingProjectIdsUpdatedEvent <- R6::R6Class(
       PortfolioPlanUserContributingProjectIdsUpdatedEventObject
     },
     fromJSON = function(PortfolioPlanUserContributingProjectIdsUpdatedEventJson) {
-      PortfolioPlanUserContributingProjectIdsUpdatedEventObject <- jsonlite::fromJSON(PortfolioPlanUserContributingProjectIdsUpdatedEventJson)
+      PortfolioPlanUserContributingProjectIdsUpdatedEventObject <- dlensFromJSON(PortfolioPlanUserContributingProjectIdsUpdatedEventJson)
       if (!is.null(PortfolioPlanUserContributingProjectIdsUpdatedEventObject$`id`)) {
         self$`id` <- PortfolioPlanUserContributingProjectIdsUpdatedEventObject$`id`
       }
@@ -123,7 +123,7 @@ PortfolioPlanUserContributingProjectIdsUpdatedEvent <- R6::R6Class(
       )
     },
     fromJSONString = function(PortfolioPlanUserContributingProjectIdsUpdatedEventJson) {
-      PortfolioPlanUserContributingProjectIdsUpdatedEventObject <- jsonlite::fromJSON(PortfolioPlanUserContributingProjectIdsUpdatedEventJson)
+      PortfolioPlanUserContributingProjectIdsUpdatedEventObject <- dlensFromJSON(PortfolioPlanUserContributingProjectIdsUpdatedEventJson)
       self$`id` <- PortfolioPlanUserContributingProjectIdsUpdatedEventObject$`id`
       PortfolioPlanObject <- PortfolioPlan$new()
       self$`portfolioPlan` <- PortfolioPlanObject$fromJSON(jsonlite::toJSON(PortfolioPlanUserContributingProjectIdsUpdatedEventObject$portfolioPlan, auto_unbox = TRUE))

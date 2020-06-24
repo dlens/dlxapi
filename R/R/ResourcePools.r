@@ -70,7 +70,7 @@ ResourcePools <- R6::R6Class(
       ResourcePoolsObject
     },
     fromJSON = function(ResourcePoolsJson) {
-      ResourcePoolsObject <- jsonlite::fromJSON(ResourcePoolsJson)
+      ResourcePoolsObject <- dlensFromJSON(ResourcePoolsJson)
       if (!is.null(ResourcePoolsObject$`href`)) {
         self$`href` <- ResourcePoolsObject$`href`
       }
@@ -108,7 +108,7 @@ ResourcePools <- R6::R6Class(
       )
     },
     fromJSONString = function(ResourcePoolsJson) {
-      ResourcePoolsObject <- jsonlite::fromJSON(ResourcePoolsJson)
+      ResourcePoolsObject <- dlensFromJSON(ResourcePoolsJson)
       self$`href` <- ResourcePoolsObject$`href`
       self$`offset` <- ResourcePoolsObject$`offset`
       self$`limit` <- ResourcePoolsObject$`limit`

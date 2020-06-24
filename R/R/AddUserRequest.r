@@ -42,7 +42,7 @@ AddUserRequest <- R6::R6Class(
       AddUserRequestObject
     },
     fromJSON = function(AddUserRequestJson) {
-      AddUserRequestObject <- jsonlite::fromJSON(AddUserRequestJson)
+      AddUserRequestObject <- dlensFromJSON(AddUserRequestJson)
       if (!is.null(AddUserRequestObject$`user`)) {
         userObject <- User$new()
         userObject$fromJSON(jsonlite::toJSON(AddUserRequestObject$user, auto_unbox = TRUE))
@@ -63,7 +63,7 @@ AddUserRequest <- R6::R6Class(
       )
     },
     fromJSONString = function(AddUserRequestJson) {
-      AddUserRequestObject <- jsonlite::fromJSON(AddUserRequestJson)
+      AddUserRequestObject <- dlensFromJSON(AddUserRequestJson)
       UserObject <- User$new()
       self$`user` <- UserObject$fromJSON(jsonlite::toJSON(AddUserRequestObject$user, auto_unbox = TRUE))
       self$`message` <- AddUserRequestObject$`message`

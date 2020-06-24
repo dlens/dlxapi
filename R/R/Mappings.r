@@ -43,7 +43,7 @@ Mappings <- R6::R6Class(
       MappingsObject
     },
     fromJSON = function(MappingsJson) {
-      MappingsObject <- jsonlite::fromJSON(MappingsJson)
+      MappingsObject <- dlensFromJSON(MappingsJson)
       if (!is.null(MappingsObject$`size`)) {
         self$`size` <- MappingsObject$`size`
       }
@@ -66,7 +66,7 @@ Mappings <- R6::R6Class(
       )
     },
     fromJSONString = function(MappingsJson) {
-      MappingsObject <- jsonlite::fromJSON(MappingsJson)
+      MappingsObject <- dlensFromJSON(MappingsJson)
       self$`size` <- MappingsObject$`size`
       self$`items` <- lapply(MappingsObject$`items`, function(x) Mapping$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
     }

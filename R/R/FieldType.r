@@ -24,7 +24,7 @@ FieldType <- R6::R6Class(
       FieldTypeObject
     },
     fromJSON = function(FieldTypeJson) {
-      FieldTypeObject <- jsonlite::fromJSON(FieldTypeJson)
+      FieldTypeObject <- dlensFromJSON(FieldTypeJson)
     },
     toJSONString = function() {
        sprintf(
@@ -33,7 +33,7 @@ FieldType <- R6::R6Class(
       )
     },
     fromJSONString = function(FieldTypeJson) {
-      FieldTypeObject <- jsonlite::fromJSON(FieldTypeJson)
+      FieldTypeObject <- dlensFromJSON(FieldTypeJson)
     }
   )
 )

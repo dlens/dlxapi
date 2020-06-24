@@ -60,7 +60,7 @@ Recommendation <- R6::R6Class(
       RecommendationObject
     },
     fromJSON = function(RecommendationJson) {
-      RecommendationObject <- jsonlite::fromJSON(RecommendationJson)
+      RecommendationObject <- dlensFromJSON(RecommendationJson)
       if (!is.null(RecommendationObject$`type`)) {
         typeObject <- RecommendationType$new()
         typeObject$fromJSON(jsonlite::toJSON(RecommendationObject$type, auto_unbox = TRUE))
@@ -97,7 +97,7 @@ Recommendation <- R6::R6Class(
       )
     },
     fromJSONString = function(RecommendationJson) {
-      RecommendationObject <- jsonlite::fromJSON(RecommendationJson)
+      RecommendationObject <- dlensFromJSON(RecommendationJson)
       RecommendationTypeObject <- RecommendationType$new()
       self$`type` <- RecommendationTypeObject$fromJSON(jsonlite::toJSON(RecommendationObject$type, auto_unbox = TRUE))
       FieldValuesObject <- FieldValues$new()

@@ -60,7 +60,7 @@ ValidConstraintValue <- R6::R6Class(
       ValidConstraintValueObject
     },
     fromJSON = function(ValidConstraintValueJson) {
-      ValidConstraintValueObject <- jsonlite::fromJSON(ValidConstraintValueJson)
+      ValidConstraintValueObject <- dlensFromJSON(ValidConstraintValueJson)
       if (!is.null(ValidConstraintValueObject$`field`)) {
         fieldObject <- Field$new()
         fieldObject$fromJSON(jsonlite::toJSON(ValidConstraintValueObject$field, auto_unbox = TRUE))
@@ -91,7 +91,7 @@ ValidConstraintValue <- R6::R6Class(
       )
     },
     fromJSONString = function(ValidConstraintValueJson) {
-      ValidConstraintValueObject <- jsonlite::fromJSON(ValidConstraintValueJson)
+      ValidConstraintValueObject <- dlensFromJSON(ValidConstraintValueJson)
       FieldObject <- Field$new()
       self$`field` <- FieldObject$fromJSON(jsonlite::toJSON(ValidConstraintValueObject$field, auto_unbox = TRUE))
       self$`minCost` <- ValidConstraintValueObject$`minCost`

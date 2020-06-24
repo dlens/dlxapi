@@ -76,7 +76,7 @@ FieldIsFieldTypeApprovedUpdatedEvent <- R6::R6Class(
       FieldIsFieldTypeApprovedUpdatedEventObject
     },
     fromJSON = function(FieldIsFieldTypeApprovedUpdatedEventJson) {
-      FieldIsFieldTypeApprovedUpdatedEventObject <- jsonlite::fromJSON(FieldIsFieldTypeApprovedUpdatedEventJson)
+      FieldIsFieldTypeApprovedUpdatedEventObject <- dlensFromJSON(FieldIsFieldTypeApprovedUpdatedEventJson)
       if (!is.null(FieldIsFieldTypeApprovedUpdatedEventObject$`id`)) {
         self$`id` <- FieldIsFieldTypeApprovedUpdatedEventObject$`id`
       }
@@ -117,7 +117,7 @@ FieldIsFieldTypeApprovedUpdatedEvent <- R6::R6Class(
       )
     },
     fromJSONString = function(FieldIsFieldTypeApprovedUpdatedEventJson) {
-      FieldIsFieldTypeApprovedUpdatedEventObject <- jsonlite::fromJSON(FieldIsFieldTypeApprovedUpdatedEventJson)
+      FieldIsFieldTypeApprovedUpdatedEventObject <- dlensFromJSON(FieldIsFieldTypeApprovedUpdatedEventJson)
       self$`id` <- FieldIsFieldTypeApprovedUpdatedEventObject$`id`
       self$`name` <- FieldIsFieldTypeApprovedUpdatedEventObject$`name`
       self$`isFieldTypeApproved` <- FieldIsFieldTypeApprovedUpdatedEventObject$`isFieldTypeApproved`

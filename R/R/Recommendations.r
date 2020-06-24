@@ -106,7 +106,7 @@ Recommendations <- R6::R6Class(
       RecommendationsObject
     },
     fromJSON = function(RecommendationsJson) {
-      RecommendationsObject <- jsonlite::fromJSON(RecommendationsJson)
+      RecommendationsObject <- dlensFromJSON(RecommendationsJson)
       if (!is.null(RecommendationsObject$`href`)) {
         self$`href` <- RecommendationsObject$`href`
       }
@@ -166,7 +166,7 @@ Recommendations <- R6::R6Class(
       )
     },
     fromJSONString = function(RecommendationsJson) {
-      RecommendationsObject <- jsonlite::fromJSON(RecommendationsJson)
+      RecommendationsObject <- dlensFromJSON(RecommendationsJson)
       self$`href` <- RecommendationsObject$`href`
       self$`offset` <- RecommendationsObject$`offset`
       self$`limit` <- RecommendationsObject$`limit`

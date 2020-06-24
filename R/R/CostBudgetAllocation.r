@@ -51,7 +51,7 @@ CostBudgetAllocation <- R6::R6Class(
       CostBudgetAllocationObject
     },
     fromJSON = function(CostBudgetAllocationJson) {
-      CostBudgetAllocationObject <- jsonlite::fromJSON(CostBudgetAllocationJson)
+      CostBudgetAllocationObject <- dlensFromJSON(CostBudgetAllocationJson)
       if (!is.null(CostBudgetAllocationObject$`field`)) {
         fieldObject <- Field$new()
         fieldObject$fromJSON(jsonlite::toJSON(CostBudgetAllocationObject$field, auto_unbox = TRUE))
@@ -77,7 +77,7 @@ CostBudgetAllocation <- R6::R6Class(
       )
     },
     fromJSONString = function(CostBudgetAllocationJson) {
-      CostBudgetAllocationObject <- jsonlite::fromJSON(CostBudgetAllocationJson)
+      CostBudgetAllocationObject <- dlensFromJSON(CostBudgetAllocationJson)
       FieldObject <- Field$new()
       self$`field` <- FieldObject$fromJSON(jsonlite::toJSON(CostBudgetAllocationObject$field, auto_unbox = TRUE))
       self$`budget` <- CostBudgetAllocationObject$`budget`

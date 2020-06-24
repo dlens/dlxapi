@@ -85,7 +85,7 @@ ExpandComponent <- R6::R6Class(
       ExpandComponentObject
     },
     fromJSON = function(ExpandComponentJson) {
-      ExpandComponentObject <- jsonlite::fromJSON(ExpandComponentJson)
+      ExpandComponentObject <- dlensFromJSON(ExpandComponentJson)
       if (!is.null(ExpandComponentObject$`path`)) {
         self$`path` <- ExpandComponentObject$`path`
       }
@@ -129,7 +129,7 @@ ExpandComponent <- R6::R6Class(
       )
     },
     fromJSONString = function(ExpandComponentJson) {
-      ExpandComponentObject <- jsonlite::fromJSON(ExpandComponentJson)
+      ExpandComponentObject <- dlensFromJSON(ExpandComponentJson)
       self$`path` <- ExpandComponentObject$`path`
       self$`match` <- ExpandComponentObject$`match`
       self$`allPossible` <- ExpandComponentObject$`allPossible`

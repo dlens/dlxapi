@@ -43,7 +43,7 @@ Row <- R6::R6Class(
       RowObject
     },
     fromJSON = function(RowJson) {
-      RowObject <- jsonlite::fromJSON(RowJson)
+      RowObject <- dlensFromJSON(RowJson)
       if (!is.null(RowObject$`size`)) {
         self$`size` <- RowObject$`size`
       }
@@ -62,7 +62,7 @@ Row <- R6::R6Class(
       )
     },
     fromJSONString = function(RowJson) {
-      RowObject <- jsonlite::fromJSON(RowJson)
+      RowObject <- dlensFromJSON(RowJson)
       self$`size` <- RowObject$`size`
       self$`columns` <- RowObject$`columns`
     }

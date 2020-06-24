@@ -60,7 +60,7 @@ UserAuthenticatedEvent <- R6::R6Class(
       UserAuthenticatedEventObject
     },
     fromJSON = function(UserAuthenticatedEventJson) {
-      UserAuthenticatedEventObject <- jsonlite::fromJSON(UserAuthenticatedEventJson)
+      UserAuthenticatedEventObject <- dlensFromJSON(UserAuthenticatedEventJson)
       if (!is.null(UserAuthenticatedEventObject$`id`)) {
         self$`id` <- UserAuthenticatedEventObject$`id`
       }
@@ -91,7 +91,7 @@ UserAuthenticatedEvent <- R6::R6Class(
       )
     },
     fromJSONString = function(UserAuthenticatedEventJson) {
-      UserAuthenticatedEventObject <- jsonlite::fromJSON(UserAuthenticatedEventJson)
+      UserAuthenticatedEventObject <- dlensFromJSON(UserAuthenticatedEventJson)
       self$`id` <- UserAuthenticatedEventObject$`id`
       UserObject <- User$new()
       self$`user` <- UserObject$fromJSON(jsonlite::toJSON(UserAuthenticatedEventObject$user, auto_unbox = TRUE))

@@ -99,7 +99,7 @@ FieldGrade <- R6::R6Class(
       FieldGradeObject
     },
     fromJSON = function(FieldGradeJson) {
-      FieldGradeObject <- jsonlite::fromJSON(FieldGradeJson)
+      FieldGradeObject <- dlensFromJSON(FieldGradeJson)
       if (!is.null(FieldGradeObject$`field`)) {
         fieldObject <- Field$new()
         fieldObject$fromJSON(jsonlite::toJSON(FieldGradeObject$field, auto_unbox = TRUE))
@@ -160,7 +160,7 @@ FieldGrade <- R6::R6Class(
       )
     },
     fromJSONString = function(FieldGradeJson) {
-      FieldGradeObject <- jsonlite::fromJSON(FieldGradeJson)
+      FieldGradeObject <- dlensFromJSON(FieldGradeJson)
       FieldObject <- Field$new()
       self$`field` <- FieldObject$fromJSON(jsonlite::toJSON(FieldGradeObject$field, auto_unbox = TRUE))
       GradeObject <- Grade$new()

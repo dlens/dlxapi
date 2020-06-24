@@ -87,7 +87,7 @@ Activity <- R6::R6Class(
       ActivityObject
     },
     fromJSON = function(ActivityJson) {
-      ActivityObject <- jsonlite::fromJSON(ActivityJson)
+      ActivityObject <- dlensFromJSON(ActivityJson)
       if (!is.null(ActivityObject$`href`)) {
         self$`href` <- ActivityObject$`href`
       }
@@ -137,7 +137,7 @@ Activity <- R6::R6Class(
       )
     },
     fromJSONString = function(ActivityJson) {
-      ActivityObject <- jsonlite::fromJSON(ActivityJson)
+      ActivityObject <- dlensFromJSON(ActivityJson)
       self$`href` <- ActivityObject$`href`
       self$`id` <- ActivityObject$`id`
       self$`createdAt` <- ActivityObject$`createdAt`

@@ -43,7 +43,7 @@ Sheet <- R6::R6Class(
       SheetObject
     },
     fromJSON = function(SheetJson) {
-      SheetObject <- jsonlite::fromJSON(SheetJson)
+      SheetObject <- dlensFromJSON(SheetJson)
       if (!is.null(SheetObject$`name`)) {
         self$`name` <- SheetObject$`name`
       }
@@ -66,7 +66,7 @@ Sheet <- R6::R6Class(
       )
     },
     fromJSONString = function(SheetJson) {
-      SheetObject <- jsonlite::fromJSON(SheetJson)
+      SheetObject <- dlensFromJSON(SheetJson)
       self$`name` <- SheetObject$`name`
       self$`rows` <- lapply(SheetObject$`rows`, function(x) Row$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
     }

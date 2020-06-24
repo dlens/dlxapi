@@ -42,7 +42,7 @@ TemplateProperty <- R6::R6Class(
       TemplatePropertyObject
     },
     fromJSON = function(TemplatePropertyJson) {
-      TemplatePropertyObject <- jsonlite::fromJSON(TemplatePropertyJson)
+      TemplatePropertyObject <- dlensFromJSON(TemplatePropertyJson)
       if (!is.null(TemplatePropertyObject$`name`)) {
         self$`name` <- TemplatePropertyObject$`name`
       }
@@ -63,7 +63,7 @@ TemplateProperty <- R6::R6Class(
       )
     },
     fromJSONString = function(TemplatePropertyJson) {
-      TemplatePropertyObject <- jsonlite::fromJSON(TemplatePropertyJson)
+      TemplatePropertyObject <- dlensFromJSON(TemplatePropertyJson)
       self$`name` <- TemplatePropertyObject$`name`
       TODO_OBJECT_MAPPINGObject <- TODO_OBJECT_MAPPING$new()
       self$`value` <- TODO_OBJECT_MAPPINGObject$fromJSON(jsonlite::toJSON(TemplatePropertyObject$value, auto_unbox = TRUE))
