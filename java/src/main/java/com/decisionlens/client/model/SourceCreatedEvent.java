@@ -32,37 +32,37 @@ import java.io.IOException;
  */
 
 public class SourceCreatedEvent {
-  @SerializedName("id")
-  private String id = null;
+  @SerializedName("sourceType")
+  private SourceType sourceType = null;
 
   @SerializedName("name")
   private String name = null;
 
-  @SerializedName("type")
-  private SourceType type = null;
+  @SerializedName("dlcPortfolio")
+  private DlcPortfolio dlcPortfolio = null;
+
+  @SerializedName("id")
+  private String id = null;
 
   @SerializedName("portfolioPlan")
   private PortfolioPlan portfolioPlan = null;
 
-  @SerializedName("dlcPortfolio")
-  private DlcPortfolio dlcPortfolio = null;
-
-  public SourceCreatedEvent id(String id) {
-    this.id = id;
+  public SourceCreatedEvent sourceType(SourceType sourceType) {
+    this.sourceType = sourceType;
     return this;
   }
 
    /**
-   * Get id
-   * @return id
+   * Get sourceType
+   * @return sourceType
   **/
   @ApiModelProperty(value = "")
-  public String getId() {
-    return id;
+  public SourceType getSourceType() {
+    return sourceType;
   }
 
-  public void setId(String id) {
-    this.id = id;
+  public void setSourceType(SourceType sourceType) {
+    this.sourceType = sourceType;
   }
 
   public SourceCreatedEvent name(String name) {
@@ -83,22 +83,40 @@ public class SourceCreatedEvent {
     this.name = name;
   }
 
-  public SourceCreatedEvent type(SourceType type) {
-    this.type = type;
+  public SourceCreatedEvent dlcPortfolio(DlcPortfolio dlcPortfolio) {
+    this.dlcPortfolio = dlcPortfolio;
     return this;
   }
 
    /**
-   * Get type
-   * @return type
+   * Get dlcPortfolio
+   * @return dlcPortfolio
   **/
   @ApiModelProperty(value = "")
-  public SourceType getType() {
-    return type;
+  public DlcPortfolio getDlcPortfolio() {
+    return dlcPortfolio;
   }
 
-  public void setType(SourceType type) {
-    this.type = type;
+  public void setDlcPortfolio(DlcPortfolio dlcPortfolio) {
+    this.dlcPortfolio = dlcPortfolio;
+  }
+
+  public SourceCreatedEvent id(String id) {
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * Get id
+   * @return id
+  **/
+  @ApiModelProperty(value = "")
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
   }
 
   public SourceCreatedEvent portfolioPlan(PortfolioPlan portfolioPlan) {
@@ -119,24 +137,6 @@ public class SourceCreatedEvent {
     this.portfolioPlan = portfolioPlan;
   }
 
-  public SourceCreatedEvent dlcPortfolio(DlcPortfolio dlcPortfolio) {
-    this.dlcPortfolio = dlcPortfolio;
-    return this;
-  }
-
-   /**
-   * Get dlcPortfolio
-   * @return dlcPortfolio
-  **/
-  @ApiModelProperty(value = "")
-  public DlcPortfolio getDlcPortfolio() {
-    return dlcPortfolio;
-  }
-
-  public void setDlcPortfolio(DlcPortfolio dlcPortfolio) {
-    this.dlcPortfolio = dlcPortfolio;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -147,16 +147,16 @@ public class SourceCreatedEvent {
       return false;
     }
     SourceCreatedEvent sourceCreatedEvent = (SourceCreatedEvent) o;
-    return Objects.equals(this.id, sourceCreatedEvent.id) &&
+    return Objects.equals(this.sourceType, sourceCreatedEvent.sourceType) &&
         Objects.equals(this.name, sourceCreatedEvent.name) &&
-        Objects.equals(this.type, sourceCreatedEvent.type) &&
-        Objects.equals(this.portfolioPlan, sourceCreatedEvent.portfolioPlan) &&
-        Objects.equals(this.dlcPortfolio, sourceCreatedEvent.dlcPortfolio);
+        Objects.equals(this.dlcPortfolio, sourceCreatedEvent.dlcPortfolio) &&
+        Objects.equals(this.id, sourceCreatedEvent.id) &&
+        Objects.equals(this.portfolioPlan, sourceCreatedEvent.portfolioPlan);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, type, portfolioPlan, dlcPortfolio);
+    return Objects.hash(sourceType, name, dlcPortfolio, id, portfolioPlan);
   }
 
 
@@ -165,11 +165,11 @@ public class SourceCreatedEvent {
     StringBuilder sb = new StringBuilder();
     sb.append("class SourceCreatedEvent {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    sourceType: ").append(toIndentedString(sourceType)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    portfolioPlan: ").append(toIndentedString(portfolioPlan)).append("\n");
     sb.append("    dlcPortfolio: ").append(toIndentedString(dlcPortfolio)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    portfolioPlan: ").append(toIndentedString(portfolioPlan)).append("\n");
     sb.append("}");
     return sb.toString();
   }

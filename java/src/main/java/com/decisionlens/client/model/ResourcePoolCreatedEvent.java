@@ -34,40 +34,58 @@ import java.util.List;
  */
 
 public class ResourcePoolCreatedEvent {
-  @SerializedName("id")
-  private String id = null;
-
-  @SerializedName("name")
-  private String name = null;
-
-  @SerializedName("budgetAmounts")
-  private List<ResourcePoolBudgetAmount> budgetAmounts = null;
+  @SerializedName("portfolioId")
+  private String portfolioId = null;
 
   @SerializedName("field")
   private Field field = null;
 
-  @SerializedName("portfolioId")
-  private String portfolioId = null;
+  @SerializedName("name")
+  private String name = null;
+
+  @SerializedName("id")
+  private String id = null;
+
+  @SerializedName("budgetAmounts")
+  private List<ResourcePoolBudgetAmount> budgetAmounts = null;
 
   @SerializedName("portfolioPlan")
   private PortfolioPlan portfolioPlan = null;
 
-  public ResourcePoolCreatedEvent id(String id) {
-    this.id = id;
+  public ResourcePoolCreatedEvent portfolioId(String portfolioId) {
+    this.portfolioId = portfolioId;
     return this;
   }
 
    /**
-   * Get id
-   * @return id
+   * Get portfolioId
+   * @return portfolioId
   **/
   @ApiModelProperty(value = "")
-  public String getId() {
-    return id;
+  public String getPortfolioId() {
+    return portfolioId;
   }
 
-  public void setId(String id) {
-    this.id = id;
+  public void setPortfolioId(String portfolioId) {
+    this.portfolioId = portfolioId;
+  }
+
+  public ResourcePoolCreatedEvent field(Field field) {
+    this.field = field;
+    return this;
+  }
+
+   /**
+   * Get field
+   * @return field
+  **/
+  @ApiModelProperty(value = "")
+  public Field getField() {
+    return field;
+  }
+
+  public void setField(Field field) {
+    this.field = field;
   }
 
   public ResourcePoolCreatedEvent name(String name) {
@@ -86,6 +104,24 @@ public class ResourcePoolCreatedEvent {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public ResourcePoolCreatedEvent id(String id) {
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * Get id
+   * @return id
+  **/
+  @ApiModelProperty(value = "")
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
   }
 
   public ResourcePoolCreatedEvent budgetAmounts(List<ResourcePoolBudgetAmount> budgetAmounts) {
@@ -112,42 +148,6 @@ public class ResourcePoolCreatedEvent {
 
   public void setBudgetAmounts(List<ResourcePoolBudgetAmount> budgetAmounts) {
     this.budgetAmounts = budgetAmounts;
-  }
-
-  public ResourcePoolCreatedEvent field(Field field) {
-    this.field = field;
-    return this;
-  }
-
-   /**
-   * Get field
-   * @return field
-  **/
-  @ApiModelProperty(value = "")
-  public Field getField() {
-    return field;
-  }
-
-  public void setField(Field field) {
-    this.field = field;
-  }
-
-  public ResourcePoolCreatedEvent portfolioId(String portfolioId) {
-    this.portfolioId = portfolioId;
-    return this;
-  }
-
-   /**
-   * Get portfolioId
-   * @return portfolioId
-  **/
-  @ApiModelProperty(value = "")
-  public String getPortfolioId() {
-    return portfolioId;
-  }
-
-  public void setPortfolioId(String portfolioId) {
-    this.portfolioId = portfolioId;
   }
 
   public ResourcePoolCreatedEvent portfolioPlan(PortfolioPlan portfolioPlan) {
@@ -178,17 +178,17 @@ public class ResourcePoolCreatedEvent {
       return false;
     }
     ResourcePoolCreatedEvent resourcePoolCreatedEvent = (ResourcePoolCreatedEvent) o;
-    return Objects.equals(this.id, resourcePoolCreatedEvent.id) &&
-        Objects.equals(this.name, resourcePoolCreatedEvent.name) &&
-        Objects.equals(this.budgetAmounts, resourcePoolCreatedEvent.budgetAmounts) &&
+    return Objects.equals(this.portfolioId, resourcePoolCreatedEvent.portfolioId) &&
         Objects.equals(this.field, resourcePoolCreatedEvent.field) &&
-        Objects.equals(this.portfolioId, resourcePoolCreatedEvent.portfolioId) &&
+        Objects.equals(this.name, resourcePoolCreatedEvent.name) &&
+        Objects.equals(this.id, resourcePoolCreatedEvent.id) &&
+        Objects.equals(this.budgetAmounts, resourcePoolCreatedEvent.budgetAmounts) &&
         Objects.equals(this.portfolioPlan, resourcePoolCreatedEvent.portfolioPlan);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, budgetAmounts, field, portfolioId, portfolioPlan);
+    return Objects.hash(portfolioId, field, name, id, budgetAmounts, portfolioPlan);
   }
 
 
@@ -197,11 +197,11 @@ public class ResourcePoolCreatedEvent {
     StringBuilder sb = new StringBuilder();
     sb.append("class ResourcePoolCreatedEvent {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    budgetAmounts: ").append(toIndentedString(budgetAmounts)).append("\n");
-    sb.append("    field: ").append(toIndentedString(field)).append("\n");
     sb.append("    portfolioId: ").append(toIndentedString(portfolioId)).append("\n");
+    sb.append("    field: ").append(toIndentedString(field)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    budgetAmounts: ").append(toIndentedString(budgetAmounts)).append("\n");
     sb.append("    portfolioPlan: ").append(toIndentedString(portfolioPlan)).append("\n");
     sb.append("}");
     return sb.toString();

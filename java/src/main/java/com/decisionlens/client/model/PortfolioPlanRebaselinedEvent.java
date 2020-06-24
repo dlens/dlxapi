@@ -30,11 +30,17 @@ import java.io.IOException;
  */
 
 public class PortfolioPlanRebaselinedEvent {
-  @SerializedName("id")
-  private String id = null;
+  @SerializedName("portfolioId")
+  private String portfolioId = null;
 
   @SerializedName("baselinePortfolioPlanName")
   private String baselinePortfolioPlanName = null;
+
+  @SerializedName("whatIfPortfolioPlan")
+  private PortfolioPlan whatIfPortfolioPlan = null;
+
+  @SerializedName("id")
+  private String id = null;
 
   @SerializedName("whatIfPortfolioPlanName")
   private String whatIfPortfolioPlanName = null;
@@ -42,28 +48,22 @@ public class PortfolioPlanRebaselinedEvent {
   @SerializedName("portfolioPlan")
   private PortfolioPlan portfolioPlan = null;
 
-  @SerializedName("whatIfPortfolioPlan")
-  private PortfolioPlan whatIfPortfolioPlan = null;
-
-  @SerializedName("portfolioId")
-  private String portfolioId = null;
-
-  public PortfolioPlanRebaselinedEvent id(String id) {
-    this.id = id;
+  public PortfolioPlanRebaselinedEvent portfolioId(String portfolioId) {
+    this.portfolioId = portfolioId;
     return this;
   }
 
    /**
-   * Get id
-   * @return id
+   * Get portfolioId
+   * @return portfolioId
   **/
   @ApiModelProperty(value = "")
-  public String getId() {
-    return id;
+  public String getPortfolioId() {
+    return portfolioId;
   }
 
-  public void setId(String id) {
-    this.id = id;
+  public void setPortfolioId(String portfolioId) {
+    this.portfolioId = portfolioId;
   }
 
   public PortfolioPlanRebaselinedEvent baselinePortfolioPlanName(String baselinePortfolioPlanName) {
@@ -82,6 +82,42 @@ public class PortfolioPlanRebaselinedEvent {
 
   public void setBaselinePortfolioPlanName(String baselinePortfolioPlanName) {
     this.baselinePortfolioPlanName = baselinePortfolioPlanName;
+  }
+
+  public PortfolioPlanRebaselinedEvent whatIfPortfolioPlan(PortfolioPlan whatIfPortfolioPlan) {
+    this.whatIfPortfolioPlan = whatIfPortfolioPlan;
+    return this;
+  }
+
+   /**
+   * Get whatIfPortfolioPlan
+   * @return whatIfPortfolioPlan
+  **/
+  @ApiModelProperty(value = "")
+  public PortfolioPlan getWhatIfPortfolioPlan() {
+    return whatIfPortfolioPlan;
+  }
+
+  public void setWhatIfPortfolioPlan(PortfolioPlan whatIfPortfolioPlan) {
+    this.whatIfPortfolioPlan = whatIfPortfolioPlan;
+  }
+
+  public PortfolioPlanRebaselinedEvent id(String id) {
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * Get id
+   * @return id
+  **/
+  @ApiModelProperty(value = "")
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
   }
 
   public PortfolioPlanRebaselinedEvent whatIfPortfolioPlanName(String whatIfPortfolioPlanName) {
@@ -120,42 +156,6 @@ public class PortfolioPlanRebaselinedEvent {
     this.portfolioPlan = portfolioPlan;
   }
 
-  public PortfolioPlanRebaselinedEvent whatIfPortfolioPlan(PortfolioPlan whatIfPortfolioPlan) {
-    this.whatIfPortfolioPlan = whatIfPortfolioPlan;
-    return this;
-  }
-
-   /**
-   * Get whatIfPortfolioPlan
-   * @return whatIfPortfolioPlan
-  **/
-  @ApiModelProperty(value = "")
-  public PortfolioPlan getWhatIfPortfolioPlan() {
-    return whatIfPortfolioPlan;
-  }
-
-  public void setWhatIfPortfolioPlan(PortfolioPlan whatIfPortfolioPlan) {
-    this.whatIfPortfolioPlan = whatIfPortfolioPlan;
-  }
-
-  public PortfolioPlanRebaselinedEvent portfolioId(String portfolioId) {
-    this.portfolioId = portfolioId;
-    return this;
-  }
-
-   /**
-   * Get portfolioId
-   * @return portfolioId
-  **/
-  @ApiModelProperty(value = "")
-  public String getPortfolioId() {
-    return portfolioId;
-  }
-
-  public void setPortfolioId(String portfolioId) {
-    this.portfolioId = portfolioId;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -166,17 +166,17 @@ public class PortfolioPlanRebaselinedEvent {
       return false;
     }
     PortfolioPlanRebaselinedEvent portfolioPlanRebaselinedEvent = (PortfolioPlanRebaselinedEvent) o;
-    return Objects.equals(this.id, portfolioPlanRebaselinedEvent.id) &&
+    return Objects.equals(this.portfolioId, portfolioPlanRebaselinedEvent.portfolioId) &&
         Objects.equals(this.baselinePortfolioPlanName, portfolioPlanRebaselinedEvent.baselinePortfolioPlanName) &&
-        Objects.equals(this.whatIfPortfolioPlanName, portfolioPlanRebaselinedEvent.whatIfPortfolioPlanName) &&
-        Objects.equals(this.portfolioPlan, portfolioPlanRebaselinedEvent.portfolioPlan) &&
         Objects.equals(this.whatIfPortfolioPlan, portfolioPlanRebaselinedEvent.whatIfPortfolioPlan) &&
-        Objects.equals(this.portfolioId, portfolioPlanRebaselinedEvent.portfolioId);
+        Objects.equals(this.id, portfolioPlanRebaselinedEvent.id) &&
+        Objects.equals(this.whatIfPortfolioPlanName, portfolioPlanRebaselinedEvent.whatIfPortfolioPlanName) &&
+        Objects.equals(this.portfolioPlan, portfolioPlanRebaselinedEvent.portfolioPlan);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, baselinePortfolioPlanName, whatIfPortfolioPlanName, portfolioPlan, whatIfPortfolioPlan, portfolioId);
+    return Objects.hash(portfolioId, baselinePortfolioPlanName, whatIfPortfolioPlan, id, whatIfPortfolioPlanName, portfolioPlan);
   }
 
 
@@ -185,12 +185,12 @@ public class PortfolioPlanRebaselinedEvent {
     StringBuilder sb = new StringBuilder();
     sb.append("class PortfolioPlanRebaselinedEvent {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    portfolioId: ").append(toIndentedString(portfolioId)).append("\n");
     sb.append("    baselinePortfolioPlanName: ").append(toIndentedString(baselinePortfolioPlanName)).append("\n");
+    sb.append("    whatIfPortfolioPlan: ").append(toIndentedString(whatIfPortfolioPlan)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    whatIfPortfolioPlanName: ").append(toIndentedString(whatIfPortfolioPlanName)).append("\n");
     sb.append("    portfolioPlan: ").append(toIndentedString(portfolioPlan)).append("\n");
-    sb.append("    whatIfPortfolioPlan: ").append(toIndentedString(whatIfPortfolioPlan)).append("\n");
-    sb.append("    portfolioId: ").append(toIndentedString(portfolioId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

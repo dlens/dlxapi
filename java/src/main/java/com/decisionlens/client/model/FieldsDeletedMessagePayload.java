@@ -32,8 +32,29 @@ import java.util.List;
  */
 
 public class FieldsDeletedMessagePayload {
+  @SerializedName("portfolioId")
+  private String portfolioId = null;
+
   @SerializedName("fields")
   private List<Field> fields = new ArrayList<Field>();
+
+  public FieldsDeletedMessagePayload portfolioId(String portfolioId) {
+    this.portfolioId = portfolioId;
+    return this;
+  }
+
+   /**
+   * Get portfolioId
+   * @return portfolioId
+  **/
+  @ApiModelProperty(value = "")
+  public String getPortfolioId() {
+    return portfolioId;
+  }
+
+  public void setPortfolioId(String portfolioId) {
+    this.portfolioId = portfolioId;
+  }
 
   public FieldsDeletedMessagePayload fields(List<Field> fields) {
     this.fields = fields;
@@ -68,12 +89,13 @@ public class FieldsDeletedMessagePayload {
       return false;
     }
     FieldsDeletedMessagePayload fieldsDeletedMessagePayload = (FieldsDeletedMessagePayload) o;
-    return Objects.equals(this.fields, fieldsDeletedMessagePayload.fields);
+    return Objects.equals(this.portfolioId, fieldsDeletedMessagePayload.portfolioId) &&
+        Objects.equals(this.fields, fieldsDeletedMessagePayload.fields);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fields);
+    return Objects.hash(portfolioId, fields);
   }
 
 
@@ -82,6 +104,7 @@ public class FieldsDeletedMessagePayload {
     StringBuilder sb = new StringBuilder();
     sb.append("class FieldsDeletedMessagePayload {\n");
     
+    sb.append("    portfolioId: ").append(toIndentedString(portfolioId)).append("\n");
     sb.append("    fields: ").append(toIndentedString(fields)).append("\n");
     sb.append("}");
     return sb.toString();

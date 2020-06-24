@@ -31,40 +31,40 @@ import java.io.IOException;
  */
 
 public class FieldTypeUpdatedEvent {
-  @SerializedName("id")
-  private String id = null;
+  @SerializedName("portfolioId")
+  private String portfolioId = null;
 
   @SerializedName("name")
   private String name = null;
 
-  @SerializedName("type")
-  private FieldType type = null;
+  @SerializedName("previousFieldType")
+  private FieldType previousFieldType = null;
 
-  @SerializedName("previousType")
-  private FieldType previousType = null;
+  @SerializedName("id")
+  private String id = null;
 
-  @SerializedName("portfolioId")
-  private String portfolioId = null;
+  @SerializedName("fieldType")
+  private FieldType fieldType = null;
 
   @SerializedName("portfolioPlan")
   private PortfolioPlan portfolioPlan = null;
 
-  public FieldTypeUpdatedEvent id(String id) {
-    this.id = id;
+  public FieldTypeUpdatedEvent portfolioId(String portfolioId) {
+    this.portfolioId = portfolioId;
     return this;
   }
 
    /**
-   * Get id
-   * @return id
+   * Get portfolioId
+   * @return portfolioId
   **/
   @ApiModelProperty(value = "")
-  public String getId() {
-    return id;
+  public String getPortfolioId() {
+    return portfolioId;
   }
 
-  public void setId(String id) {
-    this.id = id;
+  public void setPortfolioId(String portfolioId) {
+    this.portfolioId = portfolioId;
   }
 
   public FieldTypeUpdatedEvent name(String name) {
@@ -85,58 +85,58 @@ public class FieldTypeUpdatedEvent {
     this.name = name;
   }
 
-  public FieldTypeUpdatedEvent type(FieldType type) {
-    this.type = type;
+  public FieldTypeUpdatedEvent previousFieldType(FieldType previousFieldType) {
+    this.previousFieldType = previousFieldType;
     return this;
   }
 
    /**
-   * Get type
-   * @return type
+   * Get previousFieldType
+   * @return previousFieldType
   **/
   @ApiModelProperty(value = "")
-  public FieldType getType() {
-    return type;
+  public FieldType getPreviousFieldType() {
+    return previousFieldType;
   }
 
-  public void setType(FieldType type) {
-    this.type = type;
+  public void setPreviousFieldType(FieldType previousFieldType) {
+    this.previousFieldType = previousFieldType;
   }
 
-  public FieldTypeUpdatedEvent previousType(FieldType previousType) {
-    this.previousType = previousType;
+  public FieldTypeUpdatedEvent id(String id) {
+    this.id = id;
     return this;
   }
 
    /**
-   * Get previousType
-   * @return previousType
+   * Get id
+   * @return id
   **/
   @ApiModelProperty(value = "")
-  public FieldType getPreviousType() {
-    return previousType;
+  public String getId() {
+    return id;
   }
 
-  public void setPreviousType(FieldType previousType) {
-    this.previousType = previousType;
+  public void setId(String id) {
+    this.id = id;
   }
 
-  public FieldTypeUpdatedEvent portfolioId(String portfolioId) {
-    this.portfolioId = portfolioId;
+  public FieldTypeUpdatedEvent fieldType(FieldType fieldType) {
+    this.fieldType = fieldType;
     return this;
   }
 
    /**
-   * Get portfolioId
-   * @return portfolioId
+   * Get fieldType
+   * @return fieldType
   **/
   @ApiModelProperty(value = "")
-  public String getPortfolioId() {
-    return portfolioId;
+  public FieldType getFieldType() {
+    return fieldType;
   }
 
-  public void setPortfolioId(String portfolioId) {
-    this.portfolioId = portfolioId;
+  public void setFieldType(FieldType fieldType) {
+    this.fieldType = fieldType;
   }
 
   public FieldTypeUpdatedEvent portfolioPlan(PortfolioPlan portfolioPlan) {
@@ -167,17 +167,17 @@ public class FieldTypeUpdatedEvent {
       return false;
     }
     FieldTypeUpdatedEvent fieldTypeUpdatedEvent = (FieldTypeUpdatedEvent) o;
-    return Objects.equals(this.id, fieldTypeUpdatedEvent.id) &&
+    return Objects.equals(this.portfolioId, fieldTypeUpdatedEvent.portfolioId) &&
         Objects.equals(this.name, fieldTypeUpdatedEvent.name) &&
-        Objects.equals(this.type, fieldTypeUpdatedEvent.type) &&
-        Objects.equals(this.previousType, fieldTypeUpdatedEvent.previousType) &&
-        Objects.equals(this.portfolioId, fieldTypeUpdatedEvent.portfolioId) &&
+        Objects.equals(this.previousFieldType, fieldTypeUpdatedEvent.previousFieldType) &&
+        Objects.equals(this.id, fieldTypeUpdatedEvent.id) &&
+        Objects.equals(this.fieldType, fieldTypeUpdatedEvent.fieldType) &&
         Objects.equals(this.portfolioPlan, fieldTypeUpdatedEvent.portfolioPlan);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, type, previousType, portfolioId, portfolioPlan);
+    return Objects.hash(portfolioId, name, previousFieldType, id, fieldType, portfolioPlan);
   }
 
 
@@ -186,11 +186,11 @@ public class FieldTypeUpdatedEvent {
     StringBuilder sb = new StringBuilder();
     sb.append("class FieldTypeUpdatedEvent {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    previousType: ").append(toIndentedString(previousType)).append("\n");
     sb.append("    portfolioId: ").append(toIndentedString(portfolioId)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    previousFieldType: ").append(toIndentedString(previousFieldType)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    fieldType: ").append(toIndentedString(fieldType)).append("\n");
     sb.append("    portfolioPlan: ").append(toIndentedString(portfolioPlan)).append("\n");
     sb.append("}");
     return sb.toString();

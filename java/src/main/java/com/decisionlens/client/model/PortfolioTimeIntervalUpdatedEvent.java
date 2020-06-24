@@ -31,11 +31,11 @@ import java.io.IOException;
  */
 
 public class PortfolioTimeIntervalUpdatedEvent {
-  @SerializedName("id")
-  private String id = null;
-
   @SerializedName("portfolioId")
   private String portfolioId = null;
+
+  @SerializedName("previousTimeInterval")
+  private TimeInterval previousTimeInterval = null;
 
   @SerializedName("name")
   private String name = null;
@@ -43,29 +43,11 @@ public class PortfolioTimeIntervalUpdatedEvent {
   @SerializedName("timeInterval")
   private TimeInterval timeInterval = null;
 
-  @SerializedName("previousTimeInterval")
-  private TimeInterval previousTimeInterval = null;
+  @SerializedName("id")
+  private String id = null;
 
   @SerializedName("portfolioPlan")
   private PortfolioPlan portfolioPlan = null;
-
-  public PortfolioTimeIntervalUpdatedEvent id(String id) {
-    this.id = id;
-    return this;
-  }
-
-   /**
-   * Get id
-   * @return id
-  **/
-  @ApiModelProperty(value = "")
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
 
   public PortfolioTimeIntervalUpdatedEvent portfolioId(String portfolioId) {
     this.portfolioId = portfolioId;
@@ -83,6 +65,24 @@ public class PortfolioTimeIntervalUpdatedEvent {
 
   public void setPortfolioId(String portfolioId) {
     this.portfolioId = portfolioId;
+  }
+
+  public PortfolioTimeIntervalUpdatedEvent previousTimeInterval(TimeInterval previousTimeInterval) {
+    this.previousTimeInterval = previousTimeInterval;
+    return this;
+  }
+
+   /**
+   * Get previousTimeInterval
+   * @return previousTimeInterval
+  **/
+  @ApiModelProperty(value = "")
+  public TimeInterval getPreviousTimeInterval() {
+    return previousTimeInterval;
+  }
+
+  public void setPreviousTimeInterval(TimeInterval previousTimeInterval) {
+    this.previousTimeInterval = previousTimeInterval;
   }
 
   public PortfolioTimeIntervalUpdatedEvent name(String name) {
@@ -121,22 +121,22 @@ public class PortfolioTimeIntervalUpdatedEvent {
     this.timeInterval = timeInterval;
   }
 
-  public PortfolioTimeIntervalUpdatedEvent previousTimeInterval(TimeInterval previousTimeInterval) {
-    this.previousTimeInterval = previousTimeInterval;
+  public PortfolioTimeIntervalUpdatedEvent id(String id) {
+    this.id = id;
     return this;
   }
 
    /**
-   * Get previousTimeInterval
-   * @return previousTimeInterval
+   * Get id
+   * @return id
   **/
   @ApiModelProperty(value = "")
-  public TimeInterval getPreviousTimeInterval() {
-    return previousTimeInterval;
+  public String getId() {
+    return id;
   }
 
-  public void setPreviousTimeInterval(TimeInterval previousTimeInterval) {
-    this.previousTimeInterval = previousTimeInterval;
+  public void setId(String id) {
+    this.id = id;
   }
 
   public PortfolioTimeIntervalUpdatedEvent portfolioPlan(PortfolioPlan portfolioPlan) {
@@ -167,17 +167,17 @@ public class PortfolioTimeIntervalUpdatedEvent {
       return false;
     }
     PortfolioTimeIntervalUpdatedEvent portfolioTimeIntervalUpdatedEvent = (PortfolioTimeIntervalUpdatedEvent) o;
-    return Objects.equals(this.id, portfolioTimeIntervalUpdatedEvent.id) &&
-        Objects.equals(this.portfolioId, portfolioTimeIntervalUpdatedEvent.portfolioId) &&
+    return Objects.equals(this.portfolioId, portfolioTimeIntervalUpdatedEvent.portfolioId) &&
+        Objects.equals(this.previousTimeInterval, portfolioTimeIntervalUpdatedEvent.previousTimeInterval) &&
         Objects.equals(this.name, portfolioTimeIntervalUpdatedEvent.name) &&
         Objects.equals(this.timeInterval, portfolioTimeIntervalUpdatedEvent.timeInterval) &&
-        Objects.equals(this.previousTimeInterval, portfolioTimeIntervalUpdatedEvent.previousTimeInterval) &&
+        Objects.equals(this.id, portfolioTimeIntervalUpdatedEvent.id) &&
         Objects.equals(this.portfolioPlan, portfolioTimeIntervalUpdatedEvent.portfolioPlan);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, portfolioId, name, timeInterval, previousTimeInterval, portfolioPlan);
+    return Objects.hash(portfolioId, previousTimeInterval, name, timeInterval, id, portfolioPlan);
   }
 
 
@@ -186,11 +186,11 @@ public class PortfolioTimeIntervalUpdatedEvent {
     StringBuilder sb = new StringBuilder();
     sb.append("class PortfolioTimeIntervalUpdatedEvent {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    portfolioId: ").append(toIndentedString(portfolioId)).append("\n");
+    sb.append("    previousTimeInterval: ").append(toIndentedString(previousTimeInterval)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    timeInterval: ").append(toIndentedString(timeInterval)).append("\n");
-    sb.append("    previousTimeInterval: ").append(toIndentedString(previousTimeInterval)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    portfolioPlan: ").append(toIndentedString(portfolioPlan)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -75,6 +75,7 @@ public class JSON {
                 classByDiscriminatorValue.put("ResourcePoolBudgetAmounts".toUpperCase(), ResourcePoolBudgetAmounts.class);
                 classByDiscriminatorValue.put("ResourcePools".toUpperCase(), ResourcePools.class);
                 classByDiscriminatorValue.put("Sheets".toUpperCase(), Sheets.class);
+                classByDiscriminatorValue.put("Tags".toUpperCase(), Tags.class);
                 classByDiscriminatorValue.put("Users".toUpperCase(), Users.class);
                 classByDiscriminatorValue.put("ValueCounts".toUpperCase(), ValueCounts.class);
                 classByDiscriminatorValue.put("DlCollection".toUpperCase(), DlCollection.class);
@@ -102,6 +103,7 @@ public class JSON {
                 classByDiscriminatorValue.put("ResourcePool".toUpperCase(), ResourcePool.class);
                 classByDiscriminatorValue.put("Source".toUpperCase(), Source.class);
                 classByDiscriminatorValue.put("Spreadsheet".toUpperCase(), Spreadsheet.class);
+                classByDiscriminatorValue.put("Tag".toUpperCase(), Tag.class);
                 classByDiscriminatorValue.put("User".toUpperCase(), User.class);
                 classByDiscriminatorValue.put("DlResource".toUpperCase(), DlResource.class);
                 return getClassByDiscriminator(

@@ -31,17 +31,35 @@ import java.io.IOException;
  */
 
 public class PortfolioPlanUserDeletedEvent {
+  @SerializedName("portfolioId")
+  private String portfolioId = null;
+
   @SerializedName("id")
   private String id = null;
-
-  @SerializedName("portfolioPlan")
-  private PortfolioPlan portfolioPlan = null;
 
   @SerializedName("user")
   private User user = null;
 
-  @SerializedName("portfolioId")
-  private String portfolioId = null;
+  @SerializedName("portfolioPlan")
+  private PortfolioPlan portfolioPlan = null;
+
+  public PortfolioPlanUserDeletedEvent portfolioId(String portfolioId) {
+    this.portfolioId = portfolioId;
+    return this;
+  }
+
+   /**
+   * Get portfolioId
+   * @return portfolioId
+  **/
+  @ApiModelProperty(value = "")
+  public String getPortfolioId() {
+    return portfolioId;
+  }
+
+  public void setPortfolioId(String portfolioId) {
+    this.portfolioId = portfolioId;
+  }
 
   public PortfolioPlanUserDeletedEvent id(String id) {
     this.id = id;
@@ -59,24 +77,6 @@ public class PortfolioPlanUserDeletedEvent {
 
   public void setId(String id) {
     this.id = id;
-  }
-
-  public PortfolioPlanUserDeletedEvent portfolioPlan(PortfolioPlan portfolioPlan) {
-    this.portfolioPlan = portfolioPlan;
-    return this;
-  }
-
-   /**
-   * Get portfolioPlan
-   * @return portfolioPlan
-  **/
-  @ApiModelProperty(value = "")
-  public PortfolioPlan getPortfolioPlan() {
-    return portfolioPlan;
-  }
-
-  public void setPortfolioPlan(PortfolioPlan portfolioPlan) {
-    this.portfolioPlan = portfolioPlan;
   }
 
   public PortfolioPlanUserDeletedEvent user(User user) {
@@ -97,22 +97,22 @@ public class PortfolioPlanUserDeletedEvent {
     this.user = user;
   }
 
-  public PortfolioPlanUserDeletedEvent portfolioId(String portfolioId) {
-    this.portfolioId = portfolioId;
+  public PortfolioPlanUserDeletedEvent portfolioPlan(PortfolioPlan portfolioPlan) {
+    this.portfolioPlan = portfolioPlan;
     return this;
   }
 
    /**
-   * Get portfolioId
-   * @return portfolioId
+   * Get portfolioPlan
+   * @return portfolioPlan
   **/
   @ApiModelProperty(value = "")
-  public String getPortfolioId() {
-    return portfolioId;
+  public PortfolioPlan getPortfolioPlan() {
+    return portfolioPlan;
   }
 
-  public void setPortfolioId(String portfolioId) {
-    this.portfolioId = portfolioId;
+  public void setPortfolioPlan(PortfolioPlan portfolioPlan) {
+    this.portfolioPlan = portfolioPlan;
   }
 
 
@@ -125,15 +125,15 @@ public class PortfolioPlanUserDeletedEvent {
       return false;
     }
     PortfolioPlanUserDeletedEvent portfolioPlanUserDeletedEvent = (PortfolioPlanUserDeletedEvent) o;
-    return Objects.equals(this.id, portfolioPlanUserDeletedEvent.id) &&
-        Objects.equals(this.portfolioPlan, portfolioPlanUserDeletedEvent.portfolioPlan) &&
+    return Objects.equals(this.portfolioId, portfolioPlanUserDeletedEvent.portfolioId) &&
+        Objects.equals(this.id, portfolioPlanUserDeletedEvent.id) &&
         Objects.equals(this.user, portfolioPlanUserDeletedEvent.user) &&
-        Objects.equals(this.portfolioId, portfolioPlanUserDeletedEvent.portfolioId);
+        Objects.equals(this.portfolioPlan, portfolioPlanUserDeletedEvent.portfolioPlan);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, portfolioPlan, user, portfolioId);
+    return Objects.hash(portfolioId, id, user, portfolioPlan);
   }
 
 
@@ -142,10 +142,10 @@ public class PortfolioPlanUserDeletedEvent {
     StringBuilder sb = new StringBuilder();
     sb.append("class PortfolioPlanUserDeletedEvent {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    portfolioPlan: ").append(toIndentedString(portfolioPlan)).append("\n");
-    sb.append("    user: ").append(toIndentedString(user)).append("\n");
     sb.append("    portfolioId: ").append(toIndentedString(portfolioId)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    user: ").append(toIndentedString(user)).append("\n");
+    sb.append("    portfolioPlan: ").append(toIndentedString(portfolioPlan)).append("\n");
     sb.append("}");
     return sb.toString();
   }

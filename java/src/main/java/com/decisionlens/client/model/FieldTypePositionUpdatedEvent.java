@@ -31,98 +31,26 @@ import java.io.IOException;
  */
 
 public class FieldTypePositionUpdatedEvent {
-  @SerializedName("id")
-  private String id = null;
-
-  @SerializedName("name")
-  private String name = null;
-
-  @SerializedName("type")
-  private FieldType type = null;
-
-  @SerializedName("typePosition")
-  private Integer typePosition = null;
-
   @SerializedName("previousTypePosition")
   private Integer previousTypePosition = null;
 
   @SerializedName("portfolioId")
   private String portfolioId = null;
 
+  @SerializedName("typePosition")
+  private Integer typePosition = null;
+
+  @SerializedName("name")
+  private String name = null;
+
+  @SerializedName("id")
+  private String id = null;
+
+  @SerializedName("fieldType")
+  private FieldType fieldType = null;
+
   @SerializedName("portfolioPlan")
   private PortfolioPlan portfolioPlan = null;
-
-  public FieldTypePositionUpdatedEvent id(String id) {
-    this.id = id;
-    return this;
-  }
-
-   /**
-   * Get id
-   * @return id
-  **/
-  @ApiModelProperty(value = "")
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public FieldTypePositionUpdatedEvent name(String name) {
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * Get name
-   * @return name
-  **/
-  @ApiModelProperty(value = "")
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public FieldTypePositionUpdatedEvent type(FieldType type) {
-    this.type = type;
-    return this;
-  }
-
-   /**
-   * Get type
-   * @return type
-  **/
-  @ApiModelProperty(value = "")
-  public FieldType getType() {
-    return type;
-  }
-
-  public void setType(FieldType type) {
-    this.type = type;
-  }
-
-  public FieldTypePositionUpdatedEvent typePosition(Integer typePosition) {
-    this.typePosition = typePosition;
-    return this;
-  }
-
-   /**
-   * Get typePosition
-   * @return typePosition
-  **/
-  @ApiModelProperty(value = "")
-  public Integer getTypePosition() {
-    return typePosition;
-  }
-
-  public void setTypePosition(Integer typePosition) {
-    this.typePosition = typePosition;
-  }
 
   public FieldTypePositionUpdatedEvent previousTypePosition(Integer previousTypePosition) {
     this.previousTypePosition = previousTypePosition;
@@ -160,6 +88,78 @@ public class FieldTypePositionUpdatedEvent {
     this.portfolioId = portfolioId;
   }
 
+  public FieldTypePositionUpdatedEvent typePosition(Integer typePosition) {
+    this.typePosition = typePosition;
+    return this;
+  }
+
+   /**
+   * Get typePosition
+   * @return typePosition
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getTypePosition() {
+    return typePosition;
+  }
+
+  public void setTypePosition(Integer typePosition) {
+    this.typePosition = typePosition;
+  }
+
+  public FieldTypePositionUpdatedEvent name(String name) {
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Get name
+   * @return name
+  **/
+  @ApiModelProperty(value = "")
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public FieldTypePositionUpdatedEvent id(String id) {
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * Get id
+   * @return id
+  **/
+  @ApiModelProperty(value = "")
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public FieldTypePositionUpdatedEvent fieldType(FieldType fieldType) {
+    this.fieldType = fieldType;
+    return this;
+  }
+
+   /**
+   * Get fieldType
+   * @return fieldType
+  **/
+  @ApiModelProperty(value = "")
+  public FieldType getFieldType() {
+    return fieldType;
+  }
+
+  public void setFieldType(FieldType fieldType) {
+    this.fieldType = fieldType;
+  }
+
   public FieldTypePositionUpdatedEvent portfolioPlan(PortfolioPlan portfolioPlan) {
     this.portfolioPlan = portfolioPlan;
     return this;
@@ -188,18 +188,18 @@ public class FieldTypePositionUpdatedEvent {
       return false;
     }
     FieldTypePositionUpdatedEvent fieldTypePositionUpdatedEvent = (FieldTypePositionUpdatedEvent) o;
-    return Objects.equals(this.id, fieldTypePositionUpdatedEvent.id) &&
-        Objects.equals(this.name, fieldTypePositionUpdatedEvent.name) &&
-        Objects.equals(this.type, fieldTypePositionUpdatedEvent.type) &&
-        Objects.equals(this.typePosition, fieldTypePositionUpdatedEvent.typePosition) &&
-        Objects.equals(this.previousTypePosition, fieldTypePositionUpdatedEvent.previousTypePosition) &&
+    return Objects.equals(this.previousTypePosition, fieldTypePositionUpdatedEvent.previousTypePosition) &&
         Objects.equals(this.portfolioId, fieldTypePositionUpdatedEvent.portfolioId) &&
+        Objects.equals(this.typePosition, fieldTypePositionUpdatedEvent.typePosition) &&
+        Objects.equals(this.name, fieldTypePositionUpdatedEvent.name) &&
+        Objects.equals(this.id, fieldTypePositionUpdatedEvent.id) &&
+        Objects.equals(this.fieldType, fieldTypePositionUpdatedEvent.fieldType) &&
         Objects.equals(this.portfolioPlan, fieldTypePositionUpdatedEvent.portfolioPlan);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, type, typePosition, previousTypePosition, portfolioId, portfolioPlan);
+    return Objects.hash(previousTypePosition, portfolioId, typePosition, name, id, fieldType, portfolioPlan);
   }
 
 
@@ -208,12 +208,12 @@ public class FieldTypePositionUpdatedEvent {
     StringBuilder sb = new StringBuilder();
     sb.append("class FieldTypePositionUpdatedEvent {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    typePosition: ").append(toIndentedString(typePosition)).append("\n");
     sb.append("    previousTypePosition: ").append(toIndentedString(previousTypePosition)).append("\n");
     sb.append("    portfolioId: ").append(toIndentedString(portfolioId)).append("\n");
+    sb.append("    typePosition: ").append(toIndentedString(typePosition)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    fieldType: ").append(toIndentedString(fieldType)).append("\n");
     sb.append("    portfolioPlan: ").append(toIndentedString(portfolioPlan)).append("\n");
     sb.append("}");
     return sb.toString();

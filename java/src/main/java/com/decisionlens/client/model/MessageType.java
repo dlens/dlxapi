@@ -71,7 +71,15 @@ public enum MessageType {
   
   COMMENTDELETEDMESSAGE("CommentDeletedMessage"),
   
-  NOTIFICATIONSMESSAGE("NotificationsMessage");
+  NOTIFICATIONSMESSAGE("NotificationsMessage"),
+  
+  TAGADDEDMESSAGE("TagAddedMessage"),
+  
+  TAGUPDATEDMESSAGE("TagUpdatedMessage"),
+  
+  TAGDELETEDMESSAGE("TagDeletedMessage"),
+  
+  DRAFTPROJECTSSUBMITTEDMESSAGE("DraftProjectsSubmittedMessage");
 
   private String value;
 

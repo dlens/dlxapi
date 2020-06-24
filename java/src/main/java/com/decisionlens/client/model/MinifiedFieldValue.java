@@ -24,6 +24,7 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -47,6 +48,9 @@ public class MinifiedFieldValue {
 
   @SerializedName("mns")
   private Map<String, Double> mns = null;
+
+  @SerializedName("tis")
+  private List<String> tis = null;
 
   public MinifiedFieldValue v(String v) {
     this.v = v;
@@ -154,6 +158,32 @@ public class MinifiedFieldValue {
     this.mns = mns;
   }
 
+  public MinifiedFieldValue tis(List<String> tis) {
+    this.tis = tis;
+    return this;
+  }
+
+  public MinifiedFieldValue addTisItem(String tisItem) {
+    if (this.tis == null) {
+      this.tis = new ArrayList<String>();
+    }
+    this.tis.add(tisItem);
+    return this;
+  }
+
+   /**
+   * Get tis
+   * @return tis
+  **/
+  @ApiModelProperty(value = "")
+  public List<String> getTis() {
+    return tis;
+  }
+
+  public void setTis(List<String> tis) {
+    this.tis = tis;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -168,12 +198,13 @@ public class MinifiedFieldValue {
         Objects.equals(this.nv, minifiedFieldValue.nv) &&
         Objects.equals(this.bv, minifiedFieldValue.bv) &&
         Objects.equals(this.yrs, minifiedFieldValue.yrs) &&
-        Objects.equals(this.mns, minifiedFieldValue.mns);
+        Objects.equals(this.mns, minifiedFieldValue.mns) &&
+        Objects.equals(this.tis, minifiedFieldValue.tis);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(v, nv, bv, yrs, mns);
+    return Objects.hash(v, nv, bv, yrs, mns, tis);
   }
 
 
@@ -187,6 +218,7 @@ public class MinifiedFieldValue {
     sb.append("    bv: ").append(toIndentedString(bv)).append("\n");
     sb.append("    yrs: ").append(toIndentedString(yrs)).append("\n");
     sb.append("    mns: ").append(toIndentedString(mns)).append("\n");
+    sb.append("    tis: ").append(toIndentedString(tis)).append("\n");
     sb.append("}");
     return sb.toString();
   }

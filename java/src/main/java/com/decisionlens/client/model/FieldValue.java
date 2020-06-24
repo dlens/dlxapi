@@ -27,6 +27,8 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * FieldValue
@@ -47,6 +49,9 @@ public class FieldValue {
 
   @SerializedName("booleanValue")
   private Boolean booleanValue = null;
+
+  @SerializedName("tagIds")
+  private List<String> tagIds = null;
 
   @SerializedName("timePeriod")
   private TimePeriod timePeriod = null;
@@ -150,6 +155,32 @@ public class FieldValue {
     this.booleanValue = booleanValue;
   }
 
+  public FieldValue tagIds(List<String> tagIds) {
+    this.tagIds = tagIds;
+    return this;
+  }
+
+  public FieldValue addTagIdsItem(String tagIdsItem) {
+    if (this.tagIds == null) {
+      this.tagIds = new ArrayList<String>();
+    }
+    this.tagIds.add(tagIdsItem);
+    return this;
+  }
+
+   /**
+   * Get tagIds
+   * @return tagIds
+  **/
+  @ApiModelProperty(value = "")
+  public List<String> getTagIds() {
+    return tagIds;
+  }
+
+  public void setTagIds(List<String> tagIds) {
+    this.tagIds = tagIds;
+  }
+
   public FieldValue timePeriod(TimePeriod timePeriod) {
     this.timePeriod = timePeriod;
     return this;
@@ -237,6 +268,7 @@ public class FieldValue {
         Objects.equals(this.value, fieldValue.value) &&
         Objects.equals(this.numericValue, fieldValue.numericValue) &&
         Objects.equals(this.booleanValue, fieldValue.booleanValue) &&
+        Objects.equals(this.tagIds, fieldValue.tagIds) &&
         Objects.equals(this.timePeriod, fieldValue.timePeriod) &&
         Objects.equals(this.details, fieldValue.details) &&
         Objects.equals(this.createdAt, fieldValue.createdAt) &&
@@ -245,7 +277,7 @@ public class FieldValue {
 
   @Override
   public int hashCode() {
-    return Objects.hash(field, project, value, numericValue, booleanValue, timePeriod, details, createdAt, modifiedAt);
+    return Objects.hash(field, project, value, numericValue, booleanValue, tagIds, timePeriod, details, createdAt, modifiedAt);
   }
 
 
@@ -259,6 +291,7 @@ public class FieldValue {
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("    numericValue: ").append(toIndentedString(numericValue)).append("\n");
     sb.append("    booleanValue: ").append(toIndentedString(booleanValue)).append("\n");
+    sb.append("    tagIds: ").append(toIndentedString(tagIds)).append("\n");
     sb.append("    timePeriod: ").append(toIndentedString(timePeriod)).append("\n");
     sb.append("    details: ").append(toIndentedString(details)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");

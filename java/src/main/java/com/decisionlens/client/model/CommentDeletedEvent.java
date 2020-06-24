@@ -30,11 +30,14 @@ import java.io.IOException;
  */
 
 public class CommentDeletedEvent {
+  @SerializedName("portfolioId")
+  private String portfolioId = null;
+
   @SerializedName("id")
   private String id = null;
 
-  @SerializedName("portfolioId")
-  private String portfolioId = null;
+  @SerializedName("projectName")
+  private String projectName = null;
 
   @SerializedName("userId")
   private String userId = null;
@@ -42,14 +45,32 @@ public class CommentDeletedEvent {
   @SerializedName("projectId")
   private String projectId = null;
 
-  @SerializedName("projectName")
-  private String projectName = null;
+  @SerializedName("value")
+  private String value = null;
+
+  @SerializedName("previousValue")
+  private String previousValue = null;
 
   @SerializedName("portfolioPlan")
   private PortfolioPlan portfolioPlan = null;
 
-  @SerializedName("value")
-  private String value = null;
+  public CommentDeletedEvent portfolioId(String portfolioId) {
+    this.portfolioId = portfolioId;
+    return this;
+  }
+
+   /**
+   * Get portfolioId
+   * @return portfolioId
+  **/
+  @ApiModelProperty(value = "")
+  public String getPortfolioId() {
+    return portfolioId;
+  }
+
+  public void setPortfolioId(String portfolioId) {
+    this.portfolioId = portfolioId;
+  }
 
   public CommentDeletedEvent id(String id) {
     this.id = id;
@@ -69,22 +90,22 @@ public class CommentDeletedEvent {
     this.id = id;
   }
 
-  public CommentDeletedEvent portfolioId(String portfolioId) {
-    this.portfolioId = portfolioId;
+  public CommentDeletedEvent projectName(String projectName) {
+    this.projectName = projectName;
     return this;
   }
 
    /**
-   * Get portfolioId
-   * @return portfolioId
+   * Get projectName
+   * @return projectName
   **/
   @ApiModelProperty(value = "")
-  public String getPortfolioId() {
-    return portfolioId;
+  public String getProjectName() {
+    return projectName;
   }
 
-  public void setPortfolioId(String portfolioId) {
-    this.portfolioId = portfolioId;
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
   }
 
   public CommentDeletedEvent userId(String userId) {
@@ -123,22 +144,40 @@ public class CommentDeletedEvent {
     this.projectId = projectId;
   }
 
-  public CommentDeletedEvent projectName(String projectName) {
-    this.projectName = projectName;
+  public CommentDeletedEvent value(String value) {
+    this.value = value;
     return this;
   }
 
    /**
-   * Get projectName
-   * @return projectName
+   * Get value
+   * @return value
   **/
   @ApiModelProperty(value = "")
-  public String getProjectName() {
-    return projectName;
+  public String getValue() {
+    return value;
   }
 
-  public void setProjectName(String projectName) {
-    this.projectName = projectName;
+  public void setValue(String value) {
+    this.value = value;
+  }
+
+  public CommentDeletedEvent previousValue(String previousValue) {
+    this.previousValue = previousValue;
+    return this;
+  }
+
+   /**
+   * Get previousValue
+   * @return previousValue
+  **/
+  @ApiModelProperty(value = "")
+  public String getPreviousValue() {
+    return previousValue;
+  }
+
+  public void setPreviousValue(String previousValue) {
+    this.previousValue = previousValue;
   }
 
   public CommentDeletedEvent portfolioPlan(PortfolioPlan portfolioPlan) {
@@ -159,24 +198,6 @@ public class CommentDeletedEvent {
     this.portfolioPlan = portfolioPlan;
   }
 
-  public CommentDeletedEvent value(String value) {
-    this.value = value;
-    return this;
-  }
-
-   /**
-   * Get value
-   * @return value
-  **/
-  @ApiModelProperty(value = "")
-  public String getValue() {
-    return value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -187,18 +208,19 @@ public class CommentDeletedEvent {
       return false;
     }
     CommentDeletedEvent commentDeletedEvent = (CommentDeletedEvent) o;
-    return Objects.equals(this.id, commentDeletedEvent.id) &&
-        Objects.equals(this.portfolioId, commentDeletedEvent.portfolioId) &&
+    return Objects.equals(this.portfolioId, commentDeletedEvent.portfolioId) &&
+        Objects.equals(this.id, commentDeletedEvent.id) &&
+        Objects.equals(this.projectName, commentDeletedEvent.projectName) &&
         Objects.equals(this.userId, commentDeletedEvent.userId) &&
         Objects.equals(this.projectId, commentDeletedEvent.projectId) &&
-        Objects.equals(this.projectName, commentDeletedEvent.projectName) &&
-        Objects.equals(this.portfolioPlan, commentDeletedEvent.portfolioPlan) &&
-        Objects.equals(this.value, commentDeletedEvent.value);
+        Objects.equals(this.value, commentDeletedEvent.value) &&
+        Objects.equals(this.previousValue, commentDeletedEvent.previousValue) &&
+        Objects.equals(this.portfolioPlan, commentDeletedEvent.portfolioPlan);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, portfolioId, userId, projectId, projectName, portfolioPlan, value);
+    return Objects.hash(portfolioId, id, projectName, userId, projectId, value, previousValue, portfolioPlan);
   }
 
 
@@ -207,13 +229,14 @@ public class CommentDeletedEvent {
     StringBuilder sb = new StringBuilder();
     sb.append("class CommentDeletedEvent {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    portfolioId: ").append(toIndentedString(portfolioId)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
     sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
-    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
-    sb.append("    portfolioPlan: ").append(toIndentedString(portfolioPlan)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("    previousValue: ").append(toIndentedString(previousValue)).append("\n");
+    sb.append("    portfolioPlan: ").append(toIndentedString(portfolioPlan)).append("\n");
     sb.append("}");
     return sb.toString();
   }

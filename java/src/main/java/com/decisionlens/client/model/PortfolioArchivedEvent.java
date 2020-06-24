@@ -30,38 +30,20 @@ import java.io.IOException;
  */
 
 public class PortfolioArchivedEvent {
-  @SerializedName("id")
-  private String id = null;
-
   @SerializedName("portfolioId")
   private String portfolioId = null;
-
-  @SerializedName("name")
-  private String name = null;
 
   @SerializedName("isArchived")
   private Boolean isArchived = null;
 
+  @SerializedName("name")
+  private String name = null;
+
+  @SerializedName("id")
+  private String id = null;
+
   @SerializedName("portfolioPlan")
   private PortfolioPlan portfolioPlan = null;
-
-  public PortfolioArchivedEvent id(String id) {
-    this.id = id;
-    return this;
-  }
-
-   /**
-   * Get id
-   * @return id
-  **/
-  @ApiModelProperty(value = "")
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
 
   public PortfolioArchivedEvent portfolioId(String portfolioId) {
     this.portfolioId = portfolioId;
@@ -79,6 +61,24 @@ public class PortfolioArchivedEvent {
 
   public void setPortfolioId(String portfolioId) {
     this.portfolioId = portfolioId;
+  }
+
+  public PortfolioArchivedEvent isArchived(Boolean isArchived) {
+    this.isArchived = isArchived;
+    return this;
+  }
+
+   /**
+   * Get isArchived
+   * @return isArchived
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isIsArchived() {
+    return isArchived;
+  }
+
+  public void setIsArchived(Boolean isArchived) {
+    this.isArchived = isArchived;
   }
 
   public PortfolioArchivedEvent name(String name) {
@@ -99,22 +99,22 @@ public class PortfolioArchivedEvent {
     this.name = name;
   }
 
-  public PortfolioArchivedEvent isArchived(Boolean isArchived) {
-    this.isArchived = isArchived;
+  public PortfolioArchivedEvent id(String id) {
+    this.id = id;
     return this;
   }
 
    /**
-   * Get isArchived
-   * @return isArchived
+   * Get id
+   * @return id
   **/
   @ApiModelProperty(value = "")
-  public Boolean isIsArchived() {
-    return isArchived;
+  public String getId() {
+    return id;
   }
 
-  public void setIsArchived(Boolean isArchived) {
-    this.isArchived = isArchived;
+  public void setId(String id) {
+    this.id = id;
   }
 
   public PortfolioArchivedEvent portfolioPlan(PortfolioPlan portfolioPlan) {
@@ -145,16 +145,16 @@ public class PortfolioArchivedEvent {
       return false;
     }
     PortfolioArchivedEvent portfolioArchivedEvent = (PortfolioArchivedEvent) o;
-    return Objects.equals(this.id, portfolioArchivedEvent.id) &&
-        Objects.equals(this.portfolioId, portfolioArchivedEvent.portfolioId) &&
-        Objects.equals(this.name, portfolioArchivedEvent.name) &&
+    return Objects.equals(this.portfolioId, portfolioArchivedEvent.portfolioId) &&
         Objects.equals(this.isArchived, portfolioArchivedEvent.isArchived) &&
+        Objects.equals(this.name, portfolioArchivedEvent.name) &&
+        Objects.equals(this.id, portfolioArchivedEvent.id) &&
         Objects.equals(this.portfolioPlan, portfolioArchivedEvent.portfolioPlan);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, portfolioId, name, isArchived, portfolioPlan);
+    return Objects.hash(portfolioId, isArchived, name, id, portfolioPlan);
   }
 
 
@@ -163,10 +163,10 @@ public class PortfolioArchivedEvent {
     StringBuilder sb = new StringBuilder();
     sb.append("class PortfolioArchivedEvent {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    portfolioId: ").append(toIndentedString(portfolioId)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    isArchived: ").append(toIndentedString(isArchived)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    portfolioPlan: ").append(toIndentedString(portfolioPlan)).append("\n");
     sb.append("}");
     return sb.toString();

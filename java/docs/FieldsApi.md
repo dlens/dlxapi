@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**deleteField**](FieldsApi.md#deleteField) | **DELETE** /fields/{id} | Delete a field. Also deletes the values for every project.
 [**getField**](FieldsApi.md#getField) | **GET** /fields/{id} | Retrieves a field.
 [**getFieldsForPortfolio**](FieldsApi.md#getFieldsForPortfolio) | **GET** /fields | Retrieves fields for a portfolio.
+[**setIdeaFormFields**](FieldsApi.md#setIdeaFormFields) | **PUT** /fields/ideaForm | Set idea form fields for a portfolio.
 [**updateField**](FieldsApi.md#updateField) | **PATCH** /fields/{id} | Updates a field utilizing JSON Patch Operations. If the update logic makes changes to other fields, all updated fields will be returned in the response. 
 [**updateFields**](FieldsApi.md#updateFields) | **PATCH** /fields | Update fields associated with a portfolio.
 
@@ -227,6 +228,59 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="setIdeaFormFields"></a>
+# **setIdeaFormFields**
+> List&lt;Field&gt; setIdeaFormFields(body, expand)
+
+Set idea form fields for a portfolio.
+
+### Example
+```java
+// Import classes:
+//import com.decisionlens.client.ApiClient;
+//import com.decisionlens.client.ApiException;
+//import com.decisionlens.client.Configuration;
+//import com.decisionlens.client.auth.*;
+//import com.decisionlens.client.api.FieldsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: OAuth2
+OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+FieldsApi apiInstance = new FieldsApi();
+IdeaFormFieldRequest body = new IdeaFormFieldRequest(); // IdeaFormFieldRequest | Idea form field request
+String expand = "expand_example"; // String | JSON string containing an array expand specifications for fields.  An expand specification must have a path and includes optional properties match, unique, allPossible, limit, offset, orderBy.
+try {
+    List<Field> result = apiInstance.setIdeaFormFields(body, expand);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling FieldsApi#setIdeaFormFields");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**IdeaFormFieldRequest**](IdeaFormFieldRequest.md)| Idea form field request |
+ **expand** | **String**| JSON string containing an array expand specifications for fields.  An expand specification must have a path and includes optional properties match, unique, allPossible, limit, offset, orderBy. | [optional]
+
+### Return type
+
+[**List&lt;Field&gt;**](Field.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a name="updateField"></a>

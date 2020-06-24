@@ -32,43 +32,43 @@ import java.io.IOException;
  */
 
 public class FieldTargetTypeUpdatedEvent {
-  @SerializedName("id")
-  private String id = null;
+  @SerializedName("portfolioId")
+  private String portfolioId = null;
 
   @SerializedName("name")
   private String name = null;
 
-  @SerializedName("type")
-  private FieldType type = null;
-
   @SerializedName("targetType")
   private TargetType targetType = null;
+
+  @SerializedName("id")
+  private String id = null;
 
   @SerializedName("previousTargetType")
   private TargetType previousTargetType = null;
 
-  @SerializedName("portfolioId")
-  private String portfolioId = null;
+  @SerializedName("fieldType")
+  private FieldType fieldType = null;
 
   @SerializedName("portfolioPlan")
   private PortfolioPlan portfolioPlan = null;
 
-  public FieldTargetTypeUpdatedEvent id(String id) {
-    this.id = id;
+  public FieldTargetTypeUpdatedEvent portfolioId(String portfolioId) {
+    this.portfolioId = portfolioId;
     return this;
   }
 
    /**
-   * Get id
-   * @return id
+   * Get portfolioId
+   * @return portfolioId
   **/
   @ApiModelProperty(value = "")
-  public String getId() {
-    return id;
+  public String getPortfolioId() {
+    return portfolioId;
   }
 
-  public void setId(String id) {
-    this.id = id;
+  public void setPortfolioId(String portfolioId) {
+    this.portfolioId = portfolioId;
   }
 
   public FieldTargetTypeUpdatedEvent name(String name) {
@@ -89,24 +89,6 @@ public class FieldTargetTypeUpdatedEvent {
     this.name = name;
   }
 
-  public FieldTargetTypeUpdatedEvent type(FieldType type) {
-    this.type = type;
-    return this;
-  }
-
-   /**
-   * Get type
-   * @return type
-  **/
-  @ApiModelProperty(value = "")
-  public FieldType getType() {
-    return type;
-  }
-
-  public void setType(FieldType type) {
-    this.type = type;
-  }
-
   public FieldTargetTypeUpdatedEvent targetType(TargetType targetType) {
     this.targetType = targetType;
     return this;
@@ -123,6 +105,24 @@ public class FieldTargetTypeUpdatedEvent {
 
   public void setTargetType(TargetType targetType) {
     this.targetType = targetType;
+  }
+
+  public FieldTargetTypeUpdatedEvent id(String id) {
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * Get id
+   * @return id
+  **/
+  @ApiModelProperty(value = "")
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
   }
 
   public FieldTargetTypeUpdatedEvent previousTargetType(TargetType previousTargetType) {
@@ -143,22 +143,22 @@ public class FieldTargetTypeUpdatedEvent {
     this.previousTargetType = previousTargetType;
   }
 
-  public FieldTargetTypeUpdatedEvent portfolioId(String portfolioId) {
-    this.portfolioId = portfolioId;
+  public FieldTargetTypeUpdatedEvent fieldType(FieldType fieldType) {
+    this.fieldType = fieldType;
     return this;
   }
 
    /**
-   * Get portfolioId
-   * @return portfolioId
+   * Get fieldType
+   * @return fieldType
   **/
   @ApiModelProperty(value = "")
-  public String getPortfolioId() {
-    return portfolioId;
+  public FieldType getFieldType() {
+    return fieldType;
   }
 
-  public void setPortfolioId(String portfolioId) {
-    this.portfolioId = portfolioId;
+  public void setFieldType(FieldType fieldType) {
+    this.fieldType = fieldType;
   }
 
   public FieldTargetTypeUpdatedEvent portfolioPlan(PortfolioPlan portfolioPlan) {
@@ -189,18 +189,18 @@ public class FieldTargetTypeUpdatedEvent {
       return false;
     }
     FieldTargetTypeUpdatedEvent fieldTargetTypeUpdatedEvent = (FieldTargetTypeUpdatedEvent) o;
-    return Objects.equals(this.id, fieldTargetTypeUpdatedEvent.id) &&
+    return Objects.equals(this.portfolioId, fieldTargetTypeUpdatedEvent.portfolioId) &&
         Objects.equals(this.name, fieldTargetTypeUpdatedEvent.name) &&
-        Objects.equals(this.type, fieldTargetTypeUpdatedEvent.type) &&
         Objects.equals(this.targetType, fieldTargetTypeUpdatedEvent.targetType) &&
+        Objects.equals(this.id, fieldTargetTypeUpdatedEvent.id) &&
         Objects.equals(this.previousTargetType, fieldTargetTypeUpdatedEvent.previousTargetType) &&
-        Objects.equals(this.portfolioId, fieldTargetTypeUpdatedEvent.portfolioId) &&
+        Objects.equals(this.fieldType, fieldTargetTypeUpdatedEvent.fieldType) &&
         Objects.equals(this.portfolioPlan, fieldTargetTypeUpdatedEvent.portfolioPlan);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, type, targetType, previousTargetType, portfolioId, portfolioPlan);
+    return Objects.hash(portfolioId, name, targetType, id, previousTargetType, fieldType, portfolioPlan);
   }
 
 
@@ -209,12 +209,12 @@ public class FieldTargetTypeUpdatedEvent {
     StringBuilder sb = new StringBuilder();
     sb.append("class FieldTargetTypeUpdatedEvent {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    targetType: ").append(toIndentedString(targetType)).append("\n");
-    sb.append("    previousTargetType: ").append(toIndentedString(previousTargetType)).append("\n");
     sb.append("    portfolioId: ").append(toIndentedString(portfolioId)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    targetType: ").append(toIndentedString(targetType)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    previousTargetType: ").append(toIndentedString(previousTargetType)).append("\n");
+    sb.append("    fieldType: ").append(toIndentedString(fieldType)).append("\n");
     sb.append("    portfolioPlan: ").append(toIndentedString(portfolioPlan)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -4,11 +4,11 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** |  |  [optional]
 **portfolioId** | **String** |  |  [optional]
+**previousTimeInterval** | [**TimeInterval**](TimeInterval.md) |  |  [optional]
 **name** | **String** |  |  [optional]
 **timeInterval** | [**TimeInterval**](TimeInterval.md) |  |  [optional]
-**previousTimeInterval** | [**TimeInterval**](TimeInterval.md) |  |  [optional]
+**id** | **String** |  |  [optional]
 **portfolioPlan** | [**PortfolioPlan**](PortfolioPlan.md) |  |  [optional]
 
 

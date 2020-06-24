@@ -4,12 +4,12 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** |  |  [optional]
+**previousIsDraft** | **Boolean** |  |  [optional]
+**portfolioId** | **String** |  |  [optional]
 **name** | **String** |  |  [optional]
 **isDraft** | **Boolean** |  |  [optional]
-**previousIsDraft** | **Boolean** |  |  [optional]
+**id** | **String** |  |  [optional]
 **portfolioPlan** | [**PortfolioPlan**](PortfolioPlan.md) |  |  [optional]
-**portfolioId** | **String** |  |  [optional]
 
 
 

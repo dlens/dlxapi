@@ -31,55 +31,37 @@ import java.io.IOException;
  */
 
 public class ResourcePoolDeletedEvent {
-  @SerializedName("id")
-  private String id = null;
-
-  @SerializedName("name")
-  private String name = null;
+  @SerializedName("portfolioId")
+  private String portfolioId = null;
 
   @SerializedName("field")
   private Field field = null;
 
-  @SerializedName("portfolioId")
-  private String portfolioId = null;
+  @SerializedName("name")
+  private String name = null;
+
+  @SerializedName("id")
+  private String id = null;
 
   @SerializedName("portfolioPlan")
   private PortfolioPlan portfolioPlan = null;
 
-  public ResourcePoolDeletedEvent id(String id) {
-    this.id = id;
+  public ResourcePoolDeletedEvent portfolioId(String portfolioId) {
+    this.portfolioId = portfolioId;
     return this;
   }
 
    /**
-   * Get id
-   * @return id
+   * Get portfolioId
+   * @return portfolioId
   **/
   @ApiModelProperty(value = "")
-  public String getId() {
-    return id;
+  public String getPortfolioId() {
+    return portfolioId;
   }
 
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public ResourcePoolDeletedEvent name(String name) {
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * Get name
-   * @return name
-  **/
-  @ApiModelProperty(value = "")
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
+  public void setPortfolioId(String portfolioId) {
+    this.portfolioId = portfolioId;
   }
 
   public ResourcePoolDeletedEvent field(Field field) {
@@ -100,22 +82,40 @@ public class ResourcePoolDeletedEvent {
     this.field = field;
   }
 
-  public ResourcePoolDeletedEvent portfolioId(String portfolioId) {
-    this.portfolioId = portfolioId;
+  public ResourcePoolDeletedEvent name(String name) {
+    this.name = name;
     return this;
   }
 
    /**
-   * Get portfolioId
-   * @return portfolioId
+   * Get name
+   * @return name
   **/
   @ApiModelProperty(value = "")
-  public String getPortfolioId() {
-    return portfolioId;
+  public String getName() {
+    return name;
   }
 
-  public void setPortfolioId(String portfolioId) {
-    this.portfolioId = portfolioId;
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public ResourcePoolDeletedEvent id(String id) {
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * Get id
+   * @return id
+  **/
+  @ApiModelProperty(value = "")
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
   }
 
   public ResourcePoolDeletedEvent portfolioPlan(PortfolioPlan portfolioPlan) {
@@ -146,16 +146,16 @@ public class ResourcePoolDeletedEvent {
       return false;
     }
     ResourcePoolDeletedEvent resourcePoolDeletedEvent = (ResourcePoolDeletedEvent) o;
-    return Objects.equals(this.id, resourcePoolDeletedEvent.id) &&
-        Objects.equals(this.name, resourcePoolDeletedEvent.name) &&
+    return Objects.equals(this.portfolioId, resourcePoolDeletedEvent.portfolioId) &&
         Objects.equals(this.field, resourcePoolDeletedEvent.field) &&
-        Objects.equals(this.portfolioId, resourcePoolDeletedEvent.portfolioId) &&
+        Objects.equals(this.name, resourcePoolDeletedEvent.name) &&
+        Objects.equals(this.id, resourcePoolDeletedEvent.id) &&
         Objects.equals(this.portfolioPlan, resourcePoolDeletedEvent.portfolioPlan);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, field, portfolioId, portfolioPlan);
+    return Objects.hash(portfolioId, field, name, id, portfolioPlan);
   }
 
 
@@ -164,10 +164,10 @@ public class ResourcePoolDeletedEvent {
     StringBuilder sb = new StringBuilder();
     sb.append("class ResourcePoolDeletedEvent {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    field: ").append(toIndentedString(field)).append("\n");
     sb.append("    portfolioId: ").append(toIndentedString(portfolioId)).append("\n");
+    sb.append("    field: ").append(toIndentedString(field)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    portfolioPlan: ").append(toIndentedString(portfolioPlan)).append("\n");
     sb.append("}");
     return sb.toString();

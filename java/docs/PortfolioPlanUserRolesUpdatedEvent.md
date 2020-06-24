@@ -4,12 +4,12 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** |  |  [optional]
-**portfolioPlan** | [**PortfolioPlan**](PortfolioPlan.md) |  |  [optional]
-**user** | [**User**](User.md) |  |  [optional]
-**roles** | [**List&lt;PortfolioPlanUserRole&gt;**](PortfolioPlanUserRole.md) |  |  [optional]
-**previousRoles** | [**List&lt;PortfolioPlanUserRole&gt;**](PortfolioPlanUserRole.md) |  |  [optional]
+**previousPortfolioPlanUserRoleList** | [**List&lt;PortfolioPlanUserRole&gt;**](PortfolioPlanUserRole.md) |  |  [optional]
+**portfolioPlanUserRoleList** | [**List&lt;PortfolioPlanUserRole&gt;**](PortfolioPlanUserRole.md) |  |  [optional]
 **portfolioId** | **String** |  |  [optional]
+**id** | **String** |  |  [optional]
+**user** | [**User**](User.md) |  |  [optional]
+**portfolioPlan** | [**PortfolioPlan**](PortfolioPlan.md) |  |  [optional]
 
 
 

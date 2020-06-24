@@ -4,13 +4,13 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** |  |  [optional]
-**name** | **String** |  |  [optional]
-**budgetAmount** | **Double** |  |  [optional]
-**previousBudgetAmount** | **Double** |  |  [optional]
-**timePeriod** | [**TimePeriod**](TimePeriod.md) |  |  [optional]
 **portfolioId** | **String** |  |  [optional]
+**budgetAmount** | [**BigDecimal**](BigDecimal.md) |  |  [optional]
+**name** | **String** |  |  [optional]
+**timePeriod** | [**TimePeriod**](TimePeriod.md) |  |  [optional]
+**id** | **String** |  |  [optional]
 **portfolioPlan** | [**PortfolioPlan**](PortfolioPlan.md) |  |  [optional]
+**previousBudgetAmount** | [**BigDecimal**](BigDecimal.md) |  |  [optional]
 
 
 

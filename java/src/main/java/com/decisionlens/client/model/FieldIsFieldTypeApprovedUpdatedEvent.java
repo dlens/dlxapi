@@ -30,11 +30,8 @@ import java.io.IOException;
  */
 
 public class FieldIsFieldTypeApprovedUpdatedEvent {
-  @SerializedName("id")
-  private String id = null;
-
-  @SerializedName("name")
-  private String name = null;
+  @SerializedName("portfolioId")
+  private String portfolioId = null;
 
   @SerializedName("isFieldTypeApproved")
   private Boolean isFieldTypeApproved = null;
@@ -42,46 +39,31 @@ public class FieldIsFieldTypeApprovedUpdatedEvent {
   @SerializedName("previousIsFieldTypeApproved")
   private Boolean previousIsFieldTypeApproved = null;
 
-  @SerializedName("portfolioId")
-  private String portfolioId = null;
+  @SerializedName("name")
+  private String name = null;
+
+  @SerializedName("id")
+  private String id = null;
 
   @SerializedName("portfolioPlan")
   private PortfolioPlan portfolioPlan = null;
 
-  public FieldIsFieldTypeApprovedUpdatedEvent id(String id) {
-    this.id = id;
+  public FieldIsFieldTypeApprovedUpdatedEvent portfolioId(String portfolioId) {
+    this.portfolioId = portfolioId;
     return this;
   }
 
    /**
-   * Get id
-   * @return id
+   * Get portfolioId
+   * @return portfolioId
   **/
   @ApiModelProperty(value = "")
-  public String getId() {
-    return id;
+  public String getPortfolioId() {
+    return portfolioId;
   }
 
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public FieldIsFieldTypeApprovedUpdatedEvent name(String name) {
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * Get name
-   * @return name
-  **/
-  @ApiModelProperty(value = "")
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
+  public void setPortfolioId(String portfolioId) {
+    this.portfolioId = portfolioId;
   }
 
   public FieldIsFieldTypeApprovedUpdatedEvent isFieldTypeApproved(Boolean isFieldTypeApproved) {
@@ -120,22 +102,40 @@ public class FieldIsFieldTypeApprovedUpdatedEvent {
     this.previousIsFieldTypeApproved = previousIsFieldTypeApproved;
   }
 
-  public FieldIsFieldTypeApprovedUpdatedEvent portfolioId(String portfolioId) {
-    this.portfolioId = portfolioId;
+  public FieldIsFieldTypeApprovedUpdatedEvent name(String name) {
+    this.name = name;
     return this;
   }
 
    /**
-   * Get portfolioId
-   * @return portfolioId
+   * Get name
+   * @return name
   **/
   @ApiModelProperty(value = "")
-  public String getPortfolioId() {
-    return portfolioId;
+  public String getName() {
+    return name;
   }
 
-  public void setPortfolioId(String portfolioId) {
-    this.portfolioId = portfolioId;
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public FieldIsFieldTypeApprovedUpdatedEvent id(String id) {
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * Get id
+   * @return id
+  **/
+  @ApiModelProperty(value = "")
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
   }
 
   public FieldIsFieldTypeApprovedUpdatedEvent portfolioPlan(PortfolioPlan portfolioPlan) {
@@ -166,17 +166,17 @@ public class FieldIsFieldTypeApprovedUpdatedEvent {
       return false;
     }
     FieldIsFieldTypeApprovedUpdatedEvent fieldIsFieldTypeApprovedUpdatedEvent = (FieldIsFieldTypeApprovedUpdatedEvent) o;
-    return Objects.equals(this.id, fieldIsFieldTypeApprovedUpdatedEvent.id) &&
-        Objects.equals(this.name, fieldIsFieldTypeApprovedUpdatedEvent.name) &&
+    return Objects.equals(this.portfolioId, fieldIsFieldTypeApprovedUpdatedEvent.portfolioId) &&
         Objects.equals(this.isFieldTypeApproved, fieldIsFieldTypeApprovedUpdatedEvent.isFieldTypeApproved) &&
         Objects.equals(this.previousIsFieldTypeApproved, fieldIsFieldTypeApprovedUpdatedEvent.previousIsFieldTypeApproved) &&
-        Objects.equals(this.portfolioId, fieldIsFieldTypeApprovedUpdatedEvent.portfolioId) &&
+        Objects.equals(this.name, fieldIsFieldTypeApprovedUpdatedEvent.name) &&
+        Objects.equals(this.id, fieldIsFieldTypeApprovedUpdatedEvent.id) &&
         Objects.equals(this.portfolioPlan, fieldIsFieldTypeApprovedUpdatedEvent.portfolioPlan);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, isFieldTypeApproved, previousIsFieldTypeApproved, portfolioId, portfolioPlan);
+    return Objects.hash(portfolioId, isFieldTypeApproved, previousIsFieldTypeApproved, name, id, portfolioPlan);
   }
 
 
@@ -185,11 +185,11 @@ public class FieldIsFieldTypeApprovedUpdatedEvent {
     StringBuilder sb = new StringBuilder();
     sb.append("class FieldIsFieldTypeApprovedUpdatedEvent {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    portfolioId: ").append(toIndentedString(portfolioId)).append("\n");
     sb.append("    isFieldTypeApproved: ").append(toIndentedString(isFieldTypeApproved)).append("\n");
     sb.append("    previousIsFieldTypeApproved: ").append(toIndentedString(previousIsFieldTypeApproved)).append("\n");
-    sb.append("    portfolioId: ").append(toIndentedString(portfolioId)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    portfolioPlan: ").append(toIndentedString(portfolioPlan)).append("\n");
     sb.append("}");
     return sb.toString();

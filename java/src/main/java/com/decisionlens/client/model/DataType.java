@@ -35,7 +35,9 @@ public enum DataType {
   
   DATE("DATE"),
   
-  BOOLEAN("BOOLEAN");
+  BOOLEAN("BOOLEAN"),
+  
+  ARRAY("ARRAY");
 
   private String value;
 

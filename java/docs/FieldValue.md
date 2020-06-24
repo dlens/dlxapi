@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **value** | **String** |  |  [optional]
 **numericValue** | **Double** |  |  [optional]
 **booleanValue** | **Boolean** |  |  [optional]
+**tagIds** | **List&lt;String&gt;** |  |  [optional]
 **timePeriod** | [**TimePeriod**](TimePeriod.md) |  |  [optional]
 **details** | [**FieldValues**](FieldValues.md) |  |  [optional]
 **createdAt** | **String** |  |  [optional]

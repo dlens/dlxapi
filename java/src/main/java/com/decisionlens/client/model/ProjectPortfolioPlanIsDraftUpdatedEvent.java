@@ -30,8 +30,11 @@ import java.io.IOException;
  */
 
 public class ProjectPortfolioPlanIsDraftUpdatedEvent {
-  @SerializedName("id")
-  private String id = null;
+  @SerializedName("previousIsDraft")
+  private Boolean previousIsDraft = null;
+
+  @SerializedName("portfolioId")
+  private String portfolioId = null;
 
   @SerializedName("name")
   private String name = null;
@@ -39,31 +42,46 @@ public class ProjectPortfolioPlanIsDraftUpdatedEvent {
   @SerializedName("isDraft")
   private Boolean isDraft = null;
 
-  @SerializedName("previousIsDraft")
-  private Boolean previousIsDraft = null;
+  @SerializedName("id")
+  private String id = null;
 
   @SerializedName("portfolioPlan")
   private PortfolioPlan portfolioPlan = null;
 
-  @SerializedName("portfolioId")
-  private String portfolioId = null;
-
-  public ProjectPortfolioPlanIsDraftUpdatedEvent id(String id) {
-    this.id = id;
+  public ProjectPortfolioPlanIsDraftUpdatedEvent previousIsDraft(Boolean previousIsDraft) {
+    this.previousIsDraft = previousIsDraft;
     return this;
   }
 
    /**
-   * Get id
-   * @return id
+   * Get previousIsDraft
+   * @return previousIsDraft
   **/
   @ApiModelProperty(value = "")
-  public String getId() {
-    return id;
+  public Boolean isPreviousIsDraft() {
+    return previousIsDraft;
   }
 
-  public void setId(String id) {
-    this.id = id;
+  public void setPreviousIsDraft(Boolean previousIsDraft) {
+    this.previousIsDraft = previousIsDraft;
+  }
+
+  public ProjectPortfolioPlanIsDraftUpdatedEvent portfolioId(String portfolioId) {
+    this.portfolioId = portfolioId;
+    return this;
+  }
+
+   /**
+   * Get portfolioId
+   * @return portfolioId
+  **/
+  @ApiModelProperty(value = "")
+  public String getPortfolioId() {
+    return portfolioId;
+  }
+
+  public void setPortfolioId(String portfolioId) {
+    this.portfolioId = portfolioId;
   }
 
   public ProjectPortfolioPlanIsDraftUpdatedEvent name(String name) {
@@ -102,22 +120,22 @@ public class ProjectPortfolioPlanIsDraftUpdatedEvent {
     this.isDraft = isDraft;
   }
 
-  public ProjectPortfolioPlanIsDraftUpdatedEvent previousIsDraft(Boolean previousIsDraft) {
-    this.previousIsDraft = previousIsDraft;
+  public ProjectPortfolioPlanIsDraftUpdatedEvent id(String id) {
+    this.id = id;
     return this;
   }
 
    /**
-   * Get previousIsDraft
-   * @return previousIsDraft
+   * Get id
+   * @return id
   **/
   @ApiModelProperty(value = "")
-  public Boolean isPreviousIsDraft() {
-    return previousIsDraft;
+  public String getId() {
+    return id;
   }
 
-  public void setPreviousIsDraft(Boolean previousIsDraft) {
-    this.previousIsDraft = previousIsDraft;
+  public void setId(String id) {
+    this.id = id;
   }
 
   public ProjectPortfolioPlanIsDraftUpdatedEvent portfolioPlan(PortfolioPlan portfolioPlan) {
@@ -138,24 +156,6 @@ public class ProjectPortfolioPlanIsDraftUpdatedEvent {
     this.portfolioPlan = portfolioPlan;
   }
 
-  public ProjectPortfolioPlanIsDraftUpdatedEvent portfolioId(String portfolioId) {
-    this.portfolioId = portfolioId;
-    return this;
-  }
-
-   /**
-   * Get portfolioId
-   * @return portfolioId
-  **/
-  @ApiModelProperty(value = "")
-  public String getPortfolioId() {
-    return portfolioId;
-  }
-
-  public void setPortfolioId(String portfolioId) {
-    this.portfolioId = portfolioId;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -166,17 +166,17 @@ public class ProjectPortfolioPlanIsDraftUpdatedEvent {
       return false;
     }
     ProjectPortfolioPlanIsDraftUpdatedEvent projectPortfolioPlanIsDraftUpdatedEvent = (ProjectPortfolioPlanIsDraftUpdatedEvent) o;
-    return Objects.equals(this.id, projectPortfolioPlanIsDraftUpdatedEvent.id) &&
+    return Objects.equals(this.previousIsDraft, projectPortfolioPlanIsDraftUpdatedEvent.previousIsDraft) &&
+        Objects.equals(this.portfolioId, projectPortfolioPlanIsDraftUpdatedEvent.portfolioId) &&
         Objects.equals(this.name, projectPortfolioPlanIsDraftUpdatedEvent.name) &&
         Objects.equals(this.isDraft, projectPortfolioPlanIsDraftUpdatedEvent.isDraft) &&
-        Objects.equals(this.previousIsDraft, projectPortfolioPlanIsDraftUpdatedEvent.previousIsDraft) &&
-        Objects.equals(this.portfolioPlan, projectPortfolioPlanIsDraftUpdatedEvent.portfolioPlan) &&
-        Objects.equals(this.portfolioId, projectPortfolioPlanIsDraftUpdatedEvent.portfolioId);
+        Objects.equals(this.id, projectPortfolioPlanIsDraftUpdatedEvent.id) &&
+        Objects.equals(this.portfolioPlan, projectPortfolioPlanIsDraftUpdatedEvent.portfolioPlan);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, isDraft, previousIsDraft, portfolioPlan, portfolioId);
+    return Objects.hash(previousIsDraft, portfolioId, name, isDraft, id, portfolioPlan);
   }
 
 
@@ -185,12 +185,12 @@ public class ProjectPortfolioPlanIsDraftUpdatedEvent {
     StringBuilder sb = new StringBuilder();
     sb.append("class ProjectPortfolioPlanIsDraftUpdatedEvent {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    previousIsDraft: ").append(toIndentedString(previousIsDraft)).append("\n");
+    sb.append("    portfolioId: ").append(toIndentedString(portfolioId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    isDraft: ").append(toIndentedString(isDraft)).append("\n");
-    sb.append("    previousIsDraft: ").append(toIndentedString(previousIsDraft)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    portfolioPlan: ").append(toIndentedString(portfolioPlan)).append("\n");
-    sb.append("    portfolioId: ").append(toIndentedString(portfolioId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

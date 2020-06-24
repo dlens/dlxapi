@@ -31,91 +31,37 @@ import java.io.IOException;
  */
 
 public class SourceNameUpdatedEvent {
-  @SerializedName("id")
-  private String id = null;
-
-  @SerializedName("name")
-  private String name = null;
-
-  @SerializedName("type")
-  private SourceType type = null;
-
-  @SerializedName("portfolioPlan")
-  private PortfolioPlan portfolioPlan = null;
+  @SerializedName("sourceType")
+  private SourceType sourceType = null;
 
   @SerializedName("previousName")
   private String previousName = null;
 
-  public SourceNameUpdatedEvent id(String id) {
-    this.id = id;
+  @SerializedName("name")
+  private String name = null;
+
+  @SerializedName("id")
+  private String id = null;
+
+  @SerializedName("portfolioPlan")
+  private PortfolioPlan portfolioPlan = null;
+
+  public SourceNameUpdatedEvent sourceType(SourceType sourceType) {
+    this.sourceType = sourceType;
     return this;
   }
 
    /**
-   * Get id
-   * @return id
+   * Get sourceType
+   * @return sourceType
   **/
   @ApiModelProperty(value = "")
-  public String getId() {
-    return id;
+  public SourceType getSourceType() {
+    return sourceType;
   }
 
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public SourceNameUpdatedEvent name(String name) {
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * Get name
-   * @return name
-  **/
-  @ApiModelProperty(value = "")
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public SourceNameUpdatedEvent type(SourceType type) {
-    this.type = type;
-    return this;
-  }
-
-   /**
-   * Get type
-   * @return type
-  **/
-  @ApiModelProperty(value = "")
-  public SourceType getType() {
-    return type;
-  }
-
-  public void setType(SourceType type) {
-    this.type = type;
-  }
-
-  public SourceNameUpdatedEvent portfolioPlan(PortfolioPlan portfolioPlan) {
-    this.portfolioPlan = portfolioPlan;
-    return this;
-  }
-
-   /**
-   * Get portfolioPlan
-   * @return portfolioPlan
-  **/
-  @ApiModelProperty(value = "")
-  public PortfolioPlan getPortfolioPlan() {
-    return portfolioPlan;
-  }
-
-  public void setPortfolioPlan(PortfolioPlan portfolioPlan) {
-    this.portfolioPlan = portfolioPlan;
+  public void setSourceType(SourceType sourceType) {
+    this.sourceType = sourceType;
   }
 
   public SourceNameUpdatedEvent previousName(String previousName) {
@@ -136,6 +82,60 @@ public class SourceNameUpdatedEvent {
     this.previousName = previousName;
   }
 
+  public SourceNameUpdatedEvent name(String name) {
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Get name
+   * @return name
+  **/
+  @ApiModelProperty(value = "")
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public SourceNameUpdatedEvent id(String id) {
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * Get id
+   * @return id
+  **/
+  @ApiModelProperty(value = "")
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public SourceNameUpdatedEvent portfolioPlan(PortfolioPlan portfolioPlan) {
+    this.portfolioPlan = portfolioPlan;
+    return this;
+  }
+
+   /**
+   * Get portfolioPlan
+   * @return portfolioPlan
+  **/
+  @ApiModelProperty(value = "")
+  public PortfolioPlan getPortfolioPlan() {
+    return portfolioPlan;
+  }
+
+  public void setPortfolioPlan(PortfolioPlan portfolioPlan) {
+    this.portfolioPlan = portfolioPlan;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -146,16 +146,16 @@ public class SourceNameUpdatedEvent {
       return false;
     }
     SourceNameUpdatedEvent sourceNameUpdatedEvent = (SourceNameUpdatedEvent) o;
-    return Objects.equals(this.id, sourceNameUpdatedEvent.id) &&
+    return Objects.equals(this.sourceType, sourceNameUpdatedEvent.sourceType) &&
+        Objects.equals(this.previousName, sourceNameUpdatedEvent.previousName) &&
         Objects.equals(this.name, sourceNameUpdatedEvent.name) &&
-        Objects.equals(this.type, sourceNameUpdatedEvent.type) &&
-        Objects.equals(this.portfolioPlan, sourceNameUpdatedEvent.portfolioPlan) &&
-        Objects.equals(this.previousName, sourceNameUpdatedEvent.previousName);
+        Objects.equals(this.id, sourceNameUpdatedEvent.id) &&
+        Objects.equals(this.portfolioPlan, sourceNameUpdatedEvent.portfolioPlan);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, type, portfolioPlan, previousName);
+    return Objects.hash(sourceType, previousName, name, id, portfolioPlan);
   }
 
 
@@ -164,11 +164,11 @@ public class SourceNameUpdatedEvent {
     StringBuilder sb = new StringBuilder();
     sb.append("class SourceNameUpdatedEvent {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    portfolioPlan: ").append(toIndentedString(portfolioPlan)).append("\n");
+    sb.append("    sourceType: ").append(toIndentedString(sourceType)).append("\n");
     sb.append("    previousName: ").append(toIndentedString(previousName)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    portfolioPlan: ").append(toIndentedString(portfolioPlan)).append("\n");
     sb.append("}");
     return sb.toString();
   }

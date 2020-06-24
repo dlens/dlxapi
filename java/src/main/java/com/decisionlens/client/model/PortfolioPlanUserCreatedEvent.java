@@ -35,105 +35,69 @@ import java.util.List;
  */
 
 public class PortfolioPlanUserCreatedEvent {
-  @SerializedName("id")
-  private String id = null;
-
-  @SerializedName("portfolioPlan")
-  private PortfolioPlan portfolioPlan = null;
-
-  @SerializedName("user")
-  private User user = null;
-
-  @SerializedName("roles")
-  private List<PortfolioPlanUserRole> roles = null;
-
-  @SerializedName("permissions")
-  private List<Permission> permissions = null;
+  @SerializedName("portfolioPlanUserRoleList")
+  private List<PortfolioPlanUserRole> portfolioPlanUserRoleList = null;
 
   @SerializedName("portfolioId")
   private String portfolioId = null;
 
+  @SerializedName("permissions")
+  private List<Permission> permissions = null;
+
+  @SerializedName("id")
+  private String id = null;
+
   @SerializedName("contributingProjectIds")
   private List<String> contributingProjectIds = null;
 
-  public PortfolioPlanUserCreatedEvent id(String id) {
-    this.id = id;
+  @SerializedName("user")
+  private User user = null;
+
+  @SerializedName("portfolioPlan")
+  private PortfolioPlan portfolioPlan = null;
+
+  public PortfolioPlanUserCreatedEvent portfolioPlanUserRoleList(List<PortfolioPlanUserRole> portfolioPlanUserRoleList) {
+    this.portfolioPlanUserRoleList = portfolioPlanUserRoleList;
     return this;
   }
 
-   /**
-   * Get id
-   * @return id
-  **/
-  @ApiModelProperty(value = "")
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public PortfolioPlanUserCreatedEvent portfolioPlan(PortfolioPlan portfolioPlan) {
-    this.portfolioPlan = portfolioPlan;
-    return this;
-  }
-
-   /**
-   * Get portfolioPlan
-   * @return portfolioPlan
-  **/
-  @ApiModelProperty(value = "")
-  public PortfolioPlan getPortfolioPlan() {
-    return portfolioPlan;
-  }
-
-  public void setPortfolioPlan(PortfolioPlan portfolioPlan) {
-    this.portfolioPlan = portfolioPlan;
-  }
-
-  public PortfolioPlanUserCreatedEvent user(User user) {
-    this.user = user;
-    return this;
-  }
-
-   /**
-   * Get user
-   * @return user
-  **/
-  @ApiModelProperty(value = "")
-  public User getUser() {
-    return user;
-  }
-
-  public void setUser(User user) {
-    this.user = user;
-  }
-
-  public PortfolioPlanUserCreatedEvent roles(List<PortfolioPlanUserRole> roles) {
-    this.roles = roles;
-    return this;
-  }
-
-  public PortfolioPlanUserCreatedEvent addRolesItem(PortfolioPlanUserRole rolesItem) {
-    if (this.roles == null) {
-      this.roles = new ArrayList<PortfolioPlanUserRole>();
+  public PortfolioPlanUserCreatedEvent addPortfolioPlanUserRoleListItem(PortfolioPlanUserRole portfolioPlanUserRoleListItem) {
+    if (this.portfolioPlanUserRoleList == null) {
+      this.portfolioPlanUserRoleList = new ArrayList<PortfolioPlanUserRole>();
     }
-    this.roles.add(rolesItem);
+    this.portfolioPlanUserRoleList.add(portfolioPlanUserRoleListItem);
     return this;
   }
 
    /**
-   * Get roles
-   * @return roles
+   * Get portfolioPlanUserRoleList
+   * @return portfolioPlanUserRoleList
   **/
   @ApiModelProperty(value = "")
-  public List<PortfolioPlanUserRole> getRoles() {
-    return roles;
+  public List<PortfolioPlanUserRole> getPortfolioPlanUserRoleList() {
+    return portfolioPlanUserRoleList;
   }
 
-  public void setRoles(List<PortfolioPlanUserRole> roles) {
-    this.roles = roles;
+  public void setPortfolioPlanUserRoleList(List<PortfolioPlanUserRole> portfolioPlanUserRoleList) {
+    this.portfolioPlanUserRoleList = portfolioPlanUserRoleList;
+  }
+
+  public PortfolioPlanUserCreatedEvent portfolioId(String portfolioId) {
+    this.portfolioId = portfolioId;
+    return this;
+  }
+
+   /**
+   * Get portfolioId
+   * @return portfolioId
+  **/
+  @ApiModelProperty(value = "")
+  public String getPortfolioId() {
+    return portfolioId;
+  }
+
+  public void setPortfolioId(String portfolioId) {
+    this.portfolioId = portfolioId;
   }
 
   public PortfolioPlanUserCreatedEvent permissions(List<Permission> permissions) {
@@ -162,22 +126,22 @@ public class PortfolioPlanUserCreatedEvent {
     this.permissions = permissions;
   }
 
-  public PortfolioPlanUserCreatedEvent portfolioId(String portfolioId) {
-    this.portfolioId = portfolioId;
+  public PortfolioPlanUserCreatedEvent id(String id) {
+    this.id = id;
     return this;
   }
 
    /**
-   * Get portfolioId
-   * @return portfolioId
+   * Get id
+   * @return id
   **/
   @ApiModelProperty(value = "")
-  public String getPortfolioId() {
-    return portfolioId;
+  public String getId() {
+    return id;
   }
 
-  public void setPortfolioId(String portfolioId) {
-    this.portfolioId = portfolioId;
+  public void setId(String id) {
+    this.id = id;
   }
 
   public PortfolioPlanUserCreatedEvent contributingProjectIds(List<String> contributingProjectIds) {
@@ -206,6 +170,42 @@ public class PortfolioPlanUserCreatedEvent {
     this.contributingProjectIds = contributingProjectIds;
   }
 
+  public PortfolioPlanUserCreatedEvent user(User user) {
+    this.user = user;
+    return this;
+  }
+
+   /**
+   * Get user
+   * @return user
+  **/
+  @ApiModelProperty(value = "")
+  public User getUser() {
+    return user;
+  }
+
+  public void setUser(User user) {
+    this.user = user;
+  }
+
+  public PortfolioPlanUserCreatedEvent portfolioPlan(PortfolioPlan portfolioPlan) {
+    this.portfolioPlan = portfolioPlan;
+    return this;
+  }
+
+   /**
+   * Get portfolioPlan
+   * @return portfolioPlan
+  **/
+  @ApiModelProperty(value = "")
+  public PortfolioPlan getPortfolioPlan() {
+    return portfolioPlan;
+  }
+
+  public void setPortfolioPlan(PortfolioPlan portfolioPlan) {
+    this.portfolioPlan = portfolioPlan;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -216,18 +216,18 @@ public class PortfolioPlanUserCreatedEvent {
       return false;
     }
     PortfolioPlanUserCreatedEvent portfolioPlanUserCreatedEvent = (PortfolioPlanUserCreatedEvent) o;
-    return Objects.equals(this.id, portfolioPlanUserCreatedEvent.id) &&
-        Objects.equals(this.portfolioPlan, portfolioPlanUserCreatedEvent.portfolioPlan) &&
-        Objects.equals(this.user, portfolioPlanUserCreatedEvent.user) &&
-        Objects.equals(this.roles, portfolioPlanUserCreatedEvent.roles) &&
-        Objects.equals(this.permissions, portfolioPlanUserCreatedEvent.permissions) &&
+    return Objects.equals(this.portfolioPlanUserRoleList, portfolioPlanUserCreatedEvent.portfolioPlanUserRoleList) &&
         Objects.equals(this.portfolioId, portfolioPlanUserCreatedEvent.portfolioId) &&
-        Objects.equals(this.contributingProjectIds, portfolioPlanUserCreatedEvent.contributingProjectIds);
+        Objects.equals(this.permissions, portfolioPlanUserCreatedEvent.permissions) &&
+        Objects.equals(this.id, portfolioPlanUserCreatedEvent.id) &&
+        Objects.equals(this.contributingProjectIds, portfolioPlanUserCreatedEvent.contributingProjectIds) &&
+        Objects.equals(this.user, portfolioPlanUserCreatedEvent.user) &&
+        Objects.equals(this.portfolioPlan, portfolioPlanUserCreatedEvent.portfolioPlan);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, portfolioPlan, user, roles, permissions, portfolioId, contributingProjectIds);
+    return Objects.hash(portfolioPlanUserRoleList, portfolioId, permissions, id, contributingProjectIds, user, portfolioPlan);
   }
 
 
@@ -236,13 +236,13 @@ public class PortfolioPlanUserCreatedEvent {
     StringBuilder sb = new StringBuilder();
     sb.append("class PortfolioPlanUserCreatedEvent {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    portfolioPlan: ").append(toIndentedString(portfolioPlan)).append("\n");
-    sb.append("    user: ").append(toIndentedString(user)).append("\n");
-    sb.append("    roles: ").append(toIndentedString(roles)).append("\n");
-    sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");
+    sb.append("    portfolioPlanUserRoleList: ").append(toIndentedString(portfolioPlanUserRoleList)).append("\n");
     sb.append("    portfolioId: ").append(toIndentedString(portfolioId)).append("\n");
+    sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    contributingProjectIds: ").append(toIndentedString(contributingProjectIds)).append("\n");
+    sb.append("    user: ").append(toIndentedString(user)).append("\n");
+    sb.append("    portfolioPlan: ").append(toIndentedString(portfolioPlan)).append("\n");
     sb.append("}");
     return sb.toString();
   }

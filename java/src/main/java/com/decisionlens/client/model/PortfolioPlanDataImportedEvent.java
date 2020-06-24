@@ -30,38 +30,20 @@ import java.io.IOException;
  */
 
 public class PortfolioPlanDataImportedEvent {
-  @SerializedName("id")
-  private String id = null;
-
   @SerializedName("fileName")
   private String fileName = null;
-
-  @SerializedName("sheetName")
-  private String sheetName = null;
-
-  @SerializedName("portfolioPlan")
-  private PortfolioPlan portfolioPlan = null;
 
   @SerializedName("portfolioId")
   private String portfolioId = null;
 
-  public PortfolioPlanDataImportedEvent id(String id) {
-    this.id = id;
-    return this;
-  }
+  @SerializedName("sheetName")
+  private String sheetName = null;
 
-   /**
-   * Get id
-   * @return id
-  **/
-  @ApiModelProperty(value = "")
-  public String getId() {
-    return id;
-  }
+  @SerializedName("id")
+  private String id = null;
 
-  public void setId(String id) {
-    this.id = id;
-  }
+  @SerializedName("portfolioPlan")
+  private PortfolioPlan portfolioPlan = null;
 
   public PortfolioPlanDataImportedEvent fileName(String fileName) {
     this.fileName = fileName;
@@ -79,42 +61,6 @@ public class PortfolioPlanDataImportedEvent {
 
   public void setFileName(String fileName) {
     this.fileName = fileName;
-  }
-
-  public PortfolioPlanDataImportedEvent sheetName(String sheetName) {
-    this.sheetName = sheetName;
-    return this;
-  }
-
-   /**
-   * Get sheetName
-   * @return sheetName
-  **/
-  @ApiModelProperty(value = "")
-  public String getSheetName() {
-    return sheetName;
-  }
-
-  public void setSheetName(String sheetName) {
-    this.sheetName = sheetName;
-  }
-
-  public PortfolioPlanDataImportedEvent portfolioPlan(PortfolioPlan portfolioPlan) {
-    this.portfolioPlan = portfolioPlan;
-    return this;
-  }
-
-   /**
-   * Get portfolioPlan
-   * @return portfolioPlan
-  **/
-  @ApiModelProperty(value = "")
-  public PortfolioPlan getPortfolioPlan() {
-    return portfolioPlan;
-  }
-
-  public void setPortfolioPlan(PortfolioPlan portfolioPlan) {
-    this.portfolioPlan = portfolioPlan;
   }
 
   public PortfolioPlanDataImportedEvent portfolioId(String portfolioId) {
@@ -135,6 +81,60 @@ public class PortfolioPlanDataImportedEvent {
     this.portfolioId = portfolioId;
   }
 
+  public PortfolioPlanDataImportedEvent sheetName(String sheetName) {
+    this.sheetName = sheetName;
+    return this;
+  }
+
+   /**
+   * Get sheetName
+   * @return sheetName
+  **/
+  @ApiModelProperty(value = "")
+  public String getSheetName() {
+    return sheetName;
+  }
+
+  public void setSheetName(String sheetName) {
+    this.sheetName = sheetName;
+  }
+
+  public PortfolioPlanDataImportedEvent id(String id) {
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * Get id
+   * @return id
+  **/
+  @ApiModelProperty(value = "")
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public PortfolioPlanDataImportedEvent portfolioPlan(PortfolioPlan portfolioPlan) {
+    this.portfolioPlan = portfolioPlan;
+    return this;
+  }
+
+   /**
+   * Get portfolioPlan
+   * @return portfolioPlan
+  **/
+  @ApiModelProperty(value = "")
+  public PortfolioPlan getPortfolioPlan() {
+    return portfolioPlan;
+  }
+
+  public void setPortfolioPlan(PortfolioPlan portfolioPlan) {
+    this.portfolioPlan = portfolioPlan;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -145,16 +145,16 @@ public class PortfolioPlanDataImportedEvent {
       return false;
     }
     PortfolioPlanDataImportedEvent portfolioPlanDataImportedEvent = (PortfolioPlanDataImportedEvent) o;
-    return Objects.equals(this.id, portfolioPlanDataImportedEvent.id) &&
-        Objects.equals(this.fileName, portfolioPlanDataImportedEvent.fileName) &&
+    return Objects.equals(this.fileName, portfolioPlanDataImportedEvent.fileName) &&
+        Objects.equals(this.portfolioId, portfolioPlanDataImportedEvent.portfolioId) &&
         Objects.equals(this.sheetName, portfolioPlanDataImportedEvent.sheetName) &&
-        Objects.equals(this.portfolioPlan, portfolioPlanDataImportedEvent.portfolioPlan) &&
-        Objects.equals(this.portfolioId, portfolioPlanDataImportedEvent.portfolioId);
+        Objects.equals(this.id, portfolioPlanDataImportedEvent.id) &&
+        Objects.equals(this.portfolioPlan, portfolioPlanDataImportedEvent.portfolioPlan);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, fileName, sheetName, portfolioPlan, portfolioId);
+    return Objects.hash(fileName, portfolioId, sheetName, id, portfolioPlan);
   }
 
 
@@ -163,11 +163,11 @@ public class PortfolioPlanDataImportedEvent {
     StringBuilder sb = new StringBuilder();
     sb.append("class PortfolioPlanDataImportedEvent {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    fileName: ").append(toIndentedString(fileName)).append("\n");
-    sb.append("    sheetName: ").append(toIndentedString(sheetName)).append("\n");
-    sb.append("    portfolioPlan: ").append(toIndentedString(portfolioPlan)).append("\n");
     sb.append("    portfolioId: ").append(toIndentedString(portfolioId)).append("\n");
+    sb.append("    sheetName: ").append(toIndentedString(sheetName)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    portfolioPlan: ").append(toIndentedString(portfolioPlan)).append("\n");
     sb.append("}");
     return sb.toString();
   }

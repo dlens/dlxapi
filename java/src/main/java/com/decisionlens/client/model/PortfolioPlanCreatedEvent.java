@@ -30,8 +30,8 @@ import java.io.IOException;
  */
 
 public class PortfolioPlanCreatedEvent {
-  @SerializedName("id")
-  private String id = null;
+  @SerializedName("portfolioId")
+  private String portfolioId = null;
 
   @SerializedName("name")
   private String name = null;
@@ -42,31 +42,31 @@ public class PortfolioPlanCreatedEvent {
   @SerializedName("isBaseline")
   private Boolean isBaseline = null;
 
+  @SerializedName("id")
+  private String id = null;
+
   @SerializedName("portfolioPlan")
   private PortfolioPlan portfolioPlan = null;
 
   @SerializedName("parentPortfolioPlan")
   private PortfolioPlan parentPortfolioPlan = null;
 
-  @SerializedName("portfolioId")
-  private String portfolioId = null;
-
-  public PortfolioPlanCreatedEvent id(String id) {
-    this.id = id;
+  public PortfolioPlanCreatedEvent portfolioId(String portfolioId) {
+    this.portfolioId = portfolioId;
     return this;
   }
 
    /**
-   * Get id
-   * @return id
+   * Get portfolioId
+   * @return portfolioId
   **/
   @ApiModelProperty(value = "")
-  public String getId() {
-    return id;
+  public String getPortfolioId() {
+    return portfolioId;
   }
 
-  public void setId(String id) {
-    this.id = id;
+  public void setPortfolioId(String portfolioId) {
+    this.portfolioId = portfolioId;
   }
 
   public PortfolioPlanCreatedEvent name(String name) {
@@ -123,6 +123,24 @@ public class PortfolioPlanCreatedEvent {
     this.isBaseline = isBaseline;
   }
 
+  public PortfolioPlanCreatedEvent id(String id) {
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * Get id
+   * @return id
+  **/
+  @ApiModelProperty(value = "")
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
   public PortfolioPlanCreatedEvent portfolioPlan(PortfolioPlan portfolioPlan) {
     this.portfolioPlan = portfolioPlan;
     return this;
@@ -159,24 +177,6 @@ public class PortfolioPlanCreatedEvent {
     this.parentPortfolioPlan = parentPortfolioPlan;
   }
 
-  public PortfolioPlanCreatedEvent portfolioId(String portfolioId) {
-    this.portfolioId = portfolioId;
-    return this;
-  }
-
-   /**
-   * Get portfolioId
-   * @return portfolioId
-  **/
-  @ApiModelProperty(value = "")
-  public String getPortfolioId() {
-    return portfolioId;
-  }
-
-  public void setPortfolioId(String portfolioId) {
-    this.portfolioId = portfolioId;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -187,18 +187,18 @@ public class PortfolioPlanCreatedEvent {
       return false;
     }
     PortfolioPlanCreatedEvent portfolioPlanCreatedEvent = (PortfolioPlanCreatedEvent) o;
-    return Objects.equals(this.id, portfolioPlanCreatedEvent.id) &&
+    return Objects.equals(this.portfolioId, portfolioPlanCreatedEvent.portfolioId) &&
         Objects.equals(this.name, portfolioPlanCreatedEvent.name) &&
         Objects.equals(this.description, portfolioPlanCreatedEvent.description) &&
         Objects.equals(this.isBaseline, portfolioPlanCreatedEvent.isBaseline) &&
+        Objects.equals(this.id, portfolioPlanCreatedEvent.id) &&
         Objects.equals(this.portfolioPlan, portfolioPlanCreatedEvent.portfolioPlan) &&
-        Objects.equals(this.parentPortfolioPlan, portfolioPlanCreatedEvent.parentPortfolioPlan) &&
-        Objects.equals(this.portfolioId, portfolioPlanCreatedEvent.portfolioId);
+        Objects.equals(this.parentPortfolioPlan, portfolioPlanCreatedEvent.parentPortfolioPlan);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, description, isBaseline, portfolioPlan, parentPortfolioPlan, portfolioId);
+    return Objects.hash(portfolioId, name, description, isBaseline, id, portfolioPlan, parentPortfolioPlan);
   }
 
 
@@ -207,13 +207,13 @@ public class PortfolioPlanCreatedEvent {
     StringBuilder sb = new StringBuilder();
     sb.append("class PortfolioPlanCreatedEvent {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    portfolioId: ").append(toIndentedString(portfolioId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    isBaseline: ").append(toIndentedString(isBaseline)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    portfolioPlan: ").append(toIndentedString(portfolioPlan)).append("\n");
     sb.append("    parentPortfolioPlan: ").append(toIndentedString(parentPortfolioPlan)).append("\n");
-    sb.append("    portfolioId: ").append(toIndentedString(portfolioId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -33,11 +33,20 @@ import java.util.List;
  */
 
 public class ProjectCreatedEvent {
-  @SerializedName("id")
-  private String id = null;
+  @SerializedName("portfolioId")
+  private String portfolioId = null;
+
+  @SerializedName("contributingUserIds")
+  private List<String> contributingUserIds = null;
 
   @SerializedName("name")
   private String name = null;
+
+  @SerializedName("isDraft")
+  private Boolean isDraft = null;
+
+  @SerializedName("id")
+  private String id = null;
 
   @SerializedName("position")
   private Integer position = null;
@@ -45,8 +54,8 @@ public class ProjectCreatedEvent {
   @SerializedName("fieldValues")
   private List<ProjectFieldValue> fieldValues = null;
 
-  @SerializedName("portfolioId")
-  private String portfolioId = null;
+  @SerializedName("userId")
+  private String userId = null;
 
   @SerializedName("portfolioPlan")
   private PortfolioPlan portfolioPlan = null;
@@ -54,31 +63,48 @@ public class ProjectCreatedEvent {
   @SerializedName("isFromImport")
   private Boolean isFromImport = null;
 
-  @SerializedName("userId")
-  private String userId = null;
-
-  @SerializedName("isDraft")
-  private Boolean isDraft = null;
-
-  @SerializedName("contributingUserIds")
-  private List<String> contributingUserIds = null;
-
-  public ProjectCreatedEvent id(String id) {
-    this.id = id;
+  public ProjectCreatedEvent portfolioId(String portfolioId) {
+    this.portfolioId = portfolioId;
     return this;
   }
 
    /**
-   * Get id
-   * @return id
+   * Get portfolioId
+   * @return portfolioId
   **/
   @ApiModelProperty(value = "")
-  public String getId() {
-    return id;
+  public String getPortfolioId() {
+    return portfolioId;
   }
 
-  public void setId(String id) {
-    this.id = id;
+  public void setPortfolioId(String portfolioId) {
+    this.portfolioId = portfolioId;
+  }
+
+  public ProjectCreatedEvent contributingUserIds(List<String> contributingUserIds) {
+    this.contributingUserIds = contributingUserIds;
+    return this;
+  }
+
+  public ProjectCreatedEvent addContributingUserIdsItem(String contributingUserIdsItem) {
+    if (this.contributingUserIds == null) {
+      this.contributingUserIds = new ArrayList<String>();
+    }
+    this.contributingUserIds.add(contributingUserIdsItem);
+    return this;
+  }
+
+   /**
+   * Get contributingUserIds
+   * @return contributingUserIds
+  **/
+  @ApiModelProperty(value = "")
+  public List<String> getContributingUserIds() {
+    return contributingUserIds;
+  }
+
+  public void setContributingUserIds(List<String> contributingUserIds) {
+    this.contributingUserIds = contributingUserIds;
   }
 
   public ProjectCreatedEvent name(String name) {
@@ -97,6 +123,42 @@ public class ProjectCreatedEvent {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public ProjectCreatedEvent isDraft(Boolean isDraft) {
+    this.isDraft = isDraft;
+    return this;
+  }
+
+   /**
+   * Get isDraft
+   * @return isDraft
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isIsDraft() {
+    return isDraft;
+  }
+
+  public void setIsDraft(Boolean isDraft) {
+    this.isDraft = isDraft;
+  }
+
+  public ProjectCreatedEvent id(String id) {
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * Get id
+   * @return id
+  **/
+  @ApiModelProperty(value = "")
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
   }
 
   public ProjectCreatedEvent position(Integer position) {
@@ -143,22 +205,22 @@ public class ProjectCreatedEvent {
     this.fieldValues = fieldValues;
   }
 
-  public ProjectCreatedEvent portfolioId(String portfolioId) {
-    this.portfolioId = portfolioId;
+  public ProjectCreatedEvent userId(String userId) {
+    this.userId = userId;
     return this;
   }
 
    /**
-   * Get portfolioId
-   * @return portfolioId
+   * Get userId
+   * @return userId
   **/
   @ApiModelProperty(value = "")
-  public String getPortfolioId() {
-    return portfolioId;
+  public String getUserId() {
+    return userId;
   }
 
-  public void setPortfolioId(String portfolioId) {
-    this.portfolioId = portfolioId;
+  public void setUserId(String userId) {
+    this.userId = userId;
   }
 
   public ProjectCreatedEvent portfolioPlan(PortfolioPlan portfolioPlan) {
@@ -197,68 +259,6 @@ public class ProjectCreatedEvent {
     this.isFromImport = isFromImport;
   }
 
-  public ProjectCreatedEvent userId(String userId) {
-    this.userId = userId;
-    return this;
-  }
-
-   /**
-   * Get userId
-   * @return userId
-  **/
-  @ApiModelProperty(value = "")
-  public String getUserId() {
-    return userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-  public ProjectCreatedEvent isDraft(Boolean isDraft) {
-    this.isDraft = isDraft;
-    return this;
-  }
-
-   /**
-   * Get isDraft
-   * @return isDraft
-  **/
-  @ApiModelProperty(value = "")
-  public Boolean isIsDraft() {
-    return isDraft;
-  }
-
-  public void setIsDraft(Boolean isDraft) {
-    this.isDraft = isDraft;
-  }
-
-  public ProjectCreatedEvent contributingUserIds(List<String> contributingUserIds) {
-    this.contributingUserIds = contributingUserIds;
-    return this;
-  }
-
-  public ProjectCreatedEvent addContributingUserIdsItem(String contributingUserIdsItem) {
-    if (this.contributingUserIds == null) {
-      this.contributingUserIds = new ArrayList<String>();
-    }
-    this.contributingUserIds.add(contributingUserIdsItem);
-    return this;
-  }
-
-   /**
-   * Get contributingUserIds
-   * @return contributingUserIds
-  **/
-  @ApiModelProperty(value = "")
-  public List<String> getContributingUserIds() {
-    return contributingUserIds;
-  }
-
-  public void setContributingUserIds(List<String> contributingUserIds) {
-    this.contributingUserIds = contributingUserIds;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -269,21 +269,21 @@ public class ProjectCreatedEvent {
       return false;
     }
     ProjectCreatedEvent projectCreatedEvent = (ProjectCreatedEvent) o;
-    return Objects.equals(this.id, projectCreatedEvent.id) &&
+    return Objects.equals(this.portfolioId, projectCreatedEvent.portfolioId) &&
+        Objects.equals(this.contributingUserIds, projectCreatedEvent.contributingUserIds) &&
         Objects.equals(this.name, projectCreatedEvent.name) &&
+        Objects.equals(this.isDraft, projectCreatedEvent.isDraft) &&
+        Objects.equals(this.id, projectCreatedEvent.id) &&
         Objects.equals(this.position, projectCreatedEvent.position) &&
         Objects.equals(this.fieldValues, projectCreatedEvent.fieldValues) &&
-        Objects.equals(this.portfolioId, projectCreatedEvent.portfolioId) &&
-        Objects.equals(this.portfolioPlan, projectCreatedEvent.portfolioPlan) &&
-        Objects.equals(this.isFromImport, projectCreatedEvent.isFromImport) &&
         Objects.equals(this.userId, projectCreatedEvent.userId) &&
-        Objects.equals(this.isDraft, projectCreatedEvent.isDraft) &&
-        Objects.equals(this.contributingUserIds, projectCreatedEvent.contributingUserIds);
+        Objects.equals(this.portfolioPlan, projectCreatedEvent.portfolioPlan) &&
+        Objects.equals(this.isFromImport, projectCreatedEvent.isFromImport);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, position, fieldValues, portfolioId, portfolioPlan, isFromImport, userId, isDraft, contributingUserIds);
+    return Objects.hash(portfolioId, contributingUserIds, name, isDraft, id, position, fieldValues, userId, portfolioPlan, isFromImport);
   }
 
 
@@ -292,16 +292,16 @@ public class ProjectCreatedEvent {
     StringBuilder sb = new StringBuilder();
     sb.append("class ProjectCreatedEvent {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    portfolioId: ").append(toIndentedString(portfolioId)).append("\n");
+    sb.append("    contributingUserIds: ").append(toIndentedString(contributingUserIds)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    isDraft: ").append(toIndentedString(isDraft)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    position: ").append(toIndentedString(position)).append("\n");
     sb.append("    fieldValues: ").append(toIndentedString(fieldValues)).append("\n");
-    sb.append("    portfolioId: ").append(toIndentedString(portfolioId)).append("\n");
+    sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
     sb.append("    portfolioPlan: ").append(toIndentedString(portfolioPlan)).append("\n");
     sb.append("    isFromImport: ").append(toIndentedString(isFromImport)).append("\n");
-    sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
-    sb.append("    isDraft: ").append(toIndentedString(isDraft)).append("\n");
-    sb.append("    contributingUserIds: ").append(toIndentedString(contributingUserIds)).append("\n");
     sb.append("}");
     return sb.toString();
   }

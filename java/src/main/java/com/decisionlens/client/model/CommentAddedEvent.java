@@ -30,11 +30,14 @@ import java.io.IOException;
  */
 
 public class CommentAddedEvent {
+  @SerializedName("portfolioId")
+  private String portfolioId = null;
+
   @SerializedName("id")
   private String id = null;
 
-  @SerializedName("portfolioId")
-  private String portfolioId = null;
+  @SerializedName("projectName")
+  private String projectName = null;
 
   @SerializedName("userId")
   private String userId = null;
@@ -42,14 +45,29 @@ public class CommentAddedEvent {
   @SerializedName("projectId")
   private String projectId = null;
 
-  @SerializedName("projectName")
-  private String projectName = null;
+  @SerializedName("value")
+  private String value = null;
 
   @SerializedName("portfolioPlan")
   private PortfolioPlan portfolioPlan = null;
 
-  @SerializedName("value")
-  private String value = null;
+  public CommentAddedEvent portfolioId(String portfolioId) {
+    this.portfolioId = portfolioId;
+    return this;
+  }
+
+   /**
+   * Get portfolioId
+   * @return portfolioId
+  **/
+  @ApiModelProperty(value = "")
+  public String getPortfolioId() {
+    return portfolioId;
+  }
+
+  public void setPortfolioId(String portfolioId) {
+    this.portfolioId = portfolioId;
+  }
 
   public CommentAddedEvent id(String id) {
     this.id = id;
@@ -69,22 +87,22 @@ public class CommentAddedEvent {
     this.id = id;
   }
 
-  public CommentAddedEvent portfolioId(String portfolioId) {
-    this.portfolioId = portfolioId;
+  public CommentAddedEvent projectName(String projectName) {
+    this.projectName = projectName;
     return this;
   }
 
    /**
-   * Get portfolioId
-   * @return portfolioId
+   * Get projectName
+   * @return projectName
   **/
   @ApiModelProperty(value = "")
-  public String getPortfolioId() {
-    return portfolioId;
+  public String getProjectName() {
+    return projectName;
   }
 
-  public void setPortfolioId(String portfolioId) {
-    this.portfolioId = portfolioId;
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
   }
 
   public CommentAddedEvent userId(String userId) {
@@ -123,22 +141,22 @@ public class CommentAddedEvent {
     this.projectId = projectId;
   }
 
-  public CommentAddedEvent projectName(String projectName) {
-    this.projectName = projectName;
+  public CommentAddedEvent value(String value) {
+    this.value = value;
     return this;
   }
 
    /**
-   * Get projectName
-   * @return projectName
+   * Get value
+   * @return value
   **/
   @ApiModelProperty(value = "")
-  public String getProjectName() {
-    return projectName;
+  public String getValue() {
+    return value;
   }
 
-  public void setProjectName(String projectName) {
-    this.projectName = projectName;
+  public void setValue(String value) {
+    this.value = value;
   }
 
   public CommentAddedEvent portfolioPlan(PortfolioPlan portfolioPlan) {
@@ -159,24 +177,6 @@ public class CommentAddedEvent {
     this.portfolioPlan = portfolioPlan;
   }
 
-  public CommentAddedEvent value(String value) {
-    this.value = value;
-    return this;
-  }
-
-   /**
-   * Get value
-   * @return value
-  **/
-  @ApiModelProperty(value = "")
-  public String getValue() {
-    return value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -187,18 +187,18 @@ public class CommentAddedEvent {
       return false;
     }
     CommentAddedEvent commentAddedEvent = (CommentAddedEvent) o;
-    return Objects.equals(this.id, commentAddedEvent.id) &&
-        Objects.equals(this.portfolioId, commentAddedEvent.portfolioId) &&
+    return Objects.equals(this.portfolioId, commentAddedEvent.portfolioId) &&
+        Objects.equals(this.id, commentAddedEvent.id) &&
+        Objects.equals(this.projectName, commentAddedEvent.projectName) &&
         Objects.equals(this.userId, commentAddedEvent.userId) &&
         Objects.equals(this.projectId, commentAddedEvent.projectId) &&
-        Objects.equals(this.projectName, commentAddedEvent.projectName) &&
-        Objects.equals(this.portfolioPlan, commentAddedEvent.portfolioPlan) &&
-        Objects.equals(this.value, commentAddedEvent.value);
+        Objects.equals(this.value, commentAddedEvent.value) &&
+        Objects.equals(this.portfolioPlan, commentAddedEvent.portfolioPlan);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, portfolioId, userId, projectId, projectName, portfolioPlan, value);
+    return Objects.hash(portfolioId, id, projectName, userId, projectId, value, portfolioPlan);
   }
 
 
@@ -207,13 +207,13 @@ public class CommentAddedEvent {
     StringBuilder sb = new StringBuilder();
     sb.append("class CommentAddedEvent {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    portfolioId: ").append(toIndentedString(portfolioId)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
     sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
-    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
-    sb.append("    portfolioPlan: ").append(toIndentedString(portfolioPlan)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("    portfolioPlan: ").append(toIndentedString(portfolioPlan)).append("\n");
     sb.append("}");
     return sb.toString();
   }
