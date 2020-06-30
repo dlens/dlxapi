@@ -25,6 +25,20 @@ portfolioFromName <- function(apiclient, name) {
   return(NULL)
 }
 
+errorReport <- function(msg, resp=NULL) {
+  print("You have the following error:")
+  print(msg)
+  if (!is.null(resp)) {
+    if (!is.null(resp$headers)) {
+      if (!is.null(resp$headers$'dl-request-id')) {
+        print(paste0("DL Request Id = ", resp$headers$'dl-request-id'))
+      }
+    }
+  }
+  print("Contact support@decisionlens.com if you need further assistance")
+  stop("Stopping at this stage")
+}
+
 apiClientFromCreds <- function(dlx_instance, id, secret) {
   #Remove trailing slash on dlx_instance if it is there, because it causes issues
   dlx_instance = gsub("/$", "", dlx_instance)
@@ -34,6 +48,11 @@ apiClientFromCreds <- function(dlx_instance, id, secret) {
   
   basicAuth <- base64enc::base64encode(charToRaw(paste(id,secret, sep=":")))
   res=httr::POST(dlx_login_url, httr::add_headers("Authorization"= paste("Basic", basicAuth)))
+  if (res$status_code == 401) {
+    # You were unauthorized, we fail now
+    errorReport("Authentication error", res)
+  }
+  
   access_token = httr::content(res)$access_token
   #print(access_token)
   apiClient = ApiClient$new()
