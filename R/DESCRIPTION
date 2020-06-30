@@ -1,4 +1,4 @@
-Package: swagger
+Package: dlxapir
 Title: R Package Client for Decision Lens API
 Version: 1.0.0
 Authors@R: person("Swagger Codegen community", email = "apiteam@swagger.io", role = c("aut", "cre"))
@@ -8,5 +8,5 @@ Encoding: UTF-8
 License: Unlicense
 LazyData: true
 Suggests: testthat
-Imports: jsonlite, httr, R6
+Imports: jsonlite, httr, R6, urltools
 RoxygenNote: 6.0.1.9000
