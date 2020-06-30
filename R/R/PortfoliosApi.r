@@ -447,7 +447,8 @@ PortfoliosApi <- R6::R6Class(
       args <- list(...)
       queryParams <- list()
       headerParams <- character()
-
+      body = NULL
+      
       if (!missing(`sheet_name`)) {
         queryParams['sheetName'] <- sheet_name
       }
