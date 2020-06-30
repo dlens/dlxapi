@@ -23,7 +23,7 @@ Here is an example of using the `dlxapir` library to import from an Excel file
 ```{R}
 library(dlxapir)
 # What dlx instance are we talking with?
-dlx_instance = "https://dlx-alpha.decisionlens.com"
+dlx_instance = "INSERT_CLIENT_INSTANCE"
 # Your id and credentials go here
 id = "Your ID Goes Here!"
 secret = "Your secret Goes Here!"
