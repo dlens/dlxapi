@@ -34,128 +34,74 @@ import java.util.List;
  */
 
 public class PortfolioPlanUserRolesUpdatedEvent {
-  @SerializedName("id")
-  private String id = null;
+  @SerializedName("previousPortfolioPlanUserRoleList")
+  private List<PortfolioPlanUserRole> previousPortfolioPlanUserRoleList = null;
 
-  @SerializedName("portfolioPlan")
-  private PortfolioPlan portfolioPlan = null;
-
-  @SerializedName("user")
-  private User user = null;
-
-  @SerializedName("roles")
-  private List<PortfolioPlanUserRole> roles = null;
-
-  @SerializedName("previousRoles")
-  private List<PortfolioPlanUserRole> previousRoles = null;
+  @SerializedName("portfolioPlanUserRoleList")
+  private List<PortfolioPlanUserRole> portfolioPlanUserRoleList = null;
 
   @SerializedName("portfolioId")
   private String portfolioId = null;
 
-  public PortfolioPlanUserRolesUpdatedEvent id(String id) {
-    this.id = id;
+  @SerializedName("id")
+  private String id = null;
+
+  @SerializedName("user")
+  private User user = null;
+
+  @SerializedName("portfolioPlan")
+  private PortfolioPlan portfolioPlan = null;
+
+  public PortfolioPlanUserRolesUpdatedEvent previousPortfolioPlanUserRoleList(List<PortfolioPlanUserRole> previousPortfolioPlanUserRoleList) {
+    this.previousPortfolioPlanUserRoleList = previousPortfolioPlanUserRoleList;
     return this;
   }
 
-   /**
-   * Get id
-   * @return id
-  **/
-  @ApiModelProperty(value = "")
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public PortfolioPlanUserRolesUpdatedEvent portfolioPlan(PortfolioPlan portfolioPlan) {
-    this.portfolioPlan = portfolioPlan;
-    return this;
-  }
-
-   /**
-   * Get portfolioPlan
-   * @return portfolioPlan
-  **/
-  @ApiModelProperty(value = "")
-  public PortfolioPlan getPortfolioPlan() {
-    return portfolioPlan;
-  }
-
-  public void setPortfolioPlan(PortfolioPlan portfolioPlan) {
-    this.portfolioPlan = portfolioPlan;
-  }
-
-  public PortfolioPlanUserRolesUpdatedEvent user(User user) {
-    this.user = user;
-    return this;
-  }
-
-   /**
-   * Get user
-   * @return user
-  **/
-  @ApiModelProperty(value = "")
-  public User getUser() {
-    return user;
-  }
-
-  public void setUser(User user) {
-    this.user = user;
-  }
-
-  public PortfolioPlanUserRolesUpdatedEvent roles(List<PortfolioPlanUserRole> roles) {
-    this.roles = roles;
-    return this;
-  }
-
-  public PortfolioPlanUserRolesUpdatedEvent addRolesItem(PortfolioPlanUserRole rolesItem) {
-    if (this.roles == null) {
-      this.roles = new ArrayList<PortfolioPlanUserRole>();
+  public PortfolioPlanUserRolesUpdatedEvent addPreviousPortfolioPlanUserRoleListItem(PortfolioPlanUserRole previousPortfolioPlanUserRoleListItem) {
+    if (this.previousPortfolioPlanUserRoleList == null) {
+      this.previousPortfolioPlanUserRoleList = new ArrayList<PortfolioPlanUserRole>();
     }
-    this.roles.add(rolesItem);
+    this.previousPortfolioPlanUserRoleList.add(previousPortfolioPlanUserRoleListItem);
     return this;
   }
 
    /**
-   * Get roles
-   * @return roles
+   * Get previousPortfolioPlanUserRoleList
+   * @return previousPortfolioPlanUserRoleList
   **/
   @ApiModelProperty(value = "")
-  public List<PortfolioPlanUserRole> getRoles() {
-    return roles;
+  public List<PortfolioPlanUserRole> getPreviousPortfolioPlanUserRoleList() {
+    return previousPortfolioPlanUserRoleList;
   }
 
-  public void setRoles(List<PortfolioPlanUserRole> roles) {
-    this.roles = roles;
+  public void setPreviousPortfolioPlanUserRoleList(List<PortfolioPlanUserRole> previousPortfolioPlanUserRoleList) {
+    this.previousPortfolioPlanUserRoleList = previousPortfolioPlanUserRoleList;
   }
 
-  public PortfolioPlanUserRolesUpdatedEvent previousRoles(List<PortfolioPlanUserRole> previousRoles) {
-    this.previousRoles = previousRoles;
+  public PortfolioPlanUserRolesUpdatedEvent portfolioPlanUserRoleList(List<PortfolioPlanUserRole> portfolioPlanUserRoleList) {
+    this.portfolioPlanUserRoleList = portfolioPlanUserRoleList;
     return this;
   }
 
-  public PortfolioPlanUserRolesUpdatedEvent addPreviousRolesItem(PortfolioPlanUserRole previousRolesItem) {
-    if (this.previousRoles == null) {
-      this.previousRoles = new ArrayList<PortfolioPlanUserRole>();
+  public PortfolioPlanUserRolesUpdatedEvent addPortfolioPlanUserRoleListItem(PortfolioPlanUserRole portfolioPlanUserRoleListItem) {
+    if (this.portfolioPlanUserRoleList == null) {
+      this.portfolioPlanUserRoleList = new ArrayList<PortfolioPlanUserRole>();
     }
-    this.previousRoles.add(previousRolesItem);
+    this.portfolioPlanUserRoleList.add(portfolioPlanUserRoleListItem);
     return this;
   }
 
    /**
-   * Get previousRoles
-   * @return previousRoles
+   * Get portfolioPlanUserRoleList
+   * @return portfolioPlanUserRoleList
   **/
   @ApiModelProperty(value = "")
-  public List<PortfolioPlanUserRole> getPreviousRoles() {
-    return previousRoles;
+  public List<PortfolioPlanUserRole> getPortfolioPlanUserRoleList() {
+    return portfolioPlanUserRoleList;
   }
 
-  public void setPreviousRoles(List<PortfolioPlanUserRole> previousRoles) {
-    this.previousRoles = previousRoles;
+  public void setPortfolioPlanUserRoleList(List<PortfolioPlanUserRole> portfolioPlanUserRoleList) {
+    this.portfolioPlanUserRoleList = portfolioPlanUserRoleList;
   }
 
   public PortfolioPlanUserRolesUpdatedEvent portfolioId(String portfolioId) {
@@ -176,6 +122,60 @@ public class PortfolioPlanUserRolesUpdatedEvent {
     this.portfolioId = portfolioId;
   }
 
+  public PortfolioPlanUserRolesUpdatedEvent id(String id) {
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * Get id
+   * @return id
+  **/
+  @ApiModelProperty(value = "")
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public PortfolioPlanUserRolesUpdatedEvent user(User user) {
+    this.user = user;
+    return this;
+  }
+
+   /**
+   * Get user
+   * @return user
+  **/
+  @ApiModelProperty(value = "")
+  public User getUser() {
+    return user;
+  }
+
+  public void setUser(User user) {
+    this.user = user;
+  }
+
+  public PortfolioPlanUserRolesUpdatedEvent portfolioPlan(PortfolioPlan portfolioPlan) {
+    this.portfolioPlan = portfolioPlan;
+    return this;
+  }
+
+   /**
+   * Get portfolioPlan
+   * @return portfolioPlan
+  **/
+  @ApiModelProperty(value = "")
+  public PortfolioPlan getPortfolioPlan() {
+    return portfolioPlan;
+  }
+
+  public void setPortfolioPlan(PortfolioPlan portfolioPlan) {
+    this.portfolioPlan = portfolioPlan;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -186,17 +186,17 @@ public class PortfolioPlanUserRolesUpdatedEvent {
       return false;
     }
     PortfolioPlanUserRolesUpdatedEvent portfolioPlanUserRolesUpdatedEvent = (PortfolioPlanUserRolesUpdatedEvent) o;
-    return Objects.equals(this.id, portfolioPlanUserRolesUpdatedEvent.id) &&
-        Objects.equals(this.portfolioPlan, portfolioPlanUserRolesUpdatedEvent.portfolioPlan) &&
+    return Objects.equals(this.previousPortfolioPlanUserRoleList, portfolioPlanUserRolesUpdatedEvent.previousPortfolioPlanUserRoleList) &&
+        Objects.equals(this.portfolioPlanUserRoleList, portfolioPlanUserRolesUpdatedEvent.portfolioPlanUserRoleList) &&
+        Objects.equals(this.portfolioId, portfolioPlanUserRolesUpdatedEvent.portfolioId) &&
+        Objects.equals(this.id, portfolioPlanUserRolesUpdatedEvent.id) &&
         Objects.equals(this.user, portfolioPlanUserRolesUpdatedEvent.user) &&
-        Objects.equals(this.roles, portfolioPlanUserRolesUpdatedEvent.roles) &&
-        Objects.equals(this.previousRoles, portfolioPlanUserRolesUpdatedEvent.previousRoles) &&
-        Objects.equals(this.portfolioId, portfolioPlanUserRolesUpdatedEvent.portfolioId);
+        Objects.equals(this.portfolioPlan, portfolioPlanUserRolesUpdatedEvent.portfolioPlan);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, portfolioPlan, user, roles, previousRoles, portfolioId);
+    return Objects.hash(previousPortfolioPlanUserRoleList, portfolioPlanUserRoleList, portfolioId, id, user, portfolioPlan);
   }
 
 
@@ -205,12 +205,12 @@ public class PortfolioPlanUserRolesUpdatedEvent {
     StringBuilder sb = new StringBuilder();
     sb.append("class PortfolioPlanUserRolesUpdatedEvent {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    portfolioPlan: ").append(toIndentedString(portfolioPlan)).append("\n");
-    sb.append("    user: ").append(toIndentedString(user)).append("\n");
-    sb.append("    roles: ").append(toIndentedString(roles)).append("\n");
-    sb.append("    previousRoles: ").append(toIndentedString(previousRoles)).append("\n");
+    sb.append("    previousPortfolioPlanUserRoleList: ").append(toIndentedString(previousPortfolioPlanUserRoleList)).append("\n");
+    sb.append("    portfolioPlanUserRoleList: ").append(toIndentedString(portfolioPlanUserRoleList)).append("\n");
     sb.append("    portfolioId: ").append(toIndentedString(portfolioId)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    user: ").append(toIndentedString(user)).append("\n");
+    sb.append("    portfolioPlan: ").append(toIndentedString(portfolioPlan)).append("\n");
     sb.append("}");
     return sb.toString();
   }

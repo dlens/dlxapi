@@ -31,34 +31,34 @@ import java.io.IOException;
  */
 
 public class SourceDeletedEvent {
-  @SerializedName("id")
-  private String id = null;
+  @SerializedName("sourceType")
+  private SourceType sourceType = null;
 
   @SerializedName("name")
   private String name = null;
 
-  @SerializedName("type")
-  private SourceType type = null;
+  @SerializedName("id")
+  private String id = null;
 
   @SerializedName("portfolioPlan")
   private PortfolioPlan portfolioPlan = null;
 
-  public SourceDeletedEvent id(String id) {
-    this.id = id;
+  public SourceDeletedEvent sourceType(SourceType sourceType) {
+    this.sourceType = sourceType;
     return this;
   }
 
    /**
-   * Get id
-   * @return id
+   * Get sourceType
+   * @return sourceType
   **/
   @ApiModelProperty(value = "")
-  public String getId() {
-    return id;
+  public SourceType getSourceType() {
+    return sourceType;
   }
 
-  public void setId(String id) {
-    this.id = id;
+  public void setSourceType(SourceType sourceType) {
+    this.sourceType = sourceType;
   }
 
   public SourceDeletedEvent name(String name) {
@@ -79,22 +79,22 @@ public class SourceDeletedEvent {
     this.name = name;
   }
 
-  public SourceDeletedEvent type(SourceType type) {
-    this.type = type;
+  public SourceDeletedEvent id(String id) {
+    this.id = id;
     return this;
   }
 
    /**
-   * Get type
-   * @return type
+   * Get id
+   * @return id
   **/
   @ApiModelProperty(value = "")
-  public SourceType getType() {
-    return type;
+  public String getId() {
+    return id;
   }
 
-  public void setType(SourceType type) {
-    this.type = type;
+  public void setId(String id) {
+    this.id = id;
   }
 
   public SourceDeletedEvent portfolioPlan(PortfolioPlan portfolioPlan) {
@@ -125,15 +125,15 @@ public class SourceDeletedEvent {
       return false;
     }
     SourceDeletedEvent sourceDeletedEvent = (SourceDeletedEvent) o;
-    return Objects.equals(this.id, sourceDeletedEvent.id) &&
+    return Objects.equals(this.sourceType, sourceDeletedEvent.sourceType) &&
         Objects.equals(this.name, sourceDeletedEvent.name) &&
-        Objects.equals(this.type, sourceDeletedEvent.type) &&
+        Objects.equals(this.id, sourceDeletedEvent.id) &&
         Objects.equals(this.portfolioPlan, sourceDeletedEvent.portfolioPlan);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, type, portfolioPlan);
+    return Objects.hash(sourceType, name, id, portfolioPlan);
   }
 
 
@@ -142,9 +142,9 @@ public class SourceDeletedEvent {
     StringBuilder sb = new StringBuilder();
     sb.append("class SourceDeletedEvent {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    sourceType: ").append(toIndentedString(sourceType)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    portfolioPlan: ").append(toIndentedString(portfolioPlan)).append("\n");
     sb.append("}");
     return sb.toString();

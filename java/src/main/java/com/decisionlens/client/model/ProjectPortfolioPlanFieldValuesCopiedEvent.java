@@ -33,11 +33,17 @@ import java.util.List;
  */
 
 public class ProjectPortfolioPlanFieldValuesCopiedEvent {
-  @SerializedName("id")
-  private String id = null;
+  @SerializedName("portfolioId")
+  private String portfolioId = null;
+
+  @SerializedName("fromPortfolioPlan")
+  private PortfolioPlan fromPortfolioPlan = null;
 
   @SerializedName("name")
   private String name = null;
+
+  @SerializedName("id")
+  private String id = null;
 
   @SerializedName("fieldValues")
   private List<ProjectFieldValue> fieldValues = null;
@@ -45,28 +51,40 @@ public class ProjectPortfolioPlanFieldValuesCopiedEvent {
   @SerializedName("portfolioPlan")
   private PortfolioPlan portfolioPlan = null;
 
-  @SerializedName("fromPortfolioPlan")
-  private PortfolioPlan fromPortfolioPlan = null;
-
-  @SerializedName("portfolioId")
-  private String portfolioId = null;
-
-  public ProjectPortfolioPlanFieldValuesCopiedEvent id(String id) {
-    this.id = id;
+  public ProjectPortfolioPlanFieldValuesCopiedEvent portfolioId(String portfolioId) {
+    this.portfolioId = portfolioId;
     return this;
   }
 
    /**
-   * Get id
-   * @return id
+   * Get portfolioId
+   * @return portfolioId
   **/
   @ApiModelProperty(value = "")
-  public String getId() {
-    return id;
+  public String getPortfolioId() {
+    return portfolioId;
   }
 
-  public void setId(String id) {
-    this.id = id;
+  public void setPortfolioId(String portfolioId) {
+    this.portfolioId = portfolioId;
+  }
+
+  public ProjectPortfolioPlanFieldValuesCopiedEvent fromPortfolioPlan(PortfolioPlan fromPortfolioPlan) {
+    this.fromPortfolioPlan = fromPortfolioPlan;
+    return this;
+  }
+
+   /**
+   * Get fromPortfolioPlan
+   * @return fromPortfolioPlan
+  **/
+  @ApiModelProperty(value = "")
+  public PortfolioPlan getFromPortfolioPlan() {
+    return fromPortfolioPlan;
+  }
+
+  public void setFromPortfolioPlan(PortfolioPlan fromPortfolioPlan) {
+    this.fromPortfolioPlan = fromPortfolioPlan;
   }
 
   public ProjectPortfolioPlanFieldValuesCopiedEvent name(String name) {
@@ -85,6 +103,24 @@ public class ProjectPortfolioPlanFieldValuesCopiedEvent {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public ProjectPortfolioPlanFieldValuesCopiedEvent id(String id) {
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * Get id
+   * @return id
+  **/
+  @ApiModelProperty(value = "")
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
   }
 
   public ProjectPortfolioPlanFieldValuesCopiedEvent fieldValues(List<ProjectFieldValue> fieldValues) {
@@ -131,42 +167,6 @@ public class ProjectPortfolioPlanFieldValuesCopiedEvent {
     this.portfolioPlan = portfolioPlan;
   }
 
-  public ProjectPortfolioPlanFieldValuesCopiedEvent fromPortfolioPlan(PortfolioPlan fromPortfolioPlan) {
-    this.fromPortfolioPlan = fromPortfolioPlan;
-    return this;
-  }
-
-   /**
-   * Get fromPortfolioPlan
-   * @return fromPortfolioPlan
-  **/
-  @ApiModelProperty(value = "")
-  public PortfolioPlan getFromPortfolioPlan() {
-    return fromPortfolioPlan;
-  }
-
-  public void setFromPortfolioPlan(PortfolioPlan fromPortfolioPlan) {
-    this.fromPortfolioPlan = fromPortfolioPlan;
-  }
-
-  public ProjectPortfolioPlanFieldValuesCopiedEvent portfolioId(String portfolioId) {
-    this.portfolioId = portfolioId;
-    return this;
-  }
-
-   /**
-   * Get portfolioId
-   * @return portfolioId
-  **/
-  @ApiModelProperty(value = "")
-  public String getPortfolioId() {
-    return portfolioId;
-  }
-
-  public void setPortfolioId(String portfolioId) {
-    this.portfolioId = portfolioId;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -177,17 +177,17 @@ public class ProjectPortfolioPlanFieldValuesCopiedEvent {
       return false;
     }
     ProjectPortfolioPlanFieldValuesCopiedEvent projectPortfolioPlanFieldValuesCopiedEvent = (ProjectPortfolioPlanFieldValuesCopiedEvent) o;
-    return Objects.equals(this.id, projectPortfolioPlanFieldValuesCopiedEvent.id) &&
-        Objects.equals(this.name, projectPortfolioPlanFieldValuesCopiedEvent.name) &&
-        Objects.equals(this.fieldValues, projectPortfolioPlanFieldValuesCopiedEvent.fieldValues) &&
-        Objects.equals(this.portfolioPlan, projectPortfolioPlanFieldValuesCopiedEvent.portfolioPlan) &&
+    return Objects.equals(this.portfolioId, projectPortfolioPlanFieldValuesCopiedEvent.portfolioId) &&
         Objects.equals(this.fromPortfolioPlan, projectPortfolioPlanFieldValuesCopiedEvent.fromPortfolioPlan) &&
-        Objects.equals(this.portfolioId, projectPortfolioPlanFieldValuesCopiedEvent.portfolioId);
+        Objects.equals(this.name, projectPortfolioPlanFieldValuesCopiedEvent.name) &&
+        Objects.equals(this.id, projectPortfolioPlanFieldValuesCopiedEvent.id) &&
+        Objects.equals(this.fieldValues, projectPortfolioPlanFieldValuesCopiedEvent.fieldValues) &&
+        Objects.equals(this.portfolioPlan, projectPortfolioPlanFieldValuesCopiedEvent.portfolioPlan);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, fieldValues, portfolioPlan, fromPortfolioPlan, portfolioId);
+    return Objects.hash(portfolioId, fromPortfolioPlan, name, id, fieldValues, portfolioPlan);
   }
 
 
@@ -196,12 +196,12 @@ public class ProjectPortfolioPlanFieldValuesCopiedEvent {
     StringBuilder sb = new StringBuilder();
     sb.append("class ProjectPortfolioPlanFieldValuesCopiedEvent {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    portfolioId: ").append(toIndentedString(portfolioId)).append("\n");
+    sb.append("    fromPortfolioPlan: ").append(toIndentedString(fromPortfolioPlan)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    fieldValues: ").append(toIndentedString(fieldValues)).append("\n");
     sb.append("    portfolioPlan: ").append(toIndentedString(portfolioPlan)).append("\n");
-    sb.append("    fromPortfolioPlan: ").append(toIndentedString(fromPortfolioPlan)).append("\n");
-    sb.append("    portfolioId: ").append(toIndentedString(portfolioId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

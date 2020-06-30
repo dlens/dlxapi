@@ -4,13 +4,13 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** |  |  [optional]
+**portfolioId** | **String** |  |  [optional]
 **name** | **String** |  |  [optional]
 **description** | **String** |  |  [optional]
 **isBaseline** | **Boolean** |  |  [optional]
+**id** | **String** |  |  [optional]
 **portfolioPlan** | [**PortfolioPlan**](PortfolioPlan.md) |  |  [optional]
 **parentPortfolioPlan** | [**PortfolioPlan**](PortfolioPlan.md) |  |  [optional]
-**portfolioId** | **String** |  |  [optional]
 
 
 

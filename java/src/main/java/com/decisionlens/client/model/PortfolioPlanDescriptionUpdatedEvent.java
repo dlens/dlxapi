@@ -30,11 +30,14 @@ import java.io.IOException;
  */
 
 public class PortfolioPlanDescriptionUpdatedEvent {
-  @SerializedName("id")
-  private String id = null;
+  @SerializedName("portfolioId")
+  private String portfolioId = null;
 
   @SerializedName("description")
   private String description = null;
+
+  @SerializedName("id")
+  private String id = null;
 
   @SerializedName("previousDescription")
   private String previousDescription = null;
@@ -42,25 +45,22 @@ public class PortfolioPlanDescriptionUpdatedEvent {
   @SerializedName("portfolioPlan")
   private PortfolioPlan portfolioPlan = null;
 
-  @SerializedName("portfolioId")
-  private String portfolioId = null;
-
-  public PortfolioPlanDescriptionUpdatedEvent id(String id) {
-    this.id = id;
+  public PortfolioPlanDescriptionUpdatedEvent portfolioId(String portfolioId) {
+    this.portfolioId = portfolioId;
     return this;
   }
 
    /**
-   * Get id
-   * @return id
+   * Get portfolioId
+   * @return portfolioId
   **/
   @ApiModelProperty(value = "")
-  public String getId() {
-    return id;
+  public String getPortfolioId() {
+    return portfolioId;
   }
 
-  public void setId(String id) {
-    this.id = id;
+  public void setPortfolioId(String portfolioId) {
+    this.portfolioId = portfolioId;
   }
 
   public PortfolioPlanDescriptionUpdatedEvent description(String description) {
@@ -79,6 +79,24 @@ public class PortfolioPlanDescriptionUpdatedEvent {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public PortfolioPlanDescriptionUpdatedEvent id(String id) {
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * Get id
+   * @return id
+  **/
+  @ApiModelProperty(value = "")
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
   }
 
   public PortfolioPlanDescriptionUpdatedEvent previousDescription(String previousDescription) {
@@ -117,24 +135,6 @@ public class PortfolioPlanDescriptionUpdatedEvent {
     this.portfolioPlan = portfolioPlan;
   }
 
-  public PortfolioPlanDescriptionUpdatedEvent portfolioId(String portfolioId) {
-    this.portfolioId = portfolioId;
-    return this;
-  }
-
-   /**
-   * Get portfolioId
-   * @return portfolioId
-  **/
-  @ApiModelProperty(value = "")
-  public String getPortfolioId() {
-    return portfolioId;
-  }
-
-  public void setPortfolioId(String portfolioId) {
-    this.portfolioId = portfolioId;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -145,16 +145,16 @@ public class PortfolioPlanDescriptionUpdatedEvent {
       return false;
     }
     PortfolioPlanDescriptionUpdatedEvent portfolioPlanDescriptionUpdatedEvent = (PortfolioPlanDescriptionUpdatedEvent) o;
-    return Objects.equals(this.id, portfolioPlanDescriptionUpdatedEvent.id) &&
+    return Objects.equals(this.portfolioId, portfolioPlanDescriptionUpdatedEvent.portfolioId) &&
         Objects.equals(this.description, portfolioPlanDescriptionUpdatedEvent.description) &&
+        Objects.equals(this.id, portfolioPlanDescriptionUpdatedEvent.id) &&
         Objects.equals(this.previousDescription, portfolioPlanDescriptionUpdatedEvent.previousDescription) &&
-        Objects.equals(this.portfolioPlan, portfolioPlanDescriptionUpdatedEvent.portfolioPlan) &&
-        Objects.equals(this.portfolioId, portfolioPlanDescriptionUpdatedEvent.portfolioId);
+        Objects.equals(this.portfolioPlan, portfolioPlanDescriptionUpdatedEvent.portfolioPlan);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, description, previousDescription, portfolioPlan, portfolioId);
+    return Objects.hash(portfolioId, description, id, previousDescription, portfolioPlan);
   }
 
 
@@ -163,11 +163,11 @@ public class PortfolioPlanDescriptionUpdatedEvent {
     StringBuilder sb = new StringBuilder();
     sb.append("class PortfolioPlanDescriptionUpdatedEvent {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    portfolioId: ").append(toIndentedString(portfolioId)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    previousDescription: ").append(toIndentedString(previousDescription)).append("\n");
     sb.append("    portfolioPlan: ").append(toIndentedString(portfolioPlan)).append("\n");
-    sb.append("    portfolioId: ").append(toIndentedString(portfolioId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

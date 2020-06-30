@@ -48,5 +48,13 @@
 
 * `NOTIFICATIONSMESSAGE` (value: `"NotificationsMessage"`)
 
+* `TAGADDEDMESSAGE` (value: `"TagAddedMessage"`)
+
+* `TAGUPDATEDMESSAGE` (value: `"TagUpdatedMessage"`)
+
+* `TAGDELETEDMESSAGE` (value: `"TagDeletedMessage"`)
+
+* `DRAFTPROJECTSSUBMITTEDMESSAGE` (value: `"DraftProjectsSubmittedMessage"`)
+
 
 

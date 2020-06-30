@@ -30,11 +30,14 @@ import java.io.IOException;
  */
 
 public class CommentEditedEvent {
+  @SerializedName("portfolioId")
+  private String portfolioId = null;
+
   @SerializedName("id")
   private String id = null;
 
-  @SerializedName("portfolioId")
-  private String portfolioId = null;
+  @SerializedName("projectName")
+  private String projectName = null;
 
   @SerializedName("userId")
   private String userId = null;
@@ -42,17 +45,32 @@ public class CommentEditedEvent {
   @SerializedName("projectId")
   private String projectId = null;
 
-  @SerializedName("projectName")
-  private String projectName = null;
-
-  @SerializedName("portfolioPlan")
-  private PortfolioPlan portfolioPlan = null;
-
   @SerializedName("value")
   private String value = null;
 
   @SerializedName("previousValue")
   private String previousValue = null;
+
+  @SerializedName("portfolioPlan")
+  private PortfolioPlan portfolioPlan = null;
+
+  public CommentEditedEvent portfolioId(String portfolioId) {
+    this.portfolioId = portfolioId;
+    return this;
+  }
+
+   /**
+   * Get portfolioId
+   * @return portfolioId
+  **/
+  @ApiModelProperty(value = "")
+  public String getPortfolioId() {
+    return portfolioId;
+  }
+
+  public void setPortfolioId(String portfolioId) {
+    this.portfolioId = portfolioId;
+  }
 
   public CommentEditedEvent id(String id) {
     this.id = id;
@@ -72,22 +90,22 @@ public class CommentEditedEvent {
     this.id = id;
   }
 
-  public CommentEditedEvent portfolioId(String portfolioId) {
-    this.portfolioId = portfolioId;
+  public CommentEditedEvent projectName(String projectName) {
+    this.projectName = projectName;
     return this;
   }
 
    /**
-   * Get portfolioId
-   * @return portfolioId
+   * Get projectName
+   * @return projectName
   **/
   @ApiModelProperty(value = "")
-  public String getPortfolioId() {
-    return portfolioId;
+  public String getProjectName() {
+    return projectName;
   }
 
-  public void setPortfolioId(String portfolioId) {
-    this.portfolioId = portfolioId;
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
   }
 
   public CommentEditedEvent userId(String userId) {
@@ -126,42 +144,6 @@ public class CommentEditedEvent {
     this.projectId = projectId;
   }
 
-  public CommentEditedEvent projectName(String projectName) {
-    this.projectName = projectName;
-    return this;
-  }
-
-   /**
-   * Get projectName
-   * @return projectName
-  **/
-  @ApiModelProperty(value = "")
-  public String getProjectName() {
-    return projectName;
-  }
-
-  public void setProjectName(String projectName) {
-    this.projectName = projectName;
-  }
-
-  public CommentEditedEvent portfolioPlan(PortfolioPlan portfolioPlan) {
-    this.portfolioPlan = portfolioPlan;
-    return this;
-  }
-
-   /**
-   * Get portfolioPlan
-   * @return portfolioPlan
-  **/
-  @ApiModelProperty(value = "")
-  public PortfolioPlan getPortfolioPlan() {
-    return portfolioPlan;
-  }
-
-  public void setPortfolioPlan(PortfolioPlan portfolioPlan) {
-    this.portfolioPlan = portfolioPlan;
-  }
-
   public CommentEditedEvent value(String value) {
     this.value = value;
     return this;
@@ -198,6 +180,24 @@ public class CommentEditedEvent {
     this.previousValue = previousValue;
   }
 
+  public CommentEditedEvent portfolioPlan(PortfolioPlan portfolioPlan) {
+    this.portfolioPlan = portfolioPlan;
+    return this;
+  }
+
+   /**
+   * Get portfolioPlan
+   * @return portfolioPlan
+  **/
+  @ApiModelProperty(value = "")
+  public PortfolioPlan getPortfolioPlan() {
+    return portfolioPlan;
+  }
+
+  public void setPortfolioPlan(PortfolioPlan portfolioPlan) {
+    this.portfolioPlan = portfolioPlan;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -208,19 +208,19 @@ public class CommentEditedEvent {
       return false;
     }
     CommentEditedEvent commentEditedEvent = (CommentEditedEvent) o;
-    return Objects.equals(this.id, commentEditedEvent.id) &&
-        Objects.equals(this.portfolioId, commentEditedEvent.portfolioId) &&
+    return Objects.equals(this.portfolioId, commentEditedEvent.portfolioId) &&
+        Objects.equals(this.id, commentEditedEvent.id) &&
+        Objects.equals(this.projectName, commentEditedEvent.projectName) &&
         Objects.equals(this.userId, commentEditedEvent.userId) &&
         Objects.equals(this.projectId, commentEditedEvent.projectId) &&
-        Objects.equals(this.projectName, commentEditedEvent.projectName) &&
-        Objects.equals(this.portfolioPlan, commentEditedEvent.portfolioPlan) &&
         Objects.equals(this.value, commentEditedEvent.value) &&
-        Objects.equals(this.previousValue, commentEditedEvent.previousValue);
+        Objects.equals(this.previousValue, commentEditedEvent.previousValue) &&
+        Objects.equals(this.portfolioPlan, commentEditedEvent.portfolioPlan);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, portfolioId, userId, projectId, projectName, portfolioPlan, value, previousValue);
+    return Objects.hash(portfolioId, id, projectName, userId, projectId, value, previousValue, portfolioPlan);
   }
 
 
@@ -229,14 +229,14 @@ public class CommentEditedEvent {
     StringBuilder sb = new StringBuilder();
     sb.append("class CommentEditedEvent {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    portfolioId: ").append(toIndentedString(portfolioId)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
     sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
-    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
-    sb.append("    portfolioPlan: ").append(toIndentedString(portfolioPlan)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("    previousValue: ").append(toIndentedString(previousValue)).append("\n");
+    sb.append("    portfolioPlan: ").append(toIndentedString(portfolioPlan)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -4,17 +4,17 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** |  |  [optional]
-**name** | **String** |  |  [optional]
+**portfolioId** | **String** |  |  [optional]
 **field** | [**Field**](Field.md) |  |  [optional]
+**name** | **String** |  |  [optional]
+**timePeriod** | [**TimePeriod**](TimePeriod.md) |  |  [optional]
+**numericValue** | [**BigDecimal**](BigDecimal.md) |  |  [optional]
+**id** | **String** |  |  [optional]
+**previousNumericValue** | [**BigDecimal**](BigDecimal.md) |  |  [optional]
+**isRebaseline** | **Boolean** |  |  [optional]
 **value** | **String** |  |  [optional]
 **previousValue** | **String** |  |  [optional]
-**numericValue** | **Double** |  |  [optional]
-**previousNumericValue** | **Double** |  |  [optional]
-**timePeriod** | [**TimePeriod**](TimePeriod.md) |  |  [optional]
-**portfolioId** | **String** |  |  [optional]
 **portfolioPlan** | [**PortfolioPlan**](PortfolioPlan.md) |  |  [optional]
-**isRebaseline** | **Boolean** |  |  [optional]
 **isFromImport** | **Boolean** |  |  [optional]
 
 

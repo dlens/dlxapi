@@ -25,49 +25,68 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.math.BigDecimal;
 
 /**
  * ResourcePoolBudgetAmountUpdatedEvent
  */
 
 public class ResourcePoolBudgetAmountUpdatedEvent {
-  @SerializedName("id")
-  private String id = null;
+  @SerializedName("portfolioId")
+  private String portfolioId = null;
+
+  @SerializedName("budgetAmount")
+  private BigDecimal budgetAmount = null;
 
   @SerializedName("name")
   private String name = null;
 
-  @SerializedName("budgetAmount")
-  private Double budgetAmount = null;
-
-  @SerializedName("previousBudgetAmount")
-  private Double previousBudgetAmount = null;
-
   @SerializedName("timePeriod")
   private TimePeriod timePeriod = null;
 
-  @SerializedName("portfolioId")
-  private String portfolioId = null;
+  @SerializedName("id")
+  private String id = null;
 
   @SerializedName("portfolioPlan")
   private PortfolioPlan portfolioPlan = null;
 
-  public ResourcePoolBudgetAmountUpdatedEvent id(String id) {
-    this.id = id;
+  @SerializedName("previousBudgetAmount")
+  private BigDecimal previousBudgetAmount = null;
+
+  public ResourcePoolBudgetAmountUpdatedEvent portfolioId(String portfolioId) {
+    this.portfolioId = portfolioId;
     return this;
   }
 
    /**
-   * Get id
-   * @return id
+   * Get portfolioId
+   * @return portfolioId
   **/
   @ApiModelProperty(value = "")
-  public String getId() {
-    return id;
+  public String getPortfolioId() {
+    return portfolioId;
   }
 
-  public void setId(String id) {
-    this.id = id;
+  public void setPortfolioId(String portfolioId) {
+    this.portfolioId = portfolioId;
+  }
+
+  public ResourcePoolBudgetAmountUpdatedEvent budgetAmount(BigDecimal budgetAmount) {
+    this.budgetAmount = budgetAmount;
+    return this;
+  }
+
+   /**
+   * Get budgetAmount
+   * @return budgetAmount
+  **/
+  @ApiModelProperty(value = "")
+  public BigDecimal getBudgetAmount() {
+    return budgetAmount;
+  }
+
+  public void setBudgetAmount(BigDecimal budgetAmount) {
+    this.budgetAmount = budgetAmount;
   }
 
   public ResourcePoolBudgetAmountUpdatedEvent name(String name) {
@@ -88,42 +107,6 @@ public class ResourcePoolBudgetAmountUpdatedEvent {
     this.name = name;
   }
 
-  public ResourcePoolBudgetAmountUpdatedEvent budgetAmount(Double budgetAmount) {
-    this.budgetAmount = budgetAmount;
-    return this;
-  }
-
-   /**
-   * Get budgetAmount
-   * @return budgetAmount
-  **/
-  @ApiModelProperty(value = "")
-  public Double getBudgetAmount() {
-    return budgetAmount;
-  }
-
-  public void setBudgetAmount(Double budgetAmount) {
-    this.budgetAmount = budgetAmount;
-  }
-
-  public ResourcePoolBudgetAmountUpdatedEvent previousBudgetAmount(Double previousBudgetAmount) {
-    this.previousBudgetAmount = previousBudgetAmount;
-    return this;
-  }
-
-   /**
-   * Get previousBudgetAmount
-   * @return previousBudgetAmount
-  **/
-  @ApiModelProperty(value = "")
-  public Double getPreviousBudgetAmount() {
-    return previousBudgetAmount;
-  }
-
-  public void setPreviousBudgetAmount(Double previousBudgetAmount) {
-    this.previousBudgetAmount = previousBudgetAmount;
-  }
-
   public ResourcePoolBudgetAmountUpdatedEvent timePeriod(TimePeriod timePeriod) {
     this.timePeriod = timePeriod;
     return this;
@@ -142,22 +125,22 @@ public class ResourcePoolBudgetAmountUpdatedEvent {
     this.timePeriod = timePeriod;
   }
 
-  public ResourcePoolBudgetAmountUpdatedEvent portfolioId(String portfolioId) {
-    this.portfolioId = portfolioId;
+  public ResourcePoolBudgetAmountUpdatedEvent id(String id) {
+    this.id = id;
     return this;
   }
 
    /**
-   * Get portfolioId
-   * @return portfolioId
+   * Get id
+   * @return id
   **/
   @ApiModelProperty(value = "")
-  public String getPortfolioId() {
-    return portfolioId;
+  public String getId() {
+    return id;
   }
 
-  public void setPortfolioId(String portfolioId) {
-    this.portfolioId = portfolioId;
+  public void setId(String id) {
+    this.id = id;
   }
 
   public ResourcePoolBudgetAmountUpdatedEvent portfolioPlan(PortfolioPlan portfolioPlan) {
@@ -178,6 +161,24 @@ public class ResourcePoolBudgetAmountUpdatedEvent {
     this.portfolioPlan = portfolioPlan;
   }
 
+  public ResourcePoolBudgetAmountUpdatedEvent previousBudgetAmount(BigDecimal previousBudgetAmount) {
+    this.previousBudgetAmount = previousBudgetAmount;
+    return this;
+  }
+
+   /**
+   * Get previousBudgetAmount
+   * @return previousBudgetAmount
+  **/
+  @ApiModelProperty(value = "")
+  public BigDecimal getPreviousBudgetAmount() {
+    return previousBudgetAmount;
+  }
+
+  public void setPreviousBudgetAmount(BigDecimal previousBudgetAmount) {
+    this.previousBudgetAmount = previousBudgetAmount;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -188,18 +189,18 @@ public class ResourcePoolBudgetAmountUpdatedEvent {
       return false;
     }
     ResourcePoolBudgetAmountUpdatedEvent resourcePoolBudgetAmountUpdatedEvent = (ResourcePoolBudgetAmountUpdatedEvent) o;
-    return Objects.equals(this.id, resourcePoolBudgetAmountUpdatedEvent.id) &&
-        Objects.equals(this.name, resourcePoolBudgetAmountUpdatedEvent.name) &&
+    return Objects.equals(this.portfolioId, resourcePoolBudgetAmountUpdatedEvent.portfolioId) &&
         Objects.equals(this.budgetAmount, resourcePoolBudgetAmountUpdatedEvent.budgetAmount) &&
-        Objects.equals(this.previousBudgetAmount, resourcePoolBudgetAmountUpdatedEvent.previousBudgetAmount) &&
+        Objects.equals(this.name, resourcePoolBudgetAmountUpdatedEvent.name) &&
         Objects.equals(this.timePeriod, resourcePoolBudgetAmountUpdatedEvent.timePeriod) &&
-        Objects.equals(this.portfolioId, resourcePoolBudgetAmountUpdatedEvent.portfolioId) &&
-        Objects.equals(this.portfolioPlan, resourcePoolBudgetAmountUpdatedEvent.portfolioPlan);
+        Objects.equals(this.id, resourcePoolBudgetAmountUpdatedEvent.id) &&
+        Objects.equals(this.portfolioPlan, resourcePoolBudgetAmountUpdatedEvent.portfolioPlan) &&
+        Objects.equals(this.previousBudgetAmount, resourcePoolBudgetAmountUpdatedEvent.previousBudgetAmount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, budgetAmount, previousBudgetAmount, timePeriod, portfolioId, portfolioPlan);
+    return Objects.hash(portfolioId, budgetAmount, name, timePeriod, id, portfolioPlan, previousBudgetAmount);
   }
 
 
@@ -208,13 +209,13 @@ public class ResourcePoolBudgetAmountUpdatedEvent {
     StringBuilder sb = new StringBuilder();
     sb.append("class ResourcePoolBudgetAmountUpdatedEvent {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    budgetAmount: ").append(toIndentedString(budgetAmount)).append("\n");
-    sb.append("    previousBudgetAmount: ").append(toIndentedString(previousBudgetAmount)).append("\n");
-    sb.append("    timePeriod: ").append(toIndentedString(timePeriod)).append("\n");
     sb.append("    portfolioId: ").append(toIndentedString(portfolioId)).append("\n");
+    sb.append("    budgetAmount: ").append(toIndentedString(budgetAmount)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    timePeriod: ").append(toIndentedString(timePeriod)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    portfolioPlan: ").append(toIndentedString(portfolioPlan)).append("\n");
+    sb.append("    previousBudgetAmount: ").append(toIndentedString(previousBudgetAmount)).append("\n");
     sb.append("}");
     return sb.toString();
   }

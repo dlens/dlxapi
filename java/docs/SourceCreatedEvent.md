@@ -4,11 +4,11 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** |  |  [optional]
+**sourceType** | [**SourceType**](SourceType.md) |  |  [optional]
 **name** | **String** |  |  [optional]
-**type** | [**SourceType**](SourceType.md) |  |  [optional]
-**portfolioPlan** | [**PortfolioPlan**](PortfolioPlan.md) |  |  [optional]
 **dlcPortfolio** | [**DlcPortfolio**](DlcPortfolio.md) |  |  [optional]
+**id** | **String** |  |  [optional]
+**portfolioPlan** | [**PortfolioPlan**](PortfolioPlan.md) |  |  [optional]
 
 
 

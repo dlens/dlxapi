@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **String** |  |  [optional]
+**description** | **String** |  |  [optional]
 **type** | [**FieldType**](FieldType.md) |  |  [optional]
 **source** | [**Source**](Source.md) |  |  [optional]
 **portfolio** | [**Portfolio**](Portfolio.md) |  |  [optional]
@@ -15,6 +16,10 @@ Name | Type | Description | Notes
 **targetType** | [**TargetType**](TargetType.md) |  |  [optional]
 **dataType** | [**DataType**](DataType.md) |  |  [optional]
 **isFieldTypeApproved** | **Boolean** |  |  [optional]
+**tagIds** | **List&lt;String&gt;** |  |  [optional]
+**isIdeaField** | **Boolean** |  |  [optional]
+**ideaFieldPosition** | **Integer** |  |  [optional]
+**isIdeaFieldRequired** | **Boolean** |  |  [optional]
 
 
 

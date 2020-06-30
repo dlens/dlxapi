@@ -16,5 +16,7 @@
 
 * `INTAKE_ENGINE_ENABLED` (value: `"INTAKE_ENGINE_ENABLED"`)
 
+* `IP_WHITELIST` (value: `"IP_WHITELIST"`)
+
 
 

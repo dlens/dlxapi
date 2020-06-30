@@ -37,6 +37,8 @@ public enum ActivityType {
   
   FIELDNAMEUPDATEDEVENT("FieldNameUpdatedEvent"),
   
+  FIELDDESCRIPTIONUPDATEDEVENT("FieldDescriptionUpdatedEvent"),
+  
   FIELDTYPEPOSITIONUPDATEDEVENT("FieldTypePositionUpdatedEvent"),
   
   FIELDPOSITIONUPDATEDEVENT("FieldPositionUpdatedEvent"),
@@ -47,11 +49,23 @@ public enum ActivityType {
   
   FIELDISFIELDTYPEAPPROVEDUPDATEDEVENT("FieldIsFieldTypeApprovedUpdatedEvent"),
   
+  FIELDISIDEAFIELDUPDATEDEVENT("FieldIsIdeaFieldUpdatedEvent"),
+  
+  FIELDTAGADDEDEVENT("FieldTagAddedEvent"),
+  
+  FIELDTAGREMOVEDEVENT("FieldTagRemovedEvent"),
+  
+  FIELDIDEAFIELDPOSITIONUPDATEDEVENT("FieldIdeaFieldPositionUpdatedEvent"),
+  
+  FIELDISIDEAFIELDREQUIREDUPDATEDEVENT("FieldIsIdeaFieldRequiredUpdatedEvent"),
+  
   PORTFOLIOARCHIVEDEVENT("PortfolioArchivedEvent"),
   
   PORTFOLIOCREATEDEVENT("PortfolioCreatedEvent"),
   
   PORTFOLIONAMEUPDATEDEVENT("PortfolioNameUpdatedEvent"),
+  
+  PORTFOLIOUSERREGISTRATIONTOKENUPDATEDEVENT("PortfolioUserRegistrationTokenUpdatedEvent"),
   
   SUBPORTFOLIOADDEDEVENT("SubPortfolioAddedEvent"),
   
@@ -76,6 +90,10 @@ public enum ActivityType {
   PROJECTFIELDVALUEDELETEDEVENT("ProjectFieldValueDeletedEvent"),
   
   PROJECTFIELDVALUEUPDATEDEVENT("ProjectFieldValueUpdatedEvent"),
+  
+  PROJECTTAGADDEDEVENT("ProjectTagAddedEvent"),
+  
+  PROJECTTAGREMOVEDEVENT("ProjectTagRemovedEvent"),
   
   PROJECTPORTFOLIOPLANFIELDVALUESCOPIEDEVENT("ProjectPortfolioPlanFieldValuesCopiedEvent"),
   
@@ -151,7 +169,17 @@ public enum ActivityType {
   
   COMMENTEDITEDEVENT("CommentEditedEvent"),
   
-  COMMENTDELETEDEVENT("CommentDeletedEvent");
+  COMMENTDELETEDEVENT("CommentDeletedEvent"),
+  
+  TAGCREATEDEVENT("TagCreatedEvent"),
+  
+  TAGNAMEUPDATEDEVENT("TagNameUpdatedEvent"),
+  
+  TAGCOLORUPDATEDEVENT("TagColorUpdatedEvent"),
+  
+  TAGPARENTUPDATEDEVENT("TagParentUpdatedEvent"),
+  
+  TAGDELETEDEVENT("TagDeletedEvent");
 
   private String value;
 

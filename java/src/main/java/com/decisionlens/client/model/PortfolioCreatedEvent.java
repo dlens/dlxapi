@@ -31,11 +31,17 @@ import java.io.IOException;
  */
 
 public class PortfolioCreatedEvent {
-  @SerializedName("id")
-  private String id = null;
-
   @SerializedName("portfolioId")
   private String portfolioId = null;
+
+  @SerializedName("userRegistrationToken")
+  private String userRegistrationToken = null;
+
+  @SerializedName("isArchived")
+  private Boolean isArchived = null;
+
+  @SerializedName("groupId")
+  private String groupId = null;
 
   @SerializedName("name")
   private String name = null;
@@ -43,38 +49,17 @@ public class PortfolioCreatedEvent {
   @SerializedName("description")
   private String description = null;
 
-  @SerializedName("isArchived")
-  private Boolean isArchived = null;
-
   @SerializedName("isCombined")
   private Boolean isCombined = null;
-
-  @SerializedName("groupId")
-  private String groupId = null;
 
   @SerializedName("attributes")
   private Attributes attributes = null;
 
+  @SerializedName("id")
+  private String id = null;
+
   @SerializedName("portfolioPlan")
   private PortfolioPlan portfolioPlan = null;
-
-  public PortfolioCreatedEvent id(String id) {
-    this.id = id;
-    return this;
-  }
-
-   /**
-   * Get id
-   * @return id
-  **/
-  @ApiModelProperty(value = "")
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
 
   public PortfolioCreatedEvent portfolioId(String portfolioId) {
     this.portfolioId = portfolioId;
@@ -92,6 +77,60 @@ public class PortfolioCreatedEvent {
 
   public void setPortfolioId(String portfolioId) {
     this.portfolioId = portfolioId;
+  }
+
+  public PortfolioCreatedEvent userRegistrationToken(String userRegistrationToken) {
+    this.userRegistrationToken = userRegistrationToken;
+    return this;
+  }
+
+   /**
+   * Get userRegistrationToken
+   * @return userRegistrationToken
+  **/
+  @ApiModelProperty(value = "")
+  public String getUserRegistrationToken() {
+    return userRegistrationToken;
+  }
+
+  public void setUserRegistrationToken(String userRegistrationToken) {
+    this.userRegistrationToken = userRegistrationToken;
+  }
+
+  public PortfolioCreatedEvent isArchived(Boolean isArchived) {
+    this.isArchived = isArchived;
+    return this;
+  }
+
+   /**
+   * Get isArchived
+   * @return isArchived
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isIsArchived() {
+    return isArchived;
+  }
+
+  public void setIsArchived(Boolean isArchived) {
+    this.isArchived = isArchived;
+  }
+
+  public PortfolioCreatedEvent groupId(String groupId) {
+    this.groupId = groupId;
+    return this;
+  }
+
+   /**
+   * Get groupId
+   * @return groupId
+  **/
+  @ApiModelProperty(value = "")
+  public String getGroupId() {
+    return groupId;
+  }
+
+  public void setGroupId(String groupId) {
+    this.groupId = groupId;
   }
 
   public PortfolioCreatedEvent name(String name) {
@@ -130,24 +169,6 @@ public class PortfolioCreatedEvent {
     this.description = description;
   }
 
-  public PortfolioCreatedEvent isArchived(Boolean isArchived) {
-    this.isArchived = isArchived;
-    return this;
-  }
-
-   /**
-   * Get isArchived
-   * @return isArchived
-  **/
-  @ApiModelProperty(value = "")
-  public Boolean isIsArchived() {
-    return isArchived;
-  }
-
-  public void setIsArchived(Boolean isArchived) {
-    this.isArchived = isArchived;
-  }
-
   public PortfolioCreatedEvent isCombined(Boolean isCombined) {
     this.isCombined = isCombined;
     return this;
@@ -166,24 +187,6 @@ public class PortfolioCreatedEvent {
     this.isCombined = isCombined;
   }
 
-  public PortfolioCreatedEvent groupId(String groupId) {
-    this.groupId = groupId;
-    return this;
-  }
-
-   /**
-   * Get groupId
-   * @return groupId
-  **/
-  @ApiModelProperty(value = "")
-  public String getGroupId() {
-    return groupId;
-  }
-
-  public void setGroupId(String groupId) {
-    this.groupId = groupId;
-  }
-
   public PortfolioCreatedEvent attributes(Attributes attributes) {
     this.attributes = attributes;
     return this;
@@ -200,6 +203,24 @@ public class PortfolioCreatedEvent {
 
   public void setAttributes(Attributes attributes) {
     this.attributes = attributes;
+  }
+
+  public PortfolioCreatedEvent id(String id) {
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * Get id
+   * @return id
+  **/
+  @ApiModelProperty(value = "")
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
   }
 
   public PortfolioCreatedEvent portfolioPlan(PortfolioPlan portfolioPlan) {
@@ -230,20 +251,21 @@ public class PortfolioCreatedEvent {
       return false;
     }
     PortfolioCreatedEvent portfolioCreatedEvent = (PortfolioCreatedEvent) o;
-    return Objects.equals(this.id, portfolioCreatedEvent.id) &&
-        Objects.equals(this.portfolioId, portfolioCreatedEvent.portfolioId) &&
+    return Objects.equals(this.portfolioId, portfolioCreatedEvent.portfolioId) &&
+        Objects.equals(this.userRegistrationToken, portfolioCreatedEvent.userRegistrationToken) &&
+        Objects.equals(this.isArchived, portfolioCreatedEvent.isArchived) &&
+        Objects.equals(this.groupId, portfolioCreatedEvent.groupId) &&
         Objects.equals(this.name, portfolioCreatedEvent.name) &&
         Objects.equals(this.description, portfolioCreatedEvent.description) &&
-        Objects.equals(this.isArchived, portfolioCreatedEvent.isArchived) &&
         Objects.equals(this.isCombined, portfolioCreatedEvent.isCombined) &&
-        Objects.equals(this.groupId, portfolioCreatedEvent.groupId) &&
         Objects.equals(this.attributes, portfolioCreatedEvent.attributes) &&
+        Objects.equals(this.id, portfolioCreatedEvent.id) &&
         Objects.equals(this.portfolioPlan, portfolioCreatedEvent.portfolioPlan);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, portfolioId, name, description, isArchived, isCombined, groupId, attributes, portfolioPlan);
+    return Objects.hash(portfolioId, userRegistrationToken, isArchived, groupId, name, description, isCombined, attributes, id, portfolioPlan);
   }
 
 
@@ -252,14 +274,15 @@ public class PortfolioCreatedEvent {
     StringBuilder sb = new StringBuilder();
     sb.append("class PortfolioCreatedEvent {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    portfolioId: ").append(toIndentedString(portfolioId)).append("\n");
+    sb.append("    userRegistrationToken: ").append(toIndentedString(userRegistrationToken)).append("\n");
+    sb.append("    isArchived: ").append(toIndentedString(isArchived)).append("\n");
+    sb.append("    groupId: ").append(toIndentedString(groupId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    isArchived: ").append(toIndentedString(isArchived)).append("\n");
     sb.append("    isCombined: ").append(toIndentedString(isCombined)).append("\n");
-    sb.append("    groupId: ").append(toIndentedString(groupId)).append("\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    portfolioPlan: ").append(toIndentedString(portfolioPlan)).append("\n");
     sb.append("}");
     return sb.toString();

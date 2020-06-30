@@ -28,6 +28,8 @@
 
 * `PORTFOLIONAME` (value: `"PORTFOLIONAME"`)
 
+* `TAGS` (value: `"TAGS"`)
+
 * `LOCK` (value: `"LOCK"`)
 
 * `COSTAGGREGATE` (value: `"COSTAGGREGATE"`)

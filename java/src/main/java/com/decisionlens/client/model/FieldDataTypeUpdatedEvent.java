@@ -32,97 +32,43 @@ import java.io.IOException;
  */
 
 public class FieldDataTypeUpdatedEvent {
-  @SerializedName("id")
-  private String id = null;
-
-  @SerializedName("name")
-  private String name = null;
-
-  @SerializedName("type")
-  private FieldType type = null;
-
-  @SerializedName("dataType")
-  private DataType dataType = null;
+  @SerializedName("portfolioId")
+  private String portfolioId = null;
 
   @SerializedName("previousDataType")
   private DataType previousDataType = null;
 
-  @SerializedName("portfolioId")
-  private String portfolioId = null;
+  @SerializedName("dataType")
+  private DataType dataType = null;
+
+  @SerializedName("name")
+  private String name = null;
+
+  @SerializedName("id")
+  private String id = null;
+
+  @SerializedName("fieldType")
+  private FieldType fieldType = null;
 
   @SerializedName("portfolioPlan")
   private PortfolioPlan portfolioPlan = null;
 
-  public FieldDataTypeUpdatedEvent id(String id) {
-    this.id = id;
+  public FieldDataTypeUpdatedEvent portfolioId(String portfolioId) {
+    this.portfolioId = portfolioId;
     return this;
   }
 
    /**
-   * Get id
-   * @return id
+   * Get portfolioId
+   * @return portfolioId
   **/
   @ApiModelProperty(value = "")
-  public String getId() {
-    return id;
+  public String getPortfolioId() {
+    return portfolioId;
   }
 
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public FieldDataTypeUpdatedEvent name(String name) {
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * Get name
-   * @return name
-  **/
-  @ApiModelProperty(value = "")
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public FieldDataTypeUpdatedEvent type(FieldType type) {
-    this.type = type;
-    return this;
-  }
-
-   /**
-   * Get type
-   * @return type
-  **/
-  @ApiModelProperty(value = "")
-  public FieldType getType() {
-    return type;
-  }
-
-  public void setType(FieldType type) {
-    this.type = type;
-  }
-
-  public FieldDataTypeUpdatedEvent dataType(DataType dataType) {
-    this.dataType = dataType;
-    return this;
-  }
-
-   /**
-   * Get dataType
-   * @return dataType
-  **/
-  @ApiModelProperty(value = "")
-  public DataType getDataType() {
-    return dataType;
-  }
-
-  public void setDataType(DataType dataType) {
-    this.dataType = dataType;
+  public void setPortfolioId(String portfolioId) {
+    this.portfolioId = portfolioId;
   }
 
   public FieldDataTypeUpdatedEvent previousDataType(DataType previousDataType) {
@@ -143,22 +89,76 @@ public class FieldDataTypeUpdatedEvent {
     this.previousDataType = previousDataType;
   }
 
-  public FieldDataTypeUpdatedEvent portfolioId(String portfolioId) {
-    this.portfolioId = portfolioId;
+  public FieldDataTypeUpdatedEvent dataType(DataType dataType) {
+    this.dataType = dataType;
     return this;
   }
 
    /**
-   * Get portfolioId
-   * @return portfolioId
+   * Get dataType
+   * @return dataType
   **/
   @ApiModelProperty(value = "")
-  public String getPortfolioId() {
-    return portfolioId;
+  public DataType getDataType() {
+    return dataType;
   }
 
-  public void setPortfolioId(String portfolioId) {
-    this.portfolioId = portfolioId;
+  public void setDataType(DataType dataType) {
+    this.dataType = dataType;
+  }
+
+  public FieldDataTypeUpdatedEvent name(String name) {
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Get name
+   * @return name
+  **/
+  @ApiModelProperty(value = "")
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public FieldDataTypeUpdatedEvent id(String id) {
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * Get id
+   * @return id
+  **/
+  @ApiModelProperty(value = "")
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public FieldDataTypeUpdatedEvent fieldType(FieldType fieldType) {
+    this.fieldType = fieldType;
+    return this;
+  }
+
+   /**
+   * Get fieldType
+   * @return fieldType
+  **/
+  @ApiModelProperty(value = "")
+  public FieldType getFieldType() {
+    return fieldType;
+  }
+
+  public void setFieldType(FieldType fieldType) {
+    this.fieldType = fieldType;
   }
 
   public FieldDataTypeUpdatedEvent portfolioPlan(PortfolioPlan portfolioPlan) {
@@ -189,18 +189,18 @@ public class FieldDataTypeUpdatedEvent {
       return false;
     }
     FieldDataTypeUpdatedEvent fieldDataTypeUpdatedEvent = (FieldDataTypeUpdatedEvent) o;
-    return Objects.equals(this.id, fieldDataTypeUpdatedEvent.id) &&
-        Objects.equals(this.name, fieldDataTypeUpdatedEvent.name) &&
-        Objects.equals(this.type, fieldDataTypeUpdatedEvent.type) &&
-        Objects.equals(this.dataType, fieldDataTypeUpdatedEvent.dataType) &&
+    return Objects.equals(this.portfolioId, fieldDataTypeUpdatedEvent.portfolioId) &&
         Objects.equals(this.previousDataType, fieldDataTypeUpdatedEvent.previousDataType) &&
-        Objects.equals(this.portfolioId, fieldDataTypeUpdatedEvent.portfolioId) &&
+        Objects.equals(this.dataType, fieldDataTypeUpdatedEvent.dataType) &&
+        Objects.equals(this.name, fieldDataTypeUpdatedEvent.name) &&
+        Objects.equals(this.id, fieldDataTypeUpdatedEvent.id) &&
+        Objects.equals(this.fieldType, fieldDataTypeUpdatedEvent.fieldType) &&
         Objects.equals(this.portfolioPlan, fieldDataTypeUpdatedEvent.portfolioPlan);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, type, dataType, previousDataType, portfolioId, portfolioPlan);
+    return Objects.hash(portfolioId, previousDataType, dataType, name, id, fieldType, portfolioPlan);
   }
 
 
@@ -209,12 +209,12 @@ public class FieldDataTypeUpdatedEvent {
     StringBuilder sb = new StringBuilder();
     sb.append("class FieldDataTypeUpdatedEvent {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    dataType: ").append(toIndentedString(dataType)).append("\n");
-    sb.append("    previousDataType: ").append(toIndentedString(previousDataType)).append("\n");
     sb.append("    portfolioId: ").append(toIndentedString(portfolioId)).append("\n");
+    sb.append("    previousDataType: ").append(toIndentedString(previousDataType)).append("\n");
+    sb.append("    dataType: ").append(toIndentedString(dataType)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    fieldType: ").append(toIndentedString(fieldType)).append("\n");
     sb.append("    portfolioPlan: ").append(toIndentedString(portfolioPlan)).append("\n");
     sb.append("}");
     return sb.toString();

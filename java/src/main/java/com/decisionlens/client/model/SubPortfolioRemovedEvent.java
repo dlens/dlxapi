@@ -31,41 +31,23 @@ import java.io.IOException;
  */
 
 public class SubPortfolioRemovedEvent {
-  @SerializedName("id")
-  private String id = null;
-
   @SerializedName("portfolioId")
   private String portfolioId = null;
+
+  @SerializedName("subPortfolio")
+  private Portfolio subPortfolio = null;
 
   @SerializedName("name")
   private String name = null;
 
-  @SerializedName("subPortfolio")
-  private Portfolio subPortfolio = null;
+  @SerializedName("id")
+  private String id = null;
 
   @SerializedName("position")
   private Integer position = null;
 
   @SerializedName("portfolioPlan")
   private PortfolioPlan portfolioPlan = null;
-
-  public SubPortfolioRemovedEvent id(String id) {
-    this.id = id;
-    return this;
-  }
-
-   /**
-   * Get id
-   * @return id
-  **/
-  @ApiModelProperty(value = "")
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
 
   public SubPortfolioRemovedEvent portfolioId(String portfolioId) {
     this.portfolioId = portfolioId;
@@ -83,6 +65,24 @@ public class SubPortfolioRemovedEvent {
 
   public void setPortfolioId(String portfolioId) {
     this.portfolioId = portfolioId;
+  }
+
+  public SubPortfolioRemovedEvent subPortfolio(Portfolio subPortfolio) {
+    this.subPortfolio = subPortfolio;
+    return this;
+  }
+
+   /**
+   * Get subPortfolio
+   * @return subPortfolio
+  **/
+  @ApiModelProperty(value = "")
+  public Portfolio getSubPortfolio() {
+    return subPortfolio;
+  }
+
+  public void setSubPortfolio(Portfolio subPortfolio) {
+    this.subPortfolio = subPortfolio;
   }
 
   public SubPortfolioRemovedEvent name(String name) {
@@ -103,22 +103,22 @@ public class SubPortfolioRemovedEvent {
     this.name = name;
   }
 
-  public SubPortfolioRemovedEvent subPortfolio(Portfolio subPortfolio) {
-    this.subPortfolio = subPortfolio;
+  public SubPortfolioRemovedEvent id(String id) {
+    this.id = id;
     return this;
   }
 
    /**
-   * Get subPortfolio
-   * @return subPortfolio
+   * Get id
+   * @return id
   **/
   @ApiModelProperty(value = "")
-  public Portfolio getSubPortfolio() {
-    return subPortfolio;
+  public String getId() {
+    return id;
   }
 
-  public void setSubPortfolio(Portfolio subPortfolio) {
-    this.subPortfolio = subPortfolio;
+  public void setId(String id) {
+    this.id = id;
   }
 
   public SubPortfolioRemovedEvent position(Integer position) {
@@ -167,17 +167,17 @@ public class SubPortfolioRemovedEvent {
       return false;
     }
     SubPortfolioRemovedEvent subPortfolioRemovedEvent = (SubPortfolioRemovedEvent) o;
-    return Objects.equals(this.id, subPortfolioRemovedEvent.id) &&
-        Objects.equals(this.portfolioId, subPortfolioRemovedEvent.portfolioId) &&
-        Objects.equals(this.name, subPortfolioRemovedEvent.name) &&
+    return Objects.equals(this.portfolioId, subPortfolioRemovedEvent.portfolioId) &&
         Objects.equals(this.subPortfolio, subPortfolioRemovedEvent.subPortfolio) &&
+        Objects.equals(this.name, subPortfolioRemovedEvent.name) &&
+        Objects.equals(this.id, subPortfolioRemovedEvent.id) &&
         Objects.equals(this.position, subPortfolioRemovedEvent.position) &&
         Objects.equals(this.portfolioPlan, subPortfolioRemovedEvent.portfolioPlan);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, portfolioId, name, subPortfolio, position, portfolioPlan);
+    return Objects.hash(portfolioId, subPortfolio, name, id, position, portfolioPlan);
   }
 
 
@@ -186,10 +186,10 @@ public class SubPortfolioRemovedEvent {
     StringBuilder sb = new StringBuilder();
     sb.append("class SubPortfolioRemovedEvent {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    portfolioId: ").append(toIndentedString(portfolioId)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    subPortfolio: ").append(toIndentedString(subPortfolio)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    position: ").append(toIndentedString(position)).append("\n");
     sb.append("    portfolioPlan: ").append(toIndentedString(portfolioPlan)).append("\n");
     sb.append("}");

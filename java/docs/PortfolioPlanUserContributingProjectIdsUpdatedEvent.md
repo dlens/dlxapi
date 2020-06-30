@@ -4,12 +4,12 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** |  |  [optional]
-**portfolioPlan** | [**PortfolioPlan**](PortfolioPlan.md) |  |  [optional]
-**user** | [**User**](User.md) |  |  [optional]
-**contributingProjectIds** | **List&lt;String&gt;** |  |  [optional]
-**previousContributingProjectIds** | **List&lt;String&gt;** |  |  [optional]
 **portfolioId** | **String** |  |  [optional]
+**previousContributingProjectIds** | **List&lt;String&gt;** |  |  [optional]
+**id** | **String** |  |  [optional]
+**contributingProjectIds** | **List&lt;String&gt;** |  |  [optional]
+**user** | [**User**](User.md) |  |  [optional]
+**portfolioPlan** | [**PortfolioPlan**](PortfolioPlan.md) |  |  [optional]
 
 
 

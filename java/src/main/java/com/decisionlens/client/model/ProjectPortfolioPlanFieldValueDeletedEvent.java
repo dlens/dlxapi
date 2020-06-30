@@ -32,58 +32,40 @@ import java.io.IOException;
  */
 
 public class ProjectPortfolioPlanFieldValueDeletedEvent {
-  @SerializedName("id")
-  private String id = null;
-
-  @SerializedName("name")
-  private String name = null;
+  @SerializedName("portfolioId")
+  private String portfolioId = null;
 
   @SerializedName("field")
   private Field field = null;
 
-  @SerializedName("portfolioPlan")
-  private PortfolioPlan portfolioPlan = null;
+  @SerializedName("name")
+  private String name = null;
 
   @SerializedName("timePeriod")
   private TimePeriod timePeriod = null;
 
-  @SerializedName("portfolioId")
-  private String portfolioId = null;
+  @SerializedName("id")
+  private String id = null;
 
-  public ProjectPortfolioPlanFieldValueDeletedEvent id(String id) {
-    this.id = id;
+  @SerializedName("portfolioPlan")
+  private PortfolioPlan portfolioPlan = null;
+
+  public ProjectPortfolioPlanFieldValueDeletedEvent portfolioId(String portfolioId) {
+    this.portfolioId = portfolioId;
     return this;
   }
 
    /**
-   * Get id
-   * @return id
+   * Get portfolioId
+   * @return portfolioId
   **/
   @ApiModelProperty(value = "")
-  public String getId() {
-    return id;
+  public String getPortfolioId() {
+    return portfolioId;
   }
 
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public ProjectPortfolioPlanFieldValueDeletedEvent name(String name) {
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * Get name
-   * @return name
-  **/
-  @ApiModelProperty(value = "")
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
+  public void setPortfolioId(String portfolioId) {
+    this.portfolioId = portfolioId;
   }
 
   public ProjectPortfolioPlanFieldValueDeletedEvent field(Field field) {
@@ -104,22 +86,22 @@ public class ProjectPortfolioPlanFieldValueDeletedEvent {
     this.field = field;
   }
 
-  public ProjectPortfolioPlanFieldValueDeletedEvent portfolioPlan(PortfolioPlan portfolioPlan) {
-    this.portfolioPlan = portfolioPlan;
+  public ProjectPortfolioPlanFieldValueDeletedEvent name(String name) {
+    this.name = name;
     return this;
   }
 
    /**
-   * Get portfolioPlan
-   * @return portfolioPlan
+   * Get name
+   * @return name
   **/
   @ApiModelProperty(value = "")
-  public PortfolioPlan getPortfolioPlan() {
-    return portfolioPlan;
+  public String getName() {
+    return name;
   }
 
-  public void setPortfolioPlan(PortfolioPlan portfolioPlan) {
-    this.portfolioPlan = portfolioPlan;
+  public void setName(String name) {
+    this.name = name;
   }
 
   public ProjectPortfolioPlanFieldValueDeletedEvent timePeriod(TimePeriod timePeriod) {
@@ -140,22 +122,40 @@ public class ProjectPortfolioPlanFieldValueDeletedEvent {
     this.timePeriod = timePeriod;
   }
 
-  public ProjectPortfolioPlanFieldValueDeletedEvent portfolioId(String portfolioId) {
-    this.portfolioId = portfolioId;
+  public ProjectPortfolioPlanFieldValueDeletedEvent id(String id) {
+    this.id = id;
     return this;
   }
 
    /**
-   * Get portfolioId
-   * @return portfolioId
+   * Get id
+   * @return id
   **/
   @ApiModelProperty(value = "")
-  public String getPortfolioId() {
-    return portfolioId;
+  public String getId() {
+    return id;
   }
 
-  public void setPortfolioId(String portfolioId) {
-    this.portfolioId = portfolioId;
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public ProjectPortfolioPlanFieldValueDeletedEvent portfolioPlan(PortfolioPlan portfolioPlan) {
+    this.portfolioPlan = portfolioPlan;
+    return this;
+  }
+
+   /**
+   * Get portfolioPlan
+   * @return portfolioPlan
+  **/
+  @ApiModelProperty(value = "")
+  public PortfolioPlan getPortfolioPlan() {
+    return portfolioPlan;
+  }
+
+  public void setPortfolioPlan(PortfolioPlan portfolioPlan) {
+    this.portfolioPlan = portfolioPlan;
   }
 
 
@@ -168,17 +168,17 @@ public class ProjectPortfolioPlanFieldValueDeletedEvent {
       return false;
     }
     ProjectPortfolioPlanFieldValueDeletedEvent projectPortfolioPlanFieldValueDeletedEvent = (ProjectPortfolioPlanFieldValueDeletedEvent) o;
-    return Objects.equals(this.id, projectPortfolioPlanFieldValueDeletedEvent.id) &&
-        Objects.equals(this.name, projectPortfolioPlanFieldValueDeletedEvent.name) &&
+    return Objects.equals(this.portfolioId, projectPortfolioPlanFieldValueDeletedEvent.portfolioId) &&
         Objects.equals(this.field, projectPortfolioPlanFieldValueDeletedEvent.field) &&
-        Objects.equals(this.portfolioPlan, projectPortfolioPlanFieldValueDeletedEvent.portfolioPlan) &&
+        Objects.equals(this.name, projectPortfolioPlanFieldValueDeletedEvent.name) &&
         Objects.equals(this.timePeriod, projectPortfolioPlanFieldValueDeletedEvent.timePeriod) &&
-        Objects.equals(this.portfolioId, projectPortfolioPlanFieldValueDeletedEvent.portfolioId);
+        Objects.equals(this.id, projectPortfolioPlanFieldValueDeletedEvent.id) &&
+        Objects.equals(this.portfolioPlan, projectPortfolioPlanFieldValueDeletedEvent.portfolioPlan);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, field, portfolioPlan, timePeriod, portfolioId);
+    return Objects.hash(portfolioId, field, name, timePeriod, id, portfolioPlan);
   }
 
 
@@ -187,12 +187,12 @@ public class ProjectPortfolioPlanFieldValueDeletedEvent {
     StringBuilder sb = new StringBuilder();
     sb.append("class ProjectPortfolioPlanFieldValueDeletedEvent {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    field: ").append(toIndentedString(field)).append("\n");
-    sb.append("    portfolioPlan: ").append(toIndentedString(portfolioPlan)).append("\n");
-    sb.append("    timePeriod: ").append(toIndentedString(timePeriod)).append("\n");
     sb.append("    portfolioId: ").append(toIndentedString(portfolioId)).append("\n");
+    sb.append("    field: ").append(toIndentedString(field)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    timePeriod: ").append(toIndentedString(timePeriod)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    portfolioPlan: ").append(toIndentedString(portfolioPlan)).append("\n");
     sb.append("}");
     return sb.toString();
   }

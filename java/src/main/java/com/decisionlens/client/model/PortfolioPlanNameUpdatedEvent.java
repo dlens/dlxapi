@@ -30,55 +30,37 @@ import java.io.IOException;
  */
 
 public class PortfolioPlanNameUpdatedEvent {
-  @SerializedName("id")
-  private String id = null;
-
-  @SerializedName("name")
-  private String name = null;
+  @SerializedName("portfolioId")
+  private String portfolioId = null;
 
   @SerializedName("previousName")
   private String previousName = null;
 
+  @SerializedName("name")
+  private String name = null;
+
+  @SerializedName("id")
+  private String id = null;
+
   @SerializedName("portfolioPlan")
   private PortfolioPlan portfolioPlan = null;
 
-  @SerializedName("portfolioId")
-  private String portfolioId = null;
-
-  public PortfolioPlanNameUpdatedEvent id(String id) {
-    this.id = id;
+  public PortfolioPlanNameUpdatedEvent portfolioId(String portfolioId) {
+    this.portfolioId = portfolioId;
     return this;
   }
 
    /**
-   * Get id
-   * @return id
+   * Get portfolioId
+   * @return portfolioId
   **/
   @ApiModelProperty(value = "")
-  public String getId() {
-    return id;
+  public String getPortfolioId() {
+    return portfolioId;
   }
 
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public PortfolioPlanNameUpdatedEvent name(String name) {
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * Get name
-   * @return name
-  **/
-  @ApiModelProperty(value = "")
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
+  public void setPortfolioId(String portfolioId) {
+    this.portfolioId = portfolioId;
   }
 
   public PortfolioPlanNameUpdatedEvent previousName(String previousName) {
@@ -99,6 +81,42 @@ public class PortfolioPlanNameUpdatedEvent {
     this.previousName = previousName;
   }
 
+  public PortfolioPlanNameUpdatedEvent name(String name) {
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Get name
+   * @return name
+  **/
+  @ApiModelProperty(value = "")
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public PortfolioPlanNameUpdatedEvent id(String id) {
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * Get id
+   * @return id
+  **/
+  @ApiModelProperty(value = "")
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
   public PortfolioPlanNameUpdatedEvent portfolioPlan(PortfolioPlan portfolioPlan) {
     this.portfolioPlan = portfolioPlan;
     return this;
@@ -117,24 +135,6 @@ public class PortfolioPlanNameUpdatedEvent {
     this.portfolioPlan = portfolioPlan;
   }
 
-  public PortfolioPlanNameUpdatedEvent portfolioId(String portfolioId) {
-    this.portfolioId = portfolioId;
-    return this;
-  }
-
-   /**
-   * Get portfolioId
-   * @return portfolioId
-  **/
-  @ApiModelProperty(value = "")
-  public String getPortfolioId() {
-    return portfolioId;
-  }
-
-  public void setPortfolioId(String portfolioId) {
-    this.portfolioId = portfolioId;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -145,16 +145,16 @@ public class PortfolioPlanNameUpdatedEvent {
       return false;
     }
     PortfolioPlanNameUpdatedEvent portfolioPlanNameUpdatedEvent = (PortfolioPlanNameUpdatedEvent) o;
-    return Objects.equals(this.id, portfolioPlanNameUpdatedEvent.id) &&
-        Objects.equals(this.name, portfolioPlanNameUpdatedEvent.name) &&
+    return Objects.equals(this.portfolioId, portfolioPlanNameUpdatedEvent.portfolioId) &&
         Objects.equals(this.previousName, portfolioPlanNameUpdatedEvent.previousName) &&
-        Objects.equals(this.portfolioPlan, portfolioPlanNameUpdatedEvent.portfolioPlan) &&
-        Objects.equals(this.portfolioId, portfolioPlanNameUpdatedEvent.portfolioId);
+        Objects.equals(this.name, portfolioPlanNameUpdatedEvent.name) &&
+        Objects.equals(this.id, portfolioPlanNameUpdatedEvent.id) &&
+        Objects.equals(this.portfolioPlan, portfolioPlanNameUpdatedEvent.portfolioPlan);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, previousName, portfolioPlan, portfolioId);
+    return Objects.hash(portfolioId, previousName, name, id, portfolioPlan);
   }
 
 
@@ -163,11 +163,11 @@ public class PortfolioPlanNameUpdatedEvent {
     StringBuilder sb = new StringBuilder();
     sb.append("class PortfolioPlanNameUpdatedEvent {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    previousName: ").append(toIndentedString(previousName)).append("\n");
-    sb.append("    portfolioPlan: ").append(toIndentedString(portfolioPlan)).append("\n");
     sb.append("    portfolioId: ").append(toIndentedString(portfolioId)).append("\n");
+    sb.append("    previousName: ").append(toIndentedString(previousName)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    portfolioPlan: ").append(toIndentedString(portfolioPlan)).append("\n");
     sb.append("}");
     return sb.toString();
   }

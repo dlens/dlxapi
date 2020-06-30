@@ -14,6 +14,7 @@ Method | HTTP request | Description
 [**getProjectsForPortfolio**](PortfoliosApi.md#getProjectsForPortfolio) | **GET** /portfolios/{portfolioId}/projects | Retrieves projects for portfolio
 [**getSpreadsheetReportForPortfolio**](PortfoliosApi.md#getSpreadsheetReportForPortfolio) | **GET** /portfolios/{portfolioId}/spreadsheet/{spreadsheetId}/report | Retrieves spreadsheet report for portfolio
 [**importPortfolioData**](PortfoliosApi.md#importPortfolioData) | **POST** /portfolios/{id}/pod | Import portfolio data in JSON format
+[**regenerateUserRegistrationToken**](PortfoliosApi.md#regenerateUserRegistrationToken) | **POST** /portfolios/{id}/regenerateUserRegistrationToken | Generates a new registration token
 [**saveSpreadsheetForPortfolio**](PortfoliosApi.md#saveSpreadsheetForPortfolio) | **POST** /portfolios/{portfolioId}/spreadsheet/{spreadsheetId} | Saves spreadsheet for portfolio
 [**saveSpreadsheetSourceForPortfolio**](PortfoliosApi.md#saveSpreadsheetSourceForPortfolio) | **POST** /portfolios/{id}/sources/spreadsheet | Save spreadsheet source for a portfolio
 [**updatePortfolio**](PortfoliosApi.md#updatePortfolio) | **PATCH** /portfolios/{id} | Update a portfolio.
@@ -570,6 +571,57 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
+
+<a name="regenerateUserRegistrationToken"></a>
+# **regenerateUserRegistrationToken**
+> Portfolio regenerateUserRegistrationToken(id)
+
+Generates a new registration token
+
+### Example
+```java
+// Import classes:
+//import com.decisionlens.client.ApiClient;
+//import com.decisionlens.client.ApiException;
+//import com.decisionlens.client.Configuration;
+//import com.decisionlens.client.auth.*;
+//import com.decisionlens.client.api.PortfoliosApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: OAuth2
+OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+PortfoliosApi apiInstance = new PortfoliosApi();
+String id = "id_example"; // String | Portfolio id
+try {
+    Portfolio result = apiInstance.regenerateUserRegistrationToken(id);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling PortfoliosApi#regenerateUserRegistrationToken");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| Portfolio id |
+
+### Return type
+
+[**Portfolio**](Portfolio.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="saveSpreadsheetForPortfolio"></a>

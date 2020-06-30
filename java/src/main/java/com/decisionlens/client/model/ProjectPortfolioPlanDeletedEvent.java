@@ -30,34 +30,34 @@ import java.io.IOException;
  */
 
 public class ProjectPortfolioPlanDeletedEvent {
-  @SerializedName("id")
-  private String id = null;
+  @SerializedName("portfolioId")
+  private String portfolioId = null;
 
   @SerializedName("name")
   private String name = null;
 
+  @SerializedName("id")
+  private String id = null;
+
   @SerializedName("portfolioPlan")
   private PortfolioPlan portfolioPlan = null;
 
-  @SerializedName("portfolioId")
-  private String portfolioId = null;
-
-  public ProjectPortfolioPlanDeletedEvent id(String id) {
-    this.id = id;
+  public ProjectPortfolioPlanDeletedEvent portfolioId(String portfolioId) {
+    this.portfolioId = portfolioId;
     return this;
   }
 
    /**
-   * Get id
-   * @return id
+   * Get portfolioId
+   * @return portfolioId
   **/
   @ApiModelProperty(value = "")
-  public String getId() {
-    return id;
+  public String getPortfolioId() {
+    return portfolioId;
   }
 
-  public void setId(String id) {
-    this.id = id;
+  public void setPortfolioId(String portfolioId) {
+    this.portfolioId = portfolioId;
   }
 
   public ProjectPortfolioPlanDeletedEvent name(String name) {
@@ -78,6 +78,24 @@ public class ProjectPortfolioPlanDeletedEvent {
     this.name = name;
   }
 
+  public ProjectPortfolioPlanDeletedEvent id(String id) {
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * Get id
+   * @return id
+  **/
+  @ApiModelProperty(value = "")
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
   public ProjectPortfolioPlanDeletedEvent portfolioPlan(PortfolioPlan portfolioPlan) {
     this.portfolioPlan = portfolioPlan;
     return this;
@@ -96,24 +114,6 @@ public class ProjectPortfolioPlanDeletedEvent {
     this.portfolioPlan = portfolioPlan;
   }
 
-  public ProjectPortfolioPlanDeletedEvent portfolioId(String portfolioId) {
-    this.portfolioId = portfolioId;
-    return this;
-  }
-
-   /**
-   * Get portfolioId
-   * @return portfolioId
-  **/
-  @ApiModelProperty(value = "")
-  public String getPortfolioId() {
-    return portfolioId;
-  }
-
-  public void setPortfolioId(String portfolioId) {
-    this.portfolioId = portfolioId;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -124,15 +124,15 @@ public class ProjectPortfolioPlanDeletedEvent {
       return false;
     }
     ProjectPortfolioPlanDeletedEvent projectPortfolioPlanDeletedEvent = (ProjectPortfolioPlanDeletedEvent) o;
-    return Objects.equals(this.id, projectPortfolioPlanDeletedEvent.id) &&
+    return Objects.equals(this.portfolioId, projectPortfolioPlanDeletedEvent.portfolioId) &&
         Objects.equals(this.name, projectPortfolioPlanDeletedEvent.name) &&
-        Objects.equals(this.portfolioPlan, projectPortfolioPlanDeletedEvent.portfolioPlan) &&
-        Objects.equals(this.portfolioId, projectPortfolioPlanDeletedEvent.portfolioId);
+        Objects.equals(this.id, projectPortfolioPlanDeletedEvent.id) &&
+        Objects.equals(this.portfolioPlan, projectPortfolioPlanDeletedEvent.portfolioPlan);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, portfolioPlan, portfolioId);
+    return Objects.hash(portfolioId, name, id, portfolioPlan);
   }
 
 
@@ -141,10 +141,10 @@ public class ProjectPortfolioPlanDeletedEvent {
     StringBuilder sb = new StringBuilder();
     sb.append("class ProjectPortfolioPlanDeletedEvent {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    portfolioPlan: ").append(toIndentedString(portfolioPlan)).append("\n");
     sb.append("    portfolioId: ").append(toIndentedString(portfolioId)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    portfolioPlan: ").append(toIndentedString(portfolioPlan)).append("\n");
     sb.append("}");
     return sb.toString();
   }

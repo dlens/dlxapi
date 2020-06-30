@@ -12,5 +12,7 @@
 
 * `BOOLEAN` (value: `"BOOLEAN"`)
 
+* `ARRAY` (value: `"ARRAY"`)
+
 
 

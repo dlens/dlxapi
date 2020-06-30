@@ -31,6 +31,8 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Field
@@ -39,6 +41,9 @@ import java.io.IOException;
 public class Field extends DlResource {
   @SerializedName("name")
   private String name = null;
+
+  @SerializedName("description")
+  private String description = null;
 
   @SerializedName("type")
   private FieldType type = null;
@@ -70,6 +75,18 @@ public class Field extends DlResource {
   @SerializedName("isFieldTypeApproved")
   private Boolean isFieldTypeApproved = true;
 
+  @SerializedName("tagIds")
+  private List<String> tagIds = null;
+
+  @SerializedName("isIdeaField")
+  private Boolean isIdeaField = false;
+
+  @SerializedName("ideaFieldPosition")
+  private Integer ideaFieldPosition = null;
+
+  @SerializedName("isIdeaFieldRequired")
+  private Boolean isIdeaFieldRequired = false;
+
   public Field name(String name) {
     this.name = name;
     return this;
@@ -86,6 +103,24 @@ public class Field extends DlResource {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public Field description(String description) {
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Get description
+   * @return description
+  **/
+  @ApiModelProperty(value = "")
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
   public Field type(FieldType type) {
@@ -268,6 +303,86 @@ public class Field extends DlResource {
     this.isFieldTypeApproved = isFieldTypeApproved;
   }
 
+  public Field tagIds(List<String> tagIds) {
+    this.tagIds = tagIds;
+    return this;
+  }
+
+  public Field addTagIdsItem(String tagIdsItem) {
+    if (this.tagIds == null) {
+      this.tagIds = new ArrayList<String>();
+    }
+    this.tagIds.add(tagIdsItem);
+    return this;
+  }
+
+   /**
+   * Get tagIds
+   * @return tagIds
+  **/
+  @ApiModelProperty(value = "")
+  public List<String> getTagIds() {
+    return tagIds;
+  }
+
+  public void setTagIds(List<String> tagIds) {
+    this.tagIds = tagIds;
+  }
+
+  public Field isIdeaField(Boolean isIdeaField) {
+    this.isIdeaField = isIdeaField;
+    return this;
+  }
+
+   /**
+   * Get isIdeaField
+   * @return isIdeaField
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isIsIdeaField() {
+    return isIdeaField;
+  }
+
+  public void setIsIdeaField(Boolean isIdeaField) {
+    this.isIdeaField = isIdeaField;
+  }
+
+  public Field ideaFieldPosition(Integer ideaFieldPosition) {
+    this.ideaFieldPosition = ideaFieldPosition;
+    return this;
+  }
+
+   /**
+   * Get ideaFieldPosition
+   * @return ideaFieldPosition
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getIdeaFieldPosition() {
+    return ideaFieldPosition;
+  }
+
+  public void setIdeaFieldPosition(Integer ideaFieldPosition) {
+    this.ideaFieldPosition = ideaFieldPosition;
+  }
+
+  public Field isIdeaFieldRequired(Boolean isIdeaFieldRequired) {
+    this.isIdeaFieldRequired = isIdeaFieldRequired;
+    return this;
+  }
+
+   /**
+   * Get isIdeaFieldRequired
+   * @return isIdeaFieldRequired
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isIsIdeaFieldRequired() {
+    return isIdeaFieldRequired;
+  }
+
+  public void setIsIdeaFieldRequired(Boolean isIdeaFieldRequired) {
+    this.isIdeaFieldRequired = isIdeaFieldRequired;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -279,6 +394,7 @@ public class Field extends DlResource {
     }
     Field field = (Field) o;
     return Objects.equals(this.name, field.name) &&
+        Objects.equals(this.description, field.description) &&
         Objects.equals(this.type, field.type) &&
         Objects.equals(this.source, field.source) &&
         Objects.equals(this.portfolio, field.portfolio) &&
@@ -289,12 +405,16 @@ public class Field extends DlResource {
         Objects.equals(this.targetType, field.targetType) &&
         Objects.equals(this.dataType, field.dataType) &&
         Objects.equals(this.isFieldTypeApproved, field.isFieldTypeApproved) &&
+        Objects.equals(this.tagIds, field.tagIds) &&
+        Objects.equals(this.isIdeaField, field.isIdeaField) &&
+        Objects.equals(this.ideaFieldPosition, field.ideaFieldPosition) &&
+        Objects.equals(this.isIdeaFieldRequired, field.isIdeaFieldRequired) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, type, source, portfolio, parent, position, typePosition, fieldValues, targetType, dataType, isFieldTypeApproved, super.hashCode());
+    return Objects.hash(name, description, type, source, portfolio, parent, position, typePosition, fieldValues, targetType, dataType, isFieldTypeApproved, tagIds, isIdeaField, ideaFieldPosition, isIdeaFieldRequired, super.hashCode());
   }
 
 
@@ -304,6 +424,7 @@ public class Field extends DlResource {
     sb.append("class Field {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    portfolio: ").append(toIndentedString(portfolio)).append("\n");
@@ -314,6 +435,10 @@ public class Field extends DlResource {
     sb.append("    targetType: ").append(toIndentedString(targetType)).append("\n");
     sb.append("    dataType: ").append(toIndentedString(dataType)).append("\n");
     sb.append("    isFieldTypeApproved: ").append(toIndentedString(isFieldTypeApproved)).append("\n");
+    sb.append("    tagIds: ").append(toIndentedString(tagIds)).append("\n");
+    sb.append("    isIdeaField: ").append(toIndentedString(isIdeaField)).append("\n");
+    sb.append("    ideaFieldPosition: ").append(toIndentedString(ideaFieldPosition)).append("\n");
+    sb.append("    isIdeaFieldRequired: ").append(toIndentedString(isIdeaFieldRequired)).append("\n");
     sb.append("}");
     return sb.toString();
   }

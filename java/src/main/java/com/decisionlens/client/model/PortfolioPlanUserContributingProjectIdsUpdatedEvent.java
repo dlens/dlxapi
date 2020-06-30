@@ -33,102 +33,40 @@ import java.util.List;
  */
 
 public class PortfolioPlanUserContributingProjectIdsUpdatedEvent {
-  @SerializedName("id")
-  private String id = null;
-
-  @SerializedName("portfolioPlan")
-  private PortfolioPlan portfolioPlan = null;
-
-  @SerializedName("user")
-  private User user = null;
-
-  @SerializedName("contributingProjectIds")
-  private List<String> contributingProjectIds = null;
+  @SerializedName("portfolioId")
+  private String portfolioId = null;
 
   @SerializedName("previousContributingProjectIds")
   private List<String> previousContributingProjectIds = null;
 
-  @SerializedName("portfolioId")
-  private String portfolioId = null;
+  @SerializedName("id")
+  private String id = null;
 
-  public PortfolioPlanUserContributingProjectIdsUpdatedEvent id(String id) {
-    this.id = id;
+  @SerializedName("contributingProjectIds")
+  private List<String> contributingProjectIds = null;
+
+  @SerializedName("user")
+  private User user = null;
+
+  @SerializedName("portfolioPlan")
+  private PortfolioPlan portfolioPlan = null;
+
+  public PortfolioPlanUserContributingProjectIdsUpdatedEvent portfolioId(String portfolioId) {
+    this.portfolioId = portfolioId;
     return this;
   }
 
    /**
-   * Get id
-   * @return id
+   * Get portfolioId
+   * @return portfolioId
   **/
   @ApiModelProperty(value = "")
-  public String getId() {
-    return id;
+  public String getPortfolioId() {
+    return portfolioId;
   }
 
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public PortfolioPlanUserContributingProjectIdsUpdatedEvent portfolioPlan(PortfolioPlan portfolioPlan) {
-    this.portfolioPlan = portfolioPlan;
-    return this;
-  }
-
-   /**
-   * Get portfolioPlan
-   * @return portfolioPlan
-  **/
-  @ApiModelProperty(value = "")
-  public PortfolioPlan getPortfolioPlan() {
-    return portfolioPlan;
-  }
-
-  public void setPortfolioPlan(PortfolioPlan portfolioPlan) {
-    this.portfolioPlan = portfolioPlan;
-  }
-
-  public PortfolioPlanUserContributingProjectIdsUpdatedEvent user(User user) {
-    this.user = user;
-    return this;
-  }
-
-   /**
-   * Get user
-   * @return user
-  **/
-  @ApiModelProperty(value = "")
-  public User getUser() {
-    return user;
-  }
-
-  public void setUser(User user) {
-    this.user = user;
-  }
-
-  public PortfolioPlanUserContributingProjectIdsUpdatedEvent contributingProjectIds(List<String> contributingProjectIds) {
-    this.contributingProjectIds = contributingProjectIds;
-    return this;
-  }
-
-  public PortfolioPlanUserContributingProjectIdsUpdatedEvent addContributingProjectIdsItem(String contributingProjectIdsItem) {
-    if (this.contributingProjectIds == null) {
-      this.contributingProjectIds = new ArrayList<String>();
-    }
-    this.contributingProjectIds.add(contributingProjectIdsItem);
-    return this;
-  }
-
-   /**
-   * Get contributingProjectIds
-   * @return contributingProjectIds
-  **/
-  @ApiModelProperty(value = "")
-  public List<String> getContributingProjectIds() {
-    return contributingProjectIds;
-  }
-
-  public void setContributingProjectIds(List<String> contributingProjectIds) {
-    this.contributingProjectIds = contributingProjectIds;
+  public void setPortfolioId(String portfolioId) {
+    this.portfolioId = portfolioId;
   }
 
   public PortfolioPlanUserContributingProjectIdsUpdatedEvent previousContributingProjectIds(List<String> previousContributingProjectIds) {
@@ -157,22 +95,84 @@ public class PortfolioPlanUserContributingProjectIdsUpdatedEvent {
     this.previousContributingProjectIds = previousContributingProjectIds;
   }
 
-  public PortfolioPlanUserContributingProjectIdsUpdatedEvent portfolioId(String portfolioId) {
-    this.portfolioId = portfolioId;
+  public PortfolioPlanUserContributingProjectIdsUpdatedEvent id(String id) {
+    this.id = id;
     return this;
   }
 
    /**
-   * Get portfolioId
-   * @return portfolioId
+   * Get id
+   * @return id
   **/
   @ApiModelProperty(value = "")
-  public String getPortfolioId() {
-    return portfolioId;
+  public String getId() {
+    return id;
   }
 
-  public void setPortfolioId(String portfolioId) {
-    this.portfolioId = portfolioId;
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public PortfolioPlanUserContributingProjectIdsUpdatedEvent contributingProjectIds(List<String> contributingProjectIds) {
+    this.contributingProjectIds = contributingProjectIds;
+    return this;
+  }
+
+  public PortfolioPlanUserContributingProjectIdsUpdatedEvent addContributingProjectIdsItem(String contributingProjectIdsItem) {
+    if (this.contributingProjectIds == null) {
+      this.contributingProjectIds = new ArrayList<String>();
+    }
+    this.contributingProjectIds.add(contributingProjectIdsItem);
+    return this;
+  }
+
+   /**
+   * Get contributingProjectIds
+   * @return contributingProjectIds
+  **/
+  @ApiModelProperty(value = "")
+  public List<String> getContributingProjectIds() {
+    return contributingProjectIds;
+  }
+
+  public void setContributingProjectIds(List<String> contributingProjectIds) {
+    this.contributingProjectIds = contributingProjectIds;
+  }
+
+  public PortfolioPlanUserContributingProjectIdsUpdatedEvent user(User user) {
+    this.user = user;
+    return this;
+  }
+
+   /**
+   * Get user
+   * @return user
+  **/
+  @ApiModelProperty(value = "")
+  public User getUser() {
+    return user;
+  }
+
+  public void setUser(User user) {
+    this.user = user;
+  }
+
+  public PortfolioPlanUserContributingProjectIdsUpdatedEvent portfolioPlan(PortfolioPlan portfolioPlan) {
+    this.portfolioPlan = portfolioPlan;
+    return this;
+  }
+
+   /**
+   * Get portfolioPlan
+   * @return portfolioPlan
+  **/
+  @ApiModelProperty(value = "")
+  public PortfolioPlan getPortfolioPlan() {
+    return portfolioPlan;
+  }
+
+  public void setPortfolioPlan(PortfolioPlan portfolioPlan) {
+    this.portfolioPlan = portfolioPlan;
   }
 
 
@@ -185,17 +185,17 @@ public class PortfolioPlanUserContributingProjectIdsUpdatedEvent {
       return false;
     }
     PortfolioPlanUserContributingProjectIdsUpdatedEvent portfolioPlanUserContributingProjectIdsUpdatedEvent = (PortfolioPlanUserContributingProjectIdsUpdatedEvent) o;
-    return Objects.equals(this.id, portfolioPlanUserContributingProjectIdsUpdatedEvent.id) &&
-        Objects.equals(this.portfolioPlan, portfolioPlanUserContributingProjectIdsUpdatedEvent.portfolioPlan) &&
-        Objects.equals(this.user, portfolioPlanUserContributingProjectIdsUpdatedEvent.user) &&
-        Objects.equals(this.contributingProjectIds, portfolioPlanUserContributingProjectIdsUpdatedEvent.contributingProjectIds) &&
+    return Objects.equals(this.portfolioId, portfolioPlanUserContributingProjectIdsUpdatedEvent.portfolioId) &&
         Objects.equals(this.previousContributingProjectIds, portfolioPlanUserContributingProjectIdsUpdatedEvent.previousContributingProjectIds) &&
-        Objects.equals(this.portfolioId, portfolioPlanUserContributingProjectIdsUpdatedEvent.portfolioId);
+        Objects.equals(this.id, portfolioPlanUserContributingProjectIdsUpdatedEvent.id) &&
+        Objects.equals(this.contributingProjectIds, portfolioPlanUserContributingProjectIdsUpdatedEvent.contributingProjectIds) &&
+        Objects.equals(this.user, portfolioPlanUserContributingProjectIdsUpdatedEvent.user) &&
+        Objects.equals(this.portfolioPlan, portfolioPlanUserContributingProjectIdsUpdatedEvent.portfolioPlan);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, portfolioPlan, user, contributingProjectIds, previousContributingProjectIds, portfolioId);
+    return Objects.hash(portfolioId, previousContributingProjectIds, id, contributingProjectIds, user, portfolioPlan);
   }
 
 
@@ -204,12 +204,12 @@ public class PortfolioPlanUserContributingProjectIdsUpdatedEvent {
     StringBuilder sb = new StringBuilder();
     sb.append("class PortfolioPlanUserContributingProjectIdsUpdatedEvent {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    portfolioPlan: ").append(toIndentedString(portfolioPlan)).append("\n");
-    sb.append("    user: ").append(toIndentedString(user)).append("\n");
-    sb.append("    contributingProjectIds: ").append(toIndentedString(contributingProjectIds)).append("\n");
-    sb.append("    previousContributingProjectIds: ").append(toIndentedString(previousContributingProjectIds)).append("\n");
     sb.append("    portfolioId: ").append(toIndentedString(portfolioId)).append("\n");
+    sb.append("    previousContributingProjectIds: ").append(toIndentedString(previousContributingProjectIds)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    contributingProjectIds: ").append(toIndentedString(contributingProjectIds)).append("\n");
+    sb.append("    user: ").append(toIndentedString(user)).append("\n");
+    sb.append("    portfolioPlan: ").append(toIndentedString(portfolioPlan)).append("\n");
     sb.append("}");
     return sb.toString();
   }

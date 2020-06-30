@@ -26,23 +26,36 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.math.BigDecimal;
 
 /**
  * ProjectPortfolioPlanFieldValueUpdatedEvent
  */
 
 public class ProjectPortfolioPlanFieldValueUpdatedEvent {
-  @SerializedName("id")
-  private String id = null;
-
-  @SerializedName("name")
-  private String name = null;
+  @SerializedName("portfolioId")
+  private String portfolioId = null;
 
   @SerializedName("field")
   private Field field = null;
 
-  @SerializedName("portfolioPlan")
-  private PortfolioPlan portfolioPlan = null;
+  @SerializedName("name")
+  private String name = null;
+
+  @SerializedName("timePeriod")
+  private TimePeriod timePeriod = null;
+
+  @SerializedName("numericValue")
+  private BigDecimal numericValue = null;
+
+  @SerializedName("id")
+  private String id = null;
+
+  @SerializedName("previousNumericValue")
+  private BigDecimal previousNumericValue = null;
+
+  @SerializedName("isRebaseline")
+  private Boolean isRebaseline = null;
 
   @SerializedName("value")
   private String value = null;
@@ -50,58 +63,28 @@ public class ProjectPortfolioPlanFieldValueUpdatedEvent {
   @SerializedName("previousValue")
   private String previousValue = null;
 
-  @SerializedName("numericValue")
-  private Double numericValue = null;
-
-  @SerializedName("previousNumericValue")
-  private Double previousNumericValue = null;
-
-  @SerializedName("timePeriod")
-  private TimePeriod timePeriod = null;
-
-  @SerializedName("portfolioId")
-  private String portfolioId = null;
-
-  @SerializedName("isRebaseline")
-  private Boolean isRebaseline = null;
+  @SerializedName("portfolioPlan")
+  private PortfolioPlan portfolioPlan = null;
 
   @SerializedName("isFromImport")
   private Boolean isFromImport = null;
 
-  public ProjectPortfolioPlanFieldValueUpdatedEvent id(String id) {
-    this.id = id;
+  public ProjectPortfolioPlanFieldValueUpdatedEvent portfolioId(String portfolioId) {
+    this.portfolioId = portfolioId;
     return this;
   }
 
    /**
-   * Get id
-   * @return id
+   * Get portfolioId
+   * @return portfolioId
   **/
   @ApiModelProperty(value = "")
-  public String getId() {
-    return id;
+  public String getPortfolioId() {
+    return portfolioId;
   }
 
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public ProjectPortfolioPlanFieldValueUpdatedEvent name(String name) {
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * Get name
-   * @return name
-  **/
-  @ApiModelProperty(value = "")
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
+  public void setPortfolioId(String portfolioId) {
+    this.portfolioId = portfolioId;
   }
 
   public ProjectPortfolioPlanFieldValueUpdatedEvent field(Field field) {
@@ -122,22 +105,112 @@ public class ProjectPortfolioPlanFieldValueUpdatedEvent {
     this.field = field;
   }
 
-  public ProjectPortfolioPlanFieldValueUpdatedEvent portfolioPlan(PortfolioPlan portfolioPlan) {
-    this.portfolioPlan = portfolioPlan;
+  public ProjectPortfolioPlanFieldValueUpdatedEvent name(String name) {
+    this.name = name;
     return this;
   }
 
    /**
-   * Get portfolioPlan
-   * @return portfolioPlan
+   * Get name
+   * @return name
   **/
   @ApiModelProperty(value = "")
-  public PortfolioPlan getPortfolioPlan() {
-    return portfolioPlan;
+  public String getName() {
+    return name;
   }
 
-  public void setPortfolioPlan(PortfolioPlan portfolioPlan) {
-    this.portfolioPlan = portfolioPlan;
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public ProjectPortfolioPlanFieldValueUpdatedEvent timePeriod(TimePeriod timePeriod) {
+    this.timePeriod = timePeriod;
+    return this;
+  }
+
+   /**
+   * Get timePeriod
+   * @return timePeriod
+  **/
+  @ApiModelProperty(value = "")
+  public TimePeriod getTimePeriod() {
+    return timePeriod;
+  }
+
+  public void setTimePeriod(TimePeriod timePeriod) {
+    this.timePeriod = timePeriod;
+  }
+
+  public ProjectPortfolioPlanFieldValueUpdatedEvent numericValue(BigDecimal numericValue) {
+    this.numericValue = numericValue;
+    return this;
+  }
+
+   /**
+   * Get numericValue
+   * @return numericValue
+  **/
+  @ApiModelProperty(value = "")
+  public BigDecimal getNumericValue() {
+    return numericValue;
+  }
+
+  public void setNumericValue(BigDecimal numericValue) {
+    this.numericValue = numericValue;
+  }
+
+  public ProjectPortfolioPlanFieldValueUpdatedEvent id(String id) {
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * Get id
+   * @return id
+  **/
+  @ApiModelProperty(value = "")
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public ProjectPortfolioPlanFieldValueUpdatedEvent previousNumericValue(BigDecimal previousNumericValue) {
+    this.previousNumericValue = previousNumericValue;
+    return this;
+  }
+
+   /**
+   * Get previousNumericValue
+   * @return previousNumericValue
+  **/
+  @ApiModelProperty(value = "")
+  public BigDecimal getPreviousNumericValue() {
+    return previousNumericValue;
+  }
+
+  public void setPreviousNumericValue(BigDecimal previousNumericValue) {
+    this.previousNumericValue = previousNumericValue;
+  }
+
+  public ProjectPortfolioPlanFieldValueUpdatedEvent isRebaseline(Boolean isRebaseline) {
+    this.isRebaseline = isRebaseline;
+    return this;
+  }
+
+   /**
+   * Get isRebaseline
+   * @return isRebaseline
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isIsRebaseline() {
+    return isRebaseline;
+  }
+
+  public void setIsRebaseline(Boolean isRebaseline) {
+    this.isRebaseline = isRebaseline;
   }
 
   public ProjectPortfolioPlanFieldValueUpdatedEvent value(String value) {
@@ -176,94 +249,22 @@ public class ProjectPortfolioPlanFieldValueUpdatedEvent {
     this.previousValue = previousValue;
   }
 
-  public ProjectPortfolioPlanFieldValueUpdatedEvent numericValue(Double numericValue) {
-    this.numericValue = numericValue;
+  public ProjectPortfolioPlanFieldValueUpdatedEvent portfolioPlan(PortfolioPlan portfolioPlan) {
+    this.portfolioPlan = portfolioPlan;
     return this;
   }
 
    /**
-   * Get numericValue
-   * @return numericValue
+   * Get portfolioPlan
+   * @return portfolioPlan
   **/
   @ApiModelProperty(value = "")
-  public Double getNumericValue() {
-    return numericValue;
+  public PortfolioPlan getPortfolioPlan() {
+    return portfolioPlan;
   }
 
-  public void setNumericValue(Double numericValue) {
-    this.numericValue = numericValue;
-  }
-
-  public ProjectPortfolioPlanFieldValueUpdatedEvent previousNumericValue(Double previousNumericValue) {
-    this.previousNumericValue = previousNumericValue;
-    return this;
-  }
-
-   /**
-   * Get previousNumericValue
-   * @return previousNumericValue
-  **/
-  @ApiModelProperty(value = "")
-  public Double getPreviousNumericValue() {
-    return previousNumericValue;
-  }
-
-  public void setPreviousNumericValue(Double previousNumericValue) {
-    this.previousNumericValue = previousNumericValue;
-  }
-
-  public ProjectPortfolioPlanFieldValueUpdatedEvent timePeriod(TimePeriod timePeriod) {
-    this.timePeriod = timePeriod;
-    return this;
-  }
-
-   /**
-   * Get timePeriod
-   * @return timePeriod
-  **/
-  @ApiModelProperty(value = "")
-  public TimePeriod getTimePeriod() {
-    return timePeriod;
-  }
-
-  public void setTimePeriod(TimePeriod timePeriod) {
-    this.timePeriod = timePeriod;
-  }
-
-  public ProjectPortfolioPlanFieldValueUpdatedEvent portfolioId(String portfolioId) {
-    this.portfolioId = portfolioId;
-    return this;
-  }
-
-   /**
-   * Get portfolioId
-   * @return portfolioId
-  **/
-  @ApiModelProperty(value = "")
-  public String getPortfolioId() {
-    return portfolioId;
-  }
-
-  public void setPortfolioId(String portfolioId) {
-    this.portfolioId = portfolioId;
-  }
-
-  public ProjectPortfolioPlanFieldValueUpdatedEvent isRebaseline(Boolean isRebaseline) {
-    this.isRebaseline = isRebaseline;
-    return this;
-  }
-
-   /**
-   * Get isRebaseline
-   * @return isRebaseline
-  **/
-  @ApiModelProperty(value = "")
-  public Boolean isIsRebaseline() {
-    return isRebaseline;
-  }
-
-  public void setIsRebaseline(Boolean isRebaseline) {
-    this.isRebaseline = isRebaseline;
+  public void setPortfolioPlan(PortfolioPlan portfolioPlan) {
+    this.portfolioPlan = portfolioPlan;
   }
 
   public ProjectPortfolioPlanFieldValueUpdatedEvent isFromImport(Boolean isFromImport) {
@@ -294,23 +295,23 @@ public class ProjectPortfolioPlanFieldValueUpdatedEvent {
       return false;
     }
     ProjectPortfolioPlanFieldValueUpdatedEvent projectPortfolioPlanFieldValueUpdatedEvent = (ProjectPortfolioPlanFieldValueUpdatedEvent) o;
-    return Objects.equals(this.id, projectPortfolioPlanFieldValueUpdatedEvent.id) &&
-        Objects.equals(this.name, projectPortfolioPlanFieldValueUpdatedEvent.name) &&
+    return Objects.equals(this.portfolioId, projectPortfolioPlanFieldValueUpdatedEvent.portfolioId) &&
         Objects.equals(this.field, projectPortfolioPlanFieldValueUpdatedEvent.field) &&
-        Objects.equals(this.portfolioPlan, projectPortfolioPlanFieldValueUpdatedEvent.portfolioPlan) &&
+        Objects.equals(this.name, projectPortfolioPlanFieldValueUpdatedEvent.name) &&
+        Objects.equals(this.timePeriod, projectPortfolioPlanFieldValueUpdatedEvent.timePeriod) &&
+        Objects.equals(this.numericValue, projectPortfolioPlanFieldValueUpdatedEvent.numericValue) &&
+        Objects.equals(this.id, projectPortfolioPlanFieldValueUpdatedEvent.id) &&
+        Objects.equals(this.previousNumericValue, projectPortfolioPlanFieldValueUpdatedEvent.previousNumericValue) &&
+        Objects.equals(this.isRebaseline, projectPortfolioPlanFieldValueUpdatedEvent.isRebaseline) &&
         Objects.equals(this.value, projectPortfolioPlanFieldValueUpdatedEvent.value) &&
         Objects.equals(this.previousValue, projectPortfolioPlanFieldValueUpdatedEvent.previousValue) &&
-        Objects.equals(this.numericValue, projectPortfolioPlanFieldValueUpdatedEvent.numericValue) &&
-        Objects.equals(this.previousNumericValue, projectPortfolioPlanFieldValueUpdatedEvent.previousNumericValue) &&
-        Objects.equals(this.timePeriod, projectPortfolioPlanFieldValueUpdatedEvent.timePeriod) &&
-        Objects.equals(this.portfolioId, projectPortfolioPlanFieldValueUpdatedEvent.portfolioId) &&
-        Objects.equals(this.isRebaseline, projectPortfolioPlanFieldValueUpdatedEvent.isRebaseline) &&
+        Objects.equals(this.portfolioPlan, projectPortfolioPlanFieldValueUpdatedEvent.portfolioPlan) &&
         Objects.equals(this.isFromImport, projectPortfolioPlanFieldValueUpdatedEvent.isFromImport);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, field, portfolioPlan, value, previousValue, numericValue, previousNumericValue, timePeriod, portfolioId, isRebaseline, isFromImport);
+    return Objects.hash(portfolioId, field, name, timePeriod, numericValue, id, previousNumericValue, isRebaseline, value, previousValue, portfolioPlan, isFromImport);
   }
 
 
@@ -319,17 +320,17 @@ public class ProjectPortfolioPlanFieldValueUpdatedEvent {
     StringBuilder sb = new StringBuilder();
     sb.append("class ProjectPortfolioPlanFieldValueUpdatedEvent {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    portfolioId: ").append(toIndentedString(portfolioId)).append("\n");
     sb.append("    field: ").append(toIndentedString(field)).append("\n");
-    sb.append("    portfolioPlan: ").append(toIndentedString(portfolioPlan)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    timePeriod: ").append(toIndentedString(timePeriod)).append("\n");
+    sb.append("    numericValue: ").append(toIndentedString(numericValue)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    previousNumericValue: ").append(toIndentedString(previousNumericValue)).append("\n");
+    sb.append("    isRebaseline: ").append(toIndentedString(isRebaseline)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("    previousValue: ").append(toIndentedString(previousValue)).append("\n");
-    sb.append("    numericValue: ").append(toIndentedString(numericValue)).append("\n");
-    sb.append("    previousNumericValue: ").append(toIndentedString(previousNumericValue)).append("\n");
-    sb.append("    timePeriod: ").append(toIndentedString(timePeriod)).append("\n");
-    sb.append("    portfolioId: ").append(toIndentedString(portfolioId)).append("\n");
-    sb.append("    isRebaseline: ").append(toIndentedString(isRebaseline)).append("\n");
+    sb.append("    portfolioPlan: ").append(toIndentedString(portfolioPlan)).append("\n");
     sb.append("    isFromImport: ").append(toIndentedString(isFromImport)).append("\n");
     sb.append("}");
     return sb.toString();

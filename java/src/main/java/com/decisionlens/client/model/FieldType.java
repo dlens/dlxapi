@@ -53,6 +53,8 @@ public enum FieldType {
   
   PORTFOLIONAME("PORTFOLIONAME"),
   
+  TAGS("TAGS"),
+  
   LOCK("LOCK"),
   
   COSTAGGREGATE("COSTAGGREGATE");

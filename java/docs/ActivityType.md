@@ -12,6 +12,8 @@
 
 * `FIELDNAMEUPDATEDEVENT` (value: `"FieldNameUpdatedEvent"`)
 
+* `FIELDDESCRIPTIONUPDATEDEVENT` (value: `"FieldDescriptionUpdatedEvent"`)
+
 * `FIELDTYPEPOSITIONUPDATEDEVENT` (value: `"FieldTypePositionUpdatedEvent"`)
 
 * `FIELDPOSITIONUPDATEDEVENT` (value: `"FieldPositionUpdatedEvent"`)
@@ -22,11 +24,23 @@
 
 * `FIELDISFIELDTYPEAPPROVEDUPDATEDEVENT` (value: `"FieldIsFieldTypeApprovedUpdatedEvent"`)
 
+* `FIELDISIDEAFIELDUPDATEDEVENT` (value: `"FieldIsIdeaFieldUpdatedEvent"`)
+
+* `FIELDTAGADDEDEVENT` (value: `"FieldTagAddedEvent"`)
+
+* `FIELDTAGREMOVEDEVENT` (value: `"FieldTagRemovedEvent"`)
+
+* `FIELDIDEAFIELDPOSITIONUPDATEDEVENT` (value: `"FieldIdeaFieldPositionUpdatedEvent"`)
+
+* `FIELDISIDEAFIELDREQUIREDUPDATEDEVENT` (value: `"FieldIsIdeaFieldRequiredUpdatedEvent"`)
+
 * `PORTFOLIOARCHIVEDEVENT` (value: `"PortfolioArchivedEvent"`)
 
 * `PORTFOLIOCREATEDEVENT` (value: `"PortfolioCreatedEvent"`)
 
 * `PORTFOLIONAMEUPDATEDEVENT` (value: `"PortfolioNameUpdatedEvent"`)
+
+* `PORTFOLIOUSERREGISTRATIONTOKENUPDATEDEVENT` (value: `"PortfolioUserRegistrationTokenUpdatedEvent"`)
 
 * `SUBPORTFOLIOADDEDEVENT` (value: `"SubPortfolioAddedEvent"`)
 
@@ -51,6 +65,10 @@
 * `PROJECTFIELDVALUEDELETEDEVENT` (value: `"ProjectFieldValueDeletedEvent"`)
 
 * `PROJECTFIELDVALUEUPDATEDEVENT` (value: `"ProjectFieldValueUpdatedEvent"`)
+
+* `PROJECTTAGADDEDEVENT` (value: `"ProjectTagAddedEvent"`)
+
+* `PROJECTTAGREMOVEDEVENT` (value: `"ProjectTagRemovedEvent"`)
 
 * `PROJECTPORTFOLIOPLANFIELDVALUESCOPIEDEVENT` (value: `"ProjectPortfolioPlanFieldValuesCopiedEvent"`)
 
@@ -127,6 +145,16 @@
 * `COMMENTEDITEDEVENT` (value: `"CommentEditedEvent"`)
 
 * `COMMENTDELETEDEVENT` (value: `"CommentDeletedEvent"`)
+
+* `TAGCREATEDEVENT` (value: `"TagCreatedEvent"`)
+
+* `TAGNAMEUPDATEDEVENT` (value: `"TagNameUpdatedEvent"`)
+
+* `TAGCOLORUPDATEDEVENT` (value: `"TagColorUpdatedEvent"`)
+
+* `TAGPARENTUPDATEDEVENT` (value: `"TagParentUpdatedEvent"`)
+
+* `TAGDELETEDEVENT` (value: `"TagDeletedEvent"`)
 
 
 

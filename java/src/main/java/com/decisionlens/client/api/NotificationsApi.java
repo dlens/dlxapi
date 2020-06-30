@@ -193,22 +193,22 @@ public class NotificationsApi {
     }
     /**
      * Build call for reindexNotifications
-     * @param domainList List of domains for where notifications need to be reindexed (required)
+     * @param domains List of domains for where notifications need to be reindexed, if not provided reindex will be done for all domains (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call reindexNotificationsCall(List<String> domainList, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call reindexNotificationsCall(List<String> domains, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/notifications/reindex";
+        String localVarPath = "/reindex/notifications";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (domainList != null)
-        localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("csv", "domainList", domainList));
+        if (domains != null)
+        localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("csv", "domains", domains));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -243,15 +243,10 @@ public class NotificationsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call reindexNotificationsValidateBeforeCall(List<String> domainList, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'domainList' is set
-        if (domainList == null) {
-            throw new ApiException("Missing the required parameter 'domainList' when calling reindexNotifications(Async)");
-        }
+    private com.squareup.okhttp.Call reindexNotificationsValidateBeforeCall(List<String> domains, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
 
-        com.squareup.okhttp.Call call = reindexNotificationsCall(domainList, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = reindexNotificationsCall(domains, progressListener, progressRequestListener);
         return call;
 
     }
@@ -259,24 +254,24 @@ public class NotificationsApi {
     /**
      * Reindex notifications. System Administator operation.
      * 
-     * @param domainList List of domains for where notifications need to be reindexed (required)
+     * @param domains List of domains for where notifications need to be reindexed, if not provided reindex will be done for all domains (optional)
      * @return String
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public String reindexNotifications(List<String> domainList) throws ApiException {
-        ApiResponse<String> resp = reindexNotificationsWithHttpInfo(domainList);
+    public String reindexNotifications(List<String> domains) throws ApiException {
+        ApiResponse<String> resp = reindexNotificationsWithHttpInfo(domains);
         return resp.getData();
     }
 
     /**
      * Reindex notifications. System Administator operation.
      * 
-     * @param domainList List of domains for where notifications need to be reindexed (required)
+     * @param domains List of domains for where notifications need to be reindexed, if not provided reindex will be done for all domains (optional)
      * @return ApiResponse&lt;String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<String> reindexNotificationsWithHttpInfo(List<String> domainList) throws ApiException {
-        com.squareup.okhttp.Call call = reindexNotificationsValidateBeforeCall(domainList, null, null);
+    public ApiResponse<String> reindexNotificationsWithHttpInfo(List<String> domains) throws ApiException {
+        com.squareup.okhttp.Call call = reindexNotificationsValidateBeforeCall(domains, null, null);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -284,12 +279,12 @@ public class NotificationsApi {
     /**
      * Reindex notifications. System Administator operation. (asynchronously)
      * 
-     * @param domainList List of domains for where notifications need to be reindexed (required)
+     * @param domains List of domains for where notifications need to be reindexed, if not provided reindex will be done for all domains (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call reindexNotificationsAsync(List<String> domainList, final ApiCallback<String> callback) throws ApiException {
+    public com.squareup.okhttp.Call reindexNotificationsAsync(List<String> domains, final ApiCallback<String> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -310,7 +305,7 @@ public class NotificationsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = reindexNotificationsValidateBeforeCall(domainList, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = reindexNotificationsValidateBeforeCall(domains, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

@@ -32,58 +32,40 @@ import java.io.IOException;
  */
 
 public class ProjectFieldValueDeletedEvent {
-  @SerializedName("id")
-  private String id = null;
-
-  @SerializedName("name")
-  private String name = null;
+  @SerializedName("portfolioId")
+  private String portfolioId = null;
 
   @SerializedName("field")
   private Field field = null;
 
+  @SerializedName("name")
+  private String name = null;
+
   @SerializedName("timePeriod")
   private TimePeriod timePeriod = null;
 
-  @SerializedName("portfolioId")
-  private String portfolioId = null;
+  @SerializedName("id")
+  private String id = null;
 
   @SerializedName("portfolioPlan")
   private PortfolioPlan portfolioPlan = null;
 
-  public ProjectFieldValueDeletedEvent id(String id) {
-    this.id = id;
+  public ProjectFieldValueDeletedEvent portfolioId(String portfolioId) {
+    this.portfolioId = portfolioId;
     return this;
   }
 
    /**
-   * Get id
-   * @return id
+   * Get portfolioId
+   * @return portfolioId
   **/
   @ApiModelProperty(value = "")
-  public String getId() {
-    return id;
+  public String getPortfolioId() {
+    return portfolioId;
   }
 
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public ProjectFieldValueDeletedEvent name(String name) {
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * Get name
-   * @return name
-  **/
-  @ApiModelProperty(value = "")
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
+  public void setPortfolioId(String portfolioId) {
+    this.portfolioId = portfolioId;
   }
 
   public ProjectFieldValueDeletedEvent field(Field field) {
@@ -104,6 +86,24 @@ public class ProjectFieldValueDeletedEvent {
     this.field = field;
   }
 
+  public ProjectFieldValueDeletedEvent name(String name) {
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Get name
+   * @return name
+  **/
+  @ApiModelProperty(value = "")
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
   public ProjectFieldValueDeletedEvent timePeriod(TimePeriod timePeriod) {
     this.timePeriod = timePeriod;
     return this;
@@ -122,22 +122,22 @@ public class ProjectFieldValueDeletedEvent {
     this.timePeriod = timePeriod;
   }
 
-  public ProjectFieldValueDeletedEvent portfolioId(String portfolioId) {
-    this.portfolioId = portfolioId;
+  public ProjectFieldValueDeletedEvent id(String id) {
+    this.id = id;
     return this;
   }
 
    /**
-   * Get portfolioId
-   * @return portfolioId
+   * Get id
+   * @return id
   **/
   @ApiModelProperty(value = "")
-  public String getPortfolioId() {
-    return portfolioId;
+  public String getId() {
+    return id;
   }
 
-  public void setPortfolioId(String portfolioId) {
-    this.portfolioId = portfolioId;
+  public void setId(String id) {
+    this.id = id;
   }
 
   public ProjectFieldValueDeletedEvent portfolioPlan(PortfolioPlan portfolioPlan) {
@@ -168,17 +168,17 @@ public class ProjectFieldValueDeletedEvent {
       return false;
     }
     ProjectFieldValueDeletedEvent projectFieldValueDeletedEvent = (ProjectFieldValueDeletedEvent) o;
-    return Objects.equals(this.id, projectFieldValueDeletedEvent.id) &&
-        Objects.equals(this.name, projectFieldValueDeletedEvent.name) &&
+    return Objects.equals(this.portfolioId, projectFieldValueDeletedEvent.portfolioId) &&
         Objects.equals(this.field, projectFieldValueDeletedEvent.field) &&
+        Objects.equals(this.name, projectFieldValueDeletedEvent.name) &&
         Objects.equals(this.timePeriod, projectFieldValueDeletedEvent.timePeriod) &&
-        Objects.equals(this.portfolioId, projectFieldValueDeletedEvent.portfolioId) &&
+        Objects.equals(this.id, projectFieldValueDeletedEvent.id) &&
         Objects.equals(this.portfolioPlan, projectFieldValueDeletedEvent.portfolioPlan);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, field, timePeriod, portfolioId, portfolioPlan);
+    return Objects.hash(portfolioId, field, name, timePeriod, id, portfolioPlan);
   }
 
 
@@ -187,11 +187,11 @@ public class ProjectFieldValueDeletedEvent {
     StringBuilder sb = new StringBuilder();
     sb.append("class ProjectFieldValueDeletedEvent {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    field: ").append(toIndentedString(field)).append("\n");
-    sb.append("    timePeriod: ").append(toIndentedString(timePeriod)).append("\n");
     sb.append("    portfolioId: ").append(toIndentedString(portfolioId)).append("\n");
+    sb.append("    field: ").append(toIndentedString(field)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    timePeriod: ").append(toIndentedString(timePeriod)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    portfolioPlan: ").append(toIndentedString(portfolioPlan)).append("\n");
     sb.append("}");
     return sb.toString();

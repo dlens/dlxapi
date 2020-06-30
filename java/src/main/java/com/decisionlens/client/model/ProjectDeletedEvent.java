@@ -32,59 +32,23 @@ import java.util.List;
  */
 
 public class ProjectDeletedEvent {
-  @SerializedName("id")
-  private String id = null;
-
-  @SerializedName("name")
-  private String name = null;
-
   @SerializedName("portfolioId")
   private String portfolioId = null;
-
-  @SerializedName("portfolioPlan")
-  private PortfolioPlan portfolioPlan = null;
-
-  @SerializedName("isDraft")
-  private Boolean isDraft = null;
 
   @SerializedName("contributingUserIds")
   private List<String> contributingUserIds = null;
 
-  public ProjectDeletedEvent id(String id) {
-    this.id = id;
-    return this;
-  }
+  @SerializedName("name")
+  private String name = null;
 
-   /**
-   * Get id
-   * @return id
-  **/
-  @ApiModelProperty(value = "")
-  public String getId() {
-    return id;
-  }
+  @SerializedName("isDraft")
+  private Boolean isDraft = null;
 
-  public void setId(String id) {
-    this.id = id;
-  }
+  @SerializedName("id")
+  private String id = null;
 
-  public ProjectDeletedEvent name(String name) {
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * Get name
-   * @return name
-  **/
-  @ApiModelProperty(value = "")
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
+  @SerializedName("portfolioPlan")
+  private PortfolioPlan portfolioPlan = null;
 
   public ProjectDeletedEvent portfolioId(String portfolioId) {
     this.portfolioId = portfolioId;
@@ -102,42 +66,6 @@ public class ProjectDeletedEvent {
 
   public void setPortfolioId(String portfolioId) {
     this.portfolioId = portfolioId;
-  }
-
-  public ProjectDeletedEvent portfolioPlan(PortfolioPlan portfolioPlan) {
-    this.portfolioPlan = portfolioPlan;
-    return this;
-  }
-
-   /**
-   * Get portfolioPlan
-   * @return portfolioPlan
-  **/
-  @ApiModelProperty(value = "")
-  public PortfolioPlan getPortfolioPlan() {
-    return portfolioPlan;
-  }
-
-  public void setPortfolioPlan(PortfolioPlan portfolioPlan) {
-    this.portfolioPlan = portfolioPlan;
-  }
-
-  public ProjectDeletedEvent isDraft(Boolean isDraft) {
-    this.isDraft = isDraft;
-    return this;
-  }
-
-   /**
-   * Get isDraft
-   * @return isDraft
-  **/
-  @ApiModelProperty(value = "")
-  public Boolean isIsDraft() {
-    return isDraft;
-  }
-
-  public void setIsDraft(Boolean isDraft) {
-    this.isDraft = isDraft;
   }
 
   public ProjectDeletedEvent contributingUserIds(List<String> contributingUserIds) {
@@ -166,6 +94,78 @@ public class ProjectDeletedEvent {
     this.contributingUserIds = contributingUserIds;
   }
 
+  public ProjectDeletedEvent name(String name) {
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Get name
+   * @return name
+  **/
+  @ApiModelProperty(value = "")
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public ProjectDeletedEvent isDraft(Boolean isDraft) {
+    this.isDraft = isDraft;
+    return this;
+  }
+
+   /**
+   * Get isDraft
+   * @return isDraft
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isIsDraft() {
+    return isDraft;
+  }
+
+  public void setIsDraft(Boolean isDraft) {
+    this.isDraft = isDraft;
+  }
+
+  public ProjectDeletedEvent id(String id) {
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * Get id
+   * @return id
+  **/
+  @ApiModelProperty(value = "")
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public ProjectDeletedEvent portfolioPlan(PortfolioPlan portfolioPlan) {
+    this.portfolioPlan = portfolioPlan;
+    return this;
+  }
+
+   /**
+   * Get portfolioPlan
+   * @return portfolioPlan
+  **/
+  @ApiModelProperty(value = "")
+  public PortfolioPlan getPortfolioPlan() {
+    return portfolioPlan;
+  }
+
+  public void setPortfolioPlan(PortfolioPlan portfolioPlan) {
+    this.portfolioPlan = portfolioPlan;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -176,17 +176,17 @@ public class ProjectDeletedEvent {
       return false;
     }
     ProjectDeletedEvent projectDeletedEvent = (ProjectDeletedEvent) o;
-    return Objects.equals(this.id, projectDeletedEvent.id) &&
+    return Objects.equals(this.portfolioId, projectDeletedEvent.portfolioId) &&
+        Objects.equals(this.contributingUserIds, projectDeletedEvent.contributingUserIds) &&
         Objects.equals(this.name, projectDeletedEvent.name) &&
-        Objects.equals(this.portfolioId, projectDeletedEvent.portfolioId) &&
-        Objects.equals(this.portfolioPlan, projectDeletedEvent.portfolioPlan) &&
         Objects.equals(this.isDraft, projectDeletedEvent.isDraft) &&
-        Objects.equals(this.contributingUserIds, projectDeletedEvent.contributingUserIds);
+        Objects.equals(this.id, projectDeletedEvent.id) &&
+        Objects.equals(this.portfolioPlan, projectDeletedEvent.portfolioPlan);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, portfolioId, portfolioPlan, isDraft, contributingUserIds);
+    return Objects.hash(portfolioId, contributingUserIds, name, isDraft, id, portfolioPlan);
   }
 
 
@@ -195,12 +195,12 @@ public class ProjectDeletedEvent {
     StringBuilder sb = new StringBuilder();
     sb.append("class ProjectDeletedEvent {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    portfolioId: ").append(toIndentedString(portfolioId)).append("\n");
-    sb.append("    portfolioPlan: ").append(toIndentedString(portfolioPlan)).append("\n");
-    sb.append("    isDraft: ").append(toIndentedString(isDraft)).append("\n");
     sb.append("    contributingUserIds: ").append(toIndentedString(contributingUserIds)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    isDraft: ").append(toIndentedString(isDraft)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    portfolioPlan: ").append(toIndentedString(portfolioPlan)).append("\n");
     sb.append("}");
     return sb.toString();
   }

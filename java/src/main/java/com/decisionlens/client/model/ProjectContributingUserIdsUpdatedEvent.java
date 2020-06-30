@@ -32,85 +32,23 @@ import java.util.List;
  */
 
 public class ProjectContributingUserIdsUpdatedEvent {
-  @SerializedName("id")
-  private String id = null;
-
-  @SerializedName("name")
-  private String name = null;
-
-  @SerializedName("contributingUserIds")
-  private List<String> contributingUserIds = null;
-
   @SerializedName("previousContributingUserIds")
   private List<String> previousContributingUserIds = null;
 
   @SerializedName("portfolioId")
   private String portfolioId = null;
 
+  @SerializedName("contributingUserIds")
+  private List<String> contributingUserIds = null;
+
+  @SerializedName("name")
+  private String name = null;
+
+  @SerializedName("id")
+  private String id = null;
+
   @SerializedName("portfolioPlan")
   private PortfolioPlan portfolioPlan = null;
-
-  public ProjectContributingUserIdsUpdatedEvent id(String id) {
-    this.id = id;
-    return this;
-  }
-
-   /**
-   * Get id
-   * @return id
-  **/
-  @ApiModelProperty(value = "")
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public ProjectContributingUserIdsUpdatedEvent name(String name) {
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * Get name
-   * @return name
-  **/
-  @ApiModelProperty(value = "")
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public ProjectContributingUserIdsUpdatedEvent contributingUserIds(List<String> contributingUserIds) {
-    this.contributingUserIds = contributingUserIds;
-    return this;
-  }
-
-  public ProjectContributingUserIdsUpdatedEvent addContributingUserIdsItem(String contributingUserIdsItem) {
-    if (this.contributingUserIds == null) {
-      this.contributingUserIds = new ArrayList<String>();
-    }
-    this.contributingUserIds.add(contributingUserIdsItem);
-    return this;
-  }
-
-   /**
-   * Get contributingUserIds
-   * @return contributingUserIds
-  **/
-  @ApiModelProperty(value = "")
-  public List<String> getContributingUserIds() {
-    return contributingUserIds;
-  }
-
-  public void setContributingUserIds(List<String> contributingUserIds) {
-    this.contributingUserIds = contributingUserIds;
-  }
 
   public ProjectContributingUserIdsUpdatedEvent previousContributingUserIds(List<String> previousContributingUserIds) {
     this.previousContributingUserIds = previousContributingUserIds;
@@ -156,6 +94,68 @@ public class ProjectContributingUserIdsUpdatedEvent {
     this.portfolioId = portfolioId;
   }
 
+  public ProjectContributingUserIdsUpdatedEvent contributingUserIds(List<String> contributingUserIds) {
+    this.contributingUserIds = contributingUserIds;
+    return this;
+  }
+
+  public ProjectContributingUserIdsUpdatedEvent addContributingUserIdsItem(String contributingUserIdsItem) {
+    if (this.contributingUserIds == null) {
+      this.contributingUserIds = new ArrayList<String>();
+    }
+    this.contributingUserIds.add(contributingUserIdsItem);
+    return this;
+  }
+
+   /**
+   * Get contributingUserIds
+   * @return contributingUserIds
+  **/
+  @ApiModelProperty(value = "")
+  public List<String> getContributingUserIds() {
+    return contributingUserIds;
+  }
+
+  public void setContributingUserIds(List<String> contributingUserIds) {
+    this.contributingUserIds = contributingUserIds;
+  }
+
+  public ProjectContributingUserIdsUpdatedEvent name(String name) {
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Get name
+   * @return name
+  **/
+  @ApiModelProperty(value = "")
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public ProjectContributingUserIdsUpdatedEvent id(String id) {
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * Get id
+   * @return id
+  **/
+  @ApiModelProperty(value = "")
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
   public ProjectContributingUserIdsUpdatedEvent portfolioPlan(PortfolioPlan portfolioPlan) {
     this.portfolioPlan = portfolioPlan;
     return this;
@@ -184,17 +184,17 @@ public class ProjectContributingUserIdsUpdatedEvent {
       return false;
     }
     ProjectContributingUserIdsUpdatedEvent projectContributingUserIdsUpdatedEvent = (ProjectContributingUserIdsUpdatedEvent) o;
-    return Objects.equals(this.id, projectContributingUserIdsUpdatedEvent.id) &&
-        Objects.equals(this.name, projectContributingUserIdsUpdatedEvent.name) &&
-        Objects.equals(this.contributingUserIds, projectContributingUserIdsUpdatedEvent.contributingUserIds) &&
-        Objects.equals(this.previousContributingUserIds, projectContributingUserIdsUpdatedEvent.previousContributingUserIds) &&
+    return Objects.equals(this.previousContributingUserIds, projectContributingUserIdsUpdatedEvent.previousContributingUserIds) &&
         Objects.equals(this.portfolioId, projectContributingUserIdsUpdatedEvent.portfolioId) &&
+        Objects.equals(this.contributingUserIds, projectContributingUserIdsUpdatedEvent.contributingUserIds) &&
+        Objects.equals(this.name, projectContributingUserIdsUpdatedEvent.name) &&
+        Objects.equals(this.id, projectContributingUserIdsUpdatedEvent.id) &&
         Objects.equals(this.portfolioPlan, projectContributingUserIdsUpdatedEvent.portfolioPlan);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, contributingUserIds, previousContributingUserIds, portfolioId, portfolioPlan);
+    return Objects.hash(previousContributingUserIds, portfolioId, contributingUserIds, name, id, portfolioPlan);
   }
 
 
@@ -203,11 +203,11 @@ public class ProjectContributingUserIdsUpdatedEvent {
     StringBuilder sb = new StringBuilder();
     sb.append("class ProjectContributingUserIdsUpdatedEvent {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    contributingUserIds: ").append(toIndentedString(contributingUserIds)).append("\n");
     sb.append("    previousContributingUserIds: ").append(toIndentedString(previousContributingUserIds)).append("\n");
     sb.append("    portfolioId: ").append(toIndentedString(portfolioId)).append("\n");
+    sb.append("    contributingUserIds: ").append(toIndentedString(contributingUserIds)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    portfolioPlan: ").append(toIndentedString(portfolioPlan)).append("\n");
     sb.append("}");
     return sb.toString();

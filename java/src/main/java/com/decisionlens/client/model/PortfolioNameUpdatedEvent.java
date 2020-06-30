@@ -30,38 +30,20 @@ import java.io.IOException;
  */
 
 public class PortfolioNameUpdatedEvent {
-  @SerializedName("id")
-  private String id = null;
-
   @SerializedName("portfolioId")
   private String portfolioId = null;
-
-  @SerializedName("name")
-  private String name = null;
 
   @SerializedName("previousName")
   private String previousName = null;
 
+  @SerializedName("name")
+  private String name = null;
+
+  @SerializedName("id")
+  private String id = null;
+
   @SerializedName("portfolioPlan")
   private PortfolioPlan portfolioPlan = null;
-
-  public PortfolioNameUpdatedEvent id(String id) {
-    this.id = id;
-    return this;
-  }
-
-   /**
-   * Get id
-   * @return id
-  **/
-  @ApiModelProperty(value = "")
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
 
   public PortfolioNameUpdatedEvent portfolioId(String portfolioId) {
     this.portfolioId = portfolioId;
@@ -79,6 +61,24 @@ public class PortfolioNameUpdatedEvent {
 
   public void setPortfolioId(String portfolioId) {
     this.portfolioId = portfolioId;
+  }
+
+  public PortfolioNameUpdatedEvent previousName(String previousName) {
+    this.previousName = previousName;
+    return this;
+  }
+
+   /**
+   * Get previousName
+   * @return previousName
+  **/
+  @ApiModelProperty(value = "")
+  public String getPreviousName() {
+    return previousName;
+  }
+
+  public void setPreviousName(String previousName) {
+    this.previousName = previousName;
   }
 
   public PortfolioNameUpdatedEvent name(String name) {
@@ -99,22 +99,22 @@ public class PortfolioNameUpdatedEvent {
     this.name = name;
   }
 
-  public PortfolioNameUpdatedEvent previousName(String previousName) {
-    this.previousName = previousName;
+  public PortfolioNameUpdatedEvent id(String id) {
+    this.id = id;
     return this;
   }
 
    /**
-   * Get previousName
-   * @return previousName
+   * Get id
+   * @return id
   **/
   @ApiModelProperty(value = "")
-  public String getPreviousName() {
-    return previousName;
+  public String getId() {
+    return id;
   }
 
-  public void setPreviousName(String previousName) {
-    this.previousName = previousName;
+  public void setId(String id) {
+    this.id = id;
   }
 
   public PortfolioNameUpdatedEvent portfolioPlan(PortfolioPlan portfolioPlan) {
@@ -145,16 +145,16 @@ public class PortfolioNameUpdatedEvent {
       return false;
     }
     PortfolioNameUpdatedEvent portfolioNameUpdatedEvent = (PortfolioNameUpdatedEvent) o;
-    return Objects.equals(this.id, portfolioNameUpdatedEvent.id) &&
-        Objects.equals(this.portfolioId, portfolioNameUpdatedEvent.portfolioId) &&
-        Objects.equals(this.name, portfolioNameUpdatedEvent.name) &&
+    return Objects.equals(this.portfolioId, portfolioNameUpdatedEvent.portfolioId) &&
         Objects.equals(this.previousName, portfolioNameUpdatedEvent.previousName) &&
+        Objects.equals(this.name, portfolioNameUpdatedEvent.name) &&
+        Objects.equals(this.id, portfolioNameUpdatedEvent.id) &&
         Objects.equals(this.portfolioPlan, portfolioNameUpdatedEvent.portfolioPlan);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, portfolioId, name, previousName, portfolioPlan);
+    return Objects.hash(portfolioId, previousName, name, id, portfolioPlan);
   }
 
 
@@ -163,10 +163,10 @@ public class PortfolioNameUpdatedEvent {
     StringBuilder sb = new StringBuilder();
     sb.append("class PortfolioNameUpdatedEvent {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    portfolioId: ").append(toIndentedString(portfolioId)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    previousName: ").append(toIndentedString(previousName)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    portfolioPlan: ").append(toIndentedString(portfolioPlan)).append("\n");
     sb.append("}");
     return sb.toString();

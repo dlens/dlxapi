@@ -4,11 +4,11 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** |  |  [optional]
+**portfolioId** | **String** |  |  [optional]
 **description** | **String** |  |  [optional]
+**id** | **String** |  |  [optional]
 **previousDescription** | **String** |  |  [optional]
 **portfolioPlan** | [**PortfolioPlan**](PortfolioPlan.md) |  |  [optional]
-**portfolioId** | **String** |  |  [optional]
 
 
 

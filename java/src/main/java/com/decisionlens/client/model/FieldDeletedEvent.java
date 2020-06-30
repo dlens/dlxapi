@@ -31,37 +31,37 @@ import java.io.IOException;
  */
 
 public class FieldDeletedEvent {
-  @SerializedName("id")
-  private String id = null;
+  @SerializedName("portfolioId")
+  private String portfolioId = null;
 
   @SerializedName("name")
   private String name = null;
 
-  @SerializedName("type")
-  private FieldType type = null;
+  @SerializedName("id")
+  private String id = null;
 
-  @SerializedName("portfolioId")
-  private String portfolioId = null;
+  @SerializedName("fieldType")
+  private FieldType fieldType = null;
 
   @SerializedName("portfolioPlan")
   private PortfolioPlan portfolioPlan = null;
 
-  public FieldDeletedEvent id(String id) {
-    this.id = id;
+  public FieldDeletedEvent portfolioId(String portfolioId) {
+    this.portfolioId = portfolioId;
     return this;
   }
 
    /**
-   * Get id
-   * @return id
+   * Get portfolioId
+   * @return portfolioId
   **/
   @ApiModelProperty(value = "")
-  public String getId() {
-    return id;
+  public String getPortfolioId() {
+    return portfolioId;
   }
 
-  public void setId(String id) {
-    this.id = id;
+  public void setPortfolioId(String portfolioId) {
+    this.portfolioId = portfolioId;
   }
 
   public FieldDeletedEvent name(String name) {
@@ -82,40 +82,40 @@ public class FieldDeletedEvent {
     this.name = name;
   }
 
-  public FieldDeletedEvent type(FieldType type) {
-    this.type = type;
+  public FieldDeletedEvent id(String id) {
+    this.id = id;
     return this;
   }
 
    /**
-   * Get type
-   * @return type
+   * Get id
+   * @return id
   **/
   @ApiModelProperty(value = "")
-  public FieldType getType() {
-    return type;
+  public String getId() {
+    return id;
   }
 
-  public void setType(FieldType type) {
-    this.type = type;
+  public void setId(String id) {
+    this.id = id;
   }
 
-  public FieldDeletedEvent portfolioId(String portfolioId) {
-    this.portfolioId = portfolioId;
+  public FieldDeletedEvent fieldType(FieldType fieldType) {
+    this.fieldType = fieldType;
     return this;
   }
 
    /**
-   * Get portfolioId
-   * @return portfolioId
+   * Get fieldType
+   * @return fieldType
   **/
   @ApiModelProperty(value = "")
-  public String getPortfolioId() {
-    return portfolioId;
+  public FieldType getFieldType() {
+    return fieldType;
   }
 
-  public void setPortfolioId(String portfolioId) {
-    this.portfolioId = portfolioId;
+  public void setFieldType(FieldType fieldType) {
+    this.fieldType = fieldType;
   }
 
   public FieldDeletedEvent portfolioPlan(PortfolioPlan portfolioPlan) {
@@ -146,16 +146,16 @@ public class FieldDeletedEvent {
       return false;
     }
     FieldDeletedEvent fieldDeletedEvent = (FieldDeletedEvent) o;
-    return Objects.equals(this.id, fieldDeletedEvent.id) &&
+    return Objects.equals(this.portfolioId, fieldDeletedEvent.portfolioId) &&
         Objects.equals(this.name, fieldDeletedEvent.name) &&
-        Objects.equals(this.type, fieldDeletedEvent.type) &&
-        Objects.equals(this.portfolioId, fieldDeletedEvent.portfolioId) &&
+        Objects.equals(this.id, fieldDeletedEvent.id) &&
+        Objects.equals(this.fieldType, fieldDeletedEvent.fieldType) &&
         Objects.equals(this.portfolioPlan, fieldDeletedEvent.portfolioPlan);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, type, portfolioId, portfolioPlan);
+    return Objects.hash(portfolioId, name, id, fieldType, portfolioPlan);
   }
 
 
@@ -164,10 +164,10 @@ public class FieldDeletedEvent {
     StringBuilder sb = new StringBuilder();
     sb.append("class FieldDeletedEvent {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    portfolioId: ").append(toIndentedString(portfolioId)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    fieldType: ").append(toIndentedString(fieldType)).append("\n");
     sb.append("    portfolioPlan: ").append(toIndentedString(portfolioPlan)).append("\n");
     sb.append("}");
     return sb.toString();

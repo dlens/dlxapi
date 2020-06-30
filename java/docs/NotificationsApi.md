@@ -5,7 +5,7 @@ All URIs are relative to *http://localhost:9005/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getNotifications**](NotificationsApi.md#getNotifications) | **GET** /notifications | Retrieves portfolio notifications log.
-[**reindexNotifications**](NotificationsApi.md#reindexNotifications) | **POST** /notifications/reindex | Reindex notifications. System Administator operation.
+[**reindexNotifications**](NotificationsApi.md#reindexNotifications) | **POST** /reindex/notifications | Reindex notifications. System Administator operation.
 
 
 <a name="getNotifications"></a>
@@ -65,7 +65,7 @@ Name | Type | Description  | Notes
 
 <a name="reindexNotifications"></a>
 # **reindexNotifications**
-> String reindexNotifications(domainList)
+> String reindexNotifications(domains)
 
 Reindex notifications. System Administator operation.
 
@@ -85,9 +85,9 @@ OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
 OAuth2.setAccessToken("YOUR ACCESS TOKEN");
 
 NotificationsApi apiInstance = new NotificationsApi();
-List<String> domainList = Arrays.asList("domainList_example"); // List<String> | List of domains for where notifications need to be reindexed
+List<String> domains = Arrays.asList("domains_example"); // List<String> | List of domains for where notifications need to be reindexed, if not provided reindex will be done for all domains
 try {
-    String result = apiInstance.reindexNotifications(domainList);
+    String result = apiInstance.reindexNotifications(domains);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling NotificationsApi#reindexNotifications");
@@ -99,7 +99,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **domainList** | [**List&lt;String&gt;**](String.md)| List of domains for where notifications need to be reindexed |
+ **domains** | [**List&lt;String&gt;**](String.md)| List of domains for where notifications need to be reindexed, if not provided reindex will be done for all domains | [optional]
 
 ### Return type
 

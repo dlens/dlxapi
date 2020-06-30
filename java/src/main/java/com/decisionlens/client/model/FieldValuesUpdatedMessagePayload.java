@@ -32,8 +32,50 @@ import java.util.List;
  */
 
 public class FieldValuesUpdatedMessagePayload {
+  @SerializedName("portfolioId")
+  private String portfolioId = null;
+
+  @SerializedName("portfolioPlanId")
+  private String portfolioPlanId = null;
+
   @SerializedName("fieldValues")
   private List<FieldValue> fieldValues = new ArrayList<FieldValue>();
+
+  public FieldValuesUpdatedMessagePayload portfolioId(String portfolioId) {
+    this.portfolioId = portfolioId;
+    return this;
+  }
+
+   /**
+   * Get portfolioId
+   * @return portfolioId
+  **/
+  @ApiModelProperty(value = "")
+  public String getPortfolioId() {
+    return portfolioId;
+  }
+
+  public void setPortfolioId(String portfolioId) {
+    this.portfolioId = portfolioId;
+  }
+
+  public FieldValuesUpdatedMessagePayload portfolioPlanId(String portfolioPlanId) {
+    this.portfolioPlanId = portfolioPlanId;
+    return this;
+  }
+
+   /**
+   * Get portfolioPlanId
+   * @return portfolioPlanId
+  **/
+  @ApiModelProperty(value = "")
+  public String getPortfolioPlanId() {
+    return portfolioPlanId;
+  }
+
+  public void setPortfolioPlanId(String portfolioPlanId) {
+    this.portfolioPlanId = portfolioPlanId;
+  }
 
   public FieldValuesUpdatedMessagePayload fieldValues(List<FieldValue> fieldValues) {
     this.fieldValues = fieldValues;
@@ -68,12 +110,14 @@ public class FieldValuesUpdatedMessagePayload {
       return false;
     }
     FieldValuesUpdatedMessagePayload fieldValuesUpdatedMessagePayload = (FieldValuesUpdatedMessagePayload) o;
-    return Objects.equals(this.fieldValues, fieldValuesUpdatedMessagePayload.fieldValues);
+    return Objects.equals(this.portfolioId, fieldValuesUpdatedMessagePayload.portfolioId) &&
+        Objects.equals(this.portfolioPlanId, fieldValuesUpdatedMessagePayload.portfolioPlanId) &&
+        Objects.equals(this.fieldValues, fieldValuesUpdatedMessagePayload.fieldValues);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fieldValues);
+    return Objects.hash(portfolioId, portfolioPlanId, fieldValues);
   }
 
 
@@ -82,6 +126,8 @@ public class FieldValuesUpdatedMessagePayload {
     StringBuilder sb = new StringBuilder();
     sb.append("class FieldValuesUpdatedMessagePayload {\n");
     
+    sb.append("    portfolioId: ").append(toIndentedString(portfolioId)).append("\n");
+    sb.append("    portfolioPlanId: ").append(toIndentedString(portfolioPlanId)).append("\n");
     sb.append("    fieldValues: ").append(toIndentedString(fieldValues)).append("\n");
     sb.append("}");
     return sb.toString();
