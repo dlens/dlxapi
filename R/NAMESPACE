@@ -10,7 +10,7 @@ export(portfolioFromName)
 export(portfolioFromId)
 export(apiClientFromCreds)
 export(SpreadsheetApi)
-
+export(PortfolioPlansApi)
 
 export(ApiClient)
 export(AccessTokenGeneratedEvent)
