@@ -1,6 +1,6 @@
 # R API client for dlxapi
-## Installing
-The easiest way is to install devtools and using `install_github`, a short script to do all of this is:
+## Install / Update
+The easiest way to install/update `dlxapir`is to install `devtools` and use`install_github`, a short script to do all of this is:
 ```{R}
 install.packages("devtools")
 library(devtools)
@@ -52,4 +52,27 @@ spreadsheetApi$get_mappings_for_spreadsheet(spreadsheet$content$id, sheetName, "
 #Now save
 rval = portfoliosApi$save_spreadsheet_for_portfolio(myport$id, spreadsheet$content$id, sheetName)
 
+```
+
+## Quickstart listing portfolios
+```{R}
+library(dlxapir)
+dlx_instance = "YOUR DLX URL HERE startings with https://"
+# Your id and credentials go here
+id = "Your ID"
+secret = "Your Secret"
+
+# You need an ApiClient object to talk to the server.
+# This ApiClient object basically has the auth info
+apiClient = apiClientFromCreds(dlx_instance, id, secret)
+
+# Need a PortfoliosApi object to talk to the Portfolio server
+portfoliosApi = PortfoliosApi$new()
+portfoliosApi$apiClient = apiClient
+
+#List portfolios
+ports = portfoliosApi$get_portfolios()
+for (port in ports$content$items) {
+  print(port$name)
+}
 ```
