@@ -3,7 +3,8 @@
 
 export(PlansApi)
 export(processingReportStart)
-export(processingReportNext)
+export(processingReportNextResponse)
+export(processingReportNextNotNull)
 export(dlensFromJSON)
 export(portfolioFromName)
 export(apiClientFromCreds)

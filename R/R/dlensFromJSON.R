@@ -21,10 +21,21 @@ portfolioFromName <- function(apiclient, name) {
   ports = portfoliosApi$get_portfolios()
   for (port in ports$content$items) {
     if (port$name == name) {
-      return(port)
+      return(portfoliosApi$get_portfolio(port$id))
     }
   }
   return(NULL)
+}
+
+#' Gets a portfolio object from its id
+#' 
+#' @param apiclient The ApiClient object to use for method calls.
+#' @param id The name of the portfolio to return
+#' @return A Portfolio object or NULL if there was no portfolio of the given name
+portfolioFromId <- function(apiclient, id) {
+  portfoliosApi = PortfoliosApi$new()
+  portfoliosApi$apiClient = apiClient
+  return(portfoliosApi$get_portfolio(id))
 }
 
 is.errorStatus <- function(status) {
@@ -44,34 +55,40 @@ processingReportIncrementStep <- function() {
   return(PROCESSSING_REPORT_STEP)
 }
 
-
-processingReportNext <- function(resp=NULL, isRespSimpleNotNull=FALSE, step_msg=NULL, error_msg=NULL) {
-  if (is.null(error_msg)) {
-    error_msg = "An error occured"
-  }
+processingReportNextNotNull <- function(notNullObject=NULL, step_msg=NULL) {
   if (!is.null(step_msg)) {
     # Report out the current step
     report = sprintf("%d. %s ", processingReportIncrementStep(), step_msg)
     cat(report)
-  }
-  if (!isRespSimpleNotNull) {
-    # Checking a response type
-    if (is.null(resp)) {
-      errorReport(paste("Tried to check for possible error without http response, original error_msg: ", error_msg), resp)
-    } else if (is.null(resp$response$status_code)) {
-      errorReport(paste("Had a response but with no status code, this is problematic, original error_msg: ", error_msg), resp)
-    } else if (is.errorStatus(resp$response$status_code)) {
-      errorReport(error_msg, resp)
-    } else {
-      print("[OK]")
-    }
+    error_msg = paste0("FAILURE in: ", step_msg)
   } else {
-    # Simply checking that an object is not null
-    if (is.null(resp)) {
-      errorReport(error_msg)
-    } else {
-      cat("[OK]\n")
-    }
+    error_msg = paste0("FAILURE:")
+  }
+  if (is.null(notNullObject)) {
+    errorReport(error_msg)
+  } else {
+    cat("[OK]\n")
+  }
+}
+
+processingReportNextResponse <- function(resp=NULL, step_msg=NULL) {
+  if (!is.null(step_msg)) {
+    # Report out the current step
+    report = sprintf("%d. %s ", processingReportIncrementStep(), step_msg)
+    cat(report)
+    error_msg = paste0("FAILURE in: ", step_msg)
+  } else {
+    error_msg = "FAILURE:"
+  }
+  # Checking a response type
+  if (is.null(resp)) {
+    errorReport(paste("Tried to check for possible error without http response, original error_msg: ", error_msg), resp)
+  } else if (is.null(resp$response$status_code)) {
+    errorReport(paste("Had a response but with no status code, this is problematic, original error_msg: ", error_msg), resp)
+  } else if (is.errorStatus(resp$response$status_code)) {
+    errorReport(error_msg, resp)
+  } else {
+    print("[OK]")
   }
 }
 
