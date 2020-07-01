@@ -76,3 +76,67 @@ for (port in ports$content$items) {
   print(port$name)
 }
 ```
+
+## Quickstart for using processing errors and reporting
+We have 2 simple functions for handling basic processing and error reporting to
+hopefull make things easier:
+
+1. `processingReportStart()`: Call this at the beginning of your script to begin the report
+2. `processingReportNext()`: Call this function at each step to check for non-null values, or http responses
+
+Here is our example for excel import with processing reporting
+
+```{R}
+library(dlxapir)
+# What dlx instance are we talking with?
+dlx_instance = "YOUR DLX URL HERE startings with https://"
+# Your id and credentials go here
+id = "Your ID"
+secret = "Your Secret"
+
+# Start our report of progress
+processingReportStart()
+# You need an ApiClient object to talk to the server.
+# This ApiClient object basically has the auth info
+apiClient = apiClientFromCreds(dlx_instance, id, secret)
+processingReportNext(resp = apiClient, isRespSimpleNotNull = TRUE, 
+                     step_msg="Setting up API Client", 
+                     error_msg = "Failed to setup API Client")
+
+# Need a PortfoliosApi object to talk to the Portfolio server
+portfoliosApi = PortfoliosApi$new()
+processingReportNext(resp=portfoliosApi, isRespSimpleNotNull = TRUE,
+                     step_msg = "Setting up Portfolios API Client",
+                     error_msg = "Failed to setup Portfolios API Client")
+portfoliosApi$apiClient = apiClient
+
+# Let's get our portfolio, just to make sure things are working
+portfolioName = "RSpreadsheetEx1"
+myport = portfolioFromName(apiClient, portfolioName)
+processingReportNext(resp=myport, isRespSimpleNotNull = TRUE,
+                     step_msg = "Getting a portfolio by name",
+                     error_msg = paste0("Failed to get the portfolio ", portfolioName))
+
+#We need an SpreadsheetApi object to call to upload our spreadsheet
+spreadsheetApi = SpreadsheetApi$new(apiClient)
+processingReportNext(resp=spreadsheetApi, isRespSimpleNotNull = TRUE,
+                     step_msg="Getting Spreadsheet API",
+                     error_msg="Failed to get Spreadsheet API")
+excel_file="cost-data.xlsx"
+sheetName = "Schedule"
+#Upload the spreadsheet to the server
+spreadsheet = spreadsheetApi$create_spreadsheet(excel_file)
+processingReportNext(resp=spreadsheet, isRespSimpleNotNull = FALSE,
+                     step_msg="Uploading Spreadsheet",
+                     error_msg="Failed to upload spreadsheet")
+
+#Now set up the mapping
+spreadsheetApi$get_mappings_for_spreadsheet(spreadsheet$content$id, sheetName, "COST", FALSE)
+#Now save
+rval = portfoliosApi$save_spreadsheet_for_portfolio(myport$id, spreadsheet$content$id, sheetName)
+processingReportNext(resp=rval, isRespSimpleNotNull = FALSE,
+                     step_msg = "Performing import",
+                     error_msg = "Unable to perform import")
+
+
+```
