@@ -1,6 +1,8 @@
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom base64enc base64encode
 #' @importFrom httr add_headers, add_headers
+
+
 #' @export
 dlensFromJSON <- function(txt,...) {
   jsonlite::fromJSON(txt, simplifyVector = FALSE, ...)
@@ -25,10 +27,61 @@ portfolioFromName <- function(apiclient, name) {
   return(NULL)
 }
 
+is.errorStatus <- function(status) {
+  if ((status < 200) || (status >= 300)) {
+    return(TRUE)
+  } else {
+    return(FALSE)
+  }
+}
+
+processingReportStart <- function() {
+  PROCESSSING_REPORT_STEP <<- 0
+}
+
+processingReportIncrementStep <- function() {
+  PROCESSSING_REPORT_STEP <<- PROCESSSING_REPORT_STEP + 1
+  return(PROCESSSING_REPORT_STEP)
+}
+
+
+processingReportNext <- function(resp=NULL, isRespSimpleNotNull=FALSE, step_msg=NULL, error_msg=NULL) {
+  if (is.null(error_msg)) {
+    error_msg = "An error occured"
+  }
+  if (!is.null(step_msg)) {
+    # Report out the current step
+    report = sprintf("%d. %s ", processingReportIncrementStep(), step_msg)
+    cat(report)
+  }
+  if (!isRespSimpleNotNull) {
+    # Checking a response type
+    if (is.null(resp)) {
+      errorReport(paste("Tried to check for possible error without http response, original error_msg: ", error_msg), resp)
+    } else if (is.null(resp$response$status_code)) {
+      errorReport(paste("Had a response but with no status code, this is problematic, original error_msg: ", error_msg), resp)
+    } else if (is.errorStatus(resp$response$status_code)) {
+      errorReport(error_msg, resp)
+    } else {
+      print("[OK]")
+    }
+  } else {
+    # Simply checking that an object is not null
+    if (is.null(resp)) {
+      errorReport(error_msg)
+    } else {
+      cat("[OK]\n")
+    }
+  }
+}
+
 errorReport <- function(msg, resp=NULL) {
-  print("You have the following error:")
+  cat("[FAILED]:\n")
   print(msg)
   if (!is.null(resp)) {
+    if (!is.null(resp$status_code)) {
+      print(paste0("Status_Code=", resp$status_code))
+    }
     if (!is.null(resp$headers)) {
       if (!is.null(resp$headers$'dl-request-id')) {
         print(paste0("DL Request Id = ", resp$headers$'dl-request-id'))
