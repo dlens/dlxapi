@@ -96,12 +96,12 @@ errorReport <- function(msg, resp=NULL) {
   cat("[FAILED]:\n")
   print(msg)
   if (!is.null(resp)) {
-    if (!is.null(resp$status_code)) {
-      print(paste0("Status_Code=", resp$status_code))
+    if (!is.null(resp$response$status_code)) {
+      print(paste0("Status_Code=", resp$response$status_code))
     }
-    if (!is.null(resp$headers)) {
-      if (!is.null(resp$headers$'dl-request-id')) {
-        print(paste0("DL Request Id = ", resp$headers$'dl-request-id'))
+    if (!is.null(resp$response$headers)) {
+      if (!is.null(resp$response$headers$'dl-request-id')) {
+        print(paste0("DL Request Id = ", resp$response$headers$'dl-request-id'))
       }
     }
   }
