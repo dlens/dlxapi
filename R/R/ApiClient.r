@@ -46,7 +46,11 @@ ApiClient  <- R6::R6Class(
         allHeaderParams = append(self$defaultHeaders, headerParams)
         headers <- do.call(httr::add_headers, allHeaderParams)
         if (method == "GET") {
-            httr::GET(url, queryParams, headers, ...)
+          #Let's append the url by hand
+          for(queryName in names(queryParams)) {
+            url = urltools::param_set(url, queryName, queryParams[[queryName]])
+          }
+          httr::GET(url, queryParams, headers, ...)
         }
         else if (method == "POST") {
           #Let's append the url by hand
