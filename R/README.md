@@ -9,6 +9,8 @@ library(dlxapir)
 ```
 
 **NOTE:** On MacOSX:
+1. Install R language from [https://cran.rstudio.com/](https://cran.rstudio.com/)
+1. Install RStudio from the [RStudio website](https://rstudio.com/products/rstudio/download/#download)
 1. Install Xcode from the app store
 2. Install the Xcode command line tools by opening a Terminal and running:
 ```
