@@ -130,3 +130,53 @@ apiClientFromCreds <- function(dlx_instance, id, secret) {
   apiClient$defaultHeaders = list("Authorization"=paste("Bearer", access_token))
   return(apiClient)
 }
+
+#' Send xlsx file to DLX portfolio and import data and will process errors to standard output
+#' @param dlx_instance URL for DLX instance
+#' @param id client credential ID
+#' @param secret client credential secret
+#' @param portfolioId ID of portfolio to import to
+#' @param excel_file name of file to send to portfolio
+#' @param dataType type of data sending either 'COST' or 'PROJECT'
+#' @return returns nothing
+importDataDLX <- function(dlx_instsance, id, secret, portfolioId, excel_file, sheetName, dataType)
+{
+  processingReportStart()
+  
+  # Start our report of progress
+  processingReportStart()
+  # You need an ApiClient object to talk to the server.
+  # This ApiClient object basically has the auth info
+  apiClient = apiClientFromCreds(dlx_instance, id, secret)
+  processingReportNextNotNull(apiClient, "Setting up API Client")
+  
+  # Need a PortfoliosApi object to talk to the Portfolio server
+  portfoliosApi = PortfoliosApi$new()
+  processingReportNextNotNull(portfoliosApi, "Setting up Portfolios API Client")
+  portfoliosApi$apiClient = apiClient
+  
+  # Let's get our portfolio, just to make sure things are working
+  portfolioName = "R Code Integration Test"
+  #Get portfolio either by id or by name
+  #myport = portfolioFromName(apiClient, portfolioName)
+  myport = portfolioFromId(apiClient, portfolioId)
+  
+  processingReportNextResponse(myport,"Getting a portfolio by name")
+  
+  #We need an SpreadsheetApi object to call to upload our spreadsheet
+  spreadsheetApi = SpreadsheetApi$new(apiClient)
+  processingReportNextNotNull(spreadsheetApi, "Getting Spreadsheet API")
+  # excel_file="Output.xlsx"
+  # sheetName = "Sheet"
+  #Upload the spreadsheet to the server
+  spreadsheet = spreadsheetApi$create_spreadsheet(excel_file)
+  processingReportNextResponse(spreadsheet, "Uploading Spreadsheet")
+  
+  #Now set up the mapping
+  #The second to last parameter is either "COST" to import cost data, or "PROJECT" to import
+  #project scores on other fields, e.g. Revenue, Risk, NPV, etc.
+  spreadsheetApi$get_mappings_for_spreadsheet(spreadsheet$content$id, sheetName, dataType, FALSE)
+  #Now save
+  rval = portfoliosApi$save_spreadsheet_for_portfolio(myport$content$id, spreadsheet$content$id, sheetName)
+  processingReportNextResponse(rval, "Performing import")
+}
