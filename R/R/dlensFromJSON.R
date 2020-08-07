@@ -32,7 +32,7 @@ portfolioFromName <- function(apiclient, name) {
 #' @param apiclient The ApiClient object to use for method calls.
 #' @param id The name of the portfolio to return
 #' @return A Portfolio object or NULL if there was no portfolio of the given name
-portfolioFromId <- function(apiclient, id) {
+portfolioFromId <- function(apiClient, id) {
   portfoliosApi = PortfoliosApi$new()
   portfoliosApi$apiClient = apiClient
   return(portfoliosApi$get_portfolio(id))
