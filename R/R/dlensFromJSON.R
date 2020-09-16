@@ -180,3 +180,176 @@ importDataDLX <- function(dlx_instsance, id, secret, portfolioId, excel_file, sh
   rval = portfoliosApi$save_spreadsheet_for_portfolio(myport$content$id, spreadsheet$content$id, sheetName)
   processingReportNextResponse(rval, "Performing import")
 }
+
+#' Creates an item for patching
+#' @export
+#' @param fieldId The id of the field whose value we want to change
+#' @param projectId The id of the project we are changing
+#' @param op The operation, typically "REPLACE"
+#' @param path Typically "/value" or "/numericaValue" depends on what you are changing
+#' @param value The new value to store there
+createPatchItemOp = function(fieldId, projectId, op, path, value) {
+  rval = '{
+    "fieldId": "%s",
+    "projectId": "%s",
+    "operations": [
+      {
+        "op": "%s",
+        "path": "%s",
+        "value": "%s"
+      }
+    ]
+  }'
+  return(sprintf(rval, fieldId, projectId, op, path, value))
+}
+
+#' Packs up a vector of things created createPatchItemOp() function, getting it ready for
+#' sending to portfolioPlansApi$update_portfolio_plan_field_values() as the 2nd param
+#' @export
+#' @param opsVector The vector of ops created by createPatchItemOp
+jsonPatchItemOps = function(opsVector) {
+  #We need to remove NAs
+  opsVector = opsVector[!is.na(opsVector)]
+  return(sprintf("[%s]", str_c(opsVector, collapse = ", ")))
+}
+
+#' Takes a date string and converts it to millis since the epoch
+#' @export
+#' @param dateString something as.Date() understands.  Best to use "Year-Mon-Day"
+#' for instance "2020-10-21" mean October 21, 2020.
+dateAsMillis = function(dateString) {
+  if (suppressWarnings(is.na(as.numeric(dateString)))) {
+      days = as.numeric(as.Date(dateString))
+  } else {
+    date = convertToDate(dateString)
+    days = as.numeric(as.Date(date))
+  }
+  return(days*24*60*60*1000)
+}
+
+
+#' Returns a vector whose keys are names of fields and values are the ids
+#' @export
+#' @param apiClient The apiClient to use for communication
+#' @param portId The id of the portfolio to get the fields of
+fieldsToNameLookup <- function(apiClient, portId) {
+  fieldsApi = FieldsApi$new()
+  fieldsApi$apiClient = apiClient
+  fields=fieldsApi$get_fields_for_portfolio(portId)
+  rval = c()
+  for (field in fields$content$items) {
+    name=field$name
+    id = field$id
+    rval[name] = id
+  }
+  return(rval)
+}
+
+#' Returns a vector whose keys are names of projects and values are the ids
+#' @export
+#' @param apiClient The apiClient to use for communication
+#' @param portId The id of the portfolio to get the fields of
+projectNamesToIdLookup <- function(apiClient, portId, planId) {
+  projectsApi = ProjectsApi$new()
+  projectsApi$apiClient = apiClient
+  projects=projectsApi$get_projects_for_portfolio(portId, planId)
+  rval = c()
+  for (project in projects$content$items) {
+    name=project$name
+    id = project$id
+    rval[name] = id
+  }
+  return(rval)
+}
+
+#' Updates all the project statuses for the passed in projects
+#' @export
+#' @param apiClient The apiClient to use for communication
+#' @param portId The id of the portfolio to update statuses of
+#' @param planId The id of the plan whose statuses we are setting
+#' @param projects A vector of project ids to set the status of
+#' @param statuses A vector of project statuses to set the status to
+#' @param reporting_msg The message to use for success or error reporting
+updateProjectsStatuses <- function(apiClient, portId, planId, projects, statuses, reporting_msg) {
+  ops = c()
+  statusFieldId = fieldsToNameLookup(apiClient, portId)[["Status"]]
+  portfoliosApi = PortfoliosApi$new()
+  portfoliosApi$apiClient = apiClient
+  for (i in seq_len(length(projects))) {
+    project = projects[[i]]
+    status = statuses[[i]]
+    if ((!is.na(project)) && (!is.na(status))) {
+      ops[[i]] = createPatchItemOp(statusFieldId, project, "REPLACE", "/value", status)
+    }
+  }
+  if (length(ops) == 0) {
+    # Nothing to do, give up
+    return(NA)
+  }
+  shopkinsOps = jsonPatchItemOps(ops)
+  rval = portfolioPlansApi$update_portfolio_plan_field_values(planId, shopkinsOps)
+  processingReportNextResponse(rval, reporting_msg)
+  return(rval)
+}
+
+
+#' Updates all the project start dates for the passed in projects
+#' @export
+#' @param apiClient The apiClient to use for communication
+#' @param portId The id of the portfolio to update statuses of
+#' @param planId The id of the plan whose statuses we are setting
+#' @param projects A vector of project ids to set the start dates of
+#' @param startDates A vector of project start date strings.  Should be in the form
+#' accepted by dateToMillis() in this file.  Essentially use "Year-Month-Day", e.g.
+#' "2020-10-31" is Halloween 2020
+#' @param reporting_msg The message to use for success or error reporting
+updateProjectsStartDates <- function(apiClient, portId, planId, projects, startDates, reporting_msg) {
+  ops = c()
+  dateFieldId = fieldsToNameLookup(apiClient, portId)[["Start"]]
+  portfoliosApi = PortfoliosApi$new()
+  portfoliosApi$apiClient = apiClient
+  for (i in seq_len(length(projects))) {
+    project = projects[[i]]
+    sd = startDates[[i]]
+    if ((!is.na(project)) && (!is.na(sd))) {
+      date = dateAsMillis(startDates[[i]])
+      ops[[i]] = createPatchItemOp(dateFieldId, project, "REPLACE", "/numericValue", date)
+    }
+  }
+  if (length(ops) > 0) {
+    shopkinsOps = jsonPatchItemOps(ops)
+    rval = portfolioPlansApi$update_portfolio_plan_field_values(planId, shopkinsOps)
+    processingReportNextResponse(rval, reporting_msg)
+    return(rval)
+  }
+}
+
+#' Updates all the project end dates for the passed in projects
+#' @export
+#' @param apiClient The apiClient to use for communication
+#' @param portId The id of the portfolio to update statuses of
+#' @param planId The id of the plan whose statuses we are setting
+#' @param projects A vector of project ids to set the start dates of
+#' @param endDates A vector of project start date strings.  Should be in the form
+#' accepted by dateToMillis() in this file.  Essentially use "Year-Month-Day", e.g.
+#' "2020-10-31" is Halloween 2020
+#' @param reporting_msg The message to use for success or error reporting
+updateProjectsEndDates <- function(apiClient, portId, planId, projects, endDates, reporting_msg) {
+  ops = c()
+  dateFieldId = fieldsToNameLookup(apiClient, portId)[["End"]]
+  portfoliosApi = PortfoliosApi$new()
+  portfoliosApi$apiClient = apiClient
+  for (i in seq_len(length(projects))) {
+    project = projects[[i]]
+    if ((!is.na(project)) && (!is.na(endDates[[i]]))) {
+      date = dateAsMillis(endDates[[i]])
+      ops[[i]] = createPatchItemOp(dateFieldId, project, "REPLACE", "/numericValue", date)
+    }
+  }
+  if (length(ops) > 0) {
+    shopkinsOps = jsonPatchItemOps(ops)
+    rval = portfolioPlansApi$update_portfolio_plan_field_values(planId, shopkinsOps)
+    processingReportNextResponse(rval, reporting_msg)
+    return(rval)
+  }
+}
