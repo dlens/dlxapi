@@ -203,6 +203,32 @@ createPatchItemOp = function(fieldId, projectId, op, path, value) {
   return(sprintf(rval, fieldId, projectId, op, path, value))
 }
 
+#' Creates an allocation patch itemitem for patching
+#' @export
+#' @param fieldId The id of the field whose value we want to change
+#' @param projectId The id of the project we are changing
+#' @param op The operation, typically "REPLACE"
+#' @param path Typically "/value" or "/numericaValue" depends on what you are changing
+#' @param value The new value to store there
+createAllocationPatchItemOp = function(costFieldId, timeString, yearOrMonthString, projectId, op, path, value) {
+  timeInt = as.character(dateAsMillis(timeString))
+  rval = '{
+    "fieldId": "%s",
+    "projectId": "%s",
+    "operations": [
+      {
+        "op": "%s",
+        "path": "%s",
+        "value": "%s"
+      }
+    ],
+    "timePeriod": {
+      "startDate": "%s",
+      "type": "%s"
+    }
+  }'
+  return(sprintf(rval, costFieldId, projectId, op, path, value, timeInt, yearOrMonthString))
+}
 #' Packs up a vector of things created createPatchItemOp() function, getting it ready for
 #' sending to portfolioPlansApi$update_portfolio_plan_field_values() as the 2nd param
 #' @export
@@ -218,13 +244,30 @@ jsonPatchItemOps = function(opsVector) {
 #' @param dateString something as.Date() understands.  Best to use "Year-Mon-Day"
 #' for instance "2020-10-21" mean October 21, 2020.
 dateAsMillis = function(dateString) {
-  if (suppressWarnings(is.na(as.numeric(dateString)))) {
-      days = as.numeric(as.Date(dateString))
-  } else {
-    date = convertToDate(dateString)
-    days = as.numeric(as.Date(date))
+  if (length(dateString)>1) {
+    return(lapply(dateString, function(x) dateAsMillis(x)))
   }
-  return(days*24*60*60*1000)
+  if (suppressWarnings(is.na(as.numeric(dateString)))) {
+      rval=tryCatch({
+        days = as.numeric(as.Date(dateString))
+        return(days*24*60*60*1000)
+      }, error = function(err) {
+        #print("Numeric error")
+        return(NA)
+      }
+      )
+  } else {
+    rval=tryCatch({
+      date = convertToDate(dateString)
+      days = as.numeric(as.Date(date))
+      return(days*24*60*60*1000)
+    }, error = function(err) {
+      #print("Date parse error")
+      return(NA)
+    }
+    )
+  }
+  return(rval)
 }
 
 
@@ -287,6 +330,7 @@ updateProjectsStatuses <- function(apiClient, portId, planId, projects, statuses
     return(NA)
   }
   shopkinsOps = jsonPatchItemOps(ops)
+  portfolioPlansApi = PortfolioPlansApi$new(apiClient)
   rval = portfolioPlansApi$update_portfolio_plan_field_values(planId, shopkinsOps)
   processingReportNextResponse(rval, reporting_msg)
   return(rval)
@@ -318,6 +362,7 @@ updateProjectsStartDates <- function(apiClient, portId, planId, projects, startD
   }
   if (length(ops) > 0) {
     shopkinsOps = jsonPatchItemOps(ops)
+    portfolioPlansApi = PortfolioPlansApi$new(apiClient)
     rval = portfolioPlansApi$update_portfolio_plan_field_values(planId, shopkinsOps)
     processingReportNextResponse(rval, reporting_msg)
     return(rval)
@@ -348,6 +393,39 @@ updateProjectsEndDates <- function(apiClient, portId, planId, projects, endDates
   }
   if (length(ops) > 0) {
     shopkinsOps = jsonPatchItemOps(ops)
+    portfolioPlansApi = PortfolioPlansApi$new(apiClient)
+    rval = portfolioPlansApi$update_portfolio_plan_field_values(planId, shopkinsOps)
+    processingReportNextResponse(rval, reporting_msg)
+    return(rval)
+  }
+}
+
+#' Updates all the project allocations for the passed in projects
+#' @export
+#' @param apiClient The apiClient to use for communication
+#' @param portId The id of the portfolio to update statuses of
+#' @param planId The id of the plan whose statuses we are setting
+#' @param costFieldId The id of the cost field we are working on
+#' @param timePeriodString The string version of time period e.g. 2020-10-1 for 
+#' October 1, 2020
+#' @param yearOrMonthString Should either be "YEAR" or "MONTH"
+#' @param projects A vector of project ids to set the start dates of
+#' @param allocs A vector of project allocs.  Should be in the form
+#' @param reporting_msg The message to use for success or error reporting
+updateProjectsAllocs <- function(apiClient, planId, costFieldId, timePeriodString, yearOrMonthString, projects, allocs, reporting_msg) {
+  ops = c()
+  portfoliosApi = PortfoliosApi$new()
+  portfoliosApi$apiClient = apiClient
+  for (i in seq_len(length(projects))) {
+    project = projects[[i]]
+    if ((!is.na(project)) && (!is.na(allocs[[i]]))) {
+      alloc = as.character(allocs[[i]])
+      ops[[i]] = createAllocationPatchItemOp(costFieldId, timePeriodString, yearOrMonthString, project, "REPLACE", "/numericValue", alloc)
+    }
+  }
+  if (length(ops) > 0) {
+    shopkinsOps = jsonPatchItemOps(ops)
+    portfolioPlansApi = PortfolioPlansApi$new(apiClient)
     rval = portfolioPlansApi$update_portfolio_plan_field_values(planId, shopkinsOps)
     processingReportNextResponse(rval, reporting_msg)
     return(rval)
