@@ -288,6 +288,19 @@ fieldsToNameLookup <- function(apiClient, portId) {
   return(rval)
 }
 
+#' Converts a Field name to its Id.  If you pass in one field, it returns
+#' the single id.  If you pass in a list of names, it returns the corresponding
+#' list of ids
+#' 
+fieldNameToId <- function(apiClient, portId, name) {
+  lookup = fieldsToNameLookup(apiClient, portId)
+  if (length(name) == 1) {
+    return(lookup[name])
+  } else {
+    return(lapply(name, function(x) lookup[x]))
+  }
+}
+
 #' Returns a vector whose keys are names of projects and values are the ids
 #' @export
 #' @param apiClient The apiClient to use for communication
@@ -304,6 +317,20 @@ projectNamesToIdLookup <- function(apiClient, portId, planId) {
   }
   return(rval)
 }
+
+#' Converts a project name to its Id.  If you pass in one project, it returns
+#' the single id.  If you pass in a list of names, it returns the corresponding
+#' list of ids
+#' 
+projectNameToId <- function(apiClient, portId, planId, name) {
+  lookup = projectNamesToIdLookup(apiClient, portId, planId)
+  if (length(name) == 1) {
+    return(lookup[name])
+  } else {
+    return(lapply(name, function(x) lookup[x]))
+  }
+}
+
 
 #' Updates all the project statuses for the passed in projects
 #' @export
