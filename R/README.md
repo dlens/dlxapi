@@ -255,7 +255,11 @@ processingReportNextNotNull(apiClient, "Setting up API Client")
 
 portId = "YOUR_PORTFOLIO_ID_HERE"
 planId = "YOUR_PLAN_ID_HERE"
-costFieldId = "YOUR_COST_FIELD_ID_HERE"
+costFieldName = "Your Cost Field Name"
+# Updating the allocated cost fields (use the 
+costField = fieldNameToId(apiClient, portId, paste(costFieldName, "Allocate"))
+# You can use the line below to update the cost itself if you like
+#costField = fieldNameToId(apiClient, portId, costFieldName)
 
 # Grab the excel file
 excelDataFile="../../dropbox/example/BillPlayAreaUpdateStatuses.xlsx"
@@ -263,9 +267,7 @@ Working_Table = read.xlsx(excelDataFile, sheet = "Allocated")
 # Get project names from Project Name column of the excel file
 projectNames = Working_Table$Project.Name
 #Convert project names to project ids
-pNamesToIds = projectNamesToIdLookup(apiClient, portId, planId)
-projectIds = lapply(projectNames, FUN=function(name) pNamesToIds[name])
-#Done converting to projectIds
+projectIds = projectNameToId(apiClient, portId, planId, projectNames)
 for (dateString in colnames(Working_Table)) {
   # For each column, see if its header is a date, if so, send that
   # column as costs
