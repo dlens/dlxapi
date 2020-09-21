@@ -1,7 +1,7 @@
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom base64enc base64encode
 #' @importFrom httr add_headers, add_headers
-
+#' @importFrom readxl read_xlsx
 
 #' @export
 dlensFromJSON <- function(txt,...) {
