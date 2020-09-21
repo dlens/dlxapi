@@ -263,7 +263,7 @@ costField = fieldNameToId(apiClient, portId, paste(costFieldName, "Allocate"))
 #costField = fieldNameToId(apiClient, portId, costFieldName)
 
 # Grab the excel file
-excelDataFile="../../dropbox/example/BillPlayAreaUpdateStatuses.xlsx"
+excelDataFile="YOUR_EXCEL_FILE.xlsx"
 Working_Table = read.xlsx(excelDataFile, sheet = "Allocated")
 # Get project names from Project Name column of the excel file
 projectNames = Working_Table$Project.Name
@@ -304,6 +304,6 @@ planId = "YOUR_PLAN_ID_HERE"
 #####################################################################
 #####  Better way to set start/end/statuses                    ######
 #####################################################################
-excelDataFile="../../dropbox/example/Schedule - Baseline Plan.xlsx"
+excelDataFile="YOUR_EXCEL_FILE_FROM_SCHEDULE_EXPORT.xlsx"
 updateProjectsFromExport(apiClient, portId, planId, excelDataFile, "MONTH", "Updating everything at once!")
 ```
