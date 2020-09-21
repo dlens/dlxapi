@@ -302,7 +302,7 @@ portId = "YOUR_PORTFOLIO_ID_HERE"
 planId = "YOUR_PLAN_ID_HERE"
 
 #####################################################################
-#####  Better way to set start/end/statuses                    ######
+#####  Here we go, it's only 2 lines of code!                  ######
 #####################################################################
 excelDataFile="YOUR_EXCEL_FILE_FROM_SCHEDULE_EXPORT.xlsx"
 updateProjectsFromExport(apiClient, portId, planId, excelDataFile, "MONTH", "Updating everything at once!")
