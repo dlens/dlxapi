@@ -8,5 +8,5 @@ Encoding: UTF-8
 License: Unlicense
 LazyData: true
 Suggests: testthat
-Imports: jsonlite, httr, R6, urltools, base64enc, readxl
+Imports: jsonlite, httr, R6, urltools, base64enc, readxl, stringr
 RoxygenNote: 6.0.1.9000

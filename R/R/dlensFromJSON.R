@@ -2,6 +2,7 @@
 #' @importFrom base64enc base64encode
 #' @importFrom httr add_headers, add_headers
 #' @importFrom readxl read_xlsx
+#' @importFrom stringr str_c str_length
 
 #' @export
 dlensFromJSON <- function(txt,...) {
@@ -236,7 +237,7 @@ createAllocationPatchItemOp = function(costFieldId, timeString, yearOrMonthStrin
 jsonPatchItemOps = function(opsVector) {
   #We need to remove NAs
   opsVector = opsVector[!is.na(opsVector)]
-  return(sprintf("[%s]", str_c(opsVector, collapse = ", ")))
+  return(sprintf("[%s]", stringr::str_c(opsVector, collapse = ", ")))
 }
 
 #' Takes a date string and converts it to millis since the epoch
@@ -249,7 +250,7 @@ dateAsMillis = function(dateString) {
   }
   #Check if an not an integer of length 4 or less.  If it is an integer of
   # length 4 or more, it is an excel date integer
-  if (suppressWarnings(is.na(as.numeric(dateString)) | (str_length(dateString)<=4))) {
+  if (suppressWarnings(is.na(as.numeric(dateString)) | (stringr::str_length(dateString)<=4))) {
       rval=tryCatch({
         days = as.numeric(as.Date(dateString))
         return(days*24*60*60*1000)
@@ -487,10 +488,10 @@ dateColumns = function(df) {
 updateProjectsFromExport <- function(apiClient, portId, planId, excelExportFile, yearOrMonthString, reporting_msg,
                                      doStatuses=TRUE, doStartEnds=TRUE, doCosts=TRUE, scheduleSheet=2) {
   #Need to get the right offset, so first read in the sheet and see when column 2 has first thing that is not NA
-  startSheet = read_xlsx(excelExportFile, scheduleSheet)
+  startSheet = readxl::read_xlsx(excelExportFile, scheduleSheet)
   offset = which.min(is.na(startSheet[[2]]))
   #Now we read in again
-  scheduledf = read_xlsx(excelExportFile, scheduleSheet, skip = offset)
+  scheduledf = readxl::read_xlsx(excelExportFile, scheduleSheet, skip = offset)
   #Our list of update operations
   ops = c()
   #Our standard fields to update
