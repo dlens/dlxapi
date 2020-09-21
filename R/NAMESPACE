@@ -25,6 +25,7 @@ export(updateProjectsStatuses)
 export(updateProjectsStartDates)
 export(updateProjectsEndDates)
 export(updateProjectsAllocs)
+export(updateProjectsFromExport)
 export(ProjectsApi)
 
 export(ApiClient)

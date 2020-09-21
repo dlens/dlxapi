@@ -247,13 +247,31 @@ dateAsMillis = function(dateString) {
   if (length(dateString)>1) {
     return(lapply(dateString, function(x) dateAsMillis(x)))
   }
-  if (suppressWarnings(is.na(as.numeric(dateString)))) {
+  #Check if an not an integer of length 4 or less.  If it is an integer of
+  # length 4 or more, it is an excel date integer
+  if (suppressWarnings(is.na(as.numeric(dateString)) | (str_length(dateString)<=4))) {
       rval=tryCatch({
         days = as.numeric(as.Date(dateString))
         return(days*24*60*60*1000)
       }, error = function(err) {
-        #print("Numeric error")
-        return(NA)
+        #Trying a new method
+        pieces = strsplit(dateString, " ")[[1]]
+        dateString = trimws(dateString)
+        if (length(pieces) == 1) {
+          # We have just a year
+          dateString =paste("1 Jan ", pieces[[1]])
+        } else if (length(pieces) == 2) {
+          # We have month then year
+          dateString = paste0("1 ", pieces[[1]], pieces[[2]])
+        }
+        #print("New date string is")
+        #print(dateString)
+        rval = tryCatch({
+          days = as.numeric(as.Date(dateString, format="%d %B %Y"))
+          return(days*24*60*60*1000)
+        }, error = function(e2) {
+          return(NA)
+        })
       }
       )
   } else {
@@ -457,4 +475,90 @@ updateProjectsAllocs <- function(apiClient, planId, costFieldId, timePeriodStrin
     processingReportNextResponse(rval, reporting_msg)
     return(rval)
   }
+}
+
+dateColumns = function(df) {
+  cols=colnames(df)
+  return(cols[!is.na(dateAsMillis(cols))])
+}
+
+#' This function imports from a previous dlx export.  It imports from the "Schedule" sheet which is the 2nd
+#' sheet.
+updateProjectsFromExport <- function(apiClient, portId, planId, excelExportFile, yearOrMonthString, reporting_msg,
+                                     doStatuses=TRUE, doStartEnds=TRUE, doCosts=TRUE, scheduleSheet=2) {
+  #Need to get the right offset, so first read in the sheet and see when column 2 has first thing that is not NA
+  startSheet = read_xlsx(excelExportFile, scheduleSheet)
+  offset = which.min(is.na(startSheet[[2]]))
+  #Now we read in again
+  scheduledf = read_xlsx(excelExportFile, scheduleSheet, skip = offset)
+  #Our list of update operations
+  ops = c()
+  #Our standard fields to update
+  projects = scheduledf[[1]]
+  statusFieldId = fieldsToNameLookup(apiClient, portId)[["Status"]]
+  endFieldId = fieldsToNameLookup(apiClient, portId)[["End"]]
+  startFieldId = fieldsToNameLookup(apiClient, portId)[["Start"]]
+  dcols = dateColumns(scheduledf)
+  fieldsToNames = fieldsToNameLookup(apiClient, portId)
+  projectsToIds = projectNamesToIdLookup(apiClient, portId, planId)
+  #Our excel columns
+  if (doStatuses) {
+    statusData = scheduledf[["Status"]]
+  }
+  if (doStartEnds) {
+    startData = scheduledf[["Start"]]
+    endData = scheduledf[["End"]]
+  }
+  if (doCosts) {
+    costFieldData = scheduledf[["Cost Field"]]
+    reqAllocData = scheduledf[["Request/Allocation"]]
+  }
+  for (row in seq_len(length(rownames(scheduledf)))) {
+    projectName = projects[[row]]
+    project = projectsToIds[[projectName]]
+    if (doStatuses) {
+      status = statusData[[row]]
+      if ((!is.na(project)) && (!is.na(status))) {
+        ops = append(ops, c(createPatchItemOp(statusFieldId, project, "REPLACE", "/value", status)))
+      }
+    }
+    if (doStartEnds) {
+      start = startData[[row]]
+      end = endData[[row]]
+      if ((!is.na(project)) && (!is.na(start))) {
+        date = dateAsMillis(start)
+        ops = append(ops, c(createPatchItemOp(startFieldId, project, "REPLACE", "/numericValue", date)))
+      }
+      if ((!is.na(project)) && (!is.na(end))) {
+        date = dateAsMillis(end)
+        ops = append(ops, c(createPatchItemOp(endFieldId, project, "REPLACE", "/numericValue", date)))
+      }
+    }
+    if (doCosts) {
+      for (dateCol in dcols) {
+        value = scheduledf[[dateCol]][[row]]
+        reqAlloc = reqAllocData[[row]]
+        costField = costFieldData[[row]]
+        if (reqAlloc != "Allocation") {
+          theCostField = paste0(costField, " Allocate")
+        } else {
+          theCostField = costField
+        }
+        theCostFieldId = fieldsToNames[[theCostField]]
+        if ((!is.na(project)) && (!is.na(value))) {
+          alloc = as.character(value)
+          ops = append(ops, c(createAllocationPatchItemOp(theCostFieldId, dateCol, yearOrMonthString, project, "REPLACE", "/numericValue", alloc)))
+        }
+      }
+    }
+  }
+  # Let's actually perform the operations.
+  if (length(ops) > 0) {
+    shopkinsOps = jsonPatchItemOps(ops)
+    portfolioPlansApi = PortfolioPlansApi$new(apiClient)
+    rval = portfolioPlansApi$update_portfolio_plan_field_values(planId, shopkinsOps)
+    processingReportNextResponse(rval, reporting_msg)
+    return(rval)
+  }
+  
 }
