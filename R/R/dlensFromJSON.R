@@ -516,39 +516,41 @@ updateProjectsFromExport <- function(apiClient, portId, planId, excelExportFile,
   }
   for (row in seq_len(length(rownames(scheduledf)))) {
     projectName = projects[[row]]
-    project = projectsToIds[[projectName]]
-    if (doStatuses) {
-      status = statusData[[row]]
-      if ((!is.na(project)) && (!is.na(status))) {
-        ops = append(ops, c(createPatchItemOp(statusFieldId, project, "REPLACE", "/value", status)))
-      }
-    }
-    if (doStartEnds) {
-      start = startData[[row]]
-      end = endData[[row]]
-      if ((!is.na(project)) && (!is.na(start))) {
-        date = dateAsMillis(start)
-        ops = append(ops, c(createPatchItemOp(startFieldId, project, "REPLACE", "/numericValue", date)))
-      }
-      if ((!is.na(project)) && (!is.na(end))) {
-        date = dateAsMillis(end)
-        ops = append(ops, c(createPatchItemOp(endFieldId, project, "REPLACE", "/numericValue", date)))
-      }
-    }
-    if (doCosts) {
-      for (dateCol in dcols) {
-        value = scheduledf[[dateCol]][[row]]
-        reqAlloc = reqAllocData[[row]]
-        costField = costFieldData[[row]]
-        if (reqAlloc != "Allocation") {
-          theCostField = paste0(costField, " Allocate")
-        } else {
-          theCostField = costField
+    if (!is.na(projectName)) {
+      project = projectsToIds[[projectName]]
+      if (doStatuses) {
+        status = statusData[[row]]
+        if ((!is.na(project)) && (!is.na(status))) {
+          ops = append(ops, c(createPatchItemOp(statusFieldId, project, "REPLACE", "/value", status)))
         }
-        theCostFieldId = fieldsToNames[[theCostField]]
-        if ((!is.na(project)) && (!is.na(value))) {
-          alloc = as.character(value)
-          ops = append(ops, c(createAllocationPatchItemOp(theCostFieldId, dateCol, yearOrMonthString, project, "REPLACE", "/numericValue", alloc)))
+      }
+      if (doStartEnds) {
+        start = startData[[row]]
+        end = endData[[row]]
+        if ((!is.na(project)) && (!is.na(start))) {
+          date = dateAsMillis(start)
+          ops = append(ops, c(createPatchItemOp(startFieldId, project, "REPLACE", "/numericValue", date)))
+        }
+        if ((!is.na(project)) && (!is.na(end))) {
+          date = dateAsMillis(end)
+          ops = append(ops, c(createPatchItemOp(endFieldId, project, "REPLACE", "/numericValue", date)))
+        }
+      }
+      if (doCosts) {
+        for (dateCol in dcols) {
+          value = scheduledf[[dateCol]][[row]]
+          reqAlloc = reqAllocData[[row]]
+          costField = costFieldData[[row]]
+          if (reqAlloc != "Allocation") {
+            theCostField = paste0(costField, " Allocate")
+          } else {
+            theCostField = costField
+          }
+          theCostFieldId = fieldsToNames[[theCostField]]
+          if ((!is.na(project)) && (!is.na(value))) {
+            alloc = as.character(value)
+            ops = append(ops, c(createAllocationPatchItemOp(theCostFieldId, dateCol, yearOrMonthString, project, "REPLACE", "/numericValue", alloc)))
+          }
         }
       }
     }
