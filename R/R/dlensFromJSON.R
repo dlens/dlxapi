@@ -516,7 +516,7 @@ updateProjectsFromExport <- function(apiClient, portId, planId, excelExportFile,
   }
   for (row in seq_len(length(rownames(scheduledf)))) {
     projectName = projects[[row]]
-    if (!is.na(projectName)) {
+    if (!is.na(projectName) && (projectName %in% names(projectsToIds))) {
       project = projectsToIds[[projectName]]
       if (doStatuses) {
         status = statusData[[row]]
