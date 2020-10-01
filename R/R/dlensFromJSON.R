@@ -110,6 +110,12 @@ errorReport <- function(msg, resp=NULL) {
   stop("Stopping at this stage")
 }
 
+warnReport <- function(msg) {
+  cat("[BEGIN WARNING MESSAGE]:\n")
+  print(msg)
+  cat("[END WARNING MESSAGE]:\n")
+}
+
 apiClientFromCreds <- function(dlx_instance, id, secret) {
   #Remove trailing slash on dlx_instance if it is there, because it causes issues
   dlx_instance = gsub("/$", "", dlx_instance)
@@ -537,19 +543,31 @@ updateProjectsFromExport <- function(apiClient, portId, planId, excelExportFile,
         }
       }
       if (doCosts) {
-        for (dateCol in dcols) {
-          value = scheduledf[[dateCol]][[row]]
-          reqAlloc = reqAllocData[[row]]
-          costField = costFieldData[[row]]
-          if (reqAlloc != "Allocation") {
-            theCostField = paste0(costField, " Allocate")
-          } else {
-            theCostField = costField
-          }
+        costField = costFieldData[[row]]
+        reqAlloc = tolower(reqAllocData[[row]])
+        validReqAlloc = TRUE
+        if (startsWith(reqAlloc, "a")) {
+          # Allocation line
+          theCostField = paste0(costField, " Allocate")
+        } else if (startsWith(reqAlloc, "r")) {
+          # Request line
+          theCostField = costField
+        } else {
+          # Unknown line type warn
+          validReqAlloc = FALSE
+        }
+        if (!validReqAlloc) {
+          warnReport(sprintf("Working in spreadsheet_row='%d' (where we are 0 indexed), request/allocation type '%s' unknown, will not handle", row, reqAlloc))
+        } else if (!(theCostField %in% names(fieldsToNames))) {
+          warnReport(sprintf("Working in row='%d' (where it is 0 indexed) the costField of '%s' was unknown, skipping", row, costField))
+        } else {
           theCostFieldId = fieldsToNames[[theCostField]]
-          if ((!is.na(project)) && (!is.na(value))) {
-            alloc = as.character(value)
-            ops = append(ops, c(createAllocationPatchItemOp(theCostFieldId, dateCol, yearOrMonthString, project, "REPLACE", "/numericValue", alloc)))
+          for (dateCol in dcols) {
+            value = scheduledf[[dateCol]][[row]]
+            if ((!is.na(project)) && (!is.na(value))) {
+              alloc = as.character(value)
+              ops = append(ops, c(createAllocationPatchItemOp(theCostFieldId, dateCol, yearOrMonthString, project, "REPLACE", "/numericValue", alloc)))
+            }
           }
         }
       }
