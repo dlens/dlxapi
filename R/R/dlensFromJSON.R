@@ -292,6 +292,7 @@ dateAsMillis = function(dateString) {
     }
     )
   }
+  rval = rval + 1
   return(rval)
 }
 
