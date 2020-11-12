@@ -263,19 +263,21 @@ PortfolioPlansApi <- R6::R6Class(
       queryParams <- list()
       headerParams <- character()
 
-      if (!missing(`export_type`)) {
-        queryParams['exportType'] <- export_type
-      }
-
-      if (!missing(`export_format`)) {
-        queryParams['exportFormat'] <- export_format
-      }
+#      if (!missing(`export_type`)) {
+#        queryParams['exportType'] <- export_type
+#      }
+#
+#      if (!missing(`export_format`)) {
+#        queryParams['exportFormat'] <- export_format
+#      }
 
       urlPath <- "/portfolioPlans/{id}/export"
       if (!missing(`id`)) {
         urlPath <- gsub(paste0("\\{", "id", "\\}"), `id`, urlPath)
       }
 
+      urlPath <- "/portfolioPlans/%s/export?exportType=%sT&exportFormat=%s"
+      urlPath <- sprintf(urlPath, id, export_type, export_format)
       resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
                                  method = "GET",
                                  queryParams = queryParams,
@@ -284,9 +286,7 @@ PortfolioPlansApi <- R6::R6Class(
                                  ...)
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        returnObject <- Character$new()
-        result <- returnObject$fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
-        Response$new(returnObject, resp)
+        resp
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
         Response$new("API client error", resp)
       } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
@@ -832,7 +832,7 @@ PortfolioPlansApi <- R6::R6Class(
         body <- ""
       }
       
-      body = params
+      body = jsonlite::toJSON(params)
 
       urlPath <- "/portfolioPlans/{id}/fieldValues"
       urlPath <- gsub(paste0("\\{", "id", "\\}"), planId, urlPath)
