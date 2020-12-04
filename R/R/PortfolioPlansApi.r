@@ -276,7 +276,7 @@ PortfolioPlansApi <- R6::R6Class(
         urlPath <- gsub(paste0("\\{", "id", "\\}"), `id`, urlPath)
       }
 
-      urlPath <- "/portfolioPlans/%s/export?exportType=%sT&exportFormat=%s"
+      urlPath <- "/portfolioPlans/%s/export?exportType=%s&exportFormat=%s"
       urlPath <- sprintf(urlPath, id, export_type, export_format)
       resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
                                  method = "GET",
@@ -832,7 +832,8 @@ PortfolioPlansApi <- R6::R6Class(
         body <- ""
       }
       
-      body = jsonlite::toJSON(params)
+      #body = jsonlite::toJSON(params)
+      body = params
 
       urlPath <- "/portfolioPlans/{id}/fieldValues"
       urlPath <- gsub(paste0("\\{", "id", "\\}"), planId, urlPath)
