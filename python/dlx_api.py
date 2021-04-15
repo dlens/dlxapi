@@ -10,7 +10,7 @@ def dlx_api():
     configuration.host = base_url
 
     api_instance = swagger_client.PortfoliosApi(swagger_client.ApiClient(configuration))
-    portfolios = api_instance.get_portfolio()
+    portfolios = api_instance.get_portfolios()
 
     return portfolios
 
