@@ -115,7 +115,7 @@ class Source(object):
         :param type: The type of this Source.  # noqa: E501
         :type: SourceType
         """
-        if self._configuration.client_side_validation and type is None:
+        if self._configuration.client_side_validation and type is None and False:
             raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
 
         self._type = type
