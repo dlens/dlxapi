@@ -264,6 +264,8 @@ class PortfoliosApi(object):
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
+        all_params.append('exportType')
+        all_params.append('exportFormat')
 
         params = locals()
         for key, val in six.iteritems(params['kwargs']):
