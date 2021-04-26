@@ -1,7 +1,7 @@
 import requests
 
-from constants import base_url
-from from_json import FromJson
+from dlxapi.constants import base_url
+from dlxapi.from_json import FromJson
 
 
 def get_access_token(client_id, client_secret, api_instance_url=None, grant_type='client_credentials'):
