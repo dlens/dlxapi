@@ -15,16 +15,16 @@ from __future__ import absolute_import
 
 import unittest
 
-import swagger_client
-from swagger_client.api.portfolios_api import PortfoliosApi  # noqa: E501
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.api.portfolios_api import PortfoliosApi  # noqa: E501
+from dlxapi.rest import ApiException
 
 
 class TestPortfoliosApi(unittest.TestCase):
     """PortfoliosApi unit test stubs"""
 
     def setUp(self):
-        self.api = swagger_client.api.portfolios_api.PortfoliosApi()  # noqa: E501
+        self.api = dlxapi.api.portfolios_api.PortfoliosApi()  # noqa: E501
 
     def tearDown(self):
         pass

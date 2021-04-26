@@ -13,20 +13,21 @@ Method | HTTP request | Description
 Send Message(s)
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.MessagesApi(swagger_client.ApiClient(configuration))
-messages = [swagger_client.Message()] # list[Message] | 
+api_instance = dlxapi.MessagesApi(dlxapi.ApiClient(configuration))
+messages = [dlxapi.Message()] # list[Message] | 
 
 try:
     # Send Message(s)

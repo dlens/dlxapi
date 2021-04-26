@@ -15,9 +15,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import swagger_client
-from swagger_client.models.field_data_type_updated_event import FieldDataTypeUpdatedEvent  # noqa: E501
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.models.field_data_type_updated_event import FieldDataTypeUpdatedEvent  # noqa: E501
+from dlxapi.rest import ApiException
 
 
 class TestFieldDataTypeUpdatedEvent(unittest.TestCase):
@@ -32,7 +32,7 @@ class TestFieldDataTypeUpdatedEvent(unittest.TestCase):
     def testFieldDataTypeUpdatedEvent(self):
         """Test FieldDataTypeUpdatedEvent"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = swagger_client.models.field_data_type_updated_event.FieldDataTypeUpdatedEvent()  # noqa: E501
+        # model = dlxapi.models.field_data_type_updated_event.FieldDataTypeUpdatedEvent()  # noqa: E501
         pass
 
 

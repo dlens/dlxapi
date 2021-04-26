@@ -15,9 +15,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import swagger_client
-from swagger_client.models.permission_type import PermissionType  # noqa: E501
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.models.permission_type import PermissionType  # noqa: E501
+from dlxapi.rest import ApiException
 
 
 class TestPermissionType(unittest.TestCase):
@@ -32,7 +32,7 @@ class TestPermissionType(unittest.TestCase):
     def testPermissionType(self):
         """Test PermissionType"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = swagger_client.models.permission_type.PermissionType()  # noqa: E501
+        # model = dlxapi.models.permission_type.PermissionType()  # noqa: E501
         pass
 
 

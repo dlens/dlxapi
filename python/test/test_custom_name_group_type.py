@@ -15,9 +15,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import swagger_client
-from swagger_client.models.custom_name_group_type import CustomNameGroupType  # noqa: E501
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.models.custom_name_group_type import CustomNameGroupType  # noqa: E501
+from dlxapi.rest import ApiException
 
 
 class TestCustomNameGroupType(unittest.TestCase):
@@ -32,7 +32,7 @@ class TestCustomNameGroupType(unittest.TestCase):
     def testCustomNameGroupType(self):
         """Test CustomNameGroupType"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = swagger_client.models.custom_name_group_type.CustomNameGroupType()  # noqa: E501
+        # model = dlxapi.models.custom_name_group_type.CustomNameGroupType()  # noqa: E501
         pass
 
 

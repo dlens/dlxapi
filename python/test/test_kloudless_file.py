@@ -15,9 +15,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import swagger_client
-from swagger_client.models.kloudless_file import KloudlessFile  # noqa: E501
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.models.kloudless_file import KloudlessFile  # noqa: E501
+from dlxapi.rest import ApiException
 
 
 class TestKloudlessFile(unittest.TestCase):
@@ -32,7 +32,7 @@ class TestKloudlessFile(unittest.TestCase):
     def testKloudlessFile(self):
         """Test KloudlessFile"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = swagger_client.models.kloudless_file.KloudlessFile()  # noqa: E501
+        # model = dlxapi.models.kloudless_file.KloudlessFile()  # noqa: E501
         pass
 
 

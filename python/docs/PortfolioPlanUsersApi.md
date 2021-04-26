@@ -14,19 +14,20 @@ Method | HTTP request | Description
 Delete a portfolio plan user
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.PortfolioPlanUsersApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.PortfolioPlanUsersApi(dlxapi.ApiClient(configuration))
 id = 'id_example' # str | Portfolio plan user id
 
 try:
@@ -63,20 +64,21 @@ void (empty response body)
 Update portfolio plan users
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.PortfolioPlanUsersApi(swagger_client.ApiClient(configuration))
-body = [swagger_client.PatchItem()] # list[PatchItem] | JSON Patch Operations to update multiple portfolio plan users.
+api_instance = dlxapi.PortfolioPlanUsersApi(dlxapi.ApiClient(configuration))
+body = [dlxapi.PatchItem()] # list[PatchItem] | JSON Patch Operations to update multiple portfolio plan users.
 
 try:
     # Update portfolio plan users

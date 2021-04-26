@@ -15,9 +15,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import swagger_client
-from swagger_client.models.constraints import Constraints  # noqa: E501
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.models.constraints import Constraints  # noqa: E501
+from dlxapi.rest import ApiException
 
 
 class TestConstraints(unittest.TestCase):
@@ -32,7 +32,7 @@ class TestConstraints(unittest.TestCase):
     def testConstraints(self):
         """Test Constraints"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = swagger_client.models.constraints.Constraints()  # noqa: E501
+        # model = dlxapi.models.constraints.Constraints()  # noqa: E501
         pass
 
 

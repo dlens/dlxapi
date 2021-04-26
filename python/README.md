@@ -22,8 +22,9 @@ pip install git+https://github.com/GIT_USER_ID/GIT_REPO_ID.git
 (you may need to run `pip` with root permission: `sudo pip install git+https://github.com/GIT_USER_ID/GIT_REPO_ID.git`)
 
 Then import the package:
+
 ```python
-import swagger_client 
+import dlxapi 
 ```
 
 ### Setuptools
@@ -36,8 +37,9 @@ python setup.py install --user
 (or `sudo python setup.py install` to install the package for all users)
 
 Then import the package:
+
 ```python
-import swagger_client
+import dlxapi
 ```
 
 ## Getting Started
@@ -47,16 +49,16 @@ Please follow the [installation procedure](#installation--usage) and then run th
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.ActivitiesApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.ActivitiesApi(dlxapi.ApiClient(configuration))
 domains = ['domains_example'] # list[str] | List of domains for where activities need to be reindexed, if not provided reindex will be done for all domains (optional)
 
 try:

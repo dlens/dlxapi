@@ -15,9 +15,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import swagger_client
-from swagger_client.models.permission import Permission  # noqa: E501
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.models.permission import Permission  # noqa: E501
+from dlxapi.rest import ApiException
 
 
 class TestPermission(unittest.TestCase):
@@ -32,7 +32,7 @@ class TestPermission(unittest.TestCase):
     def testPermission(self):
         """Test Permission"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = swagger_client.models.permission.Permission()  # noqa: E501
+        # model = dlxapi.models.permission.Permission()  # noqa: E501
         pass
 
 

@@ -15,9 +15,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import swagger_client
-from swagger_client.models.portfolio_plan_user_field_permissions_updated_event import PortfolioPlanUserFieldPermissionsUpdatedEvent  # noqa: E501
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.models.portfolio_plan_user_field_permissions_updated_event import PortfolioPlanUserFieldPermissionsUpdatedEvent  # noqa: E501
+from dlxapi.rest import ApiException
 
 
 class TestPortfolioPlanUserFieldPermissionsUpdatedEvent(unittest.TestCase):
@@ -32,7 +32,7 @@ class TestPortfolioPlanUserFieldPermissionsUpdatedEvent(unittest.TestCase):
     def testPortfolioPlanUserFieldPermissionsUpdatedEvent(self):
         """Test PortfolioPlanUserFieldPermissionsUpdatedEvent"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = swagger_client.models.portfolio_plan_user_field_permissions_updated_event.PortfolioPlanUserFieldPermissionsUpdatedEvent()  # noqa: E501
+        # model = dlxapi.models.portfolio_plan_user_field_permissions_updated_event.PortfolioPlanUserFieldPermissionsUpdatedEvent()  # noqa: E501
         pass
 
 

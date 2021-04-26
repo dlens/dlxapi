@@ -15,9 +15,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import swagger_client
-from swagger_client.models.time_period import TimePeriod  # noqa: E501
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.models.time_period import TimePeriod  # noqa: E501
+from dlxapi.rest import ApiException
 
 
 class TestTimePeriod(unittest.TestCase):
@@ -32,7 +32,7 @@ class TestTimePeriod(unittest.TestCase):
     def testTimePeriod(self):
         """Test TimePeriod"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = swagger_client.models.time_period.TimePeriod()  # noqa: E501
+        # model = dlxapi.models.time_period.TimePeriod()  # noqa: E501
         pass
 
 

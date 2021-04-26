@@ -15,9 +15,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import swagger_client
-from swagger_client.models.resource_pool_budget_amount_updated_event import ResourcePoolBudgetAmountUpdatedEvent  # noqa: E501
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.models.resource_pool_budget_amount_updated_event import ResourcePoolBudgetAmountUpdatedEvent  # noqa: E501
+from dlxapi.rest import ApiException
 
 
 class TestResourcePoolBudgetAmountUpdatedEvent(unittest.TestCase):
@@ -32,7 +32,7 @@ class TestResourcePoolBudgetAmountUpdatedEvent(unittest.TestCase):
     def testResourcePoolBudgetAmountUpdatedEvent(self):
         """Test ResourcePoolBudgetAmountUpdatedEvent"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = swagger_client.models.resource_pool_budget_amount_updated_event.ResourcePoolBudgetAmountUpdatedEvent()  # noqa: E501
+        # model = dlxapi.models.resource_pool_budget_amount_updated_event.ResourcePoolBudgetAmountUpdatedEvent()  # noqa: E501
         pass
 
 

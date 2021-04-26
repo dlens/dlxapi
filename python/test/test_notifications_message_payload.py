@@ -15,9 +15,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import swagger_client
-from swagger_client.models.notifications_message_payload import NotificationsMessagePayload  # noqa: E501
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.models.notifications_message_payload import NotificationsMessagePayload  # noqa: E501
+from dlxapi.rest import ApiException
 
 
 class TestNotificationsMessagePayload(unittest.TestCase):
@@ -32,7 +32,7 @@ class TestNotificationsMessagePayload(unittest.TestCase):
     def testNotificationsMessagePayload(self):
         """Test NotificationsMessagePayload"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = swagger_client.models.notifications_message_payload.NotificationsMessagePayload()  # noqa: E501
+        # model = dlxapi.models.notifications_message_payload.NotificationsMessagePayload()  # noqa: E501
         pass
 
 

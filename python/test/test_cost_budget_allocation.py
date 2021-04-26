@@ -15,9 +15,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import swagger_client
-from swagger_client.models.cost_budget_allocation import CostBudgetAllocation  # noqa: E501
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.models.cost_budget_allocation import CostBudgetAllocation  # noqa: E501
+from dlxapi.rest import ApiException
 
 
 class TestCostBudgetAllocation(unittest.TestCase):
@@ -32,7 +32,7 @@ class TestCostBudgetAllocation(unittest.TestCase):
     def testCostBudgetAllocation(self):
         """Test CostBudgetAllocation"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = swagger_client.models.cost_budget_allocation.CostBudgetAllocation()  # noqa: E501
+        # model = dlxapi.models.cost_budget_allocation.CostBudgetAllocation()  # noqa: E501
         pass
 
 

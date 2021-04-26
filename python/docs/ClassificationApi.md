@@ -13,19 +13,20 @@ Method | HTTP request | Description
 Fetch classification training or testing data.
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.ClassificationApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.ClassificationApi(dlxapi.ApiClient(configuration))
 data_type = 'data_type_example' # str | dataType can be either training or testing
 
 try:

@@ -15,16 +15,16 @@ from __future__ import absolute_import
 
 import unittest
 
-import swagger_client
-from swagger_client.api.comments_api import CommentsApi  # noqa: E501
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.api.comments_api import CommentsApi  # noqa: E501
+from dlxapi.rest import ApiException
 
 
 class TestCommentsApi(unittest.TestCase):
     """CommentsApi unit test stubs"""
 
     def setUp(self):
-        self.api = swagger_client.api.comments_api.CommentsApi()  # noqa: E501
+        self.api = dlxapi.api.comments_api.CommentsApi()  # noqa: E501
 
     def tearDown(self):
         pass

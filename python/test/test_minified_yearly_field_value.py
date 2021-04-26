@@ -15,9 +15,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import swagger_client
-from swagger_client.models.minified_yearly_field_value import MinifiedYearlyFieldValue  # noqa: E501
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.models.minified_yearly_field_value import MinifiedYearlyFieldValue  # noqa: E501
+from dlxapi.rest import ApiException
 
 
 class TestMinifiedYearlyFieldValue(unittest.TestCase):
@@ -32,7 +32,7 @@ class TestMinifiedYearlyFieldValue(unittest.TestCase):
     def testMinifiedYearlyFieldValue(self):
         """Test MinifiedYearlyFieldValue"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = swagger_client.models.minified_yearly_field_value.MinifiedYearlyFieldValue()  # noqa: E501
+        # model = dlxapi.models.minified_yearly_field_value.MinifiedYearlyFieldValue()  # noqa: E501
         pass
 
 

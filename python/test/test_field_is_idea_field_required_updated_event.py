@@ -15,9 +15,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import swagger_client
-from swagger_client.models.field_is_idea_field_required_updated_event import FieldIsIdeaFieldRequiredUpdatedEvent  # noqa: E501
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.models.field_is_idea_field_required_updated_event import FieldIsIdeaFieldRequiredUpdatedEvent  # noqa: E501
+from dlxapi.rest import ApiException
 
 
 class TestFieldIsIdeaFieldRequiredUpdatedEvent(unittest.TestCase):
@@ -32,7 +32,7 @@ class TestFieldIsIdeaFieldRequiredUpdatedEvent(unittest.TestCase):
     def testFieldIsIdeaFieldRequiredUpdatedEvent(self):
         """Test FieldIsIdeaFieldRequiredUpdatedEvent"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = swagger_client.models.field_is_idea_field_required_updated_event.FieldIsIdeaFieldRequiredUpdatedEvent()  # noqa: E501
+        # model = dlxapi.models.field_is_idea_field_required_updated_event.FieldIsIdeaFieldRequiredUpdatedEvent()  # noqa: E501
         pass
 
 

@@ -15,9 +15,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import swagger_client
-from swagger_client.models.mapping import Mapping  # noqa: E501
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.models.mapping import Mapping  # noqa: E501
+from dlxapi.rest import ApiException
 
 
 class TestMapping(unittest.TestCase):
@@ -32,7 +32,7 @@ class TestMapping(unittest.TestCase):
     def testMapping(self):
         """Test Mapping"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = swagger_client.models.mapping.Mapping()  # noqa: E501
+        # model = dlxapi.models.mapping.Mapping()  # noqa: E501
         pass
 
 

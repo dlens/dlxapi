@@ -15,9 +15,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import swagger_client
-from swagger_client.models.attachment_deleted_event import AttachmentDeletedEvent  # noqa: E501
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.models.attachment_deleted_event import AttachmentDeletedEvent  # noqa: E501
+from dlxapi.rest import ApiException
 
 
 class TestAttachmentDeletedEvent(unittest.TestCase):
@@ -32,7 +32,7 @@ class TestAttachmentDeletedEvent(unittest.TestCase):
     def testAttachmentDeletedEvent(self):
         """Test AttachmentDeletedEvent"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = swagger_client.models.attachment_deleted_event.AttachmentDeletedEvent()  # noqa: E501
+        # model = dlxapi.models.attachment_deleted_event.AttachmentDeletedEvent()  # noqa: E501
         pass
 
 

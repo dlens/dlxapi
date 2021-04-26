@@ -15,9 +15,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import swagger_client
-from swagger_client.models.message_destination_type import MessageDestinationType  # noqa: E501
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.models.message_destination_type import MessageDestinationType  # noqa: E501
+from dlxapi.rest import ApiException
 
 
 class TestMessageDestinationType(unittest.TestCase):
@@ -32,7 +32,7 @@ class TestMessageDestinationType(unittest.TestCase):
     def testMessageDestinationType(self):
         """Test MessageDestinationType"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = swagger_client.models.message_destination_type.MessageDestinationType()  # noqa: E501
+        # model = dlxapi.models.message_destination_type.MessageDestinationType()  # noqa: E501
         pass
 
 

@@ -15,9 +15,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import swagger_client
-from swagger_client.models.plan_type import PlanType  # noqa: E501
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.models.plan_type import PlanType  # noqa: E501
+from dlxapi.rest import ApiException
 
 
 class TestPlanType(unittest.TestCase):
@@ -32,7 +32,7 @@ class TestPlanType(unittest.TestCase):
     def testPlanType(self):
         """Test PlanType"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = swagger_client.models.plan_type.PlanType()  # noqa: E501
+        # model = dlxapi.models.plan_type.PlanType()  # noqa: E501
         pass
 
 

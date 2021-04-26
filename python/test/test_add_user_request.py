@@ -15,9 +15,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import swagger_client
-from swagger_client.models.add_user_request import AddUserRequest  # noqa: E501
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.models.add_user_request import AddUserRequest  # noqa: E501
+from dlxapi.rest import ApiException
 
 
 class TestAddUserRequest(unittest.TestCase):
@@ -32,7 +32,7 @@ class TestAddUserRequest(unittest.TestCase):
     def testAddUserRequest(self):
         """Test AddUserRequest"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = swagger_client.models.add_user_request.AddUserRequest()  # noqa: E501
+        # model = dlxapi.models.add_user_request.AddUserRequest()  # noqa: E501
         pass
 
 

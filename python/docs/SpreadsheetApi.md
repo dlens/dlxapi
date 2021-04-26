@@ -19,19 +19,20 @@ Method | HTTP request | Description
 Creates spreadsheet from file upload.
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.SpreadsheetApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.SpreadsheetApi(dlxapi.ApiClient(configuration))
 file = '/path/to/file.txt' # file | xls or xlsx file upload
 
 try:
@@ -70,20 +71,21 @@ Name | Type | Description  | Notes
 Creates spreadsheet from kloudless file
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.SpreadsheetApi(swagger_client.ApiClient(configuration))
-kloudless_file = swagger_client.KloudlessFile() # KloudlessFile | kloudless file
+api_instance = dlxapi.SpreadsheetApi(dlxapi.ApiClient(configuration))
+kloudless_file = dlxapi.KloudlessFile() # KloudlessFile | kloudless file
 
 try:
     api_response = api_instance.create_spreadsheet_for_kloudless_file(kloudless_file)
@@ -119,19 +121,20 @@ Name | Type | Description  | Notes
 Delete spreadsheet and mappings
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.SpreadsheetApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.SpreadsheetApi(dlxapi.ApiClient(configuration))
 id = 'id_example' # str | spreadsheet id
 
 try:
@@ -170,19 +173,20 @@ void (empty response body)
 Get mappings for spreadsheet
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.SpreadsheetApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.SpreadsheetApi(dlxapi.ApiClient(configuration))
 id = 'id_example' # str | spreadsheet id
 sheet_name = 'sheet_name_example' # str |  (optional)
 import_type = NULL # object | Whether import PROJECT or COST data. Defaults to PROJECT (optional)
@@ -227,19 +231,20 @@ Name | Type | Description  | Notes
 Get spreadsheet
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.SpreadsheetApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.SpreadsheetApi(dlxapi.ApiClient(configuration))
 id = 'id_example' # str | spreadsheet id
 
 try:

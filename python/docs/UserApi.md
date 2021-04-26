@@ -15,19 +15,20 @@ Method | HTTP request | Description
 Get user
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.UserApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.UserApi(dlxapi.ApiClient(configuration))
 id = 'id_example' # str | User id
 
 try:
@@ -65,19 +66,20 @@ Name | Type | Description  | Notes
 Get user activities
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.UserApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.UserApi(dlxapi.ApiClient(configuration))
 id = 'id_example' # str | User id
 limit = 56 # int | Pagination limit (optional)
 offset = 56 # int | Pagination offset (optional)
@@ -121,19 +123,20 @@ Name | Type | Description  | Notes
 Get user activities for group
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.UserApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.UserApi(dlxapi.ApiClient(configuration))
 limit = 56 # int | Pagination limit (optional)
 offset = 56 # int | Pagination offset (optional)
 match = 'match_example' # str | Semi-colon delimited list of expressions to include in the response only the items in a collections that satisfy the expression(s). All other items should be exluded. (optional)

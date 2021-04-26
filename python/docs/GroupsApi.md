@@ -16,20 +16,21 @@ Method | HTTP request | Description
 Creates a new group. System Administator operation.
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.GroupsApi(swagger_client.ApiClient(configuration))
-group = swagger_client.Group() # Group | Group to create
+api_instance = dlxapi.GroupsApi(dlxapi.ApiClient(configuration))
+group = dlxapi.Group() # Group | Group to create
 
 try:
     # Creates a new group. System Administator operation.
@@ -66,19 +67,20 @@ Name | Type | Description  | Notes
 Get activities for group. System Administator operation.
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.GroupsApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.GroupsApi(dlxapi.ApiClient(configuration))
 id = 'id_example' # str | Group id
 limit = 56 # int | Pagination limit (optional)
 offset = 56 # int | Pagination offset (optional)
@@ -122,19 +124,20 @@ Name | Type | Description  | Notes
 Get groups. System Administator operation.
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.GroupsApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.GroupsApi(dlxapi.ApiClient(configuration))
 expand = 'expand_example' # str | JSON string containing an array expand specifications for fields.  An expand specification must have a path and includes optional properties match, unique, allPossible, limit, offset, orderBy. (optional)
 limit = 56 # int | Pagination limit (optional)
 offset = 56 # int | Pagination offset (optional)
@@ -178,19 +181,20 @@ Name | Type | Description  | Notes
 Get users for group. System Administator operation.
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.GroupsApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.GroupsApi(dlxapi.ApiClient(configuration))
 id = 'id_example' # str | Group id
 expand = 'expand_example' # str | JSON string containing an array expand specifications for fields.  An expand specification must have a path and includes optional properties match, unique, allPossible, limit, offset, orderBy. (optional)
 limit = 56 # int | Pagination limit (optional)

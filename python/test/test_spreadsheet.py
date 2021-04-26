@@ -15,9 +15,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import swagger_client
-from swagger_client.models.spreadsheet import Spreadsheet  # noqa: E501
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.models.spreadsheet import Spreadsheet  # noqa: E501
+from dlxapi.rest import ApiException
 
 
 class TestSpreadsheet(unittest.TestCase):
@@ -32,7 +32,7 @@ class TestSpreadsheet(unittest.TestCase):
     def testSpreadsheet(self):
         """Test Spreadsheet"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = swagger_client.models.spreadsheet.Spreadsheet()  # noqa: E501
+        # model = dlxapi.models.spreadsheet.Spreadsheet()  # noqa: E501
         pass
 
 

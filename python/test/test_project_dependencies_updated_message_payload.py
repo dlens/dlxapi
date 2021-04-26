@@ -15,9 +15,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import swagger_client
-from swagger_client.models.project_dependencies_updated_message_payload import ProjectDependenciesUpdatedMessagePayload  # noqa: E501
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.models.project_dependencies_updated_message_payload import ProjectDependenciesUpdatedMessagePayload  # noqa: E501
+from dlxapi.rest import ApiException
 
 
 class TestProjectDependenciesUpdatedMessagePayload(unittest.TestCase):
@@ -32,7 +32,7 @@ class TestProjectDependenciesUpdatedMessagePayload(unittest.TestCase):
     def testProjectDependenciesUpdatedMessagePayload(self):
         """Test ProjectDependenciesUpdatedMessagePayload"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = swagger_client.models.project_dependencies_updated_message_payload.ProjectDependenciesUpdatedMessagePayload()  # noqa: E501
+        # model = dlxapi.models.project_dependencies_updated_message_payload.ProjectDependenciesUpdatedMessagePayload()  # noqa: E501
         pass
 
 

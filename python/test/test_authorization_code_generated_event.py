@@ -15,9 +15,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import swagger_client
-from swagger_client.models.authorization_code_generated_event import AuthorizationCodeGeneratedEvent  # noqa: E501
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.models.authorization_code_generated_event import AuthorizationCodeGeneratedEvent  # noqa: E501
+from dlxapi.rest import ApiException
 
 
 class TestAuthorizationCodeGeneratedEvent(unittest.TestCase):
@@ -32,7 +32,7 @@ class TestAuthorizationCodeGeneratedEvent(unittest.TestCase):
     def testAuthorizationCodeGeneratedEvent(self):
         """Test AuthorizationCodeGeneratedEvent"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = swagger_client.models.authorization_code_generated_event.AuthorizationCodeGeneratedEvent()  # noqa: E501
+        # model = dlxapi.models.authorization_code_generated_event.AuthorizationCodeGeneratedEvent()  # noqa: E501
         pass
 
 

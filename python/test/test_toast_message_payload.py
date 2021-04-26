@@ -15,9 +15,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import swagger_client
-from swagger_client.models.toast_message_payload import ToastMessagePayload  # noqa: E501
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.models.toast_message_payload import ToastMessagePayload  # noqa: E501
+from dlxapi.rest import ApiException
 
 
 class TestToastMessagePayload(unittest.TestCase):
@@ -32,7 +32,7 @@ class TestToastMessagePayload(unittest.TestCase):
     def testToastMessagePayload(self):
         """Test ToastMessagePayload"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = swagger_client.models.toast_message_payload.ToastMessagePayload()  # noqa: E501
+        # model = dlxapi.models.toast_message_payload.ToastMessagePayload()  # noqa: E501
         pass
 
 

@@ -15,9 +15,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import swagger_client
-from swagger_client.models.balance_field_detail import BalanceFieldDetail  # noqa: E501
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.models.balance_field_detail import BalanceFieldDetail  # noqa: E501
+from dlxapi.rest import ApiException
 
 
 class TestBalanceFieldDetail(unittest.TestCase):
@@ -32,7 +32,7 @@ class TestBalanceFieldDetail(unittest.TestCase):
     def testBalanceFieldDetail(self):
         """Test BalanceFieldDetail"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = swagger_client.models.balance_field_detail.BalanceFieldDetail()  # noqa: E501
+        # model = dlxapi.models.balance_field_detail.BalanceFieldDetail()  # noqa: E501
         pass
 
 

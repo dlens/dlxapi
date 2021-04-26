@@ -17,19 +17,20 @@ Method | HTTP request | Description
 Export Whats In Comparison
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.PlansApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.PlansApi(dlxapi.ApiClient(configuration))
 portfolio_id = 'portfolio_id_example' # str | portfolioId
 portfolio_plan_ids = 'portfolio_plan_ids_example' # str | portfolioPlanIds to be exported
 export_format = NULL # object | export format type (XLSX)
@@ -75,19 +76,20 @@ Name | Type | Description  | Notes
 Retrieves grades for portfolio plan.
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.PlansApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.PlansApi(dlxapi.ApiClient(configuration))
 id = 'id_example' # str | Portfolio Plan id
 start_date = 789 # int | Start time period for which the grades are computed for. (optional)
 end_date = 789 # int | End time period for which the grades are computed for. (optional)
@@ -131,19 +133,20 @@ Name | Type | Description  | Notes
 Retrieves insights for portfolio plan.
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.PlansApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.PlansApi(dlxapi.ApiClient(configuration))
 id = 'id_example' # str | Portfolio Plan id
 start_date = 789 # int | Start time period for which the grades are computed for.
 end_date = 789 # int | End time period for which the grades are computed for.
@@ -185,19 +188,20 @@ Name | Type | Description  | Notes
 Retrieves value insights for portfolio plan.
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.PlansApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.PlansApi(dlxapi.ApiClient(configuration))
 id = 'id_example' # str | Portfolio Plan id
 start_date = 789 # int | Start time period for which the grades are computed for.
 end_date = 789 # int | End time period for which the grades are computed for.
@@ -239,19 +243,20 @@ Name | Type | Description  | Notes
 Retrieves portfolioPlans with projects for WhatsIn
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.PlansApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.PlansApi(dlxapi.ApiClient(configuration))
 portfolio_id = 'portfolio_id_example' # str | portfolioId
 portfolio_plan_ids = 'portfolio_plan_ids_example' # str | portfolioPlanIds for which projects are returned
 start_date = 789 # int | Start time period for which the grades are computed for.

@@ -13,19 +13,20 @@ Method | HTTP request | Description
 Import pod template in JSON format
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.PodsApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.PodsApi(dlxapi.ApiClient(configuration))
 pod_file = '/path/to/file.txt' # file | The pod file to upload.
 template_name = 'template_name_example' # str | pod template name
 

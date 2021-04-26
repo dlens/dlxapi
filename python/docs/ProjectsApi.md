@@ -21,21 +21,22 @@ Method | HTTP request | Description
 Add users to a project.
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.ProjectsApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.ProjectsApi(dlxapi.ApiClient(configuration))
 id = 'id_example' # str | project id
-body = swagger_client.AddUsersRequest() # AddUsersRequest | Email ids and personal message (optional)
+body = dlxapi.AddUsersRequest() # AddUsersRequest | Email ids and personal message (optional)
 
 try:
     # Add users to a project.
@@ -73,21 +74,22 @@ Name | Type | Description  | Notes
 Creates a new project.
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.ProjectsApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.ProjectsApi(dlxapi.ApiClient(configuration))
 portfolio_id = 'portfolio_id_example' # str | Portfolio id
-project = swagger_client.Project() # Project | Project to create
+project = dlxapi.Project() # Project | Project to create
 
 try:
     # Creates a new project.
@@ -125,19 +127,20 @@ Name | Type | Description  | Notes
 Delete a project.
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.ProjectsApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.ProjectsApi(dlxapi.ApiClient(configuration))
 id = 'id_example' # str | Project id
 
 try:
@@ -174,20 +177,21 @@ void (empty response body)
 Delete projects.
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.ProjectsApi(swagger_client.ApiClient(configuration))
-project_ids = [swagger_client.list[str]()] # list[str] | Project ids
+api_instance = dlxapi.ProjectsApi(dlxapi.ApiClient(configuration))
+project_ids = [dlxapi.list[str]()] # list[str] | Project ids
 
 try:
     # Delete projects.
@@ -223,19 +227,20 @@ void (empty response body)
 Retrieves a project.
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.ProjectsApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.ProjectsApi(dlxapi.ApiClient(configuration))
 id = 'id_example' # str | Project id
 
 try:
@@ -273,19 +278,20 @@ Name | Type | Description  | Notes
 Retrieves a project for a portfolioPlan.
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.ProjectsApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.ProjectsApi(dlxapi.ApiClient(configuration))
 project_id = 'project_id_example' # str | Project id
 portfolio_plan_id = 'portfolio_plan_id_example' # str | PortfolioPlan id
 
@@ -325,19 +331,20 @@ Name | Type | Description  | Notes
 Retrieves projects contained within a portfolio. Possible expand paths are - (items.fieldValues, contributingUserIds)
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.ProjectsApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.ProjectsApi(dlxapi.ApiClient(configuration))
 portfolio_id = 'portfolio_id_example' # str | Portfolio id
 portfolio_plan_id = 'portfolio_plan_id_example' # str | Portfolio plan id. If not specified the portfolio plan will default to current baseline (optional)
 expand = 'expand_example' # str | JSON string containing an array expand specifications for fields.  An expand specification must have a path and includes optional properties match, unique, allPossible, limit, offset, orderBy. (optional)
@@ -387,21 +394,22 @@ Name | Type | Description  | Notes
 Remove contributing users from a project.
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.ProjectsApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.ProjectsApi(dlxapi.ApiClient(configuration))
 id = 'id_example' # str | project id
-body = swagger_client.RemoveContributingUsersRequest() # RemoveContributingUsersRequest | contributing user ids
+body = dlxapi.RemoveContributingUsersRequest() # RemoveContributingUsersRequest | contributing user ids
 
 try:
     # Remove contributing users from a project.
@@ -438,21 +446,22 @@ void (empty response body)
 Adds or removes dependsOn and/or dependant linked projects to a project.
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.ProjectsApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.ProjectsApi(dlxapi.ApiClient(configuration))
 id = 'id_example' # str | project id
-body = swagger_client.SetDependenciesRequest() # SetDependenciesRequest | dependsOn and hasDependent project Ids (optional)
+body = dlxapi.SetDependenciesRequest() # SetDependenciesRequest | dependsOn and hasDependent project Ids (optional)
 
 try:
     # Adds or removes dependsOn and/or dependant linked projects to a project.

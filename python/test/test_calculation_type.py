@@ -15,9 +15,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import swagger_client
-from swagger_client.models.calculation_type import CalculationType  # noqa: E501
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.models.calculation_type import CalculationType  # noqa: E501
+from dlxapi.rest import ApiException
 
 
 class TestCalculationType(unittest.TestCase):
@@ -32,7 +32,7 @@ class TestCalculationType(unittest.TestCase):
     def testCalculationType(self):
         """Test CalculationType"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = swagger_client.models.calculation_type.CalculationType()  # noqa: E501
+        # model = dlxapi.models.calculation_type.CalculationType()  # noqa: E501
         pass
 
 

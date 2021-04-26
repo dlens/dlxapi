@@ -15,9 +15,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import swagger_client
-from swagger_client.models.operation_type import OperationType  # noqa: E501
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.models.operation_type import OperationType  # noqa: E501
+from dlxapi.rest import ApiException
 
 
 class TestOperationType(unittest.TestCase):
@@ -32,7 +32,7 @@ class TestOperationType(unittest.TestCase):
     def testOperationType(self):
         """Test OperationType"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = swagger_client.models.operation_type.OperationType()  # noqa: E501
+        # model = dlxapi.models.operation_type.OperationType()  # noqa: E501
         pass
 
 

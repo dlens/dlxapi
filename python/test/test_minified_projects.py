@@ -15,9 +15,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import swagger_client
-from swagger_client.models.minified_projects import MinifiedProjects  # noqa: E501
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.models.minified_projects import MinifiedProjects  # noqa: E501
+from dlxapi.rest import ApiException
 
 
 class TestMinifiedProjects(unittest.TestCase):
@@ -32,7 +32,7 @@ class TestMinifiedProjects(unittest.TestCase):
     def testMinifiedProjects(self):
         """Test MinifiedProjects"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = swagger_client.models.minified_projects.MinifiedProjects()  # noqa: E501
+        # model = dlxapi.models.minified_projects.MinifiedProjects()  # noqa: E501
         pass
 
 

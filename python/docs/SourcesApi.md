@@ -14,19 +14,20 @@ Method | HTTP request | Description
 Fetch data for source.
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.SourcesApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.SourcesApi(dlxapi.ApiClient(configuration))
 id = 'id_example' # str | Source id
 priority_scenario = 'priority_scenario_example' # str | Priority Scenario name (optional)
 
@@ -66,21 +67,22 @@ Name | Type | Description  | Notes
 Send data for source.
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.SourcesApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.SourcesApi(dlxapi.ApiClient(configuration))
 id = 'id_example' # str | Source id
-statuses = [swagger_client.list[str]()] # list[str] | Statuses
+statuses = [dlxapi.list[str]()] # list[str] | Statuses
 
 try:
     # Send data for source.

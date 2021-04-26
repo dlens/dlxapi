@@ -33,21 +33,22 @@ Method | HTTP request | Description
 Add users to a portfolio plan.
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.PortfolioPlansApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.PortfolioPlansApi(dlxapi.ApiClient(configuration))
 id = 'id_example' # str | Portfolio plan id
-body = swagger_client.AddUsersRequest() # AddUsersRequest | Email ids and personal message (optional)
+body = dlxapi.AddUsersRequest() # AddUsersRequest | Email ids and personal message (optional)
 
 try:
     # Add users to a portfolio plan.
@@ -85,21 +86,22 @@ Name | Type | Description  | Notes
 Apply recommendations of a portfolio plan.
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.PortfolioPlansApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.PortfolioPlansApi(dlxapi.ApiClient(configuration))
 id = 'id_example' # str | Portfolio plan id
-body = [swagger_client.Recommendation()] # list[Recommendation] | JSON Recommendation Objects to apply to a portfolio plan.
+body = [dlxapi.Recommendation()] # list[Recommendation] | JSON Recommendation Objects to apply to a portfolio plan.
 
 try:
     # Apply recommendations of a portfolio plan.
@@ -137,20 +139,21 @@ Name | Type | Description  | Notes
 Create a portfolio plan
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.PortfolioPlansApi(swagger_client.ApiClient(configuration))
-body = swagger_client.PortfolioPlan() # PortfolioPlan | portfolio plan
+api_instance = dlxapi.PortfolioPlansApi(dlxapi.ApiClient(configuration))
+body = dlxapi.PortfolioPlan() # PortfolioPlan | portfolio plan
 expand = 'expand_example' # str | JSON string containing an array expand specifications for fields.  An expand specification must have a path and includes optional properties match, unique, allPossible, limit, offset, orderBy. (optional)
 
 try:
@@ -189,21 +192,22 @@ Name | Type | Description  | Notes
 Create new projects
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.PortfolioPlansApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.PortfolioPlansApi(dlxapi.ApiClient(configuration))
 id = 'id_example' # str | Portfolio plan id
-body = [swagger_client.Project()] # list[Project] | Projects to create
+body = [dlxapi.Project()] # list[Project] | Projects to create
 do_not_expand = false # bool | Whether to return collections for each project in the response. Default is to return saved field values. (optional) (default to false)
 
 try:
@@ -243,19 +247,20 @@ Name | Type | Description  | Notes
 Deletes portfolio plan
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.PortfolioPlansApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.PortfolioPlansApi(dlxapi.ApiClient(configuration))
 id = 'id_example' # str | portfolio plan id
 
 try:
@@ -292,19 +297,20 @@ void (empty response body)
 Export portfolio plan
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.PortfolioPlansApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.PortfolioPlansApi(dlxapi.ApiClient(configuration))
 id = 'id_example' # str | portfolio plan id
 export_type = NULL # object | export type (PROJECT, SCHEDULE)
 export_format = NULL # object | export format type (XLSX)
@@ -346,19 +352,20 @@ Name | Type | Description  | Notes
 Retrieves budget allocations for a portfolio plan.
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.PortfolioPlansApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.PortfolioPlansApi(dlxapi.ApiClient(configuration))
 id = 'id_example' # str | Portfolio plan id
 start_time = 789 # int | Start time for the requested data (optional)
 end_time = 789 # int | End time for the requested data (optional)
@@ -400,19 +407,20 @@ Name | Type | Description  | Notes
 Retrieves minified projects contained within a portfolio plan.
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.PortfolioPlansApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.PortfolioPlansApi(dlxapi.ApiClient(configuration))
 id = 'id_example' # str | Portfolio plan id
 expand = 'expand_example' # str | JSON string containing an array expand specifications for fields.  An expand specification must have a path and includes optional properties match, unique, allPossible, limit, offset, orderBy. (optional)
 limit = 56 # int | Pagination limit (optional)
@@ -460,19 +468,20 @@ Name | Type | Description  | Notes
 Retrieves portfolio plan
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.PortfolioPlansApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.PortfolioPlansApi(dlxapi.ApiClient(configuration))
 id = 'id_example' # str | portfolio plan id
 expand = 'expand_example' # str | JSON string containing an array expand specifications for fields.  An expand specification must have a path and includes optional properties match, unique, allPossible, limit, offset, orderBy. (optional)
 
@@ -512,19 +521,20 @@ Name | Type | Description  | Notes
 Retrieves portfolio plan activities log.
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.PortfolioPlansApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.PortfolioPlansApi(dlxapi.ApiClient(configuration))
 id = 'id_example' # str | Portfolio plan id
 project_id = 'project_id_example' # str | Use when you want to filter activities for a specific project (optional)
 limit = 56 # int | Pagination limit (optional)
@@ -570,19 +580,20 @@ Name | Type | Description  | Notes
 Retrieves users in a portfolio plan.
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.PortfolioPlansApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.PortfolioPlansApi(dlxapi.ApiClient(configuration))
 id = 'id_example' # str | Portfolio plan id
 limit = 56 # int | Pagination limit (optional)
 offset = 56 # int | Pagination offset (optional)
@@ -628,19 +639,20 @@ Name | Type | Description  | Notes
 Retrieves portfolio plans
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.PortfolioPlansApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.PortfolioPlansApi(dlxapi.ApiClient(configuration))
 portfolio_id = 'portfolio_id_example' # str | portfolio id
 expand = 'expand_example' # str | JSON string containing an array expand specifications for fields.  An expand specification must have a path and includes optional properties match, unique, allPossible, limit, offset, orderBy. (optional)
 limit = 56 # int | Pagination limit (optional)
@@ -688,19 +700,20 @@ Name | Type | Description  | Notes
 Retrieves project contained within a portfolio plan.
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.PortfolioPlansApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.PortfolioPlansApi(dlxapi.ApiClient(configuration))
 portfolio_plan_id = 'portfolio_plan_id_example' # str | Portfolio plan id
 project_id = 'project_id_example' # str | project id
 
@@ -740,19 +753,20 @@ Name | Type | Description  | Notes
 Retrieves projects for portfolio plan
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.PortfolioPlansApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.PortfolioPlansApi(dlxapi.ApiClient(configuration))
 portfolio_id = 'portfolio_id_example' # str | Portfolio id
 portfolio_plan_id = 'portfolio_plan_id_example' # str | Portfolio Plan id
 position_from = 56 # int | positionFrom for projects
@@ -796,19 +810,20 @@ Name | Type | Description  | Notes
 Retrieves projects contained within a portfolio plan. Possible expand paths - (items.fieldValues, contributingUserIds)
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.PortfolioPlansApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.PortfolioPlansApi(dlxapi.ApiClient(configuration))
 id = 'id_example' # str | Portfolio plan id
 expand = 'expand_example' # str | JSON string containing an array expand specifications for fields.  An expand specification must have a path and includes optional properties match, unique, allPossible, limit, offset, orderBy. (optional)
 limit = 56 # int | Pagination limit (optional)
@@ -856,19 +871,20 @@ Name | Type | Description  | Notes
 Retrieves recommendations for a portfolio plan.
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.PortfolioPlansApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.PortfolioPlansApi(dlxapi.ApiClient(configuration))
 id = 'id_example' # str | Portfolio plan id
 start_date = 789 # int | Start time period for the time horizon. (optional)
 end_date = 789 # int | End time period for the time horizon. (optional)
@@ -912,19 +928,20 @@ Name | Type | Description  | Notes
 Retrieves schedule for portfolio plan. The schedule is stored in a new portfolio plan.
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.PortfolioPlansApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.PortfolioPlansApi(dlxapi.ApiClient(configuration))
 id = 'id_example' # str | Portfolio Plan id
 start_date = 789 # int | Start time period for the time horizon. (optional)
 end_date = 789 # int | End time period for the time horizon. (optional)
@@ -970,19 +987,20 @@ Name | Type | Description  | Notes
 Rebaseline a portfolio plan.
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.PortfolioPlansApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.PortfolioPlansApi(dlxapi.ApiClient(configuration))
 id = 'id_example' # str | Portfolio plan id
 
 try:
@@ -1020,21 +1038,22 @@ Name | Type | Description  | Notes
 Updates a portfolio plan utilizing JSON Patch Operations. 
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.PortfolioPlansApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.PortfolioPlansApi(dlxapi.ApiClient(configuration))
 id = 'id_example' # str | PortfolioPlan id
-body = swagger_client.Operations() # Operations | JSON Patch Operations to update portfolio plan.
+body = dlxapi.Operations() # Operations | JSON Patch Operations to update portfolio plan.
 expand = 'expand_example' # str | JSON string containing an array expand specifications for fields.  An expand specification must have a path and includes optional properties match, unique, allPossible, limit, offset, orderBy. (optional)
 
 try:
@@ -1074,21 +1093,22 @@ Name | Type | Description  | Notes
 Update field values in a portfolio plan
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.PortfolioPlansApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.PortfolioPlansApi(dlxapi.ApiClient(configuration))
 id = NULL # object | Portfolio plan id
-body = [swagger_client.FieldValuePatchItem()] # list[FieldValuePatchItem] | JSON Patch Operations to update multiple field values.
+body = [dlxapi.FieldValuePatchItem()] # list[FieldValuePatchItem] | JSON Patch Operations to update multiple field values.
 expand = 'expand_example' # str | JSON string containing an array expand specifications for fields.  An expand specification must have a path and includes optional properties match, unique, allPossible, limit, offset, orderBy. (optional)
 
 try:
@@ -1128,21 +1148,22 @@ Name | Type | Description  | Notes
 Update users in a portfolio plan
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.PortfolioPlansApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.PortfolioPlansApi(dlxapi.ApiClient(configuration))
 id = NULL # object | Portfolio plan id
-body = [swagger_client.PatchItem()] # list[PatchItem] | JSON Patch Operations to update multiple portfolio plan users.
+body = [dlxapi.PatchItem()] # list[PatchItem] | JSON Patch Operations to update multiple portfolio plan users.
 
 try:
     # Update users in a portfolio plan

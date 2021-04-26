@@ -15,9 +15,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import swagger_client
-from swagger_client.models.source_deleted_event import SourceDeletedEvent  # noqa: E501
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.models.source_deleted_event import SourceDeletedEvent  # noqa: E501
+from dlxapi.rest import ApiException
 
 
 class TestSourceDeletedEvent(unittest.TestCase):
@@ -32,7 +32,7 @@ class TestSourceDeletedEvent(unittest.TestCase):
     def testSourceDeletedEvent(self):
         """Test SourceDeletedEvent"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = swagger_client.models.source_deleted_event.SourceDeletedEvent()  # noqa: E501
+        # model = dlxapi.models.source_deleted_event.SourceDeletedEvent()  # noqa: E501
         pass
 
 

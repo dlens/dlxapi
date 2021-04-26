@@ -13,19 +13,20 @@ Method | HTTP request | Description
 Reindex activities. System Administator operation.
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.ActivitiesApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.ActivitiesApi(dlxapi.ApiClient(configuration))
 domains = ['domains_example'] # list[str] | List of domains for where activities need to be reindexed, if not provided reindex will be done for all domains (optional)
 
 try:

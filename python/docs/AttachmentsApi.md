@@ -17,19 +17,20 @@ Method | HTTP request | Description
 Creates a new attachment from a file upload
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.AttachmentsApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.AttachmentsApi(dlxapi.ApiClient(configuration))
 file = '/path/to/file.txt' # file | File to be uploaded
 portfolio_id = 'portfolio_id_example' # str | the portfolio id that the attachment belongs to
 
@@ -69,19 +70,20 @@ Name | Type | Description  | Notes
 Downloads the file content of an Attachment
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.AttachmentsApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.AttachmentsApi(dlxapi.ApiClient(configuration))
 id = 'id_example' # str | Attachment id
 
 try:
@@ -119,19 +121,20 @@ Name | Type | Description  | Notes
 Get Attachment by id
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.AttachmentsApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.AttachmentsApi(dlxapi.ApiClient(configuration))
 id = 'id_example' # str | Attachment id
 
 try:
@@ -169,19 +172,20 @@ Name | Type | Description  | Notes
 Get Attachment by portfolio id
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.AttachmentsApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.AttachmentsApi(dlxapi.ApiClient(configuration))
 portfolio_id = 'portfolio_id_example' # str | Portfolio id
 offset = 56 # int | Pagination offset (optional)
 limit = 56 # int | Pagination limit (optional)
@@ -227,21 +231,22 @@ Name | Type | Description  | Notes
 Update a single attachment
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.AttachmentsApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.AttachmentsApi(dlxapi.ApiClient(configuration))
 id = 'id_example' # str | Attachment ID
-body = swagger_client.Operations() # Operations | JSON Patch operations to update value field.
+body = dlxapi.Operations() # Operations | JSON Patch operations to update value field.
 
 try:
     # Update a single attachment

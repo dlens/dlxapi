@@ -15,9 +15,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import swagger_client
-from swagger_client.models.export_type import ExportType  # noqa: E501
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.models.export_type import ExportType  # noqa: E501
+from dlxapi.rest import ApiException
 
 
 class TestExportType(unittest.TestCase):
@@ -32,7 +32,7 @@ class TestExportType(unittest.TestCase):
     def testExportType(self):
         """Test ExportType"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = swagger_client.models.export_type.ExportType()  # noqa: E501
+        # model = dlxapi.models.export_type.ExportType()  # noqa: E501
         pass
 
 

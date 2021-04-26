@@ -14,20 +14,21 @@ Method | HTTP request | Description
 Creates a new user.
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.UsersApi(swagger_client.ApiClient(configuration))
-user = swagger_client.AddUserRequest() # AddUserRequest | User to create
+api_instance = dlxapi.UsersApi(dlxapi.ApiClient(configuration))
+user = dlxapi.AddUserRequest() # AddUserRequest | User to create
 
 try:
     # Creates a new user.
@@ -64,19 +65,20 @@ Name | Type | Description  | Notes
 Get users.
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.UsersApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.UsersApi(dlxapi.ApiClient(configuration))
 
 try:
     # Get users.

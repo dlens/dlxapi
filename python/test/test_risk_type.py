@@ -15,9 +15,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import swagger_client
-from swagger_client.models.risk_type import RiskType  # noqa: E501
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.models.risk_type import RiskType  # noqa: E501
+from dlxapi.rest import ApiException
 
 
 class TestRiskType(unittest.TestCase):
@@ -32,7 +32,7 @@ class TestRiskType(unittest.TestCase):
     def testRiskType(self):
         """Test RiskType"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = swagger_client.models.risk_type.RiskType()  # noqa: E501
+        # model = dlxapi.models.risk_type.RiskType()  # noqa: E501
         pass
 
 

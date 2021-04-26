@@ -15,9 +15,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import swagger_client
-from swagger_client.models.template_property import TemplateProperty  # noqa: E501
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.models.template_property import TemplateProperty  # noqa: E501
+from dlxapi.rest import ApiException
 
 
 class TestTemplateProperty(unittest.TestCase):
@@ -32,7 +32,7 @@ class TestTemplateProperty(unittest.TestCase):
     def testTemplateProperty(self):
         """Test TemplateProperty"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = swagger_client.models.template_property.TemplateProperty()  # noqa: E501
+        # model = dlxapi.models.template_property.TemplateProperty()  # noqa: E501
         pass
 
 

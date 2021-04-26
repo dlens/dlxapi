@@ -15,9 +15,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import swagger_client
-from swagger_client.models.likert_scale_insight import LikertScaleInsight  # noqa: E501
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.models.likert_scale_insight import LikertScaleInsight  # noqa: E501
+from dlxapi.rest import ApiException
 
 
 class TestLikertScaleInsight(unittest.TestCase):
@@ -32,7 +32,7 @@ class TestLikertScaleInsight(unittest.TestCase):
     def testLikertScaleInsight(self):
         """Test LikertScaleInsight"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = swagger_client.models.likert_scale_insight.LikertScaleInsight()  # noqa: E501
+        # model = dlxapi.models.likert_scale_insight.LikertScaleInsight()  # noqa: E501
         pass
 
 

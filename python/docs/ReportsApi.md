@@ -13,19 +13,20 @@ Method | HTTP request | Description
 Downloads the grades report for a portfolio plan
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.ReportsApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.ReportsApi(dlxapi.ApiClient(configuration))
 id = 'id_example' # str | Portfolio Plan id
 start_date = 789 # int | Start time period for which the grades are computed for. (optional)
 end_date = 789 # int | End time period for which the grades are computed for. (optional)

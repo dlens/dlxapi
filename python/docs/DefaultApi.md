@@ -18,20 +18,21 @@ Method | HTTP request | Description
 Creates a new category
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.DefaultApi(swagger_client.ApiClient(configuration))
-body = swagger_client.CategoryOption() # CategoryOption | Category option to create
+api_instance = dlxapi.DefaultApi(dlxapi.ApiClient(configuration))
+body = dlxapi.CategoryOption() # CategoryOption | Category option to create
 
 try:
     # Creates a new category
@@ -68,20 +69,21 @@ Name | Type | Description  | Notes
 Creates new category options
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.DefaultApi(swagger_client.ApiClient(configuration))
-body = swagger_client.CategoryOptions() # CategoryOptions | Category options to create
+api_instance = dlxapi.DefaultApi(dlxapi.ApiClient(configuration))
+body = dlxapi.CategoryOptions() # CategoryOptions | Category options to create
 
 try:
     # Creates new category options
@@ -118,19 +120,20 @@ Name | Type | Description  | Notes
 Delete a single category option
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.DefaultApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.DefaultApi(dlxapi.ApiClient(configuration))
 field_id = 'field_id_example' # str | Field id
 category_option_id = 'category_option_id_example' # str | Category Option ID
 
@@ -169,19 +172,20 @@ void (empty response body)
 Retrieves a category
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.DefaultApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.DefaultApi(dlxapi.ApiClient(configuration))
 field_id = 'field_id_example' # str | Field id
 category_option_id = 'category_option_id_example' # str | Category Option id
 
@@ -221,19 +225,20 @@ Name | Type | Description  | Notes
 Retrieves categories for a field
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.DefaultApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.DefaultApi(dlxapi.ApiClient(configuration))
 field_id = 'field_id_example' # str | Field id
 
 try:
@@ -271,22 +276,23 @@ Name | Type | Description  | Notes
 Update a single category
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.DefaultApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.DefaultApi(dlxapi.ApiClient(configuration))
 field_id = 'field_id_example' # str | Field id
 category_option_id = 'category_option_id_example' # str | Category Option id
-body = swagger_client.CategoryOption() # CategoryOption | JSON Patch operations to update value field.
+body = dlxapi.CategoryOption() # CategoryOption | JSON Patch operations to update value field.
 
 try:
     # Update a single category

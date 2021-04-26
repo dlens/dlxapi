@@ -15,16 +15,16 @@ from __future__ import absolute_import
 
 import unittest
 
-import swagger_client
-from swagger_client.api.logout_api import LogoutApi  # noqa: E501
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.api.logout_api import LogoutApi  # noqa: E501
+from dlxapi.rest import ApiException
 
 
 class TestLogoutApi(unittest.TestCase):
     """LogoutApi unit test stubs"""
 
     def setUp(self):
-        self.api = swagger_client.api.logout_api.LogoutApi()  # noqa: E501
+        self.api = dlxapi.api.logout_api.LogoutApi()  # noqa: E501
 
     def tearDown(self):
         pass

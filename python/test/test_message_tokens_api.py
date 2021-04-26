@@ -15,16 +15,16 @@ from __future__ import absolute_import
 
 import unittest
 
-import swagger_client
-from swagger_client.api.message_tokens_api import MessageTokensApi  # noqa: E501
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.api.message_tokens_api import MessageTokensApi  # noqa: E501
+from dlxapi.rest import ApiException
 
 
 class TestMessageTokensApi(unittest.TestCase):
     """MessageTokensApi unit test stubs"""
 
     def setUp(self):
-        self.api = swagger_client.api.message_tokens_api.MessageTokensApi()  # noqa: E501
+        self.api = dlxapi.api.message_tokens_api.MessageTokensApi()  # noqa: E501
 
     def tearDown(self):
         pass

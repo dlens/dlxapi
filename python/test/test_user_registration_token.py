@@ -15,9 +15,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import swagger_client
-from swagger_client.models.user_registration_token import UserRegistrationToken  # noqa: E501
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.models.user_registration_token import UserRegistrationToken  # noqa: E501
+from dlxapi.rest import ApiException
 
 
 class TestUserRegistrationToken(unittest.TestCase):
@@ -32,7 +32,7 @@ class TestUserRegistrationToken(unittest.TestCase):
     def testUserRegistrationToken(self):
         """Test UserRegistrationToken"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = swagger_client.models.user_registration_token.UserRegistrationToken()  # noqa: E501
+        # model = dlxapi.models.user_registration_token.UserRegistrationToken()  # noqa: E501
         pass
 
 

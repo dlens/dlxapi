@@ -15,16 +15,16 @@ from __future__ import absolute_import
 
 import unittest
 
-import swagger_client
-from swagger_client.api.classification_api import ClassificationApi  # noqa: E501
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.api.classification_api import ClassificationApi  # noqa: E501
+from dlxapi.rest import ApiException
 
 
 class TestClassificationApi(unittest.TestCase):
     """ClassificationApi unit test stubs"""
 
     def setUp(self):
-        self.api = swagger_client.api.classification_api.ClassificationApi()  # noqa: E501
+        self.api = dlxapi.api.classification_api.ClassificationApi()  # noqa: E501
 
     def tearDown(self):
         pass

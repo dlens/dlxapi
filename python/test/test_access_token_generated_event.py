@@ -15,9 +15,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import swagger_client
-from swagger_client.models.access_token_generated_event import AccessTokenGeneratedEvent  # noqa: E501
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.models.access_token_generated_event import AccessTokenGeneratedEvent  # noqa: E501
+from dlxapi.rest import ApiException
 
 
 class TestAccessTokenGeneratedEvent(unittest.TestCase):
@@ -32,7 +32,7 @@ class TestAccessTokenGeneratedEvent(unittest.TestCase):
     def testAccessTokenGeneratedEvent(self):
         """Test AccessTokenGeneratedEvent"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = swagger_client.models.access_token_generated_event.AccessTokenGeneratedEvent()  # noqa: E501
+        # model = dlxapi.models.access_token_generated_event.AccessTokenGeneratedEvent()  # noqa: E501
         pass
 
 

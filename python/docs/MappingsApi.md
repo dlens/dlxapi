@@ -16,19 +16,20 @@ Accepts upload of spreadsheet and converts data into mappings.
 Maps the fields in the spreadsheet to appropriate buckets
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.MappingsApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.MappingsApi(dlxapi.ApiClient(configuration))
 file = '/path/to/file.txt' # file | maybe put supported file types here?
 
 try:
@@ -66,21 +67,22 @@ Name | Type | Description  | Notes
 Update mapping
 
 ### Example
+
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.MappingsApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.MappingsApi(dlxapi.ApiClient(configuration))
 id = 'id_example' # str | Mapping id
-body = swagger_client.Operations() # Operations | JSON Patch Operations to update mapping.
+body = dlxapi.Operations() # Operations | JSON Patch Operations to update mapping.
 expand = 'expand_example' # str | JSON string containing an array expand specifications for fields.  An expand specification must have a path and includes optional properties match, unique, allPossible, limit, offset, orderBy. (optional)
 
 try:

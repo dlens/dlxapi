@@ -15,9 +15,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import swagger_client
-from swagger_client.models.remove_contributing_users_request import RemoveContributingUsersRequest  # noqa: E501
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.models.remove_contributing_users_request import RemoveContributingUsersRequest  # noqa: E501
+from dlxapi.rest import ApiException
 
 
 class TestRemoveContributingUsersRequest(unittest.TestCase):
@@ -32,7 +32,7 @@ class TestRemoveContributingUsersRequest(unittest.TestCase):
     def testRemoveContributingUsersRequest(self):
         """Test RemoveContributingUsersRequest"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = swagger_client.models.remove_contributing_users_request.RemoveContributingUsersRequest()  # noqa: E501
+        # model = dlxapi.models.remove_contributing_users_request.RemoveContributingUsersRequest()  # noqa: E501
         pass
 
 

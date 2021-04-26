@@ -15,9 +15,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import swagger_client
-from swagger_client.models.grading_type import GradingType  # noqa: E501
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.models.grading_type import GradingType  # noqa: E501
+from dlxapi.rest import ApiException
 
 
 class TestGradingType(unittest.TestCase):
@@ -32,7 +32,7 @@ class TestGradingType(unittest.TestCase):
     def testGradingType(self):
         """Test GradingType"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = swagger_client.models.grading_type.GradingType()  # noqa: E501
+        # model = dlxapi.models.grading_type.GradingType()  # noqa: E501
         pass
 
 

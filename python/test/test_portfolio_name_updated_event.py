@@ -15,9 +15,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import swagger_client
-from swagger_client.models.portfolio_name_updated_event import PortfolioNameUpdatedEvent  # noqa: E501
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.models.portfolio_name_updated_event import PortfolioNameUpdatedEvent  # noqa: E501
+from dlxapi.rest import ApiException
 
 
 class TestPortfolioNameUpdatedEvent(unittest.TestCase):
@@ -32,7 +32,7 @@ class TestPortfolioNameUpdatedEvent(unittest.TestCase):
     def testPortfolioNameUpdatedEvent(self):
         """Test PortfolioNameUpdatedEvent"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = swagger_client.models.portfolio_name_updated_event.PortfolioNameUpdatedEvent()  # noqa: E501
+        # model = dlxapi.models.portfolio_name_updated_event.PortfolioNameUpdatedEvent()  # noqa: E501
         pass
 
 
