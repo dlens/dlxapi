@@ -39,7 +39,7 @@ setup(
     keywords=["Swagger", "Decision Lens API"],
     install_requires=REQUIRES,
     license="MIT",
-    packages=find_packages(exclude="test",),
+    packages=['dlxapi'],
     include_package_data=True,
     long_description="""\
     Decision Lens DLX api library.
