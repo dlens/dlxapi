@@ -31,11 +31,11 @@ public enum PortfolioPlanUserRole {
   
   OWNER("OWNER"),
   
-  EDITOR("EDITOR"),
-  
   VIEWER("VIEWER"),
   
-  CONTRIBUTOR("CONTRIBUTOR");
+  CONTRIBUTOR("CONTRIBUTOR"),
+  
+  PARTICIPANT("PARTICIPANT");
 
   private String value;
 

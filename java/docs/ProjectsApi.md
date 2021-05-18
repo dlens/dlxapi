@@ -4,13 +4,69 @@ All URIs are relative to *http://localhost:9005/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**addContributingUsersForProject**](ProjectsApi.md#addContributingUsersForProject) | **POST** /projects/{id}/users | Add users to a project.
 [**createProject**](ProjectsApi.md#createProject) | **POST** /projects | Creates a new project.
 [**deleteProject**](ProjectsApi.md#deleteProject) | **DELETE** /projects/{id} | Delete a project.
 [**deleteProjects**](ProjectsApi.md#deleteProjects) | **POST** /projects/delete | Delete projects.
 [**getProject**](ProjectsApi.md#getProject) | **GET** /projects/{id} | Retrieves a project.
 [**getProjectForPortfolioPlan**](ProjectsApi.md#getProjectForPortfolioPlan) | **GET** /projects/{projectId}/portfolioPlan/{portfolioPlanId} | Retrieves a project for a portfolioPlan.
 [**getProjectsForPortfolio**](ProjectsApi.md#getProjectsForPortfolio) | **GET** /projects | Retrieves projects contained within a portfolio. Possible expand paths are - (items.fieldValues, contributingUserIds)
+[**removeContributingUsersFromProject**](ProjectsApi.md#removeContributingUsersFromProject) | **DELETE** /projects/{id}/users | Remove contributing users from a project.
+[**setProjectDependencies**](ProjectsApi.md#setProjectDependencies) | **PUT** /projects/{id}/dependencies | Adds or removes dependsOn and/or dependant linked projects to a project.
 
+
+<a name="addContributingUsersForProject"></a>
+# **addContributingUsersForProject**
+> List&lt;PortfolioPlanUser&gt; addContributingUsersForProject(id, body)
+
+Add users to a project.
+
+### Example
+```java
+// Import classes:
+//import com.decisionlens.client.ApiClient;
+//import com.decisionlens.client.ApiException;
+//import com.decisionlens.client.Configuration;
+//import com.decisionlens.client.auth.*;
+//import com.decisionlens.client.api.ProjectsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: OAuth2
+OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+ProjectsApi apiInstance = new ProjectsApi();
+String id = "id_example"; // String | project id
+AddUsersRequest body = new AddUsersRequest(); // AddUsersRequest | Email ids and personal message
+try {
+    List<PortfolioPlanUser> result = apiInstance.addContributingUsersForProject(id, body);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ProjectsApi#addContributingUsersForProject");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| project id |
+ **body** | [**AddUsersRequest**](AddUsersRequest.md)| Email ids and personal message | [optional]
+
+### Return type
+
+[**List&lt;PortfolioPlanUser&gt;**](PortfolioPlanUser.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 <a name="createProject"></a>
 # **createProject**
@@ -330,5 +386,110 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="removeContributingUsersFromProject"></a>
+# **removeContributingUsersFromProject**
+> removeContributingUsersFromProject(id, body)
+
+Remove contributing users from a project.
+
+### Example
+```java
+// Import classes:
+//import com.decisionlens.client.ApiClient;
+//import com.decisionlens.client.ApiException;
+//import com.decisionlens.client.Configuration;
+//import com.decisionlens.client.auth.*;
+//import com.decisionlens.client.api.ProjectsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: OAuth2
+OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+ProjectsApi apiInstance = new ProjectsApi();
+String id = "id_example"; // String | project id
+RemoveContributingUsersRequest body = new RemoveContributingUsersRequest(); // RemoveContributingUsersRequest | contributing user ids
+try {
+    apiInstance.removeContributingUsersFromProject(id, body);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ProjectsApi#removeContributingUsersFromProject");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| project id |
+ **body** | [**RemoveContributingUsersRequest**](RemoveContributingUsersRequest.md)| contributing user ids |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="setProjectDependencies"></a>
+# **setProjectDependencies**
+> Projects setProjectDependencies(id, body)
+
+Adds or removes dependsOn and/or dependant linked projects to a project.
+
+### Example
+```java
+// Import classes:
+//import com.decisionlens.client.ApiClient;
+//import com.decisionlens.client.ApiException;
+//import com.decisionlens.client.Configuration;
+//import com.decisionlens.client.auth.*;
+//import com.decisionlens.client.api.ProjectsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: OAuth2
+OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+ProjectsApi apiInstance = new ProjectsApi();
+String id = "id_example"; // String | project id
+SetDependenciesRequest body = new SetDependenciesRequest(); // SetDependenciesRequest | dependsOn and hasDependent project Ids
+try {
+    Projects result = apiInstance.setProjectDependencies(id, body);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ProjectsApi#setProjectDependencies");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| project id |
+ **body** | [**SetDependenciesRequest**](SetDependenciesRequest.md)| dependsOn and hasDependent project Ids | [optional]
+
+### Return type
+
+[**Projects**](Projects.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 

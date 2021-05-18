@@ -47,7 +47,8 @@ public class MappingsApiTest {
     @Test
     public void spreadsheetToMappingsTest() throws ApiException {
         File file = null;
-        Mappings response = api.spreadsheetToMappings(file);
+        Boolean columnsOnly = null;
+        Mappings response = api.spreadsheetToMappings(file, columnsOnly);
 
         // TODO: test validations
     }

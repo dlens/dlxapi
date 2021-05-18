@@ -15,11 +15,13 @@ package com.decisionlens.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.decisionlens.client.model.CostBudgetAllocation;
+import com.decisionlens.client.model.CategorizationInsight;
 import com.decisionlens.client.model.DlResource;
+import com.decisionlens.client.model.GradingType;
+import com.decisionlens.client.model.Insight;
 import com.decisionlens.client.model.Portfolio;
 import com.decisionlens.client.model.PortfolioPlanInsights;
-import com.decisionlens.client.model.ValueCount;
+import com.decisionlens.client.model.Wiwo;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -36,8 +38,17 @@ import java.util.List;
  */
 
 public class PortfolioPlanInsights extends DlResource {
-  @SerializedName("statusCounts")
-  private List<ValueCount> statusCounts = null;
+  @SerializedName("portfolio")
+  private Portfolio portfolio = null;
+
+  @SerializedName("subPortfolioInsights")
+  private List<PortfolioPlanInsights> subPortfolioInsights = null;
+
+  @SerializedName("insights")
+  private List<Insight> insights = null;
+
+  @SerializedName("statusInsights")
+  private List<CategorizationInsight> statusInsights = null;
 
   @SerializedName("budget")
   private Double budget = null;
@@ -45,39 +56,106 @@ public class PortfolioPlanInsights extends DlResource {
   @SerializedName("allocation")
   private Double allocation = null;
 
-  @SerializedName("portfolio")
-  private Portfolio portfolio = null;
+  @SerializedName("gradingType")
+  private GradingType gradingType = null;
 
-  @SerializedName("details")
-  private List<PortfolioPlanInsights> details = null;
+  @SerializedName("wiwo")
+  private Wiwo wiwo = null;
 
-  @SerializedName("costBudgetAllocation")
-  private List<CostBudgetAllocation> costBudgetAllocation = null;
-
-  public PortfolioPlanInsights statusCounts(List<ValueCount> statusCounts) {
-    this.statusCounts = statusCounts;
-    return this;
-  }
-
-  public PortfolioPlanInsights addStatusCountsItem(ValueCount statusCountsItem) {
-    if (this.statusCounts == null) {
-      this.statusCounts = new ArrayList<ValueCount>();
-    }
-    this.statusCounts.add(statusCountsItem);
+  public PortfolioPlanInsights portfolio(Portfolio portfolio) {
+    this.portfolio = portfolio;
     return this;
   }
 
    /**
-   * Get statusCounts
-   * @return statusCounts
+   * Get portfolio
+   * @return portfolio
   **/
   @ApiModelProperty(value = "")
-  public List<ValueCount> getStatusCounts() {
-    return statusCounts;
+  public Portfolio getPortfolio() {
+    return portfolio;
   }
 
-  public void setStatusCounts(List<ValueCount> statusCounts) {
-    this.statusCounts = statusCounts;
+  public void setPortfolio(Portfolio portfolio) {
+    this.portfolio = portfolio;
+  }
+
+  public PortfolioPlanInsights subPortfolioInsights(List<PortfolioPlanInsights> subPortfolioInsights) {
+    this.subPortfolioInsights = subPortfolioInsights;
+    return this;
+  }
+
+  public PortfolioPlanInsights addSubPortfolioInsightsItem(PortfolioPlanInsights subPortfolioInsightsItem) {
+    if (this.subPortfolioInsights == null) {
+      this.subPortfolioInsights = new ArrayList<PortfolioPlanInsights>();
+    }
+    this.subPortfolioInsights.add(subPortfolioInsightsItem);
+    return this;
+  }
+
+   /**
+   * Get subPortfolioInsights
+   * @return subPortfolioInsights
+  **/
+  @ApiModelProperty(value = "")
+  public List<PortfolioPlanInsights> getSubPortfolioInsights() {
+    return subPortfolioInsights;
+  }
+
+  public void setSubPortfolioInsights(List<PortfolioPlanInsights> subPortfolioInsights) {
+    this.subPortfolioInsights = subPortfolioInsights;
+  }
+
+  public PortfolioPlanInsights insights(List<Insight> insights) {
+    this.insights = insights;
+    return this;
+  }
+
+  public PortfolioPlanInsights addInsightsItem(Insight insightsItem) {
+    if (this.insights == null) {
+      this.insights = new ArrayList<Insight>();
+    }
+    this.insights.add(insightsItem);
+    return this;
+  }
+
+   /**
+   * Get insights
+   * @return insights
+  **/
+  @ApiModelProperty(value = "")
+  public List<Insight> getInsights() {
+    return insights;
+  }
+
+  public void setInsights(List<Insight> insights) {
+    this.insights = insights;
+  }
+
+  public PortfolioPlanInsights statusInsights(List<CategorizationInsight> statusInsights) {
+    this.statusInsights = statusInsights;
+    return this;
+  }
+
+  public PortfolioPlanInsights addStatusInsightsItem(CategorizationInsight statusInsightsItem) {
+    if (this.statusInsights == null) {
+      this.statusInsights = new ArrayList<CategorizationInsight>();
+    }
+    this.statusInsights.add(statusInsightsItem);
+    return this;
+  }
+
+   /**
+   * Get statusInsights
+   * @return statusInsights
+  **/
+  @ApiModelProperty(value = "")
+  public List<CategorizationInsight> getStatusInsights() {
+    return statusInsights;
+  }
+
+  public void setStatusInsights(List<CategorizationInsight> statusInsights) {
+    this.statusInsights = statusInsights;
   }
 
   public PortfolioPlanInsights budget(Double budget) {
@@ -116,74 +194,40 @@ public class PortfolioPlanInsights extends DlResource {
     this.allocation = allocation;
   }
 
-  public PortfolioPlanInsights portfolio(Portfolio portfolio) {
-    this.portfolio = portfolio;
+  public PortfolioPlanInsights gradingType(GradingType gradingType) {
+    this.gradingType = gradingType;
     return this;
   }
 
    /**
-   * Get portfolio
-   * @return portfolio
+   * Get gradingType
+   * @return gradingType
   **/
   @ApiModelProperty(value = "")
-  public Portfolio getPortfolio() {
-    return portfolio;
+  public GradingType getGradingType() {
+    return gradingType;
   }
 
-  public void setPortfolio(Portfolio portfolio) {
-    this.portfolio = portfolio;
+  public void setGradingType(GradingType gradingType) {
+    this.gradingType = gradingType;
   }
 
-  public PortfolioPlanInsights details(List<PortfolioPlanInsights> details) {
-    this.details = details;
-    return this;
-  }
-
-  public PortfolioPlanInsights addDetailsItem(PortfolioPlanInsights detailsItem) {
-    if (this.details == null) {
-      this.details = new ArrayList<PortfolioPlanInsights>();
-    }
-    this.details.add(detailsItem);
+  public PortfolioPlanInsights wiwo(Wiwo wiwo) {
+    this.wiwo = wiwo;
     return this;
   }
 
    /**
-   * Get details
-   * @return details
+   * Get wiwo
+   * @return wiwo
   **/
   @ApiModelProperty(value = "")
-  public List<PortfolioPlanInsights> getDetails() {
-    return details;
+  public Wiwo getWiwo() {
+    return wiwo;
   }
 
-  public void setDetails(List<PortfolioPlanInsights> details) {
-    this.details = details;
-  }
-
-  public PortfolioPlanInsights costBudgetAllocation(List<CostBudgetAllocation> costBudgetAllocation) {
-    this.costBudgetAllocation = costBudgetAllocation;
-    return this;
-  }
-
-  public PortfolioPlanInsights addCostBudgetAllocationItem(CostBudgetAllocation costBudgetAllocationItem) {
-    if (this.costBudgetAllocation == null) {
-      this.costBudgetAllocation = new ArrayList<CostBudgetAllocation>();
-    }
-    this.costBudgetAllocation.add(costBudgetAllocationItem);
-    return this;
-  }
-
-   /**
-   * Get costBudgetAllocation
-   * @return costBudgetAllocation
-  **/
-  @ApiModelProperty(value = "")
-  public List<CostBudgetAllocation> getCostBudgetAllocation() {
-    return costBudgetAllocation;
-  }
-
-  public void setCostBudgetAllocation(List<CostBudgetAllocation> costBudgetAllocation) {
-    this.costBudgetAllocation = costBudgetAllocation;
+  public void setWiwo(Wiwo wiwo) {
+    this.wiwo = wiwo;
   }
 
 
@@ -196,18 +240,20 @@ public class PortfolioPlanInsights extends DlResource {
       return false;
     }
     PortfolioPlanInsights portfolioPlanInsights = (PortfolioPlanInsights) o;
-    return Objects.equals(this.statusCounts, portfolioPlanInsights.statusCounts) &&
+    return Objects.equals(this.portfolio, portfolioPlanInsights.portfolio) &&
+        Objects.equals(this.subPortfolioInsights, portfolioPlanInsights.subPortfolioInsights) &&
+        Objects.equals(this.insights, portfolioPlanInsights.insights) &&
+        Objects.equals(this.statusInsights, portfolioPlanInsights.statusInsights) &&
         Objects.equals(this.budget, portfolioPlanInsights.budget) &&
         Objects.equals(this.allocation, portfolioPlanInsights.allocation) &&
-        Objects.equals(this.portfolio, portfolioPlanInsights.portfolio) &&
-        Objects.equals(this.details, portfolioPlanInsights.details) &&
-        Objects.equals(this.costBudgetAllocation, portfolioPlanInsights.costBudgetAllocation) &&
+        Objects.equals(this.gradingType, portfolioPlanInsights.gradingType) &&
+        Objects.equals(this.wiwo, portfolioPlanInsights.wiwo) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(statusCounts, budget, allocation, portfolio, details, costBudgetAllocation, super.hashCode());
+    return Objects.hash(portfolio, subPortfolioInsights, insights, statusInsights, budget, allocation, gradingType, wiwo, super.hashCode());
   }
 
 
@@ -216,12 +262,14 @@ public class PortfolioPlanInsights extends DlResource {
     StringBuilder sb = new StringBuilder();
     sb.append("class PortfolioPlanInsights {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    statusCounts: ").append(toIndentedString(statusCounts)).append("\n");
+    sb.append("    portfolio: ").append(toIndentedString(portfolio)).append("\n");
+    sb.append("    subPortfolioInsights: ").append(toIndentedString(subPortfolioInsights)).append("\n");
+    sb.append("    insights: ").append(toIndentedString(insights)).append("\n");
+    sb.append("    statusInsights: ").append(toIndentedString(statusInsights)).append("\n");
     sb.append("    budget: ").append(toIndentedString(budget)).append("\n");
     sb.append("    allocation: ").append(toIndentedString(allocation)).append("\n");
-    sb.append("    portfolio: ").append(toIndentedString(portfolio)).append("\n");
-    sb.append("    details: ").append(toIndentedString(details)).append("\n");
-    sb.append("    costBudgetAllocation: ").append(toIndentedString(costBudgetAllocation)).append("\n");
+    sb.append("    gradingType: ").append(toIndentedString(gradingType)).append("\n");
+    sb.append("    wiwo: ").append(toIndentedString(wiwo)).append("\n");
     sb.append("}");
     return sb.toString();
   }

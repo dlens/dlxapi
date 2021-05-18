@@ -15,7 +15,6 @@ package com.decisionlens.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.decisionlens.client.model.Field;
 import com.decisionlens.client.model.PermissionType;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -25,6 +24,8 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Permission
@@ -34,8 +35,11 @@ public class Permission {
   @SerializedName("type")
   private PermissionType type = null;
 
-  @SerializedName("field")
-  private Field field = null;
+  @SerializedName("fieldIds")
+  private List<String> fieldIds = null;
+
+  @SerializedName("projectIds")
+  private List<String> projectIds = null;
 
   @SerializedName("enabled")
   private Boolean enabled = null;
@@ -58,22 +62,56 @@ public class Permission {
     this.type = type;
   }
 
-  public Permission field(Field field) {
-    this.field = field;
+  public Permission fieldIds(List<String> fieldIds) {
+    this.fieldIds = fieldIds;
+    return this;
+  }
+
+  public Permission addFieldIdsItem(String fieldIdsItem) {
+    if (this.fieldIds == null) {
+      this.fieldIds = new ArrayList<String>();
+    }
+    this.fieldIds.add(fieldIdsItem);
     return this;
   }
 
    /**
-   * Get field
-   * @return field
+   * Get fieldIds
+   * @return fieldIds
   **/
   @ApiModelProperty(value = "")
-  public Field getField() {
-    return field;
+  public List<String> getFieldIds() {
+    return fieldIds;
   }
 
-  public void setField(Field field) {
-    this.field = field;
+  public void setFieldIds(List<String> fieldIds) {
+    this.fieldIds = fieldIds;
+  }
+
+  public Permission projectIds(List<String> projectIds) {
+    this.projectIds = projectIds;
+    return this;
+  }
+
+  public Permission addProjectIdsItem(String projectIdsItem) {
+    if (this.projectIds == null) {
+      this.projectIds = new ArrayList<String>();
+    }
+    this.projectIds.add(projectIdsItem);
+    return this;
+  }
+
+   /**
+   * Get projectIds
+   * @return projectIds
+  **/
+  @ApiModelProperty(value = "")
+  public List<String> getProjectIds() {
+    return projectIds;
+  }
+
+  public void setProjectIds(List<String> projectIds) {
+    this.projectIds = projectIds;
   }
 
   public Permission enabled(Boolean enabled) {
@@ -105,13 +143,14 @@ public class Permission {
     }
     Permission permission = (Permission) o;
     return Objects.equals(this.type, permission.type) &&
-        Objects.equals(this.field, permission.field) &&
+        Objects.equals(this.fieldIds, permission.fieldIds) &&
+        Objects.equals(this.projectIds, permission.projectIds) &&
         Objects.equals(this.enabled, permission.enabled);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, field, enabled);
+    return Objects.hash(type, fieldIds, projectIds, enabled);
   }
 
 
@@ -121,7 +160,8 @@ public class Permission {
     sb.append("class Permission {\n");
     
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    field: ").append(toIndentedString(field)).append("\n");
+    sb.append("    fieldIds: ").append(toIndentedString(fieldIds)).append("\n");
+    sb.append("    projectIds: ").append(toIndentedString(projectIds)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -28,7 +28,6 @@ import java.io.IOException;
 
 
 import com.decisionlens.client.model.ErrorResponse;
-import com.decisionlens.client.model.PortfolioPlanGrades;
 import com.decisionlens.client.model.PortfolioPlanInsights;
 import com.decisionlens.client.model.WhatsIn;
 
@@ -226,151 +225,17 @@ public class PlansApi {
         return call;
     }
     /**
-     * Build call for getGradesForPortfolioPlan
-     * @param id Portfolio Plan id (required)
-     * @param startDate Start time period for which the grades are computed for. (optional)
-     * @param endDate End time period for which the grades are computed for. (optional)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call getGradesForPortfolioPlanCall(String id, Long startDate, Long endDate, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/portfolioPlans/{id}/grades"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (startDate != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("startDate", startDate));
-        if (endDate != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("endDate", endDate));
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "OAuth2" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getGradesForPortfolioPlanValidateBeforeCall(String id, Long startDate, Long endDate, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'id' is set
-        if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling getGradesForPortfolioPlan(Async)");
-        }
-        
-
-        com.squareup.okhttp.Call call = getGradesForPortfolioPlanCall(id, startDate, endDate, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Retrieves grades for portfolio plan.
-     * 
-     * @param id Portfolio Plan id (required)
-     * @param startDate Start time period for which the grades are computed for. (optional)
-     * @param endDate End time period for which the grades are computed for. (optional)
-     * @return PortfolioPlanGrades
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public PortfolioPlanGrades getGradesForPortfolioPlan(String id, Long startDate, Long endDate) throws ApiException {
-        ApiResponse<PortfolioPlanGrades> resp = getGradesForPortfolioPlanWithHttpInfo(id, startDate, endDate);
-        return resp.getData();
-    }
-
-    /**
-     * Retrieves grades for portfolio plan.
-     * 
-     * @param id Portfolio Plan id (required)
-     * @param startDate Start time period for which the grades are computed for. (optional)
-     * @param endDate End time period for which the grades are computed for. (optional)
-     * @return ApiResponse&lt;PortfolioPlanGrades&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<PortfolioPlanGrades> getGradesForPortfolioPlanWithHttpInfo(String id, Long startDate, Long endDate) throws ApiException {
-        com.squareup.okhttp.Call call = getGradesForPortfolioPlanValidateBeforeCall(id, startDate, endDate, null, null);
-        Type localVarReturnType = new TypeToken<PortfolioPlanGrades>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Retrieves grades for portfolio plan. (asynchronously)
-     * 
-     * @param id Portfolio Plan id (required)
-     * @param startDate Start time period for which the grades are computed for. (optional)
-     * @param endDate End time period for which the grades are computed for. (optional)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call getGradesForPortfolioPlanAsync(String id, Long startDate, Long endDate, final ApiCallback<PortfolioPlanGrades> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = getGradesForPortfolioPlanValidateBeforeCall(id, startDate, endDate, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<PortfolioPlanGrades>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
      * Build call for getInsightsForPortfolioPlan
      * @param id Portfolio Plan id (required)
-     * @param startDate Start time period for which the grades are computed for. (required)
-     * @param endDate End time period for which the grades are computed for. (required)
+     * @param startDate Start time period for which the insights are computed for. (required)
+     * @param endDate End time period for which the insights are computed for. (required)
+     * @param includeGrades Whether to include grades in the response. (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getInsightsForPortfolioPlanCall(String id, Long startDate, Long endDate, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getInsightsForPortfolioPlanCall(String id, Long startDate, Long endDate, Boolean includeGrades, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -383,6 +248,8 @@ public class PlansApi {
         localVarQueryParams.addAll(apiClient.parameterToPair("startDate", startDate));
         if (endDate != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("endDate", endDate));
+        if (includeGrades != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("includeGrades", includeGrades));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -417,7 +284,7 @@ public class PlansApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getInsightsForPortfolioPlanValidateBeforeCall(String id, Long startDate, Long endDate, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getInsightsForPortfolioPlanValidateBeforeCall(String id, Long startDate, Long endDate, Boolean includeGrades, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'id' is set
         if (id == null) {
@@ -434,8 +301,13 @@ public class PlansApi {
             throw new ApiException("Missing the required parameter 'endDate' when calling getInsightsForPortfolioPlan(Async)");
         }
         
+        // verify the required parameter 'includeGrades' is set
+        if (includeGrades == null) {
+            throw new ApiException("Missing the required parameter 'includeGrades' when calling getInsightsForPortfolioPlan(Async)");
+        }
+        
 
-        com.squareup.okhttp.Call call = getInsightsForPortfolioPlanCall(id, startDate, endDate, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getInsightsForPortfolioPlanCall(id, startDate, endDate, includeGrades, progressListener, progressRequestListener);
         return call;
 
     }
@@ -444,13 +316,14 @@ public class PlansApi {
      * Retrieves insights for portfolio plan.
      * 
      * @param id Portfolio Plan id (required)
-     * @param startDate Start time period for which the grades are computed for. (required)
-     * @param endDate End time period for which the grades are computed for. (required)
+     * @param startDate Start time period for which the insights are computed for. (required)
+     * @param endDate End time period for which the insights are computed for. (required)
+     * @param includeGrades Whether to include grades in the response. (required)
      * @return PortfolioPlanInsights
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public PortfolioPlanInsights getInsightsForPortfolioPlan(String id, Long startDate, Long endDate) throws ApiException {
-        ApiResponse<PortfolioPlanInsights> resp = getInsightsForPortfolioPlanWithHttpInfo(id, startDate, endDate);
+    public PortfolioPlanInsights getInsightsForPortfolioPlan(String id, Long startDate, Long endDate, Boolean includeGrades) throws ApiException {
+        ApiResponse<PortfolioPlanInsights> resp = getInsightsForPortfolioPlanWithHttpInfo(id, startDate, endDate, includeGrades);
         return resp.getData();
     }
 
@@ -458,13 +331,14 @@ public class PlansApi {
      * Retrieves insights for portfolio plan.
      * 
      * @param id Portfolio Plan id (required)
-     * @param startDate Start time period for which the grades are computed for. (required)
-     * @param endDate End time period for which the grades are computed for. (required)
+     * @param startDate Start time period for which the insights are computed for. (required)
+     * @param endDate End time period for which the insights are computed for. (required)
+     * @param includeGrades Whether to include grades in the response. (required)
      * @return ApiResponse&lt;PortfolioPlanInsights&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<PortfolioPlanInsights> getInsightsForPortfolioPlanWithHttpInfo(String id, Long startDate, Long endDate) throws ApiException {
-        com.squareup.okhttp.Call call = getInsightsForPortfolioPlanValidateBeforeCall(id, startDate, endDate, null, null);
+    public ApiResponse<PortfolioPlanInsights> getInsightsForPortfolioPlanWithHttpInfo(String id, Long startDate, Long endDate, Boolean includeGrades) throws ApiException {
+        com.squareup.okhttp.Call call = getInsightsForPortfolioPlanValidateBeforeCall(id, startDate, endDate, includeGrades, null, null);
         Type localVarReturnType = new TypeToken<PortfolioPlanInsights>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -473,13 +347,14 @@ public class PlansApi {
      * Retrieves insights for portfolio plan. (asynchronously)
      * 
      * @param id Portfolio Plan id (required)
-     * @param startDate Start time period for which the grades are computed for. (required)
-     * @param endDate End time period for which the grades are computed for. (required)
+     * @param startDate Start time period for which the insights are computed for. (required)
+     * @param endDate End time period for which the insights are computed for. (required)
+     * @param includeGrades Whether to include grades in the response. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getInsightsForPortfolioPlanAsync(String id, Long startDate, Long endDate, final ApiCallback<PortfolioPlanInsights> callback) throws ApiException {
+    public com.squareup.okhttp.Call getInsightsForPortfolioPlanAsync(String id, Long startDate, Long endDate, Boolean includeGrades, final ApiCallback<PortfolioPlanInsights> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -500,7 +375,152 @@ public class PlansApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getInsightsForPortfolioPlanValidateBeforeCall(id, startDate, endDate, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getInsightsForPortfolioPlanValidateBeforeCall(id, startDate, endDate, includeGrades, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<PortfolioPlanInsights>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getValueInsightsForPortfolioPlan
+     * @param id Portfolio Plan id (required)
+     * @param startDate Start time period for which the grades are computed for. (required)
+     * @param endDate End time period for which the grades are computed for. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getValueInsightsForPortfolioPlanCall(String id, Long startDate, Long endDate, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/portfolioPlans/{id}/insights/value"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (startDate != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("startDate", startDate));
+        if (endDate != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("endDate", endDate));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "OAuth2" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getValueInsightsForPortfolioPlanValidateBeforeCall(String id, Long startDate, Long endDate, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling getValueInsightsForPortfolioPlan(Async)");
+        }
+        
+        // verify the required parameter 'startDate' is set
+        if (startDate == null) {
+            throw new ApiException("Missing the required parameter 'startDate' when calling getValueInsightsForPortfolioPlan(Async)");
+        }
+        
+        // verify the required parameter 'endDate' is set
+        if (endDate == null) {
+            throw new ApiException("Missing the required parameter 'endDate' when calling getValueInsightsForPortfolioPlan(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = getValueInsightsForPortfolioPlanCall(id, startDate, endDate, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Retrieves value insights for portfolio plan.
+     * 
+     * @param id Portfolio Plan id (required)
+     * @param startDate Start time period for which the grades are computed for. (required)
+     * @param endDate End time period for which the grades are computed for. (required)
+     * @return PortfolioPlanInsights
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public PortfolioPlanInsights getValueInsightsForPortfolioPlan(String id, Long startDate, Long endDate) throws ApiException {
+        ApiResponse<PortfolioPlanInsights> resp = getValueInsightsForPortfolioPlanWithHttpInfo(id, startDate, endDate);
+        return resp.getData();
+    }
+
+    /**
+     * Retrieves value insights for portfolio plan.
+     * 
+     * @param id Portfolio Plan id (required)
+     * @param startDate Start time period for which the grades are computed for. (required)
+     * @param endDate End time period for which the grades are computed for. (required)
+     * @return ApiResponse&lt;PortfolioPlanInsights&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<PortfolioPlanInsights> getValueInsightsForPortfolioPlanWithHttpInfo(String id, Long startDate, Long endDate) throws ApiException {
+        com.squareup.okhttp.Call call = getValueInsightsForPortfolioPlanValidateBeforeCall(id, startDate, endDate, null, null);
+        Type localVarReturnType = new TypeToken<PortfolioPlanInsights>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Retrieves value insights for portfolio plan. (asynchronously)
+     * 
+     * @param id Portfolio Plan id (required)
+     * @param startDate Start time period for which the grades are computed for. (required)
+     * @param endDate End time period for which the grades are computed for. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getValueInsightsForPortfolioPlanAsync(String id, Long startDate, Long endDate, final ApiCallback<PortfolioPlanInsights> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getValueInsightsForPortfolioPlanValidateBeforeCall(id, startDate, endDate, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<PortfolioPlanInsights>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

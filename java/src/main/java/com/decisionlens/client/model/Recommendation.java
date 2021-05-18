@@ -16,7 +16,7 @@ package com.decisionlens.client.model;
 import java.util.Objects;
 import java.util.Arrays;
 import com.decisionlens.client.model.FieldValues;
-import com.decisionlens.client.model.PortfolioPlanGrades;
+import com.decisionlens.client.model.PortfolioPlanInsights;
 import com.decisionlens.client.model.Project;
 import com.decisionlens.client.model.RecommendationType;
 import com.google.gson.TypeAdapter;
@@ -39,8 +39,8 @@ public class Recommendation {
   @SerializedName("fieldValues")
   private FieldValues fieldValues = null;
 
-  @SerializedName("portfolioPlanGrades")
-  private PortfolioPlanGrades portfolioPlanGrades = null;
+  @SerializedName("portfolioPlanInsights")
+  private PortfolioPlanInsights portfolioPlanInsights = null;
 
   @SerializedName("project")
   private Project project = null;
@@ -81,22 +81,22 @@ public class Recommendation {
     this.fieldValues = fieldValues;
   }
 
-  public Recommendation portfolioPlanGrades(PortfolioPlanGrades portfolioPlanGrades) {
-    this.portfolioPlanGrades = portfolioPlanGrades;
+  public Recommendation portfolioPlanInsights(PortfolioPlanInsights portfolioPlanInsights) {
+    this.portfolioPlanInsights = portfolioPlanInsights;
     return this;
   }
 
    /**
-   * Get portfolioPlanGrades
-   * @return portfolioPlanGrades
+   * Get portfolioPlanInsights
+   * @return portfolioPlanInsights
   **/
   @ApiModelProperty(value = "")
-  public PortfolioPlanGrades getPortfolioPlanGrades() {
-    return portfolioPlanGrades;
+  public PortfolioPlanInsights getPortfolioPlanInsights() {
+    return portfolioPlanInsights;
   }
 
-  public void setPortfolioPlanGrades(PortfolioPlanGrades portfolioPlanGrades) {
-    this.portfolioPlanGrades = portfolioPlanGrades;
+  public void setPortfolioPlanInsights(PortfolioPlanInsights portfolioPlanInsights) {
+    this.portfolioPlanInsights = portfolioPlanInsights;
   }
 
   public Recommendation project(Project project) {
@@ -129,13 +129,13 @@ public class Recommendation {
     Recommendation recommendation = (Recommendation) o;
     return Objects.equals(this.type, recommendation.type) &&
         Objects.equals(this.fieldValues, recommendation.fieldValues) &&
-        Objects.equals(this.portfolioPlanGrades, recommendation.portfolioPlanGrades) &&
+        Objects.equals(this.portfolioPlanInsights, recommendation.portfolioPlanInsights) &&
         Objects.equals(this.project, recommendation.project);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, fieldValues, portfolioPlanGrades, project);
+    return Objects.hash(type, fieldValues, portfolioPlanInsights, project);
   }
 
 
@@ -146,7 +146,7 @@ public class Recommendation {
     
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    fieldValues: ").append(toIndentedString(fieldValues)).append("\n");
-    sb.append("    portfolioPlanGrades: ").append(toIndentedString(portfolioPlanGrades)).append("\n");
+    sb.append("    portfolioPlanInsights: ").append(toIndentedString(portfolioPlanInsights)).append("\n");
     sb.append("    project: ").append(toIndentedString(project)).append("\n");
     sb.append("}");
     return sb.toString();

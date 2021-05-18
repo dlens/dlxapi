@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **resourcePools** | [**ResourcePools**](ResourcePools.md) |  |  [optional]
 **totalBudget** | **Double** |  |  [optional]
 **newNotificationsCount** | **Integer** |  |  [optional]
+**customNames** | [**CustomNames**](CustomNames.md) |  |  [optional]
 
 
 

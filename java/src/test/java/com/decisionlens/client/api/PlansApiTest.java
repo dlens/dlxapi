@@ -15,7 +15,6 @@ package com.decisionlens.client.api;
 
 import com.decisionlens.client.ApiException;
 import com.decisionlens.client.model.ErrorResponse;
-import com.decisionlens.client.model.PortfolioPlanGrades;
 import com.decisionlens.client.model.PortfolioPlanInsights;
 import com.decisionlens.client.model.WhatsIn;
 import org.junit.Test;
@@ -56,24 +55,6 @@ public class PlansApiTest {
     }
     
     /**
-     * Retrieves grades for portfolio plan.
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void getGradesForPortfolioPlanTest() throws ApiException {
-        String id = null;
-        Long startDate = null;
-        Long endDate = null;
-        PortfolioPlanGrades response = api.getGradesForPortfolioPlan(id, startDate, endDate);
-
-        // TODO: test validations
-    }
-    
-    /**
      * Retrieves insights for portfolio plan.
      *
      * 
@@ -86,7 +67,26 @@ public class PlansApiTest {
         String id = null;
         Long startDate = null;
         Long endDate = null;
-        PortfolioPlanInsights response = api.getInsightsForPortfolioPlan(id, startDate, endDate);
+        Boolean includeGrades = null;
+        PortfolioPlanInsights response = api.getInsightsForPortfolioPlan(id, startDate, endDate, includeGrades);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Retrieves value insights for portfolio plan.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getValueInsightsForPortfolioPlanTest() throws ApiException {
+        String id = null;
+        Long startDate = null;
+        Long endDate = null;
+        PortfolioPlanInsights response = api.getValueInsightsForPortfolioPlan(id, startDate, endDate);
 
         // TODO: test validations
     }

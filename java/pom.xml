@@ -5,7 +5,7 @@
     <artifactId>dl-api-client</artifactId>
     <packaging>jar</packaging>
     <name>dl-api-client</name>
-    <version>1.0.0</version>
+    <version>3.0.0</version>
     <url>https://github.com/swagger-api/swagger-codegen</url>
     <description>Swagger Java</description>
     <scm>

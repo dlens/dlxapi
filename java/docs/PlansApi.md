@@ -5,8 +5,8 @@ All URIs are relative to *http://localhost:9005/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**exportWhatsIn**](PlansApi.md#exportWhatsIn) | **GET** /portfolioPlans/whatsin/export | Export Whats In Comparison
-[**getGradesForPortfolioPlan**](PlansApi.md#getGradesForPortfolioPlan) | **GET** /portfolioPlans/{id}/grades | Retrieves grades for portfolio plan.
 [**getInsightsForPortfolioPlan**](PlansApi.md#getInsightsForPortfolioPlan) | **GET** /portfolioPlans/{id}/insights | Retrieves insights for portfolio plan.
+[**getValueInsightsForPortfolioPlan**](PlansApi.md#getValueInsightsForPortfolioPlan) | **GET** /portfolioPlans/{id}/insights/value | Retrieves value insights for portfolio plan.
 [**getWhatsIn**](PlansApi.md#getWhatsIn) | **GET** /portfolioPlans/whatsin | Retrieves portfolioPlans with projects for WhatsIn
 
 
@@ -69,64 +69,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 
-<a name="getGradesForPortfolioPlan"></a>
-# **getGradesForPortfolioPlan**
-> PortfolioPlanGrades getGradesForPortfolioPlan(id, startDate, endDate)
-
-Retrieves grades for portfolio plan.
-
-### Example
-```java
-// Import classes:
-//import com.decisionlens.client.ApiClient;
-//import com.decisionlens.client.ApiException;
-//import com.decisionlens.client.Configuration;
-//import com.decisionlens.client.auth.*;
-//import com.decisionlens.client.api.PlansApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: OAuth2
-OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
-OAuth2.setAccessToken("YOUR ACCESS TOKEN");
-
-PlansApi apiInstance = new PlansApi();
-String id = "id_example"; // String | Portfolio Plan id
-Long startDate = 789L; // Long | Start time period for which the grades are computed for.
-Long endDate = 789L; // Long | End time period for which the grades are computed for.
-try {
-    PortfolioPlanGrades result = apiInstance.getGradesForPortfolioPlan(id, startDate, endDate);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling PlansApi#getGradesForPortfolioPlan");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **String**| Portfolio Plan id |
- **startDate** | **Long**| Start time period for which the grades are computed for. | [optional]
- **endDate** | **Long**| End time period for which the grades are computed for. | [optional]
-
-### Return type
-
-[**PortfolioPlanGrades**](PortfolioPlanGrades.md)
-
-### Authorization
-
-[OAuth2](../README.md#OAuth2)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
 <a name="getInsightsForPortfolioPlan"></a>
 # **getInsightsForPortfolioPlan**
-> PortfolioPlanInsights getInsightsForPortfolioPlan(id, startDate, endDate)
+> PortfolioPlanInsights getInsightsForPortfolioPlan(id, startDate, endDate, includeGrades)
 
 Retrieves insights for portfolio plan.
 
@@ -147,13 +92,70 @@ OAuth2.setAccessToken("YOUR ACCESS TOKEN");
 
 PlansApi apiInstance = new PlansApi();
 String id = "id_example"; // String | Portfolio Plan id
-Long startDate = 789L; // Long | Start time period for which the grades are computed for.
-Long endDate = 789L; // Long | End time period for which the grades are computed for.
+Long startDate = 789L; // Long | Start time period for which the insights are computed for.
+Long endDate = 789L; // Long | End time period for which the insights are computed for.
+Boolean includeGrades = false; // Boolean | Whether to include grades in the response.
 try {
-    PortfolioPlanInsights result = apiInstance.getInsightsForPortfolioPlan(id, startDate, endDate);
+    PortfolioPlanInsights result = apiInstance.getInsightsForPortfolioPlan(id, startDate, endDate, includeGrades);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PlansApi#getInsightsForPortfolioPlan");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| Portfolio Plan id |
+ **startDate** | **Long**| Start time period for which the insights are computed for. |
+ **endDate** | **Long**| End time period for which the insights are computed for. |
+ **includeGrades** | **Boolean**| Whether to include grades in the response. | [default to false]
+
+### Return type
+
+[**PortfolioPlanInsights**](PortfolioPlanInsights.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getValueInsightsForPortfolioPlan"></a>
+# **getValueInsightsForPortfolioPlan**
+> PortfolioPlanInsights getValueInsightsForPortfolioPlan(id, startDate, endDate)
+
+Retrieves value insights for portfolio plan.
+
+### Example
+```java
+// Import classes:
+//import com.decisionlens.client.ApiClient;
+//import com.decisionlens.client.ApiException;
+//import com.decisionlens.client.Configuration;
+//import com.decisionlens.client.auth.*;
+//import com.decisionlens.client.api.PlansApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: OAuth2
+OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+PlansApi apiInstance = new PlansApi();
+String id = "id_example"; // String | Portfolio Plan id
+Long startDate = 789L; // Long | Start time period for which the grades are computed for.
+Long endDate = 789L; // Long | End time period for which the grades are computed for.
+try {
+    PortfolioPlanInsights result = apiInstance.getValueInsightsForPortfolioPlan(id, startDate, endDate);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling PlansApi#getValueInsightsForPortfolioPlan");
     e.printStackTrace();
 }
 ```

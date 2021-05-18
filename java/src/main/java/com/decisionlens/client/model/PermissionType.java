@@ -31,7 +31,11 @@ public enum PermissionType {
   
   ALL_FIELDS("ALL_FIELDS"),
   
-  FIELD("FIELD"),
+  ALL_PROJECTS("ALL_PROJECTS"),
+  
+  FIELDS("FIELDS"),
+  
+  PROJECTS("PROJECTS"),
   
   ALLOCATE("ALLOCATE"),
   

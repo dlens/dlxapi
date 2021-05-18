@@ -29,6 +29,8 @@ import java.io.IOException;
 
 import com.decisionlens.client.model.ErrorResponse;
 import com.decisionlens.client.model.ResourcePool;
+import com.decisionlens.client.model.ResourcePoolBudgetAmountPatchItem;
+import com.decisionlens.client.model.ResourcePools;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -58,12 +60,13 @@ public class ResourcePoolsApi {
     /**
      * Build call for getResourcePool
      * @param id Resource Pool id (required)
+     * @param portfolioPlanId Portfolio Plan id (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getResourcePoolCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getResourcePoolCall(String id, String portfolioPlanId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -72,6 +75,8 @@ public class ResourcePoolsApi {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (portfolioPlanId != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("portfolioPlanId", portfolioPlanId));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -106,7 +111,7 @@ public class ResourcePoolsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getResourcePoolValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getResourcePoolValidateBeforeCall(String id, String portfolioPlanId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'id' is set
         if (id == null) {
@@ -114,7 +119,7 @@ public class ResourcePoolsApi {
         }
         
 
-        com.squareup.okhttp.Call call = getResourcePoolCall(id, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getResourcePoolCall(id, portfolioPlanId, progressListener, progressRequestListener);
         return call;
 
     }
@@ -123,11 +128,12 @@ public class ResourcePoolsApi {
      * Retrieves a resource pool.
      * 
      * @param id Resource Pool id (required)
+     * @param portfolioPlanId Portfolio Plan id (optional)
      * @return ResourcePool
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ResourcePool getResourcePool(String id) throws ApiException {
-        ApiResponse<ResourcePool> resp = getResourcePoolWithHttpInfo(id);
+    public ResourcePool getResourcePool(String id, String portfolioPlanId) throws ApiException {
+        ApiResponse<ResourcePool> resp = getResourcePoolWithHttpInfo(id, portfolioPlanId);
         return resp.getData();
     }
 
@@ -135,11 +141,12 @@ public class ResourcePoolsApi {
      * Retrieves a resource pool.
      * 
      * @param id Resource Pool id (required)
+     * @param portfolioPlanId Portfolio Plan id (optional)
      * @return ApiResponse&lt;ResourcePool&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ResourcePool> getResourcePoolWithHttpInfo(String id) throws ApiException {
-        com.squareup.okhttp.Call call = getResourcePoolValidateBeforeCall(id, null, null);
+    public ApiResponse<ResourcePool> getResourcePoolWithHttpInfo(String id, String portfolioPlanId) throws ApiException {
+        com.squareup.okhttp.Call call = getResourcePoolValidateBeforeCall(id, portfolioPlanId, null, null);
         Type localVarReturnType = new TypeToken<ResourcePool>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -148,11 +155,12 @@ public class ResourcePoolsApi {
      * Retrieves a resource pool. (asynchronously)
      * 
      * @param id Resource Pool id (required)
+     * @param portfolioPlanId Portfolio Plan id (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getResourcePoolAsync(String id, final ApiCallback<ResourcePool> callback) throws ApiException {
+    public com.squareup.okhttp.Call getResourcePoolAsync(String id, String portfolioPlanId, final ApiCallback<ResourcePool> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -173,8 +181,301 @@ public class ResourcePoolsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getResourcePoolValidateBeforeCall(id, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getResourcePoolValidateBeforeCall(id, portfolioPlanId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ResourcePool>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getResourcePoolsForPortfolioPlan
+     * @param portfolioPlanId Portfolio Plan id (required)
+     * @param planOverridesOnly Returns only plan overrides. default is false. (optional, default to false)
+     * @param expand JSON string containing an array expand specifications for fields.  An expand specification must have a path and includes optional properties match, unique, allPossible, limit, offset, orderBy. (optional)
+     * @param limit Pagination limit (optional)
+     * @param offset Pagination offset (optional)
+     * @param orderBy Comma delimited list of order by expressions. Use &#39;-&#39; in front of expression for reverse order. (optional)
+     * @param match Semi-colon delimited list of expressions to include in the response only the items in a collections that satisfy the expression(s). All other items should be exluded. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getResourcePoolsForPortfolioPlanCall(String portfolioPlanId, Boolean planOverridesOnly, String expand, Integer limit, Integer offset, String orderBy, String match, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/resourcePools";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (portfolioPlanId != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("portfolioPlanId", portfolioPlanId));
+        if (planOverridesOnly != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("planOverridesOnly", planOverridesOnly));
+        if (expand != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("expand", expand));
+        if (limit != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
+        if (offset != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("offset", offset));
+        if (orderBy != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("orderBy", orderBy));
+        if (match != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("match", match));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "OAuth2" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getResourcePoolsForPortfolioPlanValidateBeforeCall(String portfolioPlanId, Boolean planOverridesOnly, String expand, Integer limit, Integer offset, String orderBy, String match, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'portfolioPlanId' is set
+        if (portfolioPlanId == null) {
+            throw new ApiException("Missing the required parameter 'portfolioPlanId' when calling getResourcePoolsForPortfolioPlan(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = getResourcePoolsForPortfolioPlanCall(portfolioPlanId, planOverridesOnly, expand, limit, offset, orderBy, match, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Fetch resource pools for portfolio plan
+     * 
+     * @param portfolioPlanId Portfolio Plan id (required)
+     * @param planOverridesOnly Returns only plan overrides. default is false. (optional, default to false)
+     * @param expand JSON string containing an array expand specifications for fields.  An expand specification must have a path and includes optional properties match, unique, allPossible, limit, offset, orderBy. (optional)
+     * @param limit Pagination limit (optional)
+     * @param offset Pagination offset (optional)
+     * @param orderBy Comma delimited list of order by expressions. Use &#39;-&#39; in front of expression for reverse order. (optional)
+     * @param match Semi-colon delimited list of expressions to include in the response only the items in a collections that satisfy the expression(s). All other items should be exluded. (optional)
+     * @return ResourcePools
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ResourcePools getResourcePoolsForPortfolioPlan(String portfolioPlanId, Boolean planOverridesOnly, String expand, Integer limit, Integer offset, String orderBy, String match) throws ApiException {
+        ApiResponse<ResourcePools> resp = getResourcePoolsForPortfolioPlanWithHttpInfo(portfolioPlanId, planOverridesOnly, expand, limit, offset, orderBy, match);
+        return resp.getData();
+    }
+
+    /**
+     * Fetch resource pools for portfolio plan
+     * 
+     * @param portfolioPlanId Portfolio Plan id (required)
+     * @param planOverridesOnly Returns only plan overrides. default is false. (optional, default to false)
+     * @param expand JSON string containing an array expand specifications for fields.  An expand specification must have a path and includes optional properties match, unique, allPossible, limit, offset, orderBy. (optional)
+     * @param limit Pagination limit (optional)
+     * @param offset Pagination offset (optional)
+     * @param orderBy Comma delimited list of order by expressions. Use &#39;-&#39; in front of expression for reverse order. (optional)
+     * @param match Semi-colon delimited list of expressions to include in the response only the items in a collections that satisfy the expression(s). All other items should be exluded. (optional)
+     * @return ApiResponse&lt;ResourcePools&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ResourcePools> getResourcePoolsForPortfolioPlanWithHttpInfo(String portfolioPlanId, Boolean planOverridesOnly, String expand, Integer limit, Integer offset, String orderBy, String match) throws ApiException {
+        com.squareup.okhttp.Call call = getResourcePoolsForPortfolioPlanValidateBeforeCall(portfolioPlanId, planOverridesOnly, expand, limit, offset, orderBy, match, null, null);
+        Type localVarReturnType = new TypeToken<ResourcePools>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Fetch resource pools for portfolio plan (asynchronously)
+     * 
+     * @param portfolioPlanId Portfolio Plan id (required)
+     * @param planOverridesOnly Returns only plan overrides. default is false. (optional, default to false)
+     * @param expand JSON string containing an array expand specifications for fields.  An expand specification must have a path and includes optional properties match, unique, allPossible, limit, offset, orderBy. (optional)
+     * @param limit Pagination limit (optional)
+     * @param offset Pagination offset (optional)
+     * @param orderBy Comma delimited list of order by expressions. Use &#39;-&#39; in front of expression for reverse order. (optional)
+     * @param match Semi-colon delimited list of expressions to include in the response only the items in a collections that satisfy the expression(s). All other items should be exluded. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getResourcePoolsForPortfolioPlanAsync(String portfolioPlanId, Boolean planOverridesOnly, String expand, Integer limit, Integer offset, String orderBy, String match, final ApiCallback<ResourcePools> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getResourcePoolsForPortfolioPlanValidateBeforeCall(portfolioPlanId, planOverridesOnly, expand, limit, offset, orderBy, match, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ResourcePools>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for updateResourcePoolBudgetAmountsForPortfolioPlan
+     * @param portfolioPlanId Portfolio Plan id (required)
+     * @param body JSON Patch Operations to update multiple resource pool budget amounts (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call updateResourcePoolBudgetAmountsForPortfolioPlanCall(String portfolioPlanId, List<ResourcePoolBudgetAmountPatchItem> body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+
+        // create path and map variables
+        String localVarPath = "/resourcePools";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (portfolioPlanId != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("portfolioPlanId", portfolioPlanId));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json-patch+json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "OAuth2" };
+        return apiClient.buildCall(localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call updateResourcePoolBudgetAmountsForPortfolioPlanValidateBeforeCall(String portfolioPlanId, List<ResourcePoolBudgetAmountPatchItem> body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'portfolioPlanId' is set
+        if (portfolioPlanId == null) {
+            throw new ApiException("Missing the required parameter 'portfolioPlanId' when calling updateResourcePoolBudgetAmountsForPortfolioPlan(Async)");
+        }
+        
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling updateResourcePoolBudgetAmountsForPortfolioPlan(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = updateResourcePoolBudgetAmountsForPortfolioPlanCall(portfolioPlanId, body, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Update resource pool budget amounts in a portfolio plan
+     * 
+     * @param portfolioPlanId Portfolio Plan id (required)
+     * @param body JSON Patch Operations to update multiple resource pool budget amounts (required)
+     * @return List&lt;ResourcePool&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<ResourcePool> updateResourcePoolBudgetAmountsForPortfolioPlan(String portfolioPlanId, List<ResourcePoolBudgetAmountPatchItem> body) throws ApiException {
+        ApiResponse<List<ResourcePool>> resp = updateResourcePoolBudgetAmountsForPortfolioPlanWithHttpInfo(portfolioPlanId, body);
+        return resp.getData();
+    }
+
+    /**
+     * Update resource pool budget amounts in a portfolio plan
+     * 
+     * @param portfolioPlanId Portfolio Plan id (required)
+     * @param body JSON Patch Operations to update multiple resource pool budget amounts (required)
+     * @return ApiResponse&lt;List&lt;ResourcePool&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<ResourcePool>> updateResourcePoolBudgetAmountsForPortfolioPlanWithHttpInfo(String portfolioPlanId, List<ResourcePoolBudgetAmountPatchItem> body) throws ApiException {
+        com.squareup.okhttp.Call call = updateResourcePoolBudgetAmountsForPortfolioPlanValidateBeforeCall(portfolioPlanId, body, null, null);
+        Type localVarReturnType = new TypeToken<List<ResourcePool>>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Update resource pool budget amounts in a portfolio plan (asynchronously)
+     * 
+     * @param portfolioPlanId Portfolio Plan id (required)
+     * @param body JSON Patch Operations to update multiple resource pool budget amounts (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call updateResourcePoolBudgetAmountsForPortfolioPlanAsync(String portfolioPlanId, List<ResourcePoolBudgetAmountPatchItem> body, final ApiCallback<List<ResourcePool>> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = updateResourcePoolBudgetAmountsForPortfolioPlanValidateBeforeCall(portfolioPlanId, body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<List<ResourcePool>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

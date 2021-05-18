@@ -461,12 +461,13 @@ public class PortfolioPlansApi {
      * Build call for createProjectsInPortfolioPlan
      * @param id Portfolio plan id (required)
      * @param body Projects to create (required)
+     * @param doNotExpand Whether to return collections for each project in the response. Default is to return saved field values. (optional, default to false)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call createProjectsInPortfolioPlanCall(String id, List<Project> body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call createProjectsInPortfolioPlanCall(String id, List<Project> body, Boolean doNotExpand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
 
         // create path and map variables
@@ -475,6 +476,8 @@ public class PortfolioPlansApi {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (doNotExpand != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("doNotExpand", doNotExpand));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -509,7 +512,7 @@ public class PortfolioPlansApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call createProjectsInPortfolioPlanValidateBeforeCall(String id, List<Project> body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call createProjectsInPortfolioPlanValidateBeforeCall(String id, List<Project> body, Boolean doNotExpand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'id' is set
         if (id == null) {
@@ -522,7 +525,7 @@ public class PortfolioPlansApi {
         }
         
 
-        com.squareup.okhttp.Call call = createProjectsInPortfolioPlanCall(id, body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = createProjectsInPortfolioPlanCall(id, body, doNotExpand, progressListener, progressRequestListener);
         return call;
 
     }
@@ -532,11 +535,12 @@ public class PortfolioPlansApi {
      * 
      * @param id Portfolio plan id (required)
      * @param body Projects to create (required)
+     * @param doNotExpand Whether to return collections for each project in the response. Default is to return saved field values. (optional, default to false)
      * @return List&lt;Project&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<Project> createProjectsInPortfolioPlan(String id, List<Project> body) throws ApiException {
-        ApiResponse<List<Project>> resp = createProjectsInPortfolioPlanWithHttpInfo(id, body);
+    public List<Project> createProjectsInPortfolioPlan(String id, List<Project> body, Boolean doNotExpand) throws ApiException {
+        ApiResponse<List<Project>> resp = createProjectsInPortfolioPlanWithHttpInfo(id, body, doNotExpand);
         return resp.getData();
     }
 
@@ -545,11 +549,12 @@ public class PortfolioPlansApi {
      * 
      * @param id Portfolio plan id (required)
      * @param body Projects to create (required)
+     * @param doNotExpand Whether to return collections for each project in the response. Default is to return saved field values. (optional, default to false)
      * @return ApiResponse&lt;List&lt;Project&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<Project>> createProjectsInPortfolioPlanWithHttpInfo(String id, List<Project> body) throws ApiException {
-        com.squareup.okhttp.Call call = createProjectsInPortfolioPlanValidateBeforeCall(id, body, null, null);
+    public ApiResponse<List<Project>> createProjectsInPortfolioPlanWithHttpInfo(String id, List<Project> body, Boolean doNotExpand) throws ApiException {
+        com.squareup.okhttp.Call call = createProjectsInPortfolioPlanValidateBeforeCall(id, body, doNotExpand, null, null);
         Type localVarReturnType = new TypeToken<List<Project>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -559,11 +564,12 @@ public class PortfolioPlansApi {
      * 
      * @param id Portfolio plan id (required)
      * @param body Projects to create (required)
+     * @param doNotExpand Whether to return collections for each project in the response. Default is to return saved field values. (optional, default to false)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call createProjectsInPortfolioPlanAsync(String id, List<Project> body, final ApiCallback<List<Project>> callback) throws ApiException {
+    public com.squareup.okhttp.Call createProjectsInPortfolioPlanAsync(String id, List<Project> body, Boolean doNotExpand, final ApiCallback<List<Project>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -584,7 +590,7 @@ public class PortfolioPlansApi {
             };
         }
 
-        com.squareup.okhttp.Call call = createProjectsInPortfolioPlanValidateBeforeCall(id, body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = createProjectsInPortfolioPlanValidateBeforeCall(id, body, doNotExpand, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<Project>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

@@ -61,12 +61,13 @@ public class MappingsApi {
     /**
      * Build call for spreadsheetToMappings
      * @param file maybe put supported file types here? (required)
+     * @param columnsOnly return columns only the case for cost import (optional, default to true)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call spreadsheetToMappingsCall(File file, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call spreadsheetToMappingsCall(File file, Boolean columnsOnly, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -74,6 +75,8 @@ public class MappingsApi {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (columnsOnly != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("columnsOnly", columnsOnly));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -110,7 +113,7 @@ public class MappingsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call spreadsheetToMappingsValidateBeforeCall(File file, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call spreadsheetToMappingsValidateBeforeCall(File file, Boolean columnsOnly, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'file' is set
         if (file == null) {
@@ -118,7 +121,7 @@ public class MappingsApi {
         }
         
 
-        com.squareup.okhttp.Call call = spreadsheetToMappingsCall(file, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = spreadsheetToMappingsCall(file, columnsOnly, progressListener, progressRequestListener);
         return call;
 
     }
@@ -127,11 +130,12 @@ public class MappingsApi {
      * Accepts upload of spreadsheet and converts data into mappings.
      * Maps the fields in the spreadsheet to appropriate buckets
      * @param file maybe put supported file types here? (required)
+     * @param columnsOnly return columns only the case for cost import (optional, default to true)
      * @return Mappings
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Mappings spreadsheetToMappings(File file) throws ApiException {
-        ApiResponse<Mappings> resp = spreadsheetToMappingsWithHttpInfo(file);
+    public Mappings spreadsheetToMappings(File file, Boolean columnsOnly) throws ApiException {
+        ApiResponse<Mappings> resp = spreadsheetToMappingsWithHttpInfo(file, columnsOnly);
         return resp.getData();
     }
 
@@ -139,11 +143,12 @@ public class MappingsApi {
      * Accepts upload of spreadsheet and converts data into mappings.
      * Maps the fields in the spreadsheet to appropriate buckets
      * @param file maybe put supported file types here? (required)
+     * @param columnsOnly return columns only the case for cost import (optional, default to true)
      * @return ApiResponse&lt;Mappings&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Mappings> spreadsheetToMappingsWithHttpInfo(File file) throws ApiException {
-        com.squareup.okhttp.Call call = spreadsheetToMappingsValidateBeforeCall(file, null, null);
+    public ApiResponse<Mappings> spreadsheetToMappingsWithHttpInfo(File file, Boolean columnsOnly) throws ApiException {
+        com.squareup.okhttp.Call call = spreadsheetToMappingsValidateBeforeCall(file, columnsOnly, null, null);
         Type localVarReturnType = new TypeToken<Mappings>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -152,11 +157,12 @@ public class MappingsApi {
      * Accepts upload of spreadsheet and converts data into mappings. (asynchronously)
      * Maps the fields in the spreadsheet to appropriate buckets
      * @param file maybe put supported file types here? (required)
+     * @param columnsOnly return columns only the case for cost import (optional, default to true)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call spreadsheetToMappingsAsync(File file, final ApiCallback<Mappings> callback) throws ApiException {
+    public com.squareup.okhttp.Call spreadsheetToMappingsAsync(File file, Boolean columnsOnly, final ApiCallback<Mappings> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -177,7 +183,7 @@ public class MappingsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = spreadsheetToMappingsValidateBeforeCall(file, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = spreadsheetToMappingsValidateBeforeCall(file, columnsOnly, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Mappings>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

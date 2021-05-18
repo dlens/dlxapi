@@ -16,6 +16,7 @@ package com.decisionlens.client.model;
 import java.util.Objects;
 import java.util.Arrays;
 import com.decisionlens.client.model.TimeInterval;
+import com.decisionlens.client.model.TimePeriodType;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -32,6 +33,12 @@ import java.io.IOException;
 public class Attributes {
   @SerializedName("timeInterval")
   private TimeInterval timeInterval = null;
+
+  @SerializedName("budgetTimePeriodType")
+  private TimePeriodType budgetTimePeriodType = null;
+
+  @SerializedName("isMonthlySpendPlan")
+  private Boolean isMonthlySpendPlan = null;
 
   public Attributes timeInterval(TimeInterval timeInterval) {
     this.timeInterval = timeInterval;
@@ -51,6 +58,42 @@ public class Attributes {
     this.timeInterval = timeInterval;
   }
 
+  public Attributes budgetTimePeriodType(TimePeriodType budgetTimePeriodType) {
+    this.budgetTimePeriodType = budgetTimePeriodType;
+    return this;
+  }
+
+   /**
+   * Get budgetTimePeriodType
+   * @return budgetTimePeriodType
+  **/
+  @ApiModelProperty(value = "")
+  public TimePeriodType getBudgetTimePeriodType() {
+    return budgetTimePeriodType;
+  }
+
+  public void setBudgetTimePeriodType(TimePeriodType budgetTimePeriodType) {
+    this.budgetTimePeriodType = budgetTimePeriodType;
+  }
+
+  public Attributes isMonthlySpendPlan(Boolean isMonthlySpendPlan) {
+    this.isMonthlySpendPlan = isMonthlySpendPlan;
+    return this;
+  }
+
+   /**
+   * Get isMonthlySpendPlan
+   * @return isMonthlySpendPlan
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isIsMonthlySpendPlan() {
+    return isMonthlySpendPlan;
+  }
+
+  public void setIsMonthlySpendPlan(Boolean isMonthlySpendPlan) {
+    this.isMonthlySpendPlan = isMonthlySpendPlan;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -61,12 +104,14 @@ public class Attributes {
       return false;
     }
     Attributes attributes = (Attributes) o;
-    return Objects.equals(this.timeInterval, attributes.timeInterval);
+    return Objects.equals(this.timeInterval, attributes.timeInterval) &&
+        Objects.equals(this.budgetTimePeriodType, attributes.budgetTimePeriodType) &&
+        Objects.equals(this.isMonthlySpendPlan, attributes.isMonthlySpendPlan);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(timeInterval);
+    return Objects.hash(timeInterval, budgetTimePeriodType, isMonthlySpendPlan);
   }
 
 
@@ -76,6 +121,8 @@ public class Attributes {
     sb.append("class Attributes {\n");
     
     sb.append("    timeInterval: ").append(toIndentedString(timeInterval)).append("\n");
+    sb.append("    budgetTimePeriodType: ").append(toIndentedString(budgetTimePeriodType)).append("\n");
+    sb.append("    isMonthlySpendPlan: ").append(toIndentedString(isMonthlySpendPlan)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -45,8 +45,11 @@ public class PortfolioPlanUser extends DlResource {
   @SerializedName("roles")
   private List<PortfolioPlanUserRole> roles = null;
 
-  @SerializedName("permissions")
-  private Permissions permissions = null;
+  @SerializedName("fieldPermissions")
+  private Permissions fieldPermissions = null;
+
+  @SerializedName("projectPermissions")
+  private Permissions projectPermissions = null;
 
   public PortfolioPlanUser user(User user) {
     this.user = user;
@@ -110,22 +113,40 @@ public class PortfolioPlanUser extends DlResource {
     this.roles = roles;
   }
 
-  public PortfolioPlanUser permissions(Permissions permissions) {
-    this.permissions = permissions;
+  public PortfolioPlanUser fieldPermissions(Permissions fieldPermissions) {
+    this.fieldPermissions = fieldPermissions;
     return this;
   }
 
    /**
-   * Get permissions
-   * @return permissions
+   * Get fieldPermissions
+   * @return fieldPermissions
   **/
   @ApiModelProperty(value = "")
-  public Permissions getPermissions() {
-    return permissions;
+  public Permissions getFieldPermissions() {
+    return fieldPermissions;
   }
 
-  public void setPermissions(Permissions permissions) {
-    this.permissions = permissions;
+  public void setFieldPermissions(Permissions fieldPermissions) {
+    this.fieldPermissions = fieldPermissions;
+  }
+
+  public PortfolioPlanUser projectPermissions(Permissions projectPermissions) {
+    this.projectPermissions = projectPermissions;
+    return this;
+  }
+
+   /**
+   * Get projectPermissions
+   * @return projectPermissions
+  **/
+  @ApiModelProperty(value = "")
+  public Permissions getProjectPermissions() {
+    return projectPermissions;
+  }
+
+  public void setProjectPermissions(Permissions projectPermissions) {
+    this.projectPermissions = projectPermissions;
   }
 
 
@@ -141,13 +162,14 @@ public class PortfolioPlanUser extends DlResource {
     return Objects.equals(this.user, portfolioPlanUser.user) &&
         Objects.equals(this.portfolioPlan, portfolioPlanUser.portfolioPlan) &&
         Objects.equals(this.roles, portfolioPlanUser.roles) &&
-        Objects.equals(this.permissions, portfolioPlanUser.permissions) &&
+        Objects.equals(this.fieldPermissions, portfolioPlanUser.fieldPermissions) &&
+        Objects.equals(this.projectPermissions, portfolioPlanUser.projectPermissions) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(user, portfolioPlan, roles, permissions, super.hashCode());
+    return Objects.hash(user, portfolioPlan, roles, fieldPermissions, projectPermissions, super.hashCode());
   }
 
 
@@ -159,7 +181,8 @@ public class PortfolioPlanUser extends DlResource {
     sb.append("    user: ").append(toIndentedString(user)).append("\n");
     sb.append("    portfolioPlan: ").append(toIndentedString(portfolioPlan)).append("\n");
     sb.append("    roles: ").append(toIndentedString(roles)).append("\n");
-    sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");
+    sb.append("    fieldPermissions: ").append(toIndentedString(fieldPermissions)).append("\n");
+    sb.append("    projectPermissions: ").append(toIndentedString(projectPermissions)).append("\n");
     sb.append("}");
     return sb.toString();
   }

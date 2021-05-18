@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 <a name="fetchDataForSource"></a>
 # **fetchDataForSource**
-> Source fetchDataForSource(id)
+> Source fetchDataForSource(id, priorityScenario)
 
 Fetch data for source.
 
@@ -31,8 +31,9 @@ OAuth2.setAccessToken("YOUR ACCESS TOKEN");
 
 SourcesApi apiInstance = new SourcesApi();
 String id = "id_example"; // String | Source id
+String priorityScenario = "priorityScenario_example"; // String | Priority Scenario name
 try {
-    Source result = apiInstance.fetchDataForSource(id);
+    Source result = apiInstance.fetchDataForSource(id, priorityScenario);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling SourcesApi#fetchDataForSource");
@@ -45,6 +46,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| Source id |
+ **priorityScenario** | **String**| Priority Scenario name | [optional]
 
 ### Return type
 

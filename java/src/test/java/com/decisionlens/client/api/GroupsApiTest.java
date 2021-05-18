@@ -110,19 +110,4 @@ public class GroupsApiTest {
         // TODO: test validations
     }
     
-    /**
-     * Reindex activity log for all groups. System Administator operation.
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void reIndexAllActivitiesTest() throws ApiException {
-        api.reIndexAllActivities();
-
-        // TODO: test validations
-    }
-    
 }

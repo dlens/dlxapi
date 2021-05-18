@@ -16,6 +16,7 @@ package com.decisionlens.client.model;
 import java.util.Objects;
 import java.util.Arrays;
 import com.decisionlens.client.model.DlResource;
+import com.decisionlens.client.model.PortfolioPlanUser;
 import com.decisionlens.client.model.User;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -25,6 +26,8 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Comment
@@ -42,6 +45,9 @@ public class Comment extends DlResource {
 
   @SerializedName("value")
   private String value = null;
+
+  @SerializedName("contributorsAdded")
+  private List<PortfolioPlanUser> contributorsAdded = null;
 
   public Comment portfolioId(String portfolioId) {
     this.portfolioId = portfolioId;
@@ -115,6 +121,32 @@ public class Comment extends DlResource {
     this.value = value;
   }
 
+  public Comment contributorsAdded(List<PortfolioPlanUser> contributorsAdded) {
+    this.contributorsAdded = contributorsAdded;
+    return this;
+  }
+
+  public Comment addContributorsAddedItem(PortfolioPlanUser contributorsAddedItem) {
+    if (this.contributorsAdded == null) {
+      this.contributorsAdded = new ArrayList<PortfolioPlanUser>();
+    }
+    this.contributorsAdded.add(contributorsAddedItem);
+    return this;
+  }
+
+   /**
+   * Get contributorsAdded
+   * @return contributorsAdded
+  **/
+  @ApiModelProperty(value = "")
+  public List<PortfolioPlanUser> getContributorsAdded() {
+    return contributorsAdded;
+  }
+
+  public void setContributorsAdded(List<PortfolioPlanUser> contributorsAdded) {
+    this.contributorsAdded = contributorsAdded;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -129,12 +161,13 @@ public class Comment extends DlResource {
         Objects.equals(this.projectId, comment.projectId) &&
         Objects.equals(this.user, comment.user) &&
         Objects.equals(this.value, comment.value) &&
+        Objects.equals(this.contributorsAdded, comment.contributorsAdded) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(portfolioId, projectId, user, value, super.hashCode());
+    return Objects.hash(portfolioId, projectId, user, value, contributorsAdded, super.hashCode());
   }
 
 
@@ -147,6 +180,7 @@ public class Comment extends DlResource {
     sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
     sb.append("    user: ").append(toIndentedString(user)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("    contributorsAdded: ").append(toIndentedString(contributorsAdded)).append("\n");
     sb.append("}");
     return sb.toString();
   }

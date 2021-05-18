@@ -18,6 +18,7 @@ import java.util.Arrays;
 import com.decisionlens.client.model.DataType;
 import com.decisionlens.client.model.DlResource;
 import com.decisionlens.client.model.FieldType;
+import com.decisionlens.client.model.ImportType;
 import com.decisionlens.client.model.TargetType;
 import com.decisionlens.client.model.TimePeriod;
 import com.google.gson.TypeAdapter;
@@ -45,11 +46,17 @@ public class Mapping extends DlResource {
   @SerializedName("type")
   private FieldType type = null;
 
+  @SerializedName("inititalType")
+  private FieldType inititalType = null;
+
   @SerializedName("targetType")
   private TargetType targetType = null;
 
   @SerializedName("dataType")
   private DataType dataType = null;
+
+  @SerializedName("importType")
+  private ImportType importType = null;
 
   @SerializedName("position")
   private Integer position = null;
@@ -120,6 +127,24 @@ public class Mapping extends DlResource {
     this.type = type;
   }
 
+  public Mapping inititalType(FieldType inititalType) {
+    this.inititalType = inititalType;
+    return this;
+  }
+
+   /**
+   * Get inititalType
+   * @return inititalType
+  **/
+  @ApiModelProperty(value = "")
+  public FieldType getInititalType() {
+    return inititalType;
+  }
+
+  public void setInititalType(FieldType inititalType) {
+    this.inititalType = inititalType;
+  }
+
   public Mapping targetType(TargetType targetType) {
     this.targetType = targetType;
     return this;
@@ -154,6 +179,24 @@ public class Mapping extends DlResource {
 
   public void setDataType(DataType dataType) {
     this.dataType = dataType;
+  }
+
+  public Mapping importType(ImportType importType) {
+    this.importType = importType;
+    return this;
+  }
+
+   /**
+   * Get importType
+   * @return importType
+  **/
+  @ApiModelProperty(value = "")
+  public ImportType getImportType() {
+    return importType;
+  }
+
+  public void setImportType(ImportType importType) {
+    this.importType = importType;
   }
 
   public Mapping position(Integer position) {
@@ -283,8 +326,10 @@ public class Mapping extends DlResource {
     return Objects.equals(this.name, mapping.name) &&
         Objects.equals(this.originalName, mapping.originalName) &&
         Objects.equals(this.type, mapping.type) &&
+        Objects.equals(this.inititalType, mapping.inititalType) &&
         Objects.equals(this.targetType, mapping.targetType) &&
         Objects.equals(this.dataType, mapping.dataType) &&
+        Objects.equals(this.importType, mapping.importType) &&
         Objects.equals(this.position, mapping.position) &&
         Objects.equals(this.values, mapping.values) &&
         Objects.equals(this.numericValues, mapping.numericValues) &&
@@ -295,7 +340,7 @@ public class Mapping extends DlResource {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, originalName, type, targetType, dataType, position, values, numericValues, booleanValues, timePeriod, super.hashCode());
+    return Objects.hash(name, originalName, type, inititalType, targetType, dataType, importType, position, values, numericValues, booleanValues, timePeriod, super.hashCode());
   }
 
 
@@ -307,8 +352,10 @@ public class Mapping extends DlResource {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    originalName: ").append(toIndentedString(originalName)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    inititalType: ").append(toIndentedString(inititalType)).append("\n");
     sb.append("    targetType: ").append(toIndentedString(targetType)).append("\n");
     sb.append("    dataType: ").append(toIndentedString(dataType)).append("\n");
+    sb.append("    importType: ").append(toIndentedString(importType)).append("\n");
     sb.append("    position: ").append(toIndentedString(position)).append("\n");
     sb.append("    values: ").append(toIndentedString(values)).append("\n");
     sb.append("    numericValues: ").append(toIndentedString(numericValues)).append("\n");

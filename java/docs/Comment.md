@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **projectId** | **String** |  |  [optional]
 **user** | [**User**](User.md) |  |  [optional]
 **value** | **String** |  |  [optional]
+**contributorsAdded** | [**List&lt;PortfolioPlanUser&gt;**](PortfolioPlanUser.md) |  |  [optional]
 
 
 

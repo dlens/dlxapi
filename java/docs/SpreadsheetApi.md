@@ -169,7 +169,7 @@ null (empty response body)
 
 <a name="getMappingsForSpreadsheet"></a>
 # **getMappingsForSpreadsheet**
-> Mappings getMappingsForSpreadsheet(id, sheetName, importType, expand)
+> Mappings getMappingsForSpreadsheet(id, sheetName, importType, expand, columnsOnly)
 
 
 
@@ -195,8 +195,9 @@ String id = "id_example"; // String | spreadsheet id
 String sheetName = "sheetName_example"; // String | 
 Object importType = null; // Object | Whether import PROJECT or COST data. Defaults to PROJECT
 String expand = "expand_example"; // String | JSON string containing an array expand specifications for fields.  An expand specification must have a path and includes optional properties match, unique, allPossible, limit, offset, orderBy.
+Boolean columnsOnly = true; // Boolean | return columns only the case for cost import
 try {
-    Mappings result = apiInstance.getMappingsForSpreadsheet(id, sheetName, importType, expand);
+    Mappings result = apiInstance.getMappingsForSpreadsheet(id, sheetName, importType, expand, columnsOnly);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling SpreadsheetApi#getMappingsForSpreadsheet");
@@ -212,6 +213,7 @@ Name | Type | Description  | Notes
  **sheetName** | **String**|  | [optional]
  **importType** | [**Object**](.md)| Whether import PROJECT or COST data. Defaults to PROJECT | [optional]
  **expand** | **String**| JSON string containing an array expand specifications for fields.  An expand specification must have a path and includes optional properties match, unique, allPossible, limit, offset, orderBy. | [optional]
+ **columnsOnly** | **Boolean**| return columns only the case for cost import | [optional] [default to true]
 
 ### Return type
 

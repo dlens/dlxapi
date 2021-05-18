@@ -44,7 +44,8 @@ public class SourcesApiTest {
     @Test
     public void fetchDataForSourceTest() throws ApiException {
         String id = null;
-        Source response = api.fetchDataForSource(id);
+        String priorityScenario = null;
+        Source response = api.fetchDataForSource(id, priorityScenario);
 
         // TODO: test validations
     }

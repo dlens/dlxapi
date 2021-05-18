@@ -22,6 +22,8 @@
 
 * `FIELDTYPEUPDATEDEVENT` (value: `"FieldTypeUpdatedEvent"`)
 
+* `FIELDCALCULATIONTYPEUPDATEDEVENT` (value: `"FieldCalculationTypeUpdatedEvent"`)
+
 * `FIELDISFIELDTYPEAPPROVEDUPDATEDEVENT` (value: `"FieldIsFieldTypeApprovedUpdatedEvent"`)
 
 * `FIELDISIDEAFIELDUPDATEDEVENT` (value: `"FieldIsIdeaFieldUpdatedEvent"`)
@@ -50,11 +52,13 @@
 
 * `PORTFOLIOPLANDELETEDEVENT` (value: `"PortfolioPlanDeletedEvent"`)
 
-* `PORTFOLIOPLANUSERCREATEDEVENT` (value: `"PortfolioPlanUserCreatedEvent"`)
+* `PORTFOLIOPLANUSERCREATEDV2EVENT` (value: `"PortfolioPlanUserCreatedV2Event"`)
 
-* `PORTFOLIOPLANUSERPERMISSIONSUPDATEDEVENT` (value: `"PortfolioPlanUserPermissionsUpdatedEvent"`)
+* `PORTFOLIOPLANUSERFIELDPERMISSIONSUPDATEDEVENT` (value: `"PortfolioPlanUserFieldPermissionsUpdatedEvent"`)
 
-* `PORTFOLIOPLANUSERROLESUPDATEDEVENT` (value: `"PortfolioPlanUserRolesUpdatedEvent"`)
+* `PORTFOLIOPLANUSERPROJECTPERMISSIONSUPDATEDEVENT` (value: `"PortfolioPlanUserProjectPermissionsUpdatedEvent"`)
+
+* `PORTFOLIOPLANUSERROLESUPDATEDNEWEVENT` (value: `"PortfolioPlanUserRolesUpdatedNewEvent"`)
 
 * `PORTFOLIOPLANUSERDELETEDEVENT` (value: `"PortfolioPlanUserDeletedEvent"`)
 
@@ -81,6 +85,10 @@
 * `PROJECTPORTFOLIOPLANISDRAFTUPDATEDEVENT` (value: `"ProjectPortfolioPlanIsDraftUpdatedEvent"`)
 
 * `RESOURCEPOOLBUDGETAMOUNTUPDATEDEVENT` (value: `"ResourcePoolBudgetAmountUpdatedEvent"`)
+
+* `RESOURCEPOOLPLANBUDGETAMOUNTUPDATEDEVENT` (value: `"ResourcePoolPlanBudgetAmountUpdatedEvent"`)
+
+* `RESOURCEPOOLPLANBUDGETCOPIEDEVENT` (value: `"ResourcePoolPlanBudgetCopiedEvent"`)
 
 * `RESOURCEPOOLCREATEDEVENT` (value: `"ResourcePoolCreatedEvent"`)
 
@@ -132,13 +140,15 @@
 
 * `PORTFOLIOTIMEINTERVALUPDATEDEVENT` (value: `"PortfolioTimeIntervalUpdatedEvent"`)
 
+* `PORTFOLIOBUDGETTIMEPERIODTYPEUPDATEDEVENT` (value: `"PortfolioBudgetTimePeriodTypeUpdatedEvent"`)
+
+* `PORTFOLIOISMONTHLYSPENDPLANUPDATEDEVENT` (value: `"PortfolioIsMonthlySpendPlanUpdatedEvent"`)
+
 * `PORTFOLIOPLANREBASELINEDEVENT` (value: `"PortfolioPlanRebaselinedEvent"`)
 
 * `PORTFOLIOPLANDATAIMPORTEDEVENT` (value: `"PortfolioPlanDataImportedEvent"`)
 
-* `PROJECTCONTRIBUTINGUSERIDSUPDATEDEVENT` (value: `"ProjectContributingUserIdsUpdatedEvent"`)
-
-* `PORTFOLIOPLANUSERCONTRIBUTINGPROJECTIDSUPDATEDEVENT` (value: `"PortfolioPlanUserContributingProjectIdsUpdatedEvent"`)
+* `PORTFOLIOPLANUSERDRAFTPROJECTIDSUPDATEDEVENT` (value: `"PortfolioPlanUserDraftProjectIdsUpdatedEvent"`)
 
 * `COMMENTADDEDEVENT` (value: `"CommentAddedEvent"`)
 
@@ -155,6 +165,38 @@
 * `TAGPARENTUPDATEDEVENT` (value: `"TagParentUpdatedEvent"`)
 
 * `TAGDELETEDEVENT` (value: `"TagDeletedEvent"`)
+
+* `CATEGORYOPTIONCREATEDEVENT` (value: `"CategoryOptionCreatedEvent"`)
+
+* `FIELDCATEGORYOPTIONSUPDATEDEVENT` (value: `"FieldCategoryOptionsUpdatedEvent"`)
+
+* `CATEGORYOPTIONNAMEUPDATEDEVENT` (value: `"CategoryOptionNameUpdatedEvent"`)
+
+* `CATEGORYOPTIONDELETEDEVENT` (value: `"CategoryOptionDeletedEvent"`)
+
+* `PROJECTCONTRIBUTINGUSERADDEDEVENT` (value: `"ProjectContributingUserAddedEvent"`)
+
+* `PROJECTCONTRIBUTINGUSERDELETEDEVENT` (value: `"ProjectContributingUserDeletedEvent"`)
+
+* `ATTACHMENTDELETEDEVENT` (value: `"AttachmentDeletedEvent"`)
+
+* `ATTACHMENTCREATEDEVENT` (value: `"AttachmentCreatedEvent"`)
+
+* `ATTACHMENTNAMEUPDATEDEVENT` (value: `"AttachmentNameUpdatedEvent"`)
+
+* `PROJECTATTACHMENTADDEDEVENT` (value: `"ProjectAttachmentAddedEvent"`)
+
+* `PROJECTATTACHMENTREMOVEDEVENT` (value: `"ProjectAttachmentRemovedEvent"`)
+
+* `CUSTOMNAMEADDEDEVENT` (value: `"CustomNameAddedEvent"`)
+
+* `CUSTOMNAMEUPDATEDEVENT` (value: `"CustomNameUpdatedEvent"`)
+
+* `CUSTOMNAMEDELETEDEVENT` (value: `"CustomNameDeletedEvent"`)
+
+* `PROJECTDEPENDSONADDEDEVENT` (value: `"ProjectDependsOnAddedEvent"`)
+
+* `PROJECTDEPENDSONREMOVEDEVENT` (value: `"ProjectDependsOnRemovedEvent"`)
 
 
 

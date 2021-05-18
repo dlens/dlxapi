@@ -41,6 +41,9 @@ public class ResourcePoolBudgetAmount {
   @SerializedName("amount")
   private Double amount = null;
 
+  @SerializedName("baselineAmount")
+  private Double baselineAmount = null;
+
   @SerializedName("details")
   private ResourcePoolBudgetAmounts details = null;
 
@@ -98,6 +101,24 @@ public class ResourcePoolBudgetAmount {
     this.amount = amount;
   }
 
+  public ResourcePoolBudgetAmount baselineAmount(Double baselineAmount) {
+    this.baselineAmount = baselineAmount;
+    return this;
+  }
+
+   /**
+   * Get baselineAmount
+   * @return baselineAmount
+  **/
+  @ApiModelProperty(value = "")
+  public Double getBaselineAmount() {
+    return baselineAmount;
+  }
+
+  public void setBaselineAmount(Double baselineAmount) {
+    this.baselineAmount = baselineAmount;
+  }
+
   public ResourcePoolBudgetAmount details(ResourcePoolBudgetAmounts details) {
     this.details = details;
     return this;
@@ -129,12 +150,13 @@ public class ResourcePoolBudgetAmount {
     return Objects.equals(this.resourcePool, resourcePoolBudgetAmount.resourcePool) &&
         Objects.equals(this.timePeriod, resourcePoolBudgetAmount.timePeriod) &&
         Objects.equals(this.amount, resourcePoolBudgetAmount.amount) &&
+        Objects.equals(this.baselineAmount, resourcePoolBudgetAmount.baselineAmount) &&
         Objects.equals(this.details, resourcePoolBudgetAmount.details);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(resourcePool, timePeriod, amount, details);
+    return Objects.hash(resourcePool, timePeriod, amount, baselineAmount, details);
   }
 
 
@@ -146,6 +168,7 @@ public class ResourcePoolBudgetAmount {
     sb.append("    resourcePool: ").append(toIndentedString(resourcePool)).append("\n");
     sb.append("    timePeriod: ").append(toIndentedString(timePeriod)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
+    sb.append("    baselineAmount: ").append(toIndentedString(baselineAmount)).append("\n");
     sb.append("    details: ").append(toIndentedString(details)).append("\n");
     sb.append("}");
     return sb.toString();

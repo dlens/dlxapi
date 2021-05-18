@@ -6,10 +6,11 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**archivePortfolio**](PortfoliosApi.md#archivePortfolio) | **DELETE** /portfolios/{id} | Archive a portfolio.
 [**createPortfolio**](PortfoliosApi.md#createPortfolio) | **POST** /portfolios | Creates a new portfolio.
+[**downloadSpreadsheetTemplate**](PortfoliosApi.md#downloadSpreadsheetTemplate) | **GET** /portfolios/{portfolioId}/spreadsheet/template | Download spreadsheet template for portfolio
 [**exportPortfolioData**](PortfoliosApi.md#exportPortfolioData) | **GET** /portfolios/{id}/pod | Export portfolio data in JSON format
 [**getPortfolio**](PortfoliosApi.md#getPortfolio) | **GET** /portfolios/{id} | Retrieves a portfolio.
 [**getPortfolioActivities**](PortfoliosApi.md#getPortfolioActivities) | **GET** /portfolios/{id}/activities | Retrieves portfolio activities log.
-[**getPortfolioResourcePools**](PortfoliosApi.md#getPortfolioResourcePools) | **GET** /portfolios/{id}/resourcePools | Retrieves resource pools in a portfolio.
+[**getPortfolioResourcePools**](PortfoliosApi.md#getPortfolioResourcePools) | **GET** /portfolios/{id}/resourcePools | (Deprecated. Use getResourcePoolsForPortfolioPlan) Retrieves resource pools in a portfolio.
 [**getPortfolios**](PortfoliosApi.md#getPortfolios) | **GET** /portfolios | Get portfolios.
 [**getProjectsForPortfolio**](PortfoliosApi.md#getProjectsForPortfolio) | **GET** /portfolios/{portfolioId}/projects | Retrieves projects for portfolio
 [**getSpreadsheetReportForPortfolio**](PortfoliosApi.md#getSpreadsheetReportForPortfolio) | **GET** /portfolios/{portfolioId}/spreadsheet/{spreadsheetId}/report | Retrieves spreadsheet report for portfolio
@@ -17,10 +18,10 @@ Method | HTTP request | Description
 [**regenerateUserRegistrationToken**](PortfoliosApi.md#regenerateUserRegistrationToken) | **POST** /portfolios/{id}/regenerateUserRegistrationToken | Generates a new registration token
 [**saveSpreadsheetForPortfolio**](PortfoliosApi.md#saveSpreadsheetForPortfolio) | **POST** /portfolios/{portfolioId}/spreadsheet/{spreadsheetId} | Saves spreadsheet for portfolio
 [**saveSpreadsheetSourceForPortfolio**](PortfoliosApi.md#saveSpreadsheetSourceForPortfolio) | **POST** /portfolios/{id}/sources/spreadsheet | Save spreadsheet source for a portfolio
+[**setCustomNames**](PortfoliosApi.md#setCustomNames) | **PUT** /portfolios/{portfolioId}/customNames | Updates custom names for portfolio
 [**updatePortfolio**](PortfoliosApi.md#updatePortfolio) | **PATCH** /portfolios/{id} | Update a portfolio.
 [**updatePortfolioFieldValues**](PortfoliosApi.md#updatePortfolioFieldValues) | **PATCH** /portfolios/{id}/fieldValues | Update field values in a portfolio
-[**updatePortfolioResourcePoolBudgetAmounts**](PortfoliosApi.md#updatePortfolioResourcePoolBudgetAmounts) | **PATCH** /portfolios/{id}/resourcePoolBudgetAmounts | Update resource pool budget amounts in a portfolio
-[**updatePortfolioResourcePools**](PortfoliosApi.md#updatePortfolioResourcePools) | **PATCH** /portfolios/{id}/resourcePools | Update resource pools in a portfolio
+[**updatePortfolioResourcePoolBudgetAmounts**](PortfoliosApi.md#updatePortfolioResourcePoolBudgetAmounts) | **PATCH** /portfolios/{id}/resourcePoolBudgetAmounts | (Deprecated. Use updateResourcePoolBudgetAmountsForPortfolioPlan) Update resource pool budget amounts in a portfolio
 
 
 <a name="archivePortfolio"></a>
@@ -124,6 +125,57 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
+
+<a name="downloadSpreadsheetTemplate"></a>
+# **downloadSpreadsheetTemplate**
+> byte[] downloadSpreadsheetTemplate(portfolioId)
+
+Download spreadsheet template for portfolio
+
+### Example
+```java
+// Import classes:
+//import com.decisionlens.client.ApiClient;
+//import com.decisionlens.client.ApiException;
+//import com.decisionlens.client.Configuration;
+//import com.decisionlens.client.auth.*;
+//import com.decisionlens.client.api.PortfoliosApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: OAuth2
+OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+PortfoliosApi apiInstance = new PortfoliosApi();
+String portfolioId = "portfolioId_example"; // String | Portfolio id
+try {
+    byte[] result = apiInstance.downloadSpreadsheetTemplate(portfolioId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling PortfoliosApi#downloadSpreadsheetTemplate");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **portfolioId** | **String**| Portfolio id |
+
+### Return type
+
+**byte[]**
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 
 <a name="exportPortfolioData"></a>
 # **exportPortfolioData**
@@ -290,7 +342,7 @@ Name | Type | Description  | Notes
 # **getPortfolioResourcePools**
 > ResourcePools getPortfolioResourcePools(id, expand, limit, offset, orderBy, match)
 
-Retrieves resource pools in a portfolio.
+(Deprecated. Use getResourcePoolsForPortfolioPlan) Retrieves resource pools in a portfolio.
 
 ### Example
 ```java
@@ -734,6 +786,59 @@ Name | Type | Description  | Notes
  - **Content-Type**: multipart/form-data
  - **Accept**: application/json
 
+<a name="setCustomNames"></a>
+# **setCustomNames**
+> List&lt;CustomName&gt; setCustomNames(portfolioId, customNames)
+
+Updates custom names for portfolio
+
+### Example
+```java
+// Import classes:
+//import com.decisionlens.client.ApiClient;
+//import com.decisionlens.client.ApiException;
+//import com.decisionlens.client.Configuration;
+//import com.decisionlens.client.auth.*;
+//import com.decisionlens.client.api.PortfoliosApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: OAuth2
+OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+PortfoliosApi apiInstance = new PortfoliosApi();
+String portfolioId = "portfolioId_example"; // String | Portfolio id
+List<CustomName> customNames = Arrays.asList(new CustomName()); // List<CustomName> | Custom names
+try {
+    List<CustomName> result = apiInstance.setCustomNames(portfolioId, customNames);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling PortfoliosApi#setCustomNames");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **portfolioId** | **String**| Portfolio id |
+ **customNames** | [**List&lt;CustomName&gt;**](CustomName.md)| Custom names |
+
+### Return type
+
+[**List&lt;CustomName&gt;**](CustomName.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
 <a name="updatePortfolio"></a>
 # **updatePortfolio**
 > Portfolio updatePortfolio(id, body, expand)
@@ -848,7 +953,7 @@ Name | Type | Description  | Notes
 # **updatePortfolioResourcePoolBudgetAmounts**
 > List&lt;ResourcePool&gt; updatePortfolioResourcePoolBudgetAmounts(id, body)
 
-Update resource pool budget amounts in a portfolio
+(Deprecated. Use updateResourcePoolBudgetAmountsForPortfolioPlan) Update resource pool budget amounts in a portfolio
 
 ### Example
 ```java
@@ -883,59 +988,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**Object**](.md)| Portfolio id |
  **body** | [**List&lt;ResourcePoolBudgetAmountPatchItem&gt;**](ResourcePoolBudgetAmountPatchItem.md)| JSON Patch Operations to update multiple resource pool budget amounts |
-
-### Return type
-
-[**List&lt;ResourcePool&gt;**](ResourcePool.md)
-
-### Authorization
-
-[OAuth2](../README.md#OAuth2)
-
-### HTTP request headers
-
- - **Content-Type**: application/json-patch+json
- - **Accept**: application/json
-
-<a name="updatePortfolioResourcePools"></a>
-# **updatePortfolioResourcePools**
-> List&lt;ResourcePool&gt; updatePortfolioResourcePools(id, body)
-
-Update resource pools in a portfolio
-
-### Example
-```java
-// Import classes:
-//import com.decisionlens.client.ApiClient;
-//import com.decisionlens.client.ApiException;
-//import com.decisionlens.client.Configuration;
-//import com.decisionlens.client.auth.*;
-//import com.decisionlens.client.api.PortfoliosApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: OAuth2
-OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
-OAuth2.setAccessToken("YOUR ACCESS TOKEN");
-
-PortfoliosApi apiInstance = new PortfoliosApi();
-Object id = null; // Object | Portfolio id
-List<PatchItem> body = Arrays.asList(new PatchItem()); // List<PatchItem> | JSON Patch Operations to update multiple resource pools.
-try {
-    List<ResourcePool> result = apiInstance.updatePortfolioResourcePools(id, body);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling PortfoliosApi#updatePortfolioResourcePools");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | [**Object**](.md)| Portfolio id |
- **body** | [**List&lt;PatchItem&gt;**](PatchItem.md)| JSON Patch Operations to update multiple resource pools. |
 
 ### Return type
 

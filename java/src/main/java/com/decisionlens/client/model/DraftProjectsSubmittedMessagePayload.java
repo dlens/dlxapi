@@ -15,6 +15,7 @@ package com.decisionlens.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.decisionlens.client.model.Attachment;
 import com.decisionlens.client.model.Project;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -34,6 +35,9 @@ import java.util.List;
 public class DraftProjectsSubmittedMessagePayload {
   @SerializedName("projects")
   private List<Project> projects = new ArrayList<Project>();
+
+  @SerializedName("attachments")
+  private List<Attachment> attachments = null;
 
   public DraftProjectsSubmittedMessagePayload projects(List<Project> projects) {
     this.projects = projects;
@@ -58,6 +62,32 @@ public class DraftProjectsSubmittedMessagePayload {
     this.projects = projects;
   }
 
+  public DraftProjectsSubmittedMessagePayload attachments(List<Attachment> attachments) {
+    this.attachments = attachments;
+    return this;
+  }
+
+  public DraftProjectsSubmittedMessagePayload addAttachmentsItem(Attachment attachmentsItem) {
+    if (this.attachments == null) {
+      this.attachments = new ArrayList<Attachment>();
+    }
+    this.attachments.add(attachmentsItem);
+    return this;
+  }
+
+   /**
+   * Get attachments
+   * @return attachments
+  **/
+  @ApiModelProperty(value = "")
+  public List<Attachment> getAttachments() {
+    return attachments;
+  }
+
+  public void setAttachments(List<Attachment> attachments) {
+    this.attachments = attachments;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -68,12 +98,13 @@ public class DraftProjectsSubmittedMessagePayload {
       return false;
     }
     DraftProjectsSubmittedMessagePayload draftProjectsSubmittedMessagePayload = (DraftProjectsSubmittedMessagePayload) o;
-    return Objects.equals(this.projects, draftProjectsSubmittedMessagePayload.projects);
+    return Objects.equals(this.projects, draftProjectsSubmittedMessagePayload.projects) &&
+        Objects.equals(this.attachments, draftProjectsSubmittedMessagePayload.attachments);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(projects);
+    return Objects.hash(projects, attachments);
   }
 
 
@@ -83,6 +114,7 @@ public class DraftProjectsSubmittedMessagePayload {
     sb.append("class DraftProjectsSubmittedMessagePayload {\n");
     
     sb.append("    projects: ").append(toIndentedString(projects)).append("\n");
+    sb.append("    attachments: ").append(toIndentedString(attachments)).append("\n");
     sb.append("}");
     return sb.toString();
   }

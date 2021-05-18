@@ -5,7 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **type** | [**PermissionType**](PermissionType.md) |  | 
-**field** | [**Field**](Field.md) |  |  [optional]
+**fieldIds** | **List&lt;String&gt;** |  |  [optional]
+**projectIds** | **List&lt;String&gt;** |  |  [optional]
 **enabled** | **Boolean** |  |  [optional]
 
 
