@@ -148,6 +148,8 @@ SpreadsheetApi <- R6::R6Class(
       if (!missing(`expand`)) {
         queryParams['expand'] <- expand
       }
+      
+      queryParams['columnsOnly'] <- "true"
 
       urlPath <- "/spreadsheet/{id}/mappings"
       if (!missing(`id`)) {
