@@ -31,7 +31,13 @@ public enum ImportType {
   
   PROJECT("PROJECT"),
   
-  COST("COST");
+  COSTAGGREGATE("COSTAGGREGATE"),
+  
+  ALLOCATE("ALLOCATE"),
+  
+  SPEND_PLANNED("SPEND_PLANNED"),
+  
+  SPEND_ACTUAL("SPEND_ACTUAL");
 
   private String value;
 

@@ -15,12 +15,12 @@ package com.decisionlens.client.api;
 
 import com.decisionlens.client.ApiException;
 import com.decisionlens.client.model.Activities;
+import com.decisionlens.client.model.CustomName;
 import com.decisionlens.client.model.ErrorResponse;
 import com.decisionlens.client.model.FieldValue;
 import com.decisionlens.client.model.FieldValuePatchItem;
 import java.io.File;
 import com.decisionlens.client.model.Operations;
-import com.decisionlens.client.model.PatchItem;
 import com.decisionlens.client.model.Portfolio;
 import com.decisionlens.client.model.Portfolios;
 import com.decisionlens.client.model.Projects;
@@ -79,6 +79,22 @@ public class PortfoliosApiTest {
     }
     
     /**
+     * Download spreadsheet template for portfolio
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void downloadSpreadsheetTemplateTest() throws ApiException {
+        String portfolioId = null;
+        byte[] response = api.downloadSpreadsheetTemplate(portfolioId);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Export portfolio data in JSON format
      *
      * 
@@ -131,7 +147,7 @@ public class PortfoliosApiTest {
     }
     
     /**
-     * Retrieves resource pools in a portfolio.
+     * (Deprecated. Use getResourcePoolsForPortfolioPlan) Retrieves resource pools in a portfolio.
      *
      * 
      *
@@ -227,6 +243,22 @@ public class PortfoliosApiTest {
     }
     
     /**
+     * Generates a new registration token
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void regenerateUserRegistrationTokenTest() throws ApiException {
+        String id = null;
+        Portfolio response = api.regenerateUserRegistrationToken(id);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Saves spreadsheet for portfolio
      *
      * 
@@ -258,6 +290,23 @@ public class PortfoliosApiTest {
         File file = null;
         Boolean saveZeroAsBlank = null;
         Source response = api.saveSpreadsheetSourceForPortfolio(id, file, saveZeroAsBlank);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Updates custom names for portfolio
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void setCustomNamesTest() throws ApiException {
+        String portfolioId = null;
+        List<CustomName> customNames = null;
+        List<CustomName> response = api.setCustomNames(portfolioId, customNames);
 
         // TODO: test validations
     }
@@ -299,7 +348,7 @@ public class PortfoliosApiTest {
     }
     
     /**
-     * Update resource pool budget amounts in a portfolio
+     * (Deprecated. Use updateResourcePoolBudgetAmountsForPortfolioPlan) Update resource pool budget amounts in a portfolio
      *
      * 
      *
@@ -311,23 +360,6 @@ public class PortfoliosApiTest {
         Object id = null;
         List<ResourcePoolBudgetAmountPatchItem> body = null;
         List<ResourcePool> response = api.updatePortfolioResourcePoolBudgetAmounts(id, body);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Update resource pools in a portfolio
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void updatePortfolioResourcePoolsTest() throws ApiException {
-        Object id = null;
-        List<PatchItem> body = null;
-        List<ResourcePool> response = api.updatePortfolioResourcePools(id, body);
 
         // TODO: test validations
     }

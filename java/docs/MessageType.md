@@ -34,6 +34,8 @@
 
 * `DATAUPDATEDMESSAGE` (value: `"DataUpdatedMessage"`)
 
+* `TOASTMESSAGE` (value: `"ToastMessage"`)
+
 * `RESOURCEPOOLSCREATEDMESSAGE` (value: `"ResourcePoolsCreatedMessage"`)
 
 * `RESOURCEPOOLSDELETEDMESSAGE` (value: `"ResourcePoolsDeletedMessage"`)
@@ -54,7 +56,35 @@
 
 * `TAGDELETEDMESSAGE` (value: `"TagDeletedMessage"`)
 
+* `CATEGORYOPTIONADDEDMESSAGE` (value: `"CategoryOptionAddedMessage"`)
+
+* `CATEGORYOPTIONUPDATEDMESSAGE` (value: `"CategoryOptionUpdatedMessage"`)
+
+* `CATEGORYOPTIONDELETEDMESSAGE` (value: `"CategoryOptionDeletedMessage"`)
+
 * `DRAFTPROJECTSSUBMITTEDMESSAGE` (value: `"DraftProjectsSubmittedMessage"`)
+
+* `PROJECTATTACHMENTADDEDMESSAGE` (value: `"ProjectAttachmentAddedMessage"`)
+
+* `PROJECTATTACHMENTREMOVEDMESSAGE` (value: `"ProjectAttachmentRemovedMessage"`)
+
+* `ATTACHMENTUPDATEDMESSAGE` (value: `"AttachmentUpdatedMessage"`)
+
+* `PORTFOLIOPLANUSERCREATEDMESSAGE` (value: `"PortfolioPlanUserCreatedMessage"`)
+
+* `PORTFOLIOPLANUSERDELETEDMESSAGE` (value: `"PortfolioPlanUserDeletedMessage"`)
+
+* `PORTFOLIOPLANUSERUPDATEDMESSAGE` (value: `"PortfolioPlanUserUpdatedMessage"`)
+
+* `PROJECTACCESSREVOKEDMESSAGE` (value: `"ProjectAccessRevokedMessage"`)
+
+* `PROJECTACCESSGRANTEDMESSAGE` (value: `"ProjectAccessGrantedMessage"`)
+
+* `PROJECTCONTRIBUTORSUPDATEDMESSAGE` (value: `"ProjectContributorsUpdatedMessage"`)
+
+* `CUSTOMNAMESUPDATEDMESSAGE` (value: `"CustomNamesUpdatedMessage"`)
+
+* `PROJECTDEPENDENCIESUPDATEDMESSAGE` (value: `"ProjectDependenciesUpdatedMessage"`)
 
 
 

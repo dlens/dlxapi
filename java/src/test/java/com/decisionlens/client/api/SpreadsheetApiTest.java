@@ -98,7 +98,8 @@ public class SpreadsheetApiTest {
         String sheetName = null;
         Object importType = null;
         String expand = null;
-        Mappings response = api.getMappingsForSpreadsheet(id, sheetName, importType, expand);
+        Boolean columnsOnly = null;
+        Mappings response = api.getMappingsForSpreadsheet(id, sheetName, importType, expand, columnsOnly);
 
         // TODO: test validations
     }

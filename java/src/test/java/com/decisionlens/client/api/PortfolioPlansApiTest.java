@@ -111,7 +111,8 @@ public class PortfolioPlansApiTest {
     public void createProjectsInPortfolioPlanTest() throws ApiException {
         String id = null;
         List<Project> body = null;
-        List<Project> response = api.createProjectsInPortfolioPlan(id, body);
+        Boolean doNotExpand = null;
+        List<Project> response = api.createProjectsInPortfolioPlan(id, body, doNotExpand);
 
         // TODO: test validations
     }

@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 <a name="spreadsheetToMappings"></a>
 # **spreadsheetToMappings**
-> Mappings spreadsheetToMappings(file)
+> Mappings spreadsheetToMappings(file, columnsOnly)
 
 Accepts upload of spreadsheet and converts data into mappings.
 
@@ -33,8 +33,9 @@ OAuth2.setAccessToken("YOUR ACCESS TOKEN");
 
 MappingsApi apiInstance = new MappingsApi();
 File file = new File("/path/to/file.txt"); // File | maybe put supported file types here?
+Boolean columnsOnly = true; // Boolean | return columns only the case for cost import
 try {
-    Mappings result = apiInstance.spreadsheetToMappings(file);
+    Mappings result = apiInstance.spreadsheetToMappings(file, columnsOnly);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MappingsApi#spreadsheetToMappings");
@@ -47,6 +48,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **file** | **File**| maybe put supported file types here? |
+ **columnsOnly** | **Boolean**| return columns only the case for cost import | [optional] [default to true]
 
 ### Return type
 

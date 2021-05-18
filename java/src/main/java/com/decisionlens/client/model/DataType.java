@@ -37,7 +37,11 @@ public enum DataType {
   
   BOOLEAN("BOOLEAN"),
   
-  ARRAY("ARRAY");
+  NUMERIC_ARRAY("NUMERIC_ARRAY"),
+  
+  TEXT_ARRAY("TEXT_ARRAY"),
+  
+  CATEGORY("CATEGORY");
 
   private String value;
 

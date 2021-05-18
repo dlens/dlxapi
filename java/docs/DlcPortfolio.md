@@ -10,6 +10,8 @@ Name | Type | Description | Notes
 **lastUpdatedAt** | **Long** |  |  [optional]
 **lastFetchedAt** | **Long** |  |  [optional]
 **statuses** | **List&lt;String&gt;** |  |  [optional]
+**defaultPriorityScenario** | **String** |  |  [optional]
+**priorityScenarios** | **List&lt;String&gt;** |  |  [optional]
 
 
 

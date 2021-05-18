@@ -59,6 +59,8 @@ public enum MessageType {
   
   DATAUPDATEDMESSAGE("DataUpdatedMessage"),
   
+  TOASTMESSAGE("ToastMessage"),
+  
   RESOURCEPOOLSCREATEDMESSAGE("ResourcePoolsCreatedMessage"),
   
   RESOURCEPOOLSDELETEDMESSAGE("ResourcePoolsDeletedMessage"),
@@ -79,7 +81,35 @@ public enum MessageType {
   
   TAGDELETEDMESSAGE("TagDeletedMessage"),
   
-  DRAFTPROJECTSSUBMITTEDMESSAGE("DraftProjectsSubmittedMessage");
+  CATEGORYOPTIONADDEDMESSAGE("CategoryOptionAddedMessage"),
+  
+  CATEGORYOPTIONUPDATEDMESSAGE("CategoryOptionUpdatedMessage"),
+  
+  CATEGORYOPTIONDELETEDMESSAGE("CategoryOptionDeletedMessage"),
+  
+  DRAFTPROJECTSSUBMITTEDMESSAGE("DraftProjectsSubmittedMessage"),
+  
+  PROJECTATTACHMENTADDEDMESSAGE("ProjectAttachmentAddedMessage"),
+  
+  PROJECTATTACHMENTREMOVEDMESSAGE("ProjectAttachmentRemovedMessage"),
+  
+  ATTACHMENTUPDATEDMESSAGE("AttachmentUpdatedMessage"),
+  
+  PORTFOLIOPLANUSERCREATEDMESSAGE("PortfolioPlanUserCreatedMessage"),
+  
+  PORTFOLIOPLANUSERDELETEDMESSAGE("PortfolioPlanUserDeletedMessage"),
+  
+  PORTFOLIOPLANUSERUPDATEDMESSAGE("PortfolioPlanUserUpdatedMessage"),
+  
+  PROJECTACCESSREVOKEDMESSAGE("ProjectAccessRevokedMessage"),
+  
+  PROJECTACCESSGRANTEDMESSAGE("ProjectAccessGrantedMessage"),
+  
+  PROJECTCONTRIBUTORSUPDATEDMESSAGE("ProjectContributorsUpdatedMessage"),
+  
+  CUSTOMNAMESUPDATEDMESSAGE("CustomNamesUpdatedMessage"),
+  
+  PROJECTDEPENDENCIESUPDATEDMESSAGE("ProjectDependenciesUpdatedMessage");
 
   private String value;
 

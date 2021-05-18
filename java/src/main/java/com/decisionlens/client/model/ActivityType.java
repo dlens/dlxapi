@@ -47,6 +47,8 @@ public enum ActivityType {
   
   FIELDTYPEUPDATEDEVENT("FieldTypeUpdatedEvent"),
   
+  FIELDCALCULATIONTYPEUPDATEDEVENT("FieldCalculationTypeUpdatedEvent"),
+  
   FIELDISFIELDTYPEAPPROVEDUPDATEDEVENT("FieldIsFieldTypeApprovedUpdatedEvent"),
   
   FIELDISIDEAFIELDUPDATEDEVENT("FieldIsIdeaFieldUpdatedEvent"),
@@ -75,11 +77,13 @@ public enum ActivityType {
   
   PORTFOLIOPLANDELETEDEVENT("PortfolioPlanDeletedEvent"),
   
-  PORTFOLIOPLANUSERCREATEDEVENT("PortfolioPlanUserCreatedEvent"),
+  PORTFOLIOPLANUSERCREATEDV2EVENT("PortfolioPlanUserCreatedV2Event"),
   
-  PORTFOLIOPLANUSERPERMISSIONSUPDATEDEVENT("PortfolioPlanUserPermissionsUpdatedEvent"),
+  PORTFOLIOPLANUSERFIELDPERMISSIONSUPDATEDEVENT("PortfolioPlanUserFieldPermissionsUpdatedEvent"),
   
-  PORTFOLIOPLANUSERROLESUPDATEDEVENT("PortfolioPlanUserRolesUpdatedEvent"),
+  PORTFOLIOPLANUSERPROJECTPERMISSIONSUPDATEDEVENT("PortfolioPlanUserProjectPermissionsUpdatedEvent"),
+  
+  PORTFOLIOPLANUSERROLESUPDATEDNEWEVENT("PortfolioPlanUserRolesUpdatedNewEvent"),
   
   PORTFOLIOPLANUSERDELETEDEVENT("PortfolioPlanUserDeletedEvent"),
   
@@ -106,6 +110,10 @@ public enum ActivityType {
   PROJECTPORTFOLIOPLANISDRAFTUPDATEDEVENT("ProjectPortfolioPlanIsDraftUpdatedEvent"),
   
   RESOURCEPOOLBUDGETAMOUNTUPDATEDEVENT("ResourcePoolBudgetAmountUpdatedEvent"),
+  
+  RESOURCEPOOLPLANBUDGETAMOUNTUPDATEDEVENT("ResourcePoolPlanBudgetAmountUpdatedEvent"),
+  
+  RESOURCEPOOLPLANBUDGETCOPIEDEVENT("ResourcePoolPlanBudgetCopiedEvent"),
   
   RESOURCEPOOLCREATEDEVENT("ResourcePoolCreatedEvent"),
   
@@ -157,13 +165,15 @@ public enum ActivityType {
   
   PORTFOLIOTIMEINTERVALUPDATEDEVENT("PortfolioTimeIntervalUpdatedEvent"),
   
+  PORTFOLIOBUDGETTIMEPERIODTYPEUPDATEDEVENT("PortfolioBudgetTimePeriodTypeUpdatedEvent"),
+  
+  PORTFOLIOISMONTHLYSPENDPLANUPDATEDEVENT("PortfolioIsMonthlySpendPlanUpdatedEvent"),
+  
   PORTFOLIOPLANREBASELINEDEVENT("PortfolioPlanRebaselinedEvent"),
   
   PORTFOLIOPLANDATAIMPORTEDEVENT("PortfolioPlanDataImportedEvent"),
   
-  PROJECTCONTRIBUTINGUSERIDSUPDATEDEVENT("ProjectContributingUserIdsUpdatedEvent"),
-  
-  PORTFOLIOPLANUSERCONTRIBUTINGPROJECTIDSUPDATEDEVENT("PortfolioPlanUserContributingProjectIdsUpdatedEvent"),
+  PORTFOLIOPLANUSERDRAFTPROJECTIDSUPDATEDEVENT("PortfolioPlanUserDraftProjectIdsUpdatedEvent"),
   
   COMMENTADDEDEVENT("CommentAddedEvent"),
   
@@ -179,7 +189,39 @@ public enum ActivityType {
   
   TAGPARENTUPDATEDEVENT("TagParentUpdatedEvent"),
   
-  TAGDELETEDEVENT("TagDeletedEvent");
+  TAGDELETEDEVENT("TagDeletedEvent"),
+  
+  CATEGORYOPTIONCREATEDEVENT("CategoryOptionCreatedEvent"),
+  
+  FIELDCATEGORYOPTIONSUPDATEDEVENT("FieldCategoryOptionsUpdatedEvent"),
+  
+  CATEGORYOPTIONNAMEUPDATEDEVENT("CategoryOptionNameUpdatedEvent"),
+  
+  CATEGORYOPTIONDELETEDEVENT("CategoryOptionDeletedEvent"),
+  
+  PROJECTCONTRIBUTINGUSERADDEDEVENT("ProjectContributingUserAddedEvent"),
+  
+  PROJECTCONTRIBUTINGUSERDELETEDEVENT("ProjectContributingUserDeletedEvent"),
+  
+  ATTACHMENTDELETEDEVENT("AttachmentDeletedEvent"),
+  
+  ATTACHMENTCREATEDEVENT("AttachmentCreatedEvent"),
+  
+  ATTACHMENTNAMEUPDATEDEVENT("AttachmentNameUpdatedEvent"),
+  
+  PROJECTATTACHMENTADDEDEVENT("ProjectAttachmentAddedEvent"),
+  
+  PROJECTATTACHMENTREMOVEDEVENT("ProjectAttachmentRemovedEvent"),
+  
+  CUSTOMNAMEADDEDEVENT("CustomNameAddedEvent"),
+  
+  CUSTOMNAMEUPDATEDEVENT("CustomNameUpdatedEvent"),
+  
+  CUSTOMNAMEDELETEDEVENT("CustomNameDeletedEvent"),
+  
+  PROJECTDEPENDSONADDEDEVENT("ProjectDependsOnAddedEvent"),
+  
+  PROJECTDEPENDSONREMOVEDEVENT("ProjectDependsOnRemovedEvent");
 
   private String value;
 

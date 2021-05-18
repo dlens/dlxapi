@@ -49,6 +49,12 @@ public class DlcPortfolio {
   @SerializedName("statuses")
   private List<String> statuses = null;
 
+  @SerializedName("defaultPriorityScenario")
+  private String defaultPriorityScenario = null;
+
+  @SerializedName("priorityScenarios")
+  private List<String> priorityScenarios = null;
+
   public DlcPortfolio id(String id) {
     this.id = id;
     return this;
@@ -165,6 +171,50 @@ public class DlcPortfolio {
     this.statuses = statuses;
   }
 
+  public DlcPortfolio defaultPriorityScenario(String defaultPriorityScenario) {
+    this.defaultPriorityScenario = defaultPriorityScenario;
+    return this;
+  }
+
+   /**
+   * Get defaultPriorityScenario
+   * @return defaultPriorityScenario
+  **/
+  @ApiModelProperty(value = "")
+  public String getDefaultPriorityScenario() {
+    return defaultPriorityScenario;
+  }
+
+  public void setDefaultPriorityScenario(String defaultPriorityScenario) {
+    this.defaultPriorityScenario = defaultPriorityScenario;
+  }
+
+  public DlcPortfolio priorityScenarios(List<String> priorityScenarios) {
+    this.priorityScenarios = priorityScenarios;
+    return this;
+  }
+
+  public DlcPortfolio addPriorityScenariosItem(String priorityScenariosItem) {
+    if (this.priorityScenarios == null) {
+      this.priorityScenarios = new ArrayList<String>();
+    }
+    this.priorityScenarios.add(priorityScenariosItem);
+    return this;
+  }
+
+   /**
+   * Get priorityScenarios
+   * @return priorityScenarios
+  **/
+  @ApiModelProperty(value = "")
+  public List<String> getPriorityScenarios() {
+    return priorityScenarios;
+  }
+
+  public void setPriorityScenarios(List<String> priorityScenarios) {
+    this.priorityScenarios = priorityScenarios;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -180,12 +230,14 @@ public class DlcPortfolio {
         Objects.equals(this.taskUrl, dlcPortfolio.taskUrl) &&
         Objects.equals(this.lastUpdatedAt, dlcPortfolio.lastUpdatedAt) &&
         Objects.equals(this.lastFetchedAt, dlcPortfolio.lastFetchedAt) &&
-        Objects.equals(this.statuses, dlcPortfolio.statuses);
+        Objects.equals(this.statuses, dlcPortfolio.statuses) &&
+        Objects.equals(this.defaultPriorityScenario, dlcPortfolio.defaultPriorityScenario) &&
+        Objects.equals(this.priorityScenarios, dlcPortfolio.priorityScenarios);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, url, taskUrl, lastUpdatedAt, lastFetchedAt, statuses);
+    return Objects.hash(id, url, taskUrl, lastUpdatedAt, lastFetchedAt, statuses, defaultPriorityScenario, priorityScenarios);
   }
 
 
@@ -200,6 +252,8 @@ public class DlcPortfolio {
     sb.append("    lastUpdatedAt: ").append(toIndentedString(lastUpdatedAt)).append("\n");
     sb.append("    lastFetchedAt: ").append(toIndentedString(lastFetchedAt)).append("\n");
     sb.append("    statuses: ").append(toIndentedString(statuses)).append("\n");
+    sb.append("    defaultPriorityScenario: ").append(toIndentedString(defaultPriorityScenario)).append("\n");
+    sb.append("    priorityScenarios: ").append(toIndentedString(priorityScenarios)).append("\n");
     sb.append("}");
     return sb.toString();
   }

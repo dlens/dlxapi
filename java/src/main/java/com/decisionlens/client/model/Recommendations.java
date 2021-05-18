@@ -16,7 +16,7 @@ package com.decisionlens.client.model;
 import java.util.Objects;
 import java.util.Arrays;
 import com.decisionlens.client.model.DlCollection;
-import com.decisionlens.client.model.PortfolioPlanGrades;
+import com.decisionlens.client.model.PortfolioPlanInsights;
 import com.decisionlens.client.model.Recommendation;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -40,8 +40,8 @@ public class Recommendations extends DlCollection {
   @SerializedName("items")
   private List<Recommendation> items = null;
 
-  @SerializedName("initialPortfolioPlanGrades")
-  private PortfolioPlanGrades initialPortfolioPlanGrades = null;
+  @SerializedName("initialPortfolioPlanInsights")
+  private PortfolioPlanInsights initialPortfolioPlanInsights = null;
 
   @SerializedName("scheduleResultInfo")
   private String scheduleResultInfo = null;
@@ -93,22 +93,22 @@ public class Recommendations extends DlCollection {
     this.items = items;
   }
 
-  public Recommendations initialPortfolioPlanGrades(PortfolioPlanGrades initialPortfolioPlanGrades) {
-    this.initialPortfolioPlanGrades = initialPortfolioPlanGrades;
+  public Recommendations initialPortfolioPlanInsights(PortfolioPlanInsights initialPortfolioPlanInsights) {
+    this.initialPortfolioPlanInsights = initialPortfolioPlanInsights;
     return this;
   }
 
    /**
-   * Get initialPortfolioPlanGrades
-   * @return initialPortfolioPlanGrades
+   * Get initialPortfolioPlanInsights
+   * @return initialPortfolioPlanInsights
   **/
   @ApiModelProperty(value = "")
-  public PortfolioPlanGrades getInitialPortfolioPlanGrades() {
-    return initialPortfolioPlanGrades;
+  public PortfolioPlanInsights getInitialPortfolioPlanInsights() {
+    return initialPortfolioPlanInsights;
   }
 
-  public void setInitialPortfolioPlanGrades(PortfolioPlanGrades initialPortfolioPlanGrades) {
-    this.initialPortfolioPlanGrades = initialPortfolioPlanGrades;
+  public void setInitialPortfolioPlanInsights(PortfolioPlanInsights initialPortfolioPlanInsights) {
+    this.initialPortfolioPlanInsights = initialPortfolioPlanInsights;
   }
 
   public Recommendations scheduleResultInfo(String scheduleResultInfo) {
@@ -159,7 +159,7 @@ public class Recommendations extends DlCollection {
     Recommendations recommendations = (Recommendations) o;
     return Objects.equals(this.portfolioPlanId, recommendations.portfolioPlanId) &&
         Objects.equals(this.items, recommendations.items) &&
-        Objects.equals(this.initialPortfolioPlanGrades, recommendations.initialPortfolioPlanGrades) &&
+        Objects.equals(this.initialPortfolioPlanInsights, recommendations.initialPortfolioPlanInsights) &&
         Objects.equals(this.scheduleResultInfo, recommendations.scheduleResultInfo) &&
         Objects.equals(this.overconstrainedMessage, recommendations.overconstrainedMessage) &&
         super.equals(o);
@@ -167,7 +167,7 @@ public class Recommendations extends DlCollection {
 
   @Override
   public int hashCode() {
-    return Objects.hash(portfolioPlanId, items, initialPortfolioPlanGrades, scheduleResultInfo, overconstrainedMessage, super.hashCode());
+    return Objects.hash(portfolioPlanId, items, initialPortfolioPlanInsights, scheduleResultInfo, overconstrainedMessage, super.hashCode());
   }
 
 
@@ -178,7 +178,7 @@ public class Recommendations extends DlCollection {
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    portfolioPlanId: ").append(toIndentedString(portfolioPlanId)).append("\n");
     sb.append("    items: ").append(toIndentedString(items)).append("\n");
-    sb.append("    initialPortfolioPlanGrades: ").append(toIndentedString(initialPortfolioPlanGrades)).append("\n");
+    sb.append("    initialPortfolioPlanInsights: ").append(toIndentedString(initialPortfolioPlanInsights)).append("\n");
     sb.append("    scheduleResultInfo: ").append(toIndentedString(scheduleResultInfo)).append("\n");
     sb.append("    overconstrainedMessage: ").append(toIndentedString(overconstrainedMessage)).append("\n");
     sb.append("}");

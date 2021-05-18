@@ -49,8 +49,11 @@ public class MinifiedFieldValue {
   @SerializedName("mns")
   private Map<String, Double> mns = null;
 
-  @SerializedName("tis")
-  private List<String> tis = null;
+  @SerializedName("vs")
+  private List<String> vs = null;
+
+  @SerializedName("nvs")
+  private List<Double> nvs = null;
 
   public MinifiedFieldValue v(String v) {
     this.v = v;
@@ -158,30 +161,56 @@ public class MinifiedFieldValue {
     this.mns = mns;
   }
 
-  public MinifiedFieldValue tis(List<String> tis) {
-    this.tis = tis;
+  public MinifiedFieldValue vs(List<String> vs) {
+    this.vs = vs;
     return this;
   }
 
-  public MinifiedFieldValue addTisItem(String tisItem) {
-    if (this.tis == null) {
-      this.tis = new ArrayList<String>();
+  public MinifiedFieldValue addVsItem(String vsItem) {
+    if (this.vs == null) {
+      this.vs = new ArrayList<String>();
     }
-    this.tis.add(tisItem);
+    this.vs.add(vsItem);
     return this;
   }
 
    /**
-   * Get tis
-   * @return tis
+   * Get vs
+   * @return vs
   **/
   @ApiModelProperty(value = "")
-  public List<String> getTis() {
-    return tis;
+  public List<String> getVs() {
+    return vs;
   }
 
-  public void setTis(List<String> tis) {
-    this.tis = tis;
+  public void setVs(List<String> vs) {
+    this.vs = vs;
+  }
+
+  public MinifiedFieldValue nvs(List<Double> nvs) {
+    this.nvs = nvs;
+    return this;
+  }
+
+  public MinifiedFieldValue addNvsItem(Double nvsItem) {
+    if (this.nvs == null) {
+      this.nvs = new ArrayList<Double>();
+    }
+    this.nvs.add(nvsItem);
+    return this;
+  }
+
+   /**
+   * Get nvs
+   * @return nvs
+  **/
+  @ApiModelProperty(value = "")
+  public List<Double> getNvs() {
+    return nvs;
+  }
+
+  public void setNvs(List<Double> nvs) {
+    this.nvs = nvs;
   }
 
 
@@ -199,12 +228,13 @@ public class MinifiedFieldValue {
         Objects.equals(this.bv, minifiedFieldValue.bv) &&
         Objects.equals(this.yrs, minifiedFieldValue.yrs) &&
         Objects.equals(this.mns, minifiedFieldValue.mns) &&
-        Objects.equals(this.tis, minifiedFieldValue.tis);
+        Objects.equals(this.vs, minifiedFieldValue.vs) &&
+        Objects.equals(this.nvs, minifiedFieldValue.nvs);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(v, nv, bv, yrs, mns, tis);
+    return Objects.hash(v, nv, bv, yrs, mns, vs, nvs);
   }
 
 
@@ -218,7 +248,8 @@ public class MinifiedFieldValue {
     sb.append("    bv: ").append(toIndentedString(bv)).append("\n");
     sb.append("    yrs: ").append(toIndentedString(yrs)).append("\n");
     sb.append("    mns: ").append(toIndentedString(mns)).append("\n");
-    sb.append("    tis: ").append(toIndentedString(tis)).append("\n");
+    sb.append("    vs: ").append(toIndentedString(vs)).append("\n");
+    sb.append("    nvs: ").append(toIndentedString(nvs)).append("\n");
     sb.append("}");
     return sb.toString();
   }

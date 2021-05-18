@@ -12,7 +12,11 @@
 
 * `BOOLEAN` (value: `"BOOLEAN"`)
 
-* `ARRAY` (value: `"ARRAY"`)
+* `NUMERIC_ARRAY` (value: `"NUMERIC_ARRAY"`)
+
+* `TEXT_ARRAY` (value: `"TEXT_ARRAY"`)
+
+* `CATEGORY` (value: `"CATEGORY"`)
 
 
 

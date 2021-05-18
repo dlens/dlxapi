@@ -15,6 +15,7 @@ package com.decisionlens.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.decisionlens.client.model.FieldType;
 import com.decisionlens.client.model.Fields;
 import com.decisionlens.client.model.Projects;
 import com.decisionlens.client.model.Warnings;
@@ -47,14 +48,23 @@ public class SpreadsheetReport {
   @SerializedName("newFields")
   private Fields newFields = null;
 
+  @SerializedName("updateFields")
+  private Fields updateFields = null;
+
   @SerializedName("updateProjectFieldValuesCount")
   private Long updateProjectFieldValuesCount = null;
+
+  @SerializedName("updateTimePeriodsCount")
+  private Long updateTimePeriodsCount = null;
 
   @SerializedName("updateProjects")
   private Projects updateProjects = null;
 
   @SerializedName("warnings")
   private Warnings warnings = null;
+
+  @SerializedName("importType")
+  private FieldType importType = null;
 
   public SpreadsheetReport portfolioId(String portfolioId) {
     this.portfolioId = portfolioId;
@@ -146,6 +156,24 @@ public class SpreadsheetReport {
     this.newFields = newFields;
   }
 
+  public SpreadsheetReport updateFields(Fields updateFields) {
+    this.updateFields = updateFields;
+    return this;
+  }
+
+   /**
+   * Get updateFields
+   * @return updateFields
+  **/
+  @ApiModelProperty(value = "")
+  public Fields getUpdateFields() {
+    return updateFields;
+  }
+
+  public void setUpdateFields(Fields updateFields) {
+    this.updateFields = updateFields;
+  }
+
   public SpreadsheetReport updateProjectFieldValuesCount(Long updateProjectFieldValuesCount) {
     this.updateProjectFieldValuesCount = updateProjectFieldValuesCount;
     return this;
@@ -162,6 +190,24 @@ public class SpreadsheetReport {
 
   public void setUpdateProjectFieldValuesCount(Long updateProjectFieldValuesCount) {
     this.updateProjectFieldValuesCount = updateProjectFieldValuesCount;
+  }
+
+  public SpreadsheetReport updateTimePeriodsCount(Long updateTimePeriodsCount) {
+    this.updateTimePeriodsCount = updateTimePeriodsCount;
+    return this;
+  }
+
+   /**
+   * Get updateTimePeriodsCount
+   * @return updateTimePeriodsCount
+  **/
+  @ApiModelProperty(value = "")
+  public Long getUpdateTimePeriodsCount() {
+    return updateTimePeriodsCount;
+  }
+
+  public void setUpdateTimePeriodsCount(Long updateTimePeriodsCount) {
+    this.updateTimePeriodsCount = updateTimePeriodsCount;
   }
 
   public SpreadsheetReport updateProjects(Projects updateProjects) {
@@ -200,6 +246,24 @@ public class SpreadsheetReport {
     this.warnings = warnings;
   }
 
+  public SpreadsheetReport importType(FieldType importType) {
+    this.importType = importType;
+    return this;
+  }
+
+   /**
+   * Get importType
+   * @return importType
+  **/
+  @ApiModelProperty(value = "")
+  public FieldType getImportType() {
+    return importType;
+  }
+
+  public void setImportType(FieldType importType) {
+    this.importType = importType;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -215,14 +279,17 @@ public class SpreadsheetReport {
         Objects.equals(this.sheetName, spreadsheetReport.sheetName) &&
         Objects.equals(this.newProjects, spreadsheetReport.newProjects) &&
         Objects.equals(this.newFields, spreadsheetReport.newFields) &&
+        Objects.equals(this.updateFields, spreadsheetReport.updateFields) &&
         Objects.equals(this.updateProjectFieldValuesCount, spreadsheetReport.updateProjectFieldValuesCount) &&
+        Objects.equals(this.updateTimePeriodsCount, spreadsheetReport.updateTimePeriodsCount) &&
         Objects.equals(this.updateProjects, spreadsheetReport.updateProjects) &&
-        Objects.equals(this.warnings, spreadsheetReport.warnings);
+        Objects.equals(this.warnings, spreadsheetReport.warnings) &&
+        Objects.equals(this.importType, spreadsheetReport.importType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(portfolioId, spreadsheetId, sheetName, newProjects, newFields, updateProjectFieldValuesCount, updateProjects, warnings);
+    return Objects.hash(portfolioId, spreadsheetId, sheetName, newProjects, newFields, updateFields, updateProjectFieldValuesCount, updateTimePeriodsCount, updateProjects, warnings, importType);
   }
 
 
@@ -236,9 +303,12 @@ public class SpreadsheetReport {
     sb.append("    sheetName: ").append(toIndentedString(sheetName)).append("\n");
     sb.append("    newProjects: ").append(toIndentedString(newProjects)).append("\n");
     sb.append("    newFields: ").append(toIndentedString(newFields)).append("\n");
+    sb.append("    updateFields: ").append(toIndentedString(updateFields)).append("\n");
     sb.append("    updateProjectFieldValuesCount: ").append(toIndentedString(updateProjectFieldValuesCount)).append("\n");
+    sb.append("    updateTimePeriodsCount: ").append(toIndentedString(updateTimePeriodsCount)).append("\n");
     sb.append("    updateProjects: ").append(toIndentedString(updateProjects)).append("\n");
     sb.append("    warnings: ").append(toIndentedString(warnings)).append("\n");
+    sb.append("    importType: ").append(toIndentedString(importType)).append("\n");
     sb.append("}");
     return sb.toString();
   }

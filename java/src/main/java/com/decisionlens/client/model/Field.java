@@ -15,6 +15,8 @@ package com.decisionlens.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.decisionlens.client.model.CalculationType;
+import com.decisionlens.client.model.CategoryOptions;
 import com.decisionlens.client.model.DataType;
 import com.decisionlens.client.model.DlResource;
 import com.decisionlens.client.model.Field;
@@ -72,11 +74,17 @@ public class Field extends DlResource {
   @SerializedName("dataType")
   private DataType dataType = null;
 
+  @SerializedName("calculationType")
+  private CalculationType calculationType = null;
+
   @SerializedName("isFieldTypeApproved")
   private Boolean isFieldTypeApproved = true;
 
   @SerializedName("tagIds")
   private List<String> tagIds = null;
+
+  @SerializedName("categoryOptions")
+  private CategoryOptions categoryOptions = null;
 
   @SerializedName("isIdeaField")
   private Boolean isIdeaField = false;
@@ -285,6 +293,24 @@ public class Field extends DlResource {
     this.dataType = dataType;
   }
 
+  public Field calculationType(CalculationType calculationType) {
+    this.calculationType = calculationType;
+    return this;
+  }
+
+   /**
+   * Get calculationType
+   * @return calculationType
+  **/
+  @ApiModelProperty(value = "")
+  public CalculationType getCalculationType() {
+    return calculationType;
+  }
+
+  public void setCalculationType(CalculationType calculationType) {
+    this.calculationType = calculationType;
+  }
+
   public Field isFieldTypeApproved(Boolean isFieldTypeApproved) {
     this.isFieldTypeApproved = isFieldTypeApproved;
     return this;
@@ -327,6 +353,24 @@ public class Field extends DlResource {
 
   public void setTagIds(List<String> tagIds) {
     this.tagIds = tagIds;
+  }
+
+  public Field categoryOptions(CategoryOptions categoryOptions) {
+    this.categoryOptions = categoryOptions;
+    return this;
+  }
+
+   /**
+   * Get categoryOptions
+   * @return categoryOptions
+  **/
+  @ApiModelProperty(value = "")
+  public CategoryOptions getCategoryOptions() {
+    return categoryOptions;
+  }
+
+  public void setCategoryOptions(CategoryOptions categoryOptions) {
+    this.categoryOptions = categoryOptions;
   }
 
   public Field isIdeaField(Boolean isIdeaField) {
@@ -404,8 +448,10 @@ public class Field extends DlResource {
         Objects.equals(this.fieldValues, field.fieldValues) &&
         Objects.equals(this.targetType, field.targetType) &&
         Objects.equals(this.dataType, field.dataType) &&
+        Objects.equals(this.calculationType, field.calculationType) &&
         Objects.equals(this.isFieldTypeApproved, field.isFieldTypeApproved) &&
         Objects.equals(this.tagIds, field.tagIds) &&
+        Objects.equals(this.categoryOptions, field.categoryOptions) &&
         Objects.equals(this.isIdeaField, field.isIdeaField) &&
         Objects.equals(this.ideaFieldPosition, field.ideaFieldPosition) &&
         Objects.equals(this.isIdeaFieldRequired, field.isIdeaFieldRequired) &&
@@ -414,7 +460,7 @@ public class Field extends DlResource {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, description, type, source, portfolio, parent, position, typePosition, fieldValues, targetType, dataType, isFieldTypeApproved, tagIds, isIdeaField, ideaFieldPosition, isIdeaFieldRequired, super.hashCode());
+    return Objects.hash(name, description, type, source, portfolio, parent, position, typePosition, fieldValues, targetType, dataType, calculationType, isFieldTypeApproved, tagIds, categoryOptions, isIdeaField, ideaFieldPosition, isIdeaFieldRequired, super.hashCode());
   }
 
 
@@ -434,8 +480,10 @@ public class Field extends DlResource {
     sb.append("    fieldValues: ").append(toIndentedString(fieldValues)).append("\n");
     sb.append("    targetType: ").append(toIndentedString(targetType)).append("\n");
     sb.append("    dataType: ").append(toIndentedString(dataType)).append("\n");
+    sb.append("    calculationType: ").append(toIndentedString(calculationType)).append("\n");
     sb.append("    isFieldTypeApproved: ").append(toIndentedString(isFieldTypeApproved)).append("\n");
     sb.append("    tagIds: ").append(toIndentedString(tagIds)).append("\n");
+    sb.append("    categoryOptions: ").append(toIndentedString(categoryOptions)).append("\n");
     sb.append("    isIdeaField: ").append(toIndentedString(isIdeaField)).append("\n");
     sb.append("    ideaFieldPosition: ").append(toIndentedString(ideaFieldPosition)).append("\n");
     sb.append("    isIdeaFieldRequired: ").append(toIndentedString(isIdeaFieldRequired)).append("\n");

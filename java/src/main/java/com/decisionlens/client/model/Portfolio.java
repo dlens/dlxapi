@@ -16,6 +16,7 @@ package com.decisionlens.client.model;
 import java.util.Objects;
 import java.util.Arrays;
 import com.decisionlens.client.model.Attributes;
+import com.decisionlens.client.model.CustomNames;
 import com.decisionlens.client.model.DlResource;
 import com.decisionlens.client.model.Fields;
 import com.decisionlens.client.model.Portfolio;
@@ -87,6 +88,9 @@ public class Portfolio extends DlResource {
 
   @SerializedName("newNotificationsCount")
   private Integer newNotificationsCount = null;
+
+  @SerializedName("customNames")
+  private CustomNames customNames = null;
 
   public Portfolio name(String name) {
     this.name = name;
@@ -392,6 +396,24 @@ public class Portfolio extends DlResource {
     this.newNotificationsCount = newNotificationsCount;
   }
 
+  public Portfolio customNames(CustomNames customNames) {
+    this.customNames = customNames;
+    return this;
+  }
+
+   /**
+   * Get customNames
+   * @return customNames
+  **/
+  @ApiModelProperty(value = "")
+  public CustomNames getCustomNames() {
+    return customNames;
+  }
+
+  public void setCustomNames(CustomNames customNames) {
+    this.customNames = customNames;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -418,12 +440,13 @@ public class Portfolio extends DlResource {
         Objects.equals(this.resourcePools, portfolio.resourcePools) &&
         Objects.equals(this.totalBudget, portfolio.totalBudget) &&
         Objects.equals(this.newNotificationsCount, portfolio.newNotificationsCount) &&
+        Objects.equals(this.customNames, portfolio.customNames) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, description, isArchived, baselinePortfolioPlanUser, fields, projects, portfolioPlans, portfolioPlanUsers, attributes, isCombined, userRegistrationToken, subPortfolios, combinedPortfolios, resourcePools, totalBudget, newNotificationsCount, super.hashCode());
+    return Objects.hash(name, description, isArchived, baselinePortfolioPlanUser, fields, projects, portfolioPlans, portfolioPlanUsers, attributes, isCombined, userRegistrationToken, subPortfolios, combinedPortfolios, resourcePools, totalBudget, newNotificationsCount, customNames, super.hashCode());
   }
 
 
@@ -448,6 +471,7 @@ public class Portfolio extends DlResource {
     sb.append("    resourcePools: ").append(toIndentedString(resourcePools)).append("\n");
     sb.append("    totalBudget: ").append(toIndentedString(totalBudget)).append("\n");
     sb.append("    newNotificationsCount: ").append(toIndentedString(newNotificationsCount)).append("\n");
+    sb.append("    customNames: ").append(toIndentedString(customNames)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -6,7 +6,13 @@
 
 * `PROJECT` (value: `"PROJECT"`)
 
-* `COST` (value: `"COST"`)
+* `COSTAGGREGATE` (value: `"COSTAGGREGATE"`)
+
+* `ALLOCATE` (value: `"ALLOCATE"`)
+
+* `SPEND_PLANNED` (value: `"SPEND_PLANNED"`)
+
+* `SPEND_ACTUAL` (value: `"SPEND_ACTUAL"`)
 
 
 

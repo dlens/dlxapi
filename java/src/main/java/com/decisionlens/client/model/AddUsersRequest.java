@@ -15,6 +15,7 @@ package com.decisionlens.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.decisionlens.client.model.PortfolioPlanUserRole;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -33,6 +34,9 @@ import java.util.List;
 public class AddUsersRequest {
   @SerializedName("emailIds")
   private List<String> emailIds = null;
+
+  @SerializedName("role")
+  private PortfolioPlanUserRole role = null;
 
   @SerializedName("message")
   private String message = null;
@@ -64,6 +68,24 @@ public class AddUsersRequest {
 
   public void setEmailIds(List<String> emailIds) {
     this.emailIds = emailIds;
+  }
+
+  public AddUsersRequest role(PortfolioPlanUserRole role) {
+    this.role = role;
+    return this;
+  }
+
+   /**
+   * Get role
+   * @return role
+  **/
+  @ApiModelProperty(value = "")
+  public PortfolioPlanUserRole getRole() {
+    return role;
+  }
+
+  public void setRole(PortfolioPlanUserRole role) {
+    this.role = role;
   }
 
   public AddUsersRequest message(String message) {
@@ -113,13 +135,14 @@ public class AddUsersRequest {
     }
     AddUsersRequest addUsersRequest = (AddUsersRequest) o;
     return Objects.equals(this.emailIds, addUsersRequest.emailIds) &&
+        Objects.equals(this.role, addUsersRequest.role) &&
         Objects.equals(this.message, addUsersRequest.message) &&
         Objects.equals(this.doNotNotify, addUsersRequest.doNotNotify);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(emailIds, message, doNotNotify);
+    return Objects.hash(emailIds, role, message, doNotNotify);
   }
 
 
@@ -129,6 +152,7 @@ public class AddUsersRequest {
     sb.append("class AddUsersRequest {\n");
     
     sb.append("    emailIds: ").append(toIndentedString(emailIds)).append("\n");
+    sb.append("    role: ").append(toIndentedString(role)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    doNotNotify: ").append(toIndentedString(doNotNotify)).append("\n");
     sb.append("}");

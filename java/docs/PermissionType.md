@@ -6,7 +6,11 @@
 
 * `ALL_FIELDS` (value: `"ALL_FIELDS"`)
 
-* `FIELD` (value: `"FIELD"`)
+* `ALL_PROJECTS` (value: `"ALL_PROJECTS"`)
+
+* `FIELDS` (value: `"FIELDS"`)
+
+* `PROJECTS` (value: `"PROJECTS"`)
 
 * `ALLOCATE` (value: `"ALLOCATE"`)
 

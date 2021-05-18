@@ -58,12 +58,13 @@ public class SourcesApi {
     /**
      * Build call for fetchDataForSource
      * @param id Source id (required)
+     * @param priorityScenario Priority Scenario name (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call fetchDataForSourceCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call fetchDataForSourceCall(String id, String priorityScenario, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -72,6 +73,8 @@ public class SourcesApi {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (priorityScenario != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("priorityScenario", priorityScenario));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -106,7 +109,7 @@ public class SourcesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call fetchDataForSourceValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call fetchDataForSourceValidateBeforeCall(String id, String priorityScenario, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'id' is set
         if (id == null) {
@@ -114,7 +117,7 @@ public class SourcesApi {
         }
         
 
-        com.squareup.okhttp.Call call = fetchDataForSourceCall(id, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = fetchDataForSourceCall(id, priorityScenario, progressListener, progressRequestListener);
         return call;
 
     }
@@ -123,11 +126,12 @@ public class SourcesApi {
      * Fetch data for source.
      * 
      * @param id Source id (required)
+     * @param priorityScenario Priority Scenario name (optional)
      * @return Source
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Source fetchDataForSource(String id) throws ApiException {
-        ApiResponse<Source> resp = fetchDataForSourceWithHttpInfo(id);
+    public Source fetchDataForSource(String id, String priorityScenario) throws ApiException {
+        ApiResponse<Source> resp = fetchDataForSourceWithHttpInfo(id, priorityScenario);
         return resp.getData();
     }
 
@@ -135,11 +139,12 @@ public class SourcesApi {
      * Fetch data for source.
      * 
      * @param id Source id (required)
+     * @param priorityScenario Priority Scenario name (optional)
      * @return ApiResponse&lt;Source&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Source> fetchDataForSourceWithHttpInfo(String id) throws ApiException {
-        com.squareup.okhttp.Call call = fetchDataForSourceValidateBeforeCall(id, null, null);
+    public ApiResponse<Source> fetchDataForSourceWithHttpInfo(String id, String priorityScenario) throws ApiException {
+        com.squareup.okhttp.Call call = fetchDataForSourceValidateBeforeCall(id, priorityScenario, null, null);
         Type localVarReturnType = new TypeToken<Source>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -148,11 +153,12 @@ public class SourcesApi {
      * Fetch data for source. (asynchronously)
      * 
      * @param id Source id (required)
+     * @param priorityScenario Priority Scenario name (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call fetchDataForSourceAsync(String id, final ApiCallback<Source> callback) throws ApiException {
+    public com.squareup.okhttp.Call fetchDataForSourceAsync(String id, String priorityScenario, final ApiCallback<Source> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -173,7 +179,7 @@ public class SourcesApi {
             };
         }
 
-        com.squareup.okhttp.Call call = fetchDataForSourceValidateBeforeCall(id, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = fetchDataForSourceValidateBeforeCall(id, priorityScenario, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Source>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

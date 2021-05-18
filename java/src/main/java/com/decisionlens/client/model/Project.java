@@ -42,8 +42,17 @@ public class Project extends DlResource {
   @SerializedName("fieldValues")
   private FieldValues fieldValues = null;
 
+  @SerializedName("dependsOnProjectIds")
+  private List<String> dependsOnProjectIds = null;
+
+  @SerializedName("hasDependentProjectIds")
+  private List<String> hasDependentProjectIds = null;
+
   @SerializedName("contributingUserIds")
   private List<String> contributingUserIds = null;
+
+  @SerializedName("isDraft")
+  private Boolean isDraft = null;
 
   public Project name(String name) {
     this.name = name;
@@ -99,6 +108,58 @@ public class Project extends DlResource {
     this.fieldValues = fieldValues;
   }
 
+  public Project dependsOnProjectIds(List<String> dependsOnProjectIds) {
+    this.dependsOnProjectIds = dependsOnProjectIds;
+    return this;
+  }
+
+  public Project addDependsOnProjectIdsItem(String dependsOnProjectIdsItem) {
+    if (this.dependsOnProjectIds == null) {
+      this.dependsOnProjectIds = new ArrayList<String>();
+    }
+    this.dependsOnProjectIds.add(dependsOnProjectIdsItem);
+    return this;
+  }
+
+   /**
+   * Get dependsOnProjectIds
+   * @return dependsOnProjectIds
+  **/
+  @ApiModelProperty(value = "")
+  public List<String> getDependsOnProjectIds() {
+    return dependsOnProjectIds;
+  }
+
+  public void setDependsOnProjectIds(List<String> dependsOnProjectIds) {
+    this.dependsOnProjectIds = dependsOnProjectIds;
+  }
+
+  public Project hasDependentProjectIds(List<String> hasDependentProjectIds) {
+    this.hasDependentProjectIds = hasDependentProjectIds;
+    return this;
+  }
+
+  public Project addHasDependentProjectIdsItem(String hasDependentProjectIdsItem) {
+    if (this.hasDependentProjectIds == null) {
+      this.hasDependentProjectIds = new ArrayList<String>();
+    }
+    this.hasDependentProjectIds.add(hasDependentProjectIdsItem);
+    return this;
+  }
+
+   /**
+   * Get hasDependentProjectIds
+   * @return hasDependentProjectIds
+  **/
+  @ApiModelProperty(value = "")
+  public List<String> getHasDependentProjectIds() {
+    return hasDependentProjectIds;
+  }
+
+  public void setHasDependentProjectIds(List<String> hasDependentProjectIds) {
+    this.hasDependentProjectIds = hasDependentProjectIds;
+  }
+
   public Project contributingUserIds(List<String> contributingUserIds) {
     this.contributingUserIds = contributingUserIds;
     return this;
@@ -125,6 +186,24 @@ public class Project extends DlResource {
     this.contributingUserIds = contributingUserIds;
   }
 
+  public Project isDraft(Boolean isDraft) {
+    this.isDraft = isDraft;
+    return this;
+  }
+
+   /**
+   * Get isDraft
+   * @return isDraft
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isIsDraft() {
+    return isDraft;
+  }
+
+  public void setIsDraft(Boolean isDraft) {
+    this.isDraft = isDraft;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -138,13 +217,16 @@ public class Project extends DlResource {
     return Objects.equals(this.name, project.name) &&
         Objects.equals(this.position, project.position) &&
         Objects.equals(this.fieldValues, project.fieldValues) &&
+        Objects.equals(this.dependsOnProjectIds, project.dependsOnProjectIds) &&
+        Objects.equals(this.hasDependentProjectIds, project.hasDependentProjectIds) &&
         Objects.equals(this.contributingUserIds, project.contributingUserIds) &&
+        Objects.equals(this.isDraft, project.isDraft) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, position, fieldValues, contributingUserIds, super.hashCode());
+    return Objects.hash(name, position, fieldValues, dependsOnProjectIds, hasDependentProjectIds, contributingUserIds, isDraft, super.hashCode());
   }
 
 
@@ -156,7 +238,10 @@ public class Project extends DlResource {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    position: ").append(toIndentedString(position)).append("\n");
     sb.append("    fieldValues: ").append(toIndentedString(fieldValues)).append("\n");
+    sb.append("    dependsOnProjectIds: ").append(toIndentedString(dependsOnProjectIds)).append("\n");
+    sb.append("    hasDependentProjectIds: ").append(toIndentedString(hasDependentProjectIds)).append("\n");
     sb.append("    contributingUserIds: ").append(toIndentedString(contributingUserIds)).append("\n");
+    sb.append("    isDraft: ").append(toIndentedString(isDraft)).append("\n");
     sb.append("}");
     return sb.toString();
   }

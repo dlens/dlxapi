@@ -429,12 +429,13 @@ public class SpreadsheetApi {
      * @param sheetName  (optional)
      * @param importType Whether import PROJECT or COST data. Defaults to PROJECT (optional)
      * @param expand JSON string containing an array expand specifications for fields.  An expand specification must have a path and includes optional properties match, unique, allPossible, limit, offset, orderBy. (optional)
+     * @param columnsOnly return columns only the case for cost import (optional, default to true)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getMappingsForSpreadsheetCall(String id, String sheetName, Object importType, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getMappingsForSpreadsheetCall(String id, String sheetName, Object importType, String expand, Boolean columnsOnly, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -449,6 +450,8 @@ public class SpreadsheetApi {
         localVarQueryParams.addAll(apiClient.parameterToPair("importType", importType));
         if (expand != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("expand", expand));
+        if (columnsOnly != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("columnsOnly", columnsOnly));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -483,7 +486,7 @@ public class SpreadsheetApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getMappingsForSpreadsheetValidateBeforeCall(String id, String sheetName, Object importType, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getMappingsForSpreadsheetValidateBeforeCall(String id, String sheetName, Object importType, String expand, Boolean columnsOnly, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'id' is set
         if (id == null) {
@@ -491,7 +494,7 @@ public class SpreadsheetApi {
         }
         
 
-        com.squareup.okhttp.Call call = getMappingsForSpreadsheetCall(id, sheetName, importType, expand, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getMappingsForSpreadsheetCall(id, sheetName, importType, expand, columnsOnly, progressListener, progressRequestListener);
         return call;
 
     }
@@ -503,11 +506,12 @@ public class SpreadsheetApi {
      * @param sheetName  (optional)
      * @param importType Whether import PROJECT or COST data. Defaults to PROJECT (optional)
      * @param expand JSON string containing an array expand specifications for fields.  An expand specification must have a path and includes optional properties match, unique, allPossible, limit, offset, orderBy. (optional)
+     * @param columnsOnly return columns only the case for cost import (optional, default to true)
      * @return Mappings
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Mappings getMappingsForSpreadsheet(String id, String sheetName, Object importType, String expand) throws ApiException {
-        ApiResponse<Mappings> resp = getMappingsForSpreadsheetWithHttpInfo(id, sheetName, importType, expand);
+    public Mappings getMappingsForSpreadsheet(String id, String sheetName, Object importType, String expand, Boolean columnsOnly) throws ApiException {
+        ApiResponse<Mappings> resp = getMappingsForSpreadsheetWithHttpInfo(id, sheetName, importType, expand, columnsOnly);
         return resp.getData();
     }
 
@@ -518,11 +522,12 @@ public class SpreadsheetApi {
      * @param sheetName  (optional)
      * @param importType Whether import PROJECT or COST data. Defaults to PROJECT (optional)
      * @param expand JSON string containing an array expand specifications for fields.  An expand specification must have a path and includes optional properties match, unique, allPossible, limit, offset, orderBy. (optional)
+     * @param columnsOnly return columns only the case for cost import (optional, default to true)
      * @return ApiResponse&lt;Mappings&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Mappings> getMappingsForSpreadsheetWithHttpInfo(String id, String sheetName, Object importType, String expand) throws ApiException {
-        com.squareup.okhttp.Call call = getMappingsForSpreadsheetValidateBeforeCall(id, sheetName, importType, expand, null, null);
+    public ApiResponse<Mappings> getMappingsForSpreadsheetWithHttpInfo(String id, String sheetName, Object importType, String expand, Boolean columnsOnly) throws ApiException {
+        com.squareup.okhttp.Call call = getMappingsForSpreadsheetValidateBeforeCall(id, sheetName, importType, expand, columnsOnly, null, null);
         Type localVarReturnType = new TypeToken<Mappings>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -534,11 +539,12 @@ public class SpreadsheetApi {
      * @param sheetName  (optional)
      * @param importType Whether import PROJECT or COST data. Defaults to PROJECT (optional)
      * @param expand JSON string containing an array expand specifications for fields.  An expand specification must have a path and includes optional properties match, unique, allPossible, limit, offset, orderBy. (optional)
+     * @param columnsOnly return columns only the case for cost import (optional, default to true)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getMappingsForSpreadsheetAsync(String id, String sheetName, Object importType, String expand, final ApiCallback<Mappings> callback) throws ApiException {
+    public com.squareup.okhttp.Call getMappingsForSpreadsheetAsync(String id, String sheetName, Object importType, String expand, Boolean columnsOnly, final ApiCallback<Mappings> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -559,7 +565,7 @@ public class SpreadsheetApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getMappingsForSpreadsheetValidateBeforeCall(id, sheetName, importType, expand, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getMappingsForSpreadsheetValidateBeforeCall(id, sheetName, importType, expand, columnsOnly, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Mappings>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

@@ -30,9 +30,15 @@
 
 * `TAGS` (value: `"TAGS"`)
 
+* `ATTACHMENTS` (value: `"ATTACHMENTS"`)
+
 * `LOCK` (value: `"LOCK"`)
 
 * `COSTAGGREGATE` (value: `"COSTAGGREGATE"`)
+
+* `SPEND_PLANNED` (value: `"SPEND_PLANNED"`)
+
+* `SPEND_ACTUAL` (value: `"SPEND_ACTUAL"`)
 
 
 

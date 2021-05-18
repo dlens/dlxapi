@@ -56,14 +56,18 @@ public class JSON {
             public Class getClassForElement(JsonElement readElement) {
                 Map classByDiscriminatorValue = new HashMap();
                 classByDiscriminatorValue.put("Activities".toUpperCase(), Activities.class);
+                classByDiscriminatorValue.put("Attachments".toUpperCase(), Attachments.class);
                 classByDiscriminatorValue.put("BudgetAllocations".toUpperCase(), BudgetAllocations.class);
+                classByDiscriminatorValue.put("CategoryOptions".toUpperCase(), CategoryOptions.class);
                 classByDiscriminatorValue.put("Classifications".toUpperCase(), Classifications.class);
                 classByDiscriminatorValue.put("Comments".toUpperCase(), Comments.class);
                 classByDiscriminatorValue.put("Constraints".toUpperCase(), Constraints.class);
+                classByDiscriminatorValue.put("CustomNames".toUpperCase(), CustomNames.class);
                 classByDiscriminatorValue.put("FieldGrades".toUpperCase(), FieldGrades.class);
                 classByDiscriminatorValue.put("FieldValues".toUpperCase(), FieldValues.class);
                 classByDiscriminatorValue.put("Fields".toUpperCase(), Fields.class);
                 classByDiscriminatorValue.put("Groups".toUpperCase(), Groups.class);
+                classByDiscriminatorValue.put("JiraFieldMappings".toUpperCase(), JiraFieldMappings.class);
                 classByDiscriminatorValue.put("Permissions".toUpperCase(), Permissions.class);
                 classByDiscriminatorValue.put("PortfolioPlanGrades".toUpperCase(), PortfolioPlanGrades.class);
                 classByDiscriminatorValue.put("PortfolioPlanUsers".toUpperCase(), PortfolioPlanUsers.class);
@@ -89,10 +93,15 @@ public class JSON {
             public Class getClassForElement(JsonElement readElement) {
                 Map classByDiscriminatorValue = new HashMap();
                 classByDiscriminatorValue.put("Activity".toUpperCase(), Activity.class);
+                classByDiscriminatorValue.put("Attachment".toUpperCase(), Attachment.class);
+                classByDiscriminatorValue.put("CategoryOption".toUpperCase(), CategoryOption.class);
                 classByDiscriminatorValue.put("Comment".toUpperCase(), Comment.class);
                 classByDiscriminatorValue.put("Constraint".toUpperCase(), Constraint.class);
                 classByDiscriminatorValue.put("Field".toUpperCase(), Field.class);
+                classByDiscriminatorValue.put("FileAttachment".toUpperCase(), FileAttachment.class);
                 classByDiscriminatorValue.put("Group".toUpperCase(), Group.class);
+                classByDiscriminatorValue.put("JiraFieldMapping".toUpperCase(), JiraFieldMapping.class);
+                classByDiscriminatorValue.put("JiraInstance".toUpperCase(), JiraInstance.class);
                 classByDiscriminatorValue.put("Mapping".toUpperCase(), Mapping.class);
                 classByDiscriminatorValue.put("PlanGrade".toUpperCase(), PlanGrade.class);
                 classByDiscriminatorValue.put("Portfolio".toUpperCase(), Portfolio.class);

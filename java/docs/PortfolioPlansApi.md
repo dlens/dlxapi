@@ -188,7 +188,7 @@ Name | Type | Description  | Notes
 
 <a name="createProjectsInPortfolioPlan"></a>
 # **createProjectsInPortfolioPlan**
-> List&lt;Project&gt; createProjectsInPortfolioPlan(id, body)
+> List&lt;Project&gt; createProjectsInPortfolioPlan(id, body, doNotExpand)
 
 Create new projects
 
@@ -210,8 +210,9 @@ OAuth2.setAccessToken("YOUR ACCESS TOKEN");
 PortfolioPlansApi apiInstance = new PortfolioPlansApi();
 String id = "id_example"; // String | Portfolio plan id
 List<Project> body = Arrays.asList(new Project()); // List<Project> | Projects to create
+Boolean doNotExpand = false; // Boolean | Whether to return collections for each project in the response. Default is to return saved field values.
 try {
-    List<Project> result = apiInstance.createProjectsInPortfolioPlan(id, body);
+    List<Project> result = apiInstance.createProjectsInPortfolioPlan(id, body, doNotExpand);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PortfolioPlansApi#createProjectsInPortfolioPlan");
@@ -225,6 +226,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| Portfolio plan id |
  **body** | [**List&lt;Project&gt;**](Project.md)| Projects to create |
+ **doNotExpand** | **Boolean**| Whether to return collections for each project in the response. Default is to return saved field values. | [optional] [default to false]
 
 ### Return type
 

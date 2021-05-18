@@ -55,9 +55,15 @@ public enum FieldType {
   
   TAGS("TAGS"),
   
+  ATTACHMENTS("ATTACHMENTS"),
+  
   LOCK("LOCK"),
   
-  COSTAGGREGATE("COSTAGGREGATE");
+  COSTAGGREGATE("COSTAGGREGATE"),
+  
+  SPEND_PLANNED("SPEND_PLANNED"),
+  
+  SPEND_ACTUAL("SPEND_ACTUAL");
 
   private String value;
 

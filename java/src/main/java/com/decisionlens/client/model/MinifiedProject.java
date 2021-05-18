@@ -52,6 +52,12 @@ public class MinifiedProject {
   @SerializedName("cus")
   private List<String> cus = null;
 
+  @SerializedName("hdi")
+  private List<String> hdi = null;
+
+  @SerializedName("doi")
+  private List<String> doi = null;
+
   public MinifiedProject id(String id) {
     this.id = id;
     return this;
@@ -164,16 +170,68 @@ public class MinifiedProject {
   }
 
    /**
-   * Get cus
+   * Contibuting user indices.
    * @return cus
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Contibuting user indices.")
   public List<String> getCus() {
     return cus;
   }
 
   public void setCus(List<String> cus) {
     this.cus = cus;
+  }
+
+  public MinifiedProject hdi(List<String> hdi) {
+    this.hdi = hdi;
+    return this;
+  }
+
+  public MinifiedProject addHdiItem(String hdiItem) {
+    if (this.hdi == null) {
+      this.hdi = new ArrayList<String>();
+    }
+    this.hdi.add(hdiItem);
+    return this;
+  }
+
+   /**
+   * Has Dependent Ids
+   * @return hdi
+  **/
+  @ApiModelProperty(value = "Has Dependent Ids")
+  public List<String> getHdi() {
+    return hdi;
+  }
+
+  public void setHdi(List<String> hdi) {
+    this.hdi = hdi;
+  }
+
+  public MinifiedProject doi(List<String> doi) {
+    this.doi = doi;
+    return this;
+  }
+
+  public MinifiedProject addDoiItem(String doiItem) {
+    if (this.doi == null) {
+      this.doi = new ArrayList<String>();
+    }
+    this.doi.add(doiItem);
+    return this;
+  }
+
+   /**
+   * Depends on project ids
+   * @return doi
+  **/
+  @ApiModelProperty(value = "Depends on project ids")
+  public List<String> getDoi() {
+    return doi;
+  }
+
+  public void setDoi(List<String> doi) {
+    this.doi = doi;
   }
 
 
@@ -191,12 +249,14 @@ public class MinifiedProject {
         Objects.equals(this.pos, minifiedProject.pos) &&
         Objects.equals(this.mt, minifiedProject.mt) &&
         Objects.equals(this.fvs, minifiedProject.fvs) &&
-        Objects.equals(this.cus, minifiedProject.cus);
+        Objects.equals(this.cus, minifiedProject.cus) &&
+        Objects.equals(this.hdi, minifiedProject.hdi) &&
+        Objects.equals(this.doi, minifiedProject.doi);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, n, pos, mt, fvs, cus);
+    return Objects.hash(id, n, pos, mt, fvs, cus, hdi, doi);
   }
 
 
@@ -211,6 +271,8 @@ public class MinifiedProject {
     sb.append("    mt: ").append(toIndentedString(mt)).append("\n");
     sb.append("    fvs: ").append(toIndentedString(fvs)).append("\n");
     sb.append("    cus: ").append(toIndentedString(cus)).append("\n");
+    sb.append("    hdi: ").append(toIndentedString(hdi)).append("\n");
+    sb.append("    doi: ").append(toIndentedString(doi)).append("\n");
     sb.append("}");
     return sb.toString();
   }

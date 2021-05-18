@@ -29,7 +29,11 @@ import com.google.gson.stream.JsonWriter;
 @JsonAdapter(ExportFormatType.Adapter.class)
 public enum ExportFormatType {
   
-  XLSX("XLSX");
+  XLSX("XLSX"),
+  
+  CSV("CSV"),
+  
+  ZIP("ZIP");
 
   private String value;
 

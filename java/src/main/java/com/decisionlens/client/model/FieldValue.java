@@ -50,8 +50,11 @@ public class FieldValue {
   @SerializedName("booleanValue")
   private Boolean booleanValue = null;
 
-  @SerializedName("tagIds")
-  private List<String> tagIds = null;
+  @SerializedName("numericValues")
+  private List<Double> numericValues = null;
+
+  @SerializedName("values")
+  private List<String> values = null;
 
   @SerializedName("timePeriod")
   private TimePeriod timePeriod = null;
@@ -155,30 +158,56 @@ public class FieldValue {
     this.booleanValue = booleanValue;
   }
 
-  public FieldValue tagIds(List<String> tagIds) {
-    this.tagIds = tagIds;
+  public FieldValue numericValues(List<Double> numericValues) {
+    this.numericValues = numericValues;
     return this;
   }
 
-  public FieldValue addTagIdsItem(String tagIdsItem) {
-    if (this.tagIds == null) {
-      this.tagIds = new ArrayList<String>();
+  public FieldValue addNumericValuesItem(Double numericValuesItem) {
+    if (this.numericValues == null) {
+      this.numericValues = new ArrayList<Double>();
     }
-    this.tagIds.add(tagIdsItem);
+    this.numericValues.add(numericValuesItem);
     return this;
   }
 
    /**
-   * Get tagIds
-   * @return tagIds
+   * Get numericValues
+   * @return numericValues
   **/
   @ApiModelProperty(value = "")
-  public List<String> getTagIds() {
-    return tagIds;
+  public List<Double> getNumericValues() {
+    return numericValues;
   }
 
-  public void setTagIds(List<String> tagIds) {
-    this.tagIds = tagIds;
+  public void setNumericValues(List<Double> numericValues) {
+    this.numericValues = numericValues;
+  }
+
+  public FieldValue values(List<String> values) {
+    this.values = values;
+    return this;
+  }
+
+  public FieldValue addValuesItem(String valuesItem) {
+    if (this.values == null) {
+      this.values = new ArrayList<String>();
+    }
+    this.values.add(valuesItem);
+    return this;
+  }
+
+   /**
+   * Get values
+   * @return values
+  **/
+  @ApiModelProperty(value = "")
+  public List<String> getValues() {
+    return values;
+  }
+
+  public void setValues(List<String> values) {
+    this.values = values;
   }
 
   public FieldValue timePeriod(TimePeriod timePeriod) {
@@ -268,7 +297,8 @@ public class FieldValue {
         Objects.equals(this.value, fieldValue.value) &&
         Objects.equals(this.numericValue, fieldValue.numericValue) &&
         Objects.equals(this.booleanValue, fieldValue.booleanValue) &&
-        Objects.equals(this.tagIds, fieldValue.tagIds) &&
+        Objects.equals(this.numericValues, fieldValue.numericValues) &&
+        Objects.equals(this.values, fieldValue.values) &&
         Objects.equals(this.timePeriod, fieldValue.timePeriod) &&
         Objects.equals(this.details, fieldValue.details) &&
         Objects.equals(this.createdAt, fieldValue.createdAt) &&
@@ -277,7 +307,7 @@ public class FieldValue {
 
   @Override
   public int hashCode() {
-    return Objects.hash(field, project, value, numericValue, booleanValue, tagIds, timePeriod, details, createdAt, modifiedAt);
+    return Objects.hash(field, project, value, numericValue, booleanValue, numericValues, values, timePeriod, details, createdAt, modifiedAt);
   }
 
 
@@ -291,7 +321,8 @@ public class FieldValue {
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("    numericValue: ").append(toIndentedString(numericValue)).append("\n");
     sb.append("    booleanValue: ").append(toIndentedString(booleanValue)).append("\n");
-    sb.append("    tagIds: ").append(toIndentedString(tagIds)).append("\n");
+    sb.append("    numericValues: ").append(toIndentedString(numericValues)).append("\n");
+    sb.append("    values: ").append(toIndentedString(values)).append("\n");
     sb.append("    timePeriod: ").append(toIndentedString(timePeriod)).append("\n");
     sb.append("    details: ").append(toIndentedString(details)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
