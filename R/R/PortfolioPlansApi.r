@@ -275,11 +275,12 @@ PortfolioPlansApi <- R6::R6Class(
       if (!missing(`id`)) {
         urlPath <- gsub(paste0("\\{", "id", "\\}"), `id`, urlPath)
       }
-
+      headerParams['content-type'] = "application/json"
       urlPath <- "/portfolioPlans/%s/export?exportType=%s&exportFormat=%s"
       urlPath <- sprintf(urlPath, id, export_type, export_format)
+      body = NULL
       resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
-                                 method = "GET",
+                                 method = "POST",
                                  queryParams = queryParams,
                                  headerParams = headerParams,
                                  body = body,
@@ -824,14 +825,14 @@ PortfolioPlansApi <- R6::R6Class(
       if (!missing(`expand`)) {
         queryParams['expand'] <- expand
       }
-      
+
       if (!missing(`body`)) {
         #body <- `body`$toJSONString()
         body <- jsonlite::toJSON(body)
       } else {
         body <- ""
       }
-      
+
       #body = jsonlite::toJSON(params)
       body = params
 
