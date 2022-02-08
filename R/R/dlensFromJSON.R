@@ -182,7 +182,7 @@ importDataDLX <- function(dlx_instsance, id, secret, portfolioId, excel_file, sh
   #Now set up the mapping
   #The second to last parameter is either "COST" to import cost data, or "PROJECT" to import
   #project scores on other fields, e.g. Revenue, Risk, NPV, etc.
-  spreadsheetApi$get_mappings_for_spreadsheet(spreadsheet$content$id, sheetName, dataType, FALSE)
+  #spreadsheetApi$get_mappings_for_spreadsheet(spreadsheet$content$id, sheetName, dataType, FALSE)
   #Now save
   rval = portfoliosApi$save_spreadsheet_for_portfolio(myport$content$id, spreadsheet$content$id, sheetName, dataType)
   processingReportNextResponse(rval, "Performing import")
