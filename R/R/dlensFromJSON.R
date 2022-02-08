@@ -10,9 +10,9 @@ dlensFromJSON <- function(txt,...) {
 }
 
 #' Gets a portfolio object from its name
-#' 
+#'
 #' Note that name is spacing and case sensitive.
-#' 
+#'
 #' @param apiclient The ApiClient object to use for method calls.
 #' @param name The name of the portfolio to return
 #' @return A Portfolio object or NULL if there was no portfolio of the given name
@@ -29,7 +29,7 @@ portfolioFromName <- function(apiclient, name) {
 }
 
 #' Gets a portfolio object from its id
-#' 
+#'
 #' @param apiclient The ApiClient object to use for method calls.
 #' @param id The name of the portfolio to return
 #' @return A Portfolio object or NULL if there was no portfolio of the given name
@@ -122,14 +122,14 @@ apiClientFromCreds <- function(dlx_instance, id, secret) {
   #Setup login and api calling urls from our instance
   dlx_login_url = paste(dlx_instance, "oauth/token?grant_type=client_credentials", sep="/")
   dlx_api_url = paste(dlx_instance, "v1", sep="/")
-  
+
   basicAuth <- base64enc::base64encode(charToRaw(paste(id,secret, sep=":")))
   res=httr::POST(dlx_login_url, httr::add_headers("Authorization"= paste("Basic", basicAuth)))
   if (res$status_code == 401) {
     # You were unauthorized, we fail now
     errorReport("Authentication error", res)
   }
-  
+
   access_token = httr::content(res)$access_token
   #print(access_token)
   apiClient = ApiClient$new()
@@ -149,27 +149,27 @@ apiClientFromCreds <- function(dlx_instance, id, secret) {
 importDataDLX <- function(dlx_instsance, id, secret, portfolioId, excel_file, sheetName, dataType)
 {
   processingReportStart()
-  
+
   # Start our report of progress
   processingReportStart()
   # You need an ApiClient object to talk to the server.
   # This ApiClient object basically has the auth info
   apiClient = apiClientFromCreds(dlx_instance, id, secret)
   processingReportNextNotNull(apiClient, "Setting up API Client")
-  
+
   # Need a PortfoliosApi object to talk to the Portfolio server
   portfoliosApi = PortfoliosApi$new()
   processingReportNextNotNull(portfoliosApi, "Setting up Portfolios API Client")
   portfoliosApi$apiClient = apiClient
-  
+
   # Let's get our portfolio, just to make sure things are working
   portfolioName = "R Code Integration Test"
   #Get portfolio either by id or by name
   #myport = portfolioFromName(apiClient, portfolioName)
   myport = portfolioFromId(apiClient, portfolioId)
-  
+
   processingReportNextResponse(myport,"Getting a portfolio by name")
-  
+
   #We need an SpreadsheetApi object to call to upload our spreadsheet
   spreadsheetApi = SpreadsheetApi$new(apiClient)
   processingReportNextNotNull(spreadsheetApi, "Getting Spreadsheet API")
@@ -178,13 +178,13 @@ importDataDLX <- function(dlx_instsance, id, secret, portfolioId, excel_file, sh
   #Upload the spreadsheet to the server
   spreadsheet = spreadsheetApi$create_spreadsheet(excel_file)
   processingReportNextResponse(spreadsheet, "Uploading Spreadsheet")
-  
+
   #Now set up the mapping
   #The second to last parameter is either "COST" to import cost data, or "PROJECT" to import
   #project scores on other fields, e.g. Revenue, Risk, NPV, etc.
   spreadsheetApi$get_mappings_for_spreadsheet(spreadsheet$content$id, sheetName, dataType, FALSE)
   #Now save
-  rval = portfoliosApi$save_spreadsheet_for_portfolio(myport$content$id, spreadsheet$content$id, sheetName)
+  rval = portfoliosApi$save_spreadsheet_for_portfolio(myport$content$id, spreadsheet$content$id, sheetName, dataType)
   processingReportNextResponse(rval, "Performing import")
 }
 
@@ -317,7 +317,7 @@ fieldsToNameLookup <- function(apiClient, portId) {
 #' Converts a Field name to its Id.  If you pass in one field, it returns
 #' the single id.  If you pass in a list of names, it returns the corresponding
 #' list of ids
-#' 
+#'
 fieldNameToId <- function(apiClient, portId, name) {
   lookup = fieldsToNameLookup(apiClient, portId)
   if (length(name) == 1) {
@@ -347,7 +347,7 @@ projectNamesToIdLookup <- function(apiClient, portId, planId) {
 #' Converts a project name to its Id.  If you pass in one project, it returns
 #' the single id.  If you pass in a list of names, it returns the corresponding
 #' list of ids
-#' 
+#'
 projectNameToId <- function(apiClient, portId, planId, name) {
   lookup = projectNamesToIdLookup(apiClient, portId, planId)
   if (length(name) == 1) {
@@ -459,7 +459,7 @@ updateProjectsEndDates <- function(apiClient, portId, planId, projects, endDates
 #' @param portId The id of the portfolio to update statuses of
 #' @param planId The id of the plan whose statuses we are setting
 #' @param costFieldId The id of the cost field we are working on
-#' @param timePeriodString The string version of time period e.g. 2020-10-1 for 
+#' @param timePeriodString The string version of time period e.g. 2020-10-1 for
 #' October 1, 2020
 #' @param yearOrMonthString Should either be "YEAR" or "MONTH"
 #' @param projects A vector of project ids to set the start dates of
@@ -582,5 +582,5 @@ updateProjectsFromExport <- function(apiClient, portId, planId, excelExportFile,
     processingReportNextResponse(rval, reporting_msg)
     return(rval)
   }
-  
+
 }
