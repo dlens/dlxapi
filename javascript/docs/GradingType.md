@@ -1,0 +1,16 @@
+# DecisionLensApi.GradingType
+
+## Enum
+
+
+* `GRADED` (value: `"GRADED"`)
+
+* `NOT_ENOUGH_BUDGET` (value: `"NOT_ENOUGH_BUDGET"`)
+
+* `TOO_MUCH_BUDGET_SIMPLE` (value: `"TOO_MUCH_BUDGET_SIMPLE"`)
+
+* `TOO_MUCH_BUDGET_COMPLEX` (value: `"TOO_MUCH_BUDGET_COMPLEX"`)
+
+* `NOT_GRADABLE_COMBINED` (value: `"NOT_GRADABLE_COMBINED"`)
+
+
