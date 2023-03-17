@@ -32,7 +32,7 @@ An example API call to fetch all the portfolios that the user has access to
 curl -X GET "https://api-gov.decisionlens.com/v1/portfolios" -H "Authorization: <paste your access token here>"
 ```
 
-### Uploading a spreadsheet to update project data in the portfolio 
+### Uploading a spreadsheet (.xlsx) to update project data in the portfolio 
 Here is an sample code to update a spreadsheet to update project data in the portfolio. 
 
 1. Add a new portfolio. Get portfolio id from the response. 
@@ -51,4 +51,18 @@ curl -X POST 'https://api-gov.decisionlens.com/v1/spreadsheet'  -H 'authorizatio
 curl -X POST https://api-gov.decisionlens.com/v1/portfolios/{portfolioId}/spreadsheet/{spreadsheetId}?sheetName={sheetName}&importType=PROJECT -H 'authorization: Bearer <paste your access token here>'
 ```
 
+### Downloading project data 
+Download project data in the portfolio plan as an Excel file (.xlsx).  In order to export data you need to get the portfolio plan id. For example, in order to export from baseline plan: 
+
+1. Get portfolio plans for the portfolio. Iterate over the portfolio plans and get the id of the basline portfolio plan.
+```
+curl -X GET 'https://api-gov.decisionlens.com/v1/portfolioPlans?portfolioId={portfolioId} -H 'authorization: Bearer <paste your access token here>'
+
+```
+
+2. Export all project data 
+```
+curl -X POST https://api-gov.decisionlens.com/v1/portfolioPlans/{portfolioPlanId}/export?exportType=PROJECT&exportFormat=XLSX -H 'authorization: Bearer <paste your access token here>' -H 'Content-Type: application/json' -o projects.xlsx
+
+```
 
