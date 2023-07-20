@@ -54,6 +54,9 @@ public class Project extends DlResource {
   @SerializedName("isDraft")
   private Boolean isDraft = null;
 
+  @SerializedName("rank")
+  private Integer rank = null;
+
   public Project name(String name) {
     this.name = name;
     return this;
@@ -204,6 +207,24 @@ public class Project extends DlResource {
     this.isDraft = isDraft;
   }
 
+  public Project rank(Integer rank) {
+    this.rank = rank;
+    return this;
+  }
+
+   /**
+   * Get rank
+   * @return rank
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getRank() {
+    return rank;
+  }
+
+  public void setRank(Integer rank) {
+    this.rank = rank;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -221,12 +242,13 @@ public class Project extends DlResource {
         Objects.equals(this.hasDependentProjectIds, project.hasDependentProjectIds) &&
         Objects.equals(this.contributingUserIds, project.contributingUserIds) &&
         Objects.equals(this.isDraft, project.isDraft) &&
+        Objects.equals(this.rank, project.rank) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, position, fieldValues, dependsOnProjectIds, hasDependentProjectIds, contributingUserIds, isDraft, super.hashCode());
+    return Objects.hash(name, position, fieldValues, dependsOnProjectIds, hasDependentProjectIds, contributingUserIds, isDraft, rank, super.hashCode());
   }
 
 
@@ -242,6 +264,7 @@ public class Project extends DlResource {
     sb.append("    hasDependentProjectIds: ").append(toIndentedString(hasDependentProjectIds)).append("\n");
     sb.append("    contributingUserIds: ").append(toIndentedString(contributingUserIds)).append("\n");
     sb.append("    isDraft: ").append(toIndentedString(isDraft)).append("\n");
+    sb.append("    rank: ").append(toIndentedString(rank)).append("\n");
     sb.append("}");
     return sb.toString();
   }

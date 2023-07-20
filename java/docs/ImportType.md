@@ -6,6 +6,12 @@
 
 * `PROJECT` (value: `"PROJECT"`)
 
+* `BUDGET` (value: `"BUDGET"`)
+
+* `BUDGET_AMOUNTS` (value: `"BUDGET_AMOUNTS"`)
+
+* `COST` (value: `"COST"`)
+
 * `COSTAGGREGATE` (value: `"COSTAGGREGATE"`)
 
 * `ALLOCATE` (value: `"ALLOCATE"`)

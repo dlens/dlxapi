@@ -20,9 +20,11 @@ import com.decisionlens.client.model.CategoryOptions;
 import com.decisionlens.client.model.DataType;
 import com.decisionlens.client.model.DlResource;
 import com.decisionlens.client.model.Field;
+import com.decisionlens.client.model.FieldAttributes;
 import com.decisionlens.client.model.FieldType;
 import com.decisionlens.client.model.FieldValues;
 import com.decisionlens.client.model.Portfolio;
+import com.decisionlens.client.model.Scale;
 import com.decisionlens.client.model.Source;
 import com.decisionlens.client.model.TargetType;
 import com.google.gson.TypeAdapter;
@@ -43,6 +45,9 @@ import java.util.List;
 public class Field extends DlResource {
   @SerializedName("name")
   private String name = null;
+
+  @SerializedName("originalName")
+  private String originalName = null;
 
   @SerializedName("description")
   private String description = null;
@@ -95,6 +100,12 @@ public class Field extends DlResource {
   @SerializedName("isIdeaFieldRequired")
   private Boolean isIdeaFieldRequired = false;
 
+  @SerializedName("scale")
+  private Scale scale = null;
+
+  @SerializedName("attributes")
+  private FieldAttributes attributes = null;
+
   public Field name(String name) {
     this.name = name;
     return this;
@@ -111,6 +122,24 @@ public class Field extends DlResource {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public Field originalName(String originalName) {
+    this.originalName = originalName;
+    return this;
+  }
+
+   /**
+   * Get originalName
+   * @return originalName
+  **/
+  @ApiModelProperty(value = "")
+  public String getOriginalName() {
+    return originalName;
+  }
+
+  public void setOriginalName(String originalName) {
+    this.originalName = originalName;
   }
 
   public Field description(String description) {
@@ -427,6 +456,42 @@ public class Field extends DlResource {
     this.isIdeaFieldRequired = isIdeaFieldRequired;
   }
 
+  public Field scale(Scale scale) {
+    this.scale = scale;
+    return this;
+  }
+
+   /**
+   * Get scale
+   * @return scale
+  **/
+  @ApiModelProperty(value = "")
+  public Scale getScale() {
+    return scale;
+  }
+
+  public void setScale(Scale scale) {
+    this.scale = scale;
+  }
+
+  public Field attributes(FieldAttributes attributes) {
+    this.attributes = attributes;
+    return this;
+  }
+
+   /**
+   * Get attributes
+   * @return attributes
+  **/
+  @ApiModelProperty(value = "")
+  public FieldAttributes getAttributes() {
+    return attributes;
+  }
+
+  public void setAttributes(FieldAttributes attributes) {
+    this.attributes = attributes;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -438,6 +503,7 @@ public class Field extends DlResource {
     }
     Field field = (Field) o;
     return Objects.equals(this.name, field.name) &&
+        Objects.equals(this.originalName, field.originalName) &&
         Objects.equals(this.description, field.description) &&
         Objects.equals(this.type, field.type) &&
         Objects.equals(this.source, field.source) &&
@@ -455,12 +521,14 @@ public class Field extends DlResource {
         Objects.equals(this.isIdeaField, field.isIdeaField) &&
         Objects.equals(this.ideaFieldPosition, field.ideaFieldPosition) &&
         Objects.equals(this.isIdeaFieldRequired, field.isIdeaFieldRequired) &&
+        Objects.equals(this.scale, field.scale) &&
+        Objects.equals(this.attributes, field.attributes) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, description, type, source, portfolio, parent, position, typePosition, fieldValues, targetType, dataType, calculationType, isFieldTypeApproved, tagIds, categoryOptions, isIdeaField, ideaFieldPosition, isIdeaFieldRequired, super.hashCode());
+    return Objects.hash(name, originalName, description, type, source, portfolio, parent, position, typePosition, fieldValues, targetType, dataType, calculationType, isFieldTypeApproved, tagIds, categoryOptions, isIdeaField, ideaFieldPosition, isIdeaFieldRequired, scale, attributes, super.hashCode());
   }
 
 
@@ -470,6 +538,7 @@ public class Field extends DlResource {
     sb.append("class Field {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    originalName: ").append(toIndentedString(originalName)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
@@ -487,6 +556,8 @@ public class Field extends DlResource {
     sb.append("    isIdeaField: ").append(toIndentedString(isIdeaField)).append("\n");
     sb.append("    ideaFieldPosition: ").append(toIndentedString(ideaFieldPosition)).append("\n");
     sb.append("    isIdeaFieldRequired: ").append(toIndentedString(isIdeaFieldRequired)).append("\n");
+    sb.append("    scale: ").append(toIndentedString(scale)).append("\n");
+    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("}");
     return sb.toString();
   }

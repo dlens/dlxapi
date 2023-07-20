@@ -31,7 +31,9 @@ public enum CustomNameGroupType {
   
   GENERAL("GENERAL"),
   
-  STATUS("STATUS");
+  STATUS("STATUS"),
+  
+  COST("COST");
 
   private String value;
 

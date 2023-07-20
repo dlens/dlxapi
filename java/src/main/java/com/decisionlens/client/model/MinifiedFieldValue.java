@@ -175,10 +175,10 @@ public class MinifiedFieldValue {
   }
 
    /**
-   * Get vs
+   * Text values array
    * @return vs
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Text values array")
   public List<String> getVs() {
     return vs;
   }
@@ -201,10 +201,10 @@ public class MinifiedFieldValue {
   }
 
    /**
-   * Get nvs
+   * Numeric values array
    * @return nvs
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Numeric values array")
   public List<Double> getNvs() {
     return nvs;
   }

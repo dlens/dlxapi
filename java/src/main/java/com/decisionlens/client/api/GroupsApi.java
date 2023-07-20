@@ -31,6 +31,9 @@ import com.decisionlens.client.model.Activities;
 import com.decisionlens.client.model.ErrorResponse;
 import com.decisionlens.client.model.Group;
 import com.decisionlens.client.model.Groups;
+import com.decisionlens.client.model.Portfolios;
+import com.decisionlens.client.model.ProvisionGroupRequest;
+import com.decisionlens.client.model.ProvisionGroupResponse;
 import com.decisionlens.client.model.Users;
 
 import java.lang.reflect.Type;
@@ -122,7 +125,7 @@ public class GroupsApi {
     }
 
     /**
-     * Creates a new group. System Administator operation.
+     * Creates a new group. System Administrator operation.
      * 
      * @param group Group to create (required)
      * @return Group
@@ -134,7 +137,7 @@ public class GroupsApi {
     }
 
     /**
-     * Creates a new group. System Administator operation.
+     * Creates a new group. System Administrator operation.
      * 
      * @param group Group to create (required)
      * @return ApiResponse&lt;Group&gt;
@@ -147,7 +150,7 @@ public class GroupsApi {
     }
 
     /**
-     * Creates a new group. System Administator operation. (asynchronously)
+     * Creates a new group. System Administrator operation. (asynchronously)
      * 
      * @param group Group to create (required)
      * @param callback The callback to be executed when the API call finishes
@@ -177,6 +180,141 @@ public class GroupsApi {
 
         com.squareup.okhttp.Call call = createGroupValidateBeforeCall(group, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Group>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for exportGroup
+     * @param id Group id (required)
+     * @param exportType export type (GROUP) (optional)
+     * @param exportFormat export format type (XLSX) (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call exportGroupCall(Object id, Object exportType, Object exportFormat, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/groups/{id}/export"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (exportType != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("exportType", exportType));
+        if (exportFormat != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("exportFormat", exportFormat));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "OAuth2" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call exportGroupValidateBeforeCall(Object id, Object exportType, Object exportFormat, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling exportGroup(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = exportGroupCall(id, exportType, exportFormat, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Export Group
+     * 
+     * @param id Group id (required)
+     * @param exportType export type (GROUP) (optional)
+     * @param exportFormat export format type (XLSX) (optional)
+     * @return byte[]
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public byte[] exportGroup(Object id, Object exportType, Object exportFormat) throws ApiException {
+        ApiResponse<byte[]> resp = exportGroupWithHttpInfo(id, exportType, exportFormat);
+        return resp.getData();
+    }
+
+    /**
+     * Export Group
+     * 
+     * @param id Group id (required)
+     * @param exportType export type (GROUP) (optional)
+     * @param exportFormat export format type (XLSX) (optional)
+     * @return ApiResponse&lt;byte[]&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<byte[]> exportGroupWithHttpInfo(Object id, Object exportType, Object exportFormat) throws ApiException {
+        com.squareup.okhttp.Call call = exportGroupValidateBeforeCall(id, exportType, exportFormat, null, null);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Export Group (asynchronously)
+     * 
+     * @param id Group id (required)
+     * @param exportType export type (GROUP) (optional)
+     * @param exportFormat export format type (XLSX) (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call exportGroupAsync(Object id, Object exportType, Object exportFormat, final ApiCallback<byte[]> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = exportGroupValidateBeforeCall(id, exportType, exportFormat, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -459,6 +597,159 @@ public class GroupsApi {
         return call;
     }
     /**
+     * Build call for getPortfoliosForGroup
+     * @param id Group id (required)
+     * @param expand JSON string containing an array expand specifications for fields.  An expand specification must have a path and includes optional properties match, unique, allPossible, limit, offset, orderBy. (optional)
+     * @param limit Pagination limit (optional)
+     * @param offset Pagination offset (optional)
+     * @param orderBy Comma delimited list of order by expressions. Use &#39;-&#39; in front of expression for reverse order. (optional)
+     * @param match Semi-colon delimited list of expressions to include in the response only the items in a collections that satisfy the expression(s). All other items should be exluded. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getPortfoliosForGroupCall(String id, String expand, Integer limit, Integer offset, String orderBy, String match, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/groups/{id}/portfolios"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (expand != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("expand", expand));
+        if (limit != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
+        if (offset != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("offset", offset));
+        if (orderBy != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("orderBy", orderBy));
+        if (match != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("match", match));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "OAuth2" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getPortfoliosForGroupValidateBeforeCall(String id, String expand, Integer limit, Integer offset, String orderBy, String match, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling getPortfoliosForGroup(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = getPortfoliosForGroupCall(id, expand, limit, offset, orderBy, match, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Get portfolios for group. Group administrator operation.
+     * 
+     * @param id Group id (required)
+     * @param expand JSON string containing an array expand specifications for fields.  An expand specification must have a path and includes optional properties match, unique, allPossible, limit, offset, orderBy. (optional)
+     * @param limit Pagination limit (optional)
+     * @param offset Pagination offset (optional)
+     * @param orderBy Comma delimited list of order by expressions. Use &#39;-&#39; in front of expression for reverse order. (optional)
+     * @param match Semi-colon delimited list of expressions to include in the response only the items in a collections that satisfy the expression(s). All other items should be exluded. (optional)
+     * @return Portfolios
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public Portfolios getPortfoliosForGroup(String id, String expand, Integer limit, Integer offset, String orderBy, String match) throws ApiException {
+        ApiResponse<Portfolios> resp = getPortfoliosForGroupWithHttpInfo(id, expand, limit, offset, orderBy, match);
+        return resp.getData();
+    }
+
+    /**
+     * Get portfolios for group. Group administrator operation.
+     * 
+     * @param id Group id (required)
+     * @param expand JSON string containing an array expand specifications for fields.  An expand specification must have a path and includes optional properties match, unique, allPossible, limit, offset, orderBy. (optional)
+     * @param limit Pagination limit (optional)
+     * @param offset Pagination offset (optional)
+     * @param orderBy Comma delimited list of order by expressions. Use &#39;-&#39; in front of expression for reverse order. (optional)
+     * @param match Semi-colon delimited list of expressions to include in the response only the items in a collections that satisfy the expression(s). All other items should be exluded. (optional)
+     * @return ApiResponse&lt;Portfolios&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Portfolios> getPortfoliosForGroupWithHttpInfo(String id, String expand, Integer limit, Integer offset, String orderBy, String match) throws ApiException {
+        com.squareup.okhttp.Call call = getPortfoliosForGroupValidateBeforeCall(id, expand, limit, offset, orderBy, match, null, null);
+        Type localVarReturnType = new TypeToken<Portfolios>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get portfolios for group. Group administrator operation. (asynchronously)
+     * 
+     * @param id Group id (required)
+     * @param expand JSON string containing an array expand specifications for fields.  An expand specification must have a path and includes optional properties match, unique, allPossible, limit, offset, orderBy. (optional)
+     * @param limit Pagination limit (optional)
+     * @param offset Pagination offset (optional)
+     * @param orderBy Comma delimited list of order by expressions. Use &#39;-&#39; in front of expression for reverse order. (optional)
+     * @param match Semi-colon delimited list of expressions to include in the response only the items in a collections that satisfy the expression(s). All other items should be exluded. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getPortfoliosForGroupAsync(String id, String expand, Integer limit, Integer offset, String orderBy, String match, final ApiCallback<Portfolios> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getPortfoliosForGroupValidateBeforeCall(id, expand, limit, offset, orderBy, match, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<Portfolios>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for getUsersForGroup
      * @param id Group id (required)
      * @param expand JSON string containing an array expand specifications for fields.  An expand specification must have a path and includes optional properties match, unique, allPossible, limit, offset, orderBy. (optional)
@@ -602,6 +893,128 @@ public class GroupsApi {
 
         com.squareup.okhttp.Call call = getUsersForGroupValidateBeforeCall(id, expand, limit, offset, match, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Users>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for provisionGroup
+     * @param provisionGroupRequest Provision a Group (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call provisionGroupCall(ProvisionGroupRequest provisionGroupRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = provisionGroupRequest;
+
+        // create path and map variables
+        String localVarPath = "/groups/provision";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "OAuth2" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call provisionGroupValidateBeforeCall(ProvisionGroupRequest provisionGroupRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'provisionGroupRequest' is set
+        if (provisionGroupRequest == null) {
+            throw new ApiException("Missing the required parameter 'provisionGroupRequest' when calling provisionGroup(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = provisionGroupCall(provisionGroupRequest, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Provision a group (tenant).
+     * 
+     * @param provisionGroupRequest Provision a Group (required)
+     * @return ProvisionGroupResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ProvisionGroupResponse provisionGroup(ProvisionGroupRequest provisionGroupRequest) throws ApiException {
+        ApiResponse<ProvisionGroupResponse> resp = provisionGroupWithHttpInfo(provisionGroupRequest);
+        return resp.getData();
+    }
+
+    /**
+     * Provision a group (tenant).
+     * 
+     * @param provisionGroupRequest Provision a Group (required)
+     * @return ApiResponse&lt;ProvisionGroupResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ProvisionGroupResponse> provisionGroupWithHttpInfo(ProvisionGroupRequest provisionGroupRequest) throws ApiException {
+        com.squareup.okhttp.Call call = provisionGroupValidateBeforeCall(provisionGroupRequest, null, null);
+        Type localVarReturnType = new TypeToken<ProvisionGroupResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Provision a group (tenant). (asynchronously)
+     * 
+     * @param provisionGroupRequest Provision a Group (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call provisionGroupAsync(ProvisionGroupRequest provisionGroupRequest, final ApiCallback<ProvisionGroupResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = provisionGroupValidateBeforeCall(provisionGroupRequest, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ProvisionGroupResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

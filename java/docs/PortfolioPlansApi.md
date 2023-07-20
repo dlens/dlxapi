@@ -4,13 +4,15 @@ All URIs are relative to *http://localhost:9005/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**addAndDeleteFieldValuesForFields**](PortfolioPlansApi.md#addAndDeleteFieldValuesForFields) | **PATCH** /portfolioPlans/{portfolioPlanId}/project/{projectId}/addRemoveCosts | add field values for the fields, and remove all field values for fields, for the supplied project
 [**addPortfolioPlanUsers**](PortfolioPlansApi.md#addPortfolioPlanUsers) | **POST** /portfolioPlans/{id}/users | Add users to a portfolio plan.
 [**applyRecommendationsForPortfolioPlan**](PortfolioPlansApi.md#applyRecommendationsForPortfolioPlan) | **POST** /portfolioPlans/{id}/recommendations | Apply recommendations of a portfolio plan.
 [**createPortfolioPlan**](PortfolioPlansApi.md#createPortfolioPlan) | **POST** /portfolioPlans | Create a portfolio plan
 [**createProjectsInPortfolioPlan**](PortfolioPlansApi.md#createProjectsInPortfolioPlan) | **POST** /portfolioPlans/{id}/projects | Create new projects
 [**deletePortfolioPlan**](PortfolioPlansApi.md#deletePortfolioPlan) | **DELETE** /portfolioPlans/{id} | Deletes portfolio plan
-[**exportPortfolioPlan**](PortfolioPlansApi.md#exportPortfolioPlan) | **GET** /portfolioPlans/{id}/export | Export portfolio plan
+[**exportPortfolioPlan**](PortfolioPlansApi.md#exportPortfolioPlan) | **POST** /portfolioPlans/{id}/export | Export portfolio plan
 [**getBudgetAllocationsForPortfolioPlan**](PortfolioPlansApi.md#getBudgetAllocationsForPortfolioPlan) | **GET** /portfolioPlans/{id}/budgetAllocations | Retrieves budget allocations for a portfolio plan.
+[**getFieldValuesDataForPortfolioPlan**](PortfolioPlansApi.md#getFieldValuesDataForPortfolioPlan) | **GET** /portfolioPlans/{portfolioPlanId}/data/{dataId} | Fetch field values data for portfolio plan and data id.
 [**getMinifiedProjectsForPortfolioPlan**](PortfolioPlansApi.md#getMinifiedProjectsForPortfolioPlan) | **GET** /portfolioPlans/{id}/projects/minify | Retrieves minified projects contained within a portfolio plan.
 [**getPortfolioPlan**](PortfolioPlansApi.md#getPortfolioPlan) | **GET** /portfolioPlans/{id} | Retrieves portfolio plan
 [**getPortfolioPlanActivities**](PortfolioPlansApi.md#getPortfolioPlanActivities) | **GET** /portfolioPlans/{id}/activities | Retrieves portfolio plan activities log.
@@ -23,9 +25,67 @@ Method | HTTP request | Description
 [**getScheduleForPortfolioPlan**](PortfolioPlansApi.md#getScheduleForPortfolioPlan) | **GET** /portfolioPlans/{id}/schedule | Retrieves schedule for portfolio plan. The schedule is stored in a new portfolio plan.
 [**rebaselinePortfolioPlan**](PortfolioPlansApi.md#rebaselinePortfolioPlan) | **POST** /portfolioPlans/{id}/rebaseline | Rebaseline a portfolio plan.
 [**updatePortfolioPlan**](PortfolioPlansApi.md#updatePortfolioPlan) | **PATCH** /portfolioPlans/{id} | Updates a portfolio plan utilizing JSON Patch Operations. 
+[**updatePortfolioPlanBudgetFieldValues**](PortfolioPlansApi.md#updatePortfolioPlanBudgetFieldValues) | **PATCH** /portfolioPlans/{id}/fieldValues/budgets | Update field values in a portfolio plan
 [**updatePortfolioPlanFieldValues**](PortfolioPlansApi.md#updatePortfolioPlanFieldValues) | **PATCH** /portfolioPlans/{id}/fieldValues | Update field values in a portfolio plan
 [**updatePortfolioPlanUsers**](PortfolioPlansApi.md#updatePortfolioPlanUsers) | **PATCH** /portfolioPlans/{id}/users | Update users in a portfolio plan
 
+
+<a name="addAndDeleteFieldValuesForFields"></a>
+# **addAndDeleteFieldValuesForFields**
+> List&lt;FieldValue&gt; addAndDeleteFieldValuesForFields(portfolioPlanId, projectId, body, expand)
+
+add field values for the fields, and remove all field values for fields, for the supplied project
+
+### Example
+```java
+// Import classes:
+//import com.decisionlens.client.ApiClient;
+//import com.decisionlens.client.ApiException;
+//import com.decisionlens.client.Configuration;
+//import com.decisionlens.client.auth.*;
+//import com.decisionlens.client.api.PortfolioPlansApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: OAuth2
+OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+PortfolioPlansApi apiInstance = new PortfolioPlansApi();
+Object portfolioPlanId = null; // Object | Portfolio plan id
+Object projectId = null; // Object | Project id
+AddAndDeleteFieldValuesForFieldsRequest body = new AddAndDeleteFieldValuesForFieldsRequest(); // AddAndDeleteFieldValuesForFieldsRequest | TimePeriods cost fields to add, cost fields to remove
+String expand = "expand_example"; // String | JSON string containing an array expand specifications for fields.  An expand specification must have a path and includes optional properties match, unique, allPossible, limit, offset, orderBy.
+try {
+    List<FieldValue> result = apiInstance.addAndDeleteFieldValuesForFields(portfolioPlanId, projectId, body, expand);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling PortfolioPlansApi#addAndDeleteFieldValuesForFields");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **portfolioPlanId** | [**Object**](.md)| Portfolio plan id |
+ **projectId** | [**Object**](.md)| Project id |
+ **body** | [**AddAndDeleteFieldValuesForFieldsRequest**](AddAndDeleteFieldValuesForFieldsRequest.md)| TimePeriods cost fields to add, cost fields to remove |
+ **expand** | **String**| JSON string containing an array expand specifications for fields.  An expand specification must have a path and includes optional properties match, unique, allPossible, limit, offset, orderBy. | [optional]
+
+### Return type
+
+[**List&lt;FieldValue&gt;**](FieldValue.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json
+ - **Accept**: application/json
 
 <a name="addPortfolioPlanUsers"></a>
 # **addPortfolioPlanUsers**
@@ -293,7 +353,7 @@ null (empty response body)
 
 <a name="exportPortfolioPlan"></a>
 # **exportPortfolioPlan**
-> byte[] exportPortfolioPlan(id, exportType, exportFormat)
+> byte[] exportPortfolioPlan(id, exportType, exportFormat, exportConfig)
 
 Export portfolio plan
 
@@ -314,10 +374,11 @@ OAuth2.setAccessToken("YOUR ACCESS TOKEN");
 
 PortfolioPlansApi apiInstance = new PortfolioPlansApi();
 String id = "id_example"; // String | portfolio plan id
-Object exportType = null; // Object | export type (PROJECT, SCHEDULE)
+Object exportType = null; // Object | export type (PROJECT, SCHEDULE, SPEND_PLAN)
 Object exportFormat = null; // Object | export format type (XLSX)
+ExportConfig exportConfig = new ExportConfig(); // ExportConfig | export configuration object
 try {
-    byte[] result = apiInstance.exportPortfolioPlan(id, exportType, exportFormat);
+    byte[] result = apiInstance.exportPortfolioPlan(id, exportType, exportFormat, exportConfig);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PortfolioPlansApi#exportPortfolioPlan");
@@ -330,8 +391,9 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| portfolio plan id |
- **exportType** | [**Object**](.md)| export type (PROJECT, SCHEDULE) |
+ **exportType** | [**Object**](.md)| export type (PROJECT, SCHEDULE, SPEND_PLAN) |
  **exportFormat** | [**Object**](.md)| export format type (XLSX) |
+ **exportConfig** | [**ExportConfig**](ExportConfig.md)| export configuration object | [optional]
 
 ### Return type
 
@@ -343,7 +405,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 
 <a name="getBudgetAllocationsForPortfolioPlan"></a>
@@ -391,6 +453,59 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**BudgetAllocations**](BudgetAllocations.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getFieldValuesDataForPortfolioPlan"></a>
+# **getFieldValuesDataForPortfolioPlan**
+> List&lt;FieldValue&gt; getFieldValuesDataForPortfolioPlan(portfolioPlanId, dataId)
+
+Fetch field values data for portfolio plan and data id.
+
+### Example
+```java
+// Import classes:
+//import com.decisionlens.client.ApiClient;
+//import com.decisionlens.client.ApiException;
+//import com.decisionlens.client.Configuration;
+//import com.decisionlens.client.auth.*;
+//import com.decisionlens.client.api.PortfolioPlansApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: OAuth2
+OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+PortfolioPlansApi apiInstance = new PortfolioPlansApi();
+String portfolioPlanId = "portfolioPlanId_example"; // String | Portfolio plan ID
+String dataId = "dataId_example"; // String | Data ID
+try {
+    List<FieldValue> result = apiInstance.getFieldValuesDataForPortfolioPlan(portfolioPlanId, dataId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling PortfolioPlansApi#getFieldValuesDataForPortfolioPlan");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **portfolioPlanId** | **String**| Portfolio plan ID |
+ **dataId** | **String**| Data ID |
+
+### Return type
+
+[**List&lt;FieldValue&gt;**](FieldValue.md)
 
 ### Authorization
 
@@ -1087,9 +1202,64 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json-patch+json
  - **Accept**: application/json
 
+<a name="updatePortfolioPlanBudgetFieldValues"></a>
+# **updatePortfolioPlanBudgetFieldValues**
+> List&lt;ResourcePoolFieldValue&gt; updatePortfolioPlanBudgetFieldValues(id, body, expand)
+
+Update field values in a portfolio plan
+
+### Example
+```java
+// Import classes:
+//import com.decisionlens.client.ApiClient;
+//import com.decisionlens.client.ApiException;
+//import com.decisionlens.client.Configuration;
+//import com.decisionlens.client.auth.*;
+//import com.decisionlens.client.api.PortfolioPlansApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: OAuth2
+OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+PortfolioPlansApi apiInstance = new PortfolioPlansApi();
+Object id = null; // Object | Portfolio plan id
+List<ResourcePoolFieldValuePatchItem> body = Arrays.asList(new ResourcePoolFieldValuePatchItem()); // List<ResourcePoolFieldValuePatchItem> | JSON Patch Operations to update multiple field values.
+String expand = "expand_example"; // String | JSON string containing an array expand specifications for fields.  An expand specification must have a path and includes optional properties match, unique, allPossible, limit, offset, orderBy.
+try {
+    List<ResourcePoolFieldValue> result = apiInstance.updatePortfolioPlanBudgetFieldValues(id, body, expand);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling PortfolioPlansApi#updatePortfolioPlanBudgetFieldValues");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | [**Object**](.md)| Portfolio plan id |
+ **body** | [**List&lt;ResourcePoolFieldValuePatchItem&gt;**](ResourcePoolFieldValuePatchItem.md)| JSON Patch Operations to update multiple field values. |
+ **expand** | **String**| JSON string containing an array expand specifications for fields.  An expand specification must have a path and includes optional properties match, unique, allPossible, limit, offset, orderBy. | [optional]
+
+### Return type
+
+[**List&lt;ResourcePoolFieldValue&gt;**](ResourcePoolFieldValue.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json
+ - **Accept**: application/json
+
 <a name="updatePortfolioPlanFieldValues"></a>
 # **updatePortfolioPlanFieldValues**
-> List&lt;FieldValue&gt; updatePortfolioPlanFieldValues(id, body, expand)
+> List&lt;FieldValue&gt; updatePortfolioPlanFieldValues(id, body, applyRank, preserveProjectAccess, expand)
 
 Update field values in a portfolio plan
 
@@ -1111,9 +1281,11 @@ OAuth2.setAccessToken("YOUR ACCESS TOKEN");
 PortfolioPlansApi apiInstance = new PortfolioPlansApi();
 Object id = null; // Object | Portfolio plan id
 List<FieldValuePatchItem> body = Arrays.asList(new FieldValuePatchItem()); // List<FieldValuePatchItem> | JSON Patch Operations to update multiple field values.
+Boolean applyRank = true; // Boolean | Whether the update signifies an Apply Rank action.
+Boolean preserveProjectAccess = true; // Boolean | Making sure projects access is retained in case that the current change would affect permissions
 String expand = "expand_example"; // String | JSON string containing an array expand specifications for fields.  An expand specification must have a path and includes optional properties match, unique, allPossible, limit, offset, orderBy.
 try {
-    List<FieldValue> result = apiInstance.updatePortfolioPlanFieldValues(id, body, expand);
+    List<FieldValue> result = apiInstance.updatePortfolioPlanFieldValues(id, body, applyRank, preserveProjectAccess, expand);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PortfolioPlansApi#updatePortfolioPlanFieldValues");
@@ -1127,6 +1299,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**Object**](.md)| Portfolio plan id |
  **body** | [**List&lt;FieldValuePatchItem&gt;**](FieldValuePatchItem.md)| JSON Patch Operations to update multiple field values. |
+ **applyRank** | **Boolean**| Whether the update signifies an Apply Rank action. | [optional]
+ **preserveProjectAccess** | **Boolean**| Making sure projects access is retained in case that the current change would affect permissions | [optional]
  **expand** | **String**| JSON string containing an array expand specifications for fields.  An expand specification must have a path and includes optional properties match, unique, allPossible, limit, offset, orderBy. | [optional]
 
 ### Return type

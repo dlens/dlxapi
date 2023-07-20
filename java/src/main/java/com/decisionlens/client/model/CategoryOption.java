@@ -39,6 +39,9 @@ public class CategoryOption extends DlResource {
   @SerializedName("fieldId")
   private String fieldId = null;
 
+  @SerializedName("position")
+  private Integer position = null;
+
   public CategoryOption name(String name) {
     this.name = name;
     return this;
@@ -93,6 +96,24 @@ public class CategoryOption extends DlResource {
     this.fieldId = fieldId;
   }
 
+  public CategoryOption position(Integer position) {
+    this.position = position;
+    return this;
+  }
+
+   /**
+   * Get position
+   * @return position
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getPosition() {
+    return position;
+  }
+
+  public void setPosition(Integer position) {
+    this.position = position;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -106,12 +127,13 @@ public class CategoryOption extends DlResource {
     return Objects.equals(this.name, categoryOption.name) &&
         Objects.equals(this.portfolioId, categoryOption.portfolioId) &&
         Objects.equals(this.fieldId, categoryOption.fieldId) &&
+        Objects.equals(this.position, categoryOption.position) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, portfolioId, fieldId, super.hashCode());
+    return Objects.hash(name, portfolioId, fieldId, position, super.hashCode());
   }
 
 
@@ -123,6 +145,7 @@ public class CategoryOption extends DlResource {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    portfolioId: ").append(toIndentedString(portfolioId)).append("\n");
     sb.append("    fieldId: ").append(toIndentedString(fieldId)).append("\n");
+    sb.append("    position: ").append(toIndentedString(position)).append("\n");
     sb.append("}");
     return sb.toString();
   }

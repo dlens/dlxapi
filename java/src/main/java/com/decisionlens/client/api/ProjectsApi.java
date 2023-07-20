@@ -29,6 +29,7 @@ import java.io.IOException;
 
 import com.decisionlens.client.model.AddUsersRequest;
 import com.decisionlens.client.model.ErrorResponse;
+import com.decisionlens.client.model.MinifiedProjects;
 import com.decisionlens.client.model.PortfolioPlanUser;
 import com.decisionlens.client.model.Project;
 import com.decisionlens.client.model.Projects;
@@ -188,6 +189,133 @@ public class ProjectsApi {
         return call;
     }
     /**
+     * Build call for copyProject
+     * @param id project id (required)
+     * @param body Info to be included in the new project copy; only name will suffice (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call copyProjectCall(String id, Project body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+
+        // create path and map variables
+        String localVarPath = "/projects/{id}/copy"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "OAuth2" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call copyProjectValidateBeforeCall(String id, Project body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling copyProject(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = copyProjectCall(id, body, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Creates a copy of the project, including portfolio data, dependencies, attachments
+     * 
+     * @param id project id (required)
+     * @param body Info to be included in the new project copy; only name will suffice (optional)
+     * @return Project
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public Project copyProject(String id, Project body) throws ApiException {
+        ApiResponse<Project> resp = copyProjectWithHttpInfo(id, body);
+        return resp.getData();
+    }
+
+    /**
+     * Creates a copy of the project, including portfolio data, dependencies, attachments
+     * 
+     * @param id project id (required)
+     * @param body Info to be included in the new project copy; only name will suffice (optional)
+     * @return ApiResponse&lt;Project&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Project> copyProjectWithHttpInfo(String id, Project body) throws ApiException {
+        com.squareup.okhttp.Call call = copyProjectValidateBeforeCall(id, body, null, null);
+        Type localVarReturnType = new TypeToken<Project>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Creates a copy of the project, including portfolio data, dependencies, attachments (asynchronously)
+     * 
+     * @param id project id (required)
+     * @param body Info to be included in the new project copy; only name will suffice (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call copyProjectAsync(String id, Project body, final ApiCallback<Project> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = copyProjectValidateBeforeCall(id, body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<Project>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for createProject
      * @param portfolioId Portfolio id (required)
      * @param project Project to create (required)
@@ -318,6 +446,136 @@ public class ProjectsApi {
         com.squareup.okhttp.Call call = createProjectValidateBeforeCall(portfolioId, project, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Project>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for deleteFieldValuesForProject
+     * @param id project id (required)
+     * @param fieldIds field ids (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deleteFieldValuesForProjectCall(String id, List<String> fieldIds, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/projects/{id}/fieldValues"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (fieldIds != null)
+        localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("csv", "fieldIds", fieldIds));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "OAuth2" };
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deleteFieldValuesForProjectValidateBeforeCall(String id, List<String> fieldIds, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling deleteFieldValuesForProject(Async)");
+        }
+        
+        // verify the required parameter 'fieldIds' is set
+        if (fieldIds == null) {
+            throw new ApiException("Missing the required parameter 'fieldIds' when calling deleteFieldValuesForProject(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = deleteFieldValuesForProjectCall(id, fieldIds, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Deletes all field values for a certain fields for a particular project
+     * 
+     * @param id project id (required)
+     * @param fieldIds field ids (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void deleteFieldValuesForProject(String id, List<String> fieldIds) throws ApiException {
+        deleteFieldValuesForProjectWithHttpInfo(id, fieldIds);
+    }
+
+    /**
+     * Deletes all field values for a certain fields for a particular project
+     * 
+     * @param id project id (required)
+     * @param fieldIds field ids (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> deleteFieldValuesForProjectWithHttpInfo(String id, List<String> fieldIds) throws ApiException {
+        com.squareup.okhttp.Call call = deleteFieldValuesForProjectValidateBeforeCall(id, fieldIds, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Deletes all field values for a certain fields for a particular project (asynchronously)
+     * 
+     * @param id project id (required)
+     * @param fieldIds field ids (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call deleteFieldValuesForProjectAsync(String id, List<String> fieldIds, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deleteFieldValuesForProjectValidateBeforeCall(id, fieldIds, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
         return call;
     }
     /**
@@ -810,6 +1068,141 @@ public class ProjectsApi {
 
         com.squareup.okhttp.Call call = getProjectForPortfolioPlanValidateBeforeCall(projectId, portfolioPlanId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Project>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getProjectsDataForPortfolio
+     * @param portfolioId Portfolio Id (required)
+     * @param dataId Data Id (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getProjectsDataForPortfolioCall(String portfolioId, String dataId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/projects/data";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (portfolioId != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("portfolioId", portfolioId));
+        if (dataId != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("dataId", dataId));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "OAuth2" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getProjectsDataForPortfolioValidateBeforeCall(String portfolioId, String dataId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'portfolioId' is set
+        if (portfolioId == null) {
+            throw new ApiException("Missing the required parameter 'portfolioId' when calling getProjectsDataForPortfolio(Async)");
+        }
+        
+        // verify the required parameter 'dataId' is set
+        if (dataId == null) {
+            throw new ApiException("Missing the required parameter 'dataId' when calling getProjectsDataForPortfolio(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = getProjectsDataForPortfolioCall(portfolioId, dataId, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Fetch project data for portfolio and data id.
+     * 
+     * @param portfolioId Portfolio Id (required)
+     * @param dataId Data Id (required)
+     * @return MinifiedProjects
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public MinifiedProjects getProjectsDataForPortfolio(String portfolioId, String dataId) throws ApiException {
+        ApiResponse<MinifiedProjects> resp = getProjectsDataForPortfolioWithHttpInfo(portfolioId, dataId);
+        return resp.getData();
+    }
+
+    /**
+     * Fetch project data for portfolio and data id.
+     * 
+     * @param portfolioId Portfolio Id (required)
+     * @param dataId Data Id (required)
+     * @return ApiResponse&lt;MinifiedProjects&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<MinifiedProjects> getProjectsDataForPortfolioWithHttpInfo(String portfolioId, String dataId) throws ApiException {
+        com.squareup.okhttp.Call call = getProjectsDataForPortfolioValidateBeforeCall(portfolioId, dataId, null, null);
+        Type localVarReturnType = new TypeToken<MinifiedProjects>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Fetch project data for portfolio and data id. (asynchronously)
+     * 
+     * @param portfolioId Portfolio Id (required)
+     * @param dataId Data Id (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getProjectsDataForPortfolioAsync(String portfolioId, String dataId, final ApiCallback<MinifiedProjects> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getProjectsDataForPortfolioValidateBeforeCall(portfolioId, dataId, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<MinifiedProjects>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

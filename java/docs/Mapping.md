@@ -12,10 +12,13 @@ Name | Type | Description | Notes
 **dataType** | [**DataType**](DataType.md) |  |  [optional]
 **importType** | [**ImportType**](ImportType.md) |  |  [optional]
 **position** | **Integer** |  |  [optional]
+**dateFormat** | [**DateFormat**](DateFormat.md) |  |  [optional]
+**rawDateFormats** | **List&lt;String&gt;** |  |  [optional]
 **values** | **List&lt;String&gt;** |  |  [optional]
 **numericValues** | **List&lt;Double&gt;** |  |  [optional]
 **booleanValues** | **List&lt;Boolean&gt;** |  |  [optional]
 **timePeriod** | [**TimePeriod**](TimePeriod.md) |  |  [optional]
+**isDuplicated** | **Boolean** |  |  [optional]
 
 
 

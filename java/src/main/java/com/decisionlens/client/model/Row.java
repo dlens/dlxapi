@@ -37,6 +37,9 @@ public class Row {
   @SerializedName("columns")
   private List<String> columns = null;
 
+  @SerializedName("dataFormats")
+  private List<String> dataFormats = null;
+
   public Row size(Integer size) {
     this.size = size;
     return this;
@@ -81,6 +84,32 @@ public class Row {
     this.columns = columns;
   }
 
+  public Row dataFormats(List<String> dataFormats) {
+    this.dataFormats = dataFormats;
+    return this;
+  }
+
+  public Row addDataFormatsItem(String dataFormatsItem) {
+    if (this.dataFormats == null) {
+      this.dataFormats = new ArrayList<String>();
+    }
+    this.dataFormats.add(dataFormatsItem);
+    return this;
+  }
+
+   /**
+   * Get dataFormats
+   * @return dataFormats
+  **/
+  @ApiModelProperty(value = "")
+  public List<String> getDataFormats() {
+    return dataFormats;
+  }
+
+  public void setDataFormats(List<String> dataFormats) {
+    this.dataFormats = dataFormats;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -92,12 +121,13 @@ public class Row {
     }
     Row row = (Row) o;
     return Objects.equals(this.size, row.size) &&
-        Objects.equals(this.columns, row.columns);
+        Objects.equals(this.columns, row.columns) &&
+        Objects.equals(this.dataFormats, row.dataFormats);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(size, columns);
+    return Objects.hash(size, columns, dataFormats);
   }
 
 
@@ -108,6 +138,7 @@ public class Row {
     
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("    columns: ").append(toIndentedString(columns)).append("\n");
+    sb.append("    dataFormats: ").append(toIndentedString(dataFormats)).append("\n");
     sb.append("}");
     return sb.toString();
   }

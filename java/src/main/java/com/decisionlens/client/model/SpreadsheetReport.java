@@ -18,6 +18,8 @@ import java.util.Arrays;
 import com.decisionlens.client.model.FieldType;
 import com.decisionlens.client.model.Fields;
 import com.decisionlens.client.model.Projects;
+import com.decisionlens.client.model.ResourcePools;
+import com.decisionlens.client.model.SpreadsheetFields;
 import com.decisionlens.client.model.Warnings;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -45,14 +47,32 @@ public class SpreadsheetReport {
   @SerializedName("newProjects")
   private Projects newProjects = null;
 
+  @SerializedName("fields")
+  private SpreadsheetFields fields = null;
+
   @SerializedName("newFields")
   private Fields newFields = null;
+
+  @SerializedName("newBudgets")
+  private ResourcePools newBudgets = null;
 
   @SerializedName("updateFields")
   private Fields updateFields = null;
 
+  @SerializedName("updateBudgets")
+  private ResourcePools updateBudgets = null;
+
   @SerializedName("updateProjectFieldValuesCount")
   private Long updateProjectFieldValuesCount = null;
+
+  @SerializedName("updateBudgetFieldValuesCount")
+  private Long updateBudgetFieldValuesCount = null;
+
+  @SerializedName("newBudgetAmountsCount")
+  private Long newBudgetAmountsCount = null;
+
+  @SerializedName("updateBudgetAmountsCount")
+  private Long updateBudgetAmountsCount = null;
 
   @SerializedName("updateTimePeriodsCount")
   private Long updateTimePeriodsCount = null;
@@ -138,6 +158,24 @@ public class SpreadsheetReport {
     this.newProjects = newProjects;
   }
 
+  public SpreadsheetReport fields(SpreadsheetFields fields) {
+    this.fields = fields;
+    return this;
+  }
+
+   /**
+   * Get fields
+   * @return fields
+  **/
+  @ApiModelProperty(value = "")
+  public SpreadsheetFields getFields() {
+    return fields;
+  }
+
+  public void setFields(SpreadsheetFields fields) {
+    this.fields = fields;
+  }
+
   public SpreadsheetReport newFields(Fields newFields) {
     this.newFields = newFields;
     return this;
@@ -154,6 +192,24 @@ public class SpreadsheetReport {
 
   public void setNewFields(Fields newFields) {
     this.newFields = newFields;
+  }
+
+  public SpreadsheetReport newBudgets(ResourcePools newBudgets) {
+    this.newBudgets = newBudgets;
+    return this;
+  }
+
+   /**
+   * Get newBudgets
+   * @return newBudgets
+  **/
+  @ApiModelProperty(value = "")
+  public ResourcePools getNewBudgets() {
+    return newBudgets;
+  }
+
+  public void setNewBudgets(ResourcePools newBudgets) {
+    this.newBudgets = newBudgets;
   }
 
   public SpreadsheetReport updateFields(Fields updateFields) {
@@ -174,6 +230,24 @@ public class SpreadsheetReport {
     this.updateFields = updateFields;
   }
 
+  public SpreadsheetReport updateBudgets(ResourcePools updateBudgets) {
+    this.updateBudgets = updateBudgets;
+    return this;
+  }
+
+   /**
+   * Get updateBudgets
+   * @return updateBudgets
+  **/
+  @ApiModelProperty(value = "")
+  public ResourcePools getUpdateBudgets() {
+    return updateBudgets;
+  }
+
+  public void setUpdateBudgets(ResourcePools updateBudgets) {
+    this.updateBudgets = updateBudgets;
+  }
+
   public SpreadsheetReport updateProjectFieldValuesCount(Long updateProjectFieldValuesCount) {
     this.updateProjectFieldValuesCount = updateProjectFieldValuesCount;
     return this;
@@ -190,6 +264,60 @@ public class SpreadsheetReport {
 
   public void setUpdateProjectFieldValuesCount(Long updateProjectFieldValuesCount) {
     this.updateProjectFieldValuesCount = updateProjectFieldValuesCount;
+  }
+
+  public SpreadsheetReport updateBudgetFieldValuesCount(Long updateBudgetFieldValuesCount) {
+    this.updateBudgetFieldValuesCount = updateBudgetFieldValuesCount;
+    return this;
+  }
+
+   /**
+   * Get updateBudgetFieldValuesCount
+   * @return updateBudgetFieldValuesCount
+  **/
+  @ApiModelProperty(value = "")
+  public Long getUpdateBudgetFieldValuesCount() {
+    return updateBudgetFieldValuesCount;
+  }
+
+  public void setUpdateBudgetFieldValuesCount(Long updateBudgetFieldValuesCount) {
+    this.updateBudgetFieldValuesCount = updateBudgetFieldValuesCount;
+  }
+
+  public SpreadsheetReport newBudgetAmountsCount(Long newBudgetAmountsCount) {
+    this.newBudgetAmountsCount = newBudgetAmountsCount;
+    return this;
+  }
+
+   /**
+   * Get newBudgetAmountsCount
+   * @return newBudgetAmountsCount
+  **/
+  @ApiModelProperty(value = "")
+  public Long getNewBudgetAmountsCount() {
+    return newBudgetAmountsCount;
+  }
+
+  public void setNewBudgetAmountsCount(Long newBudgetAmountsCount) {
+    this.newBudgetAmountsCount = newBudgetAmountsCount;
+  }
+
+  public SpreadsheetReport updateBudgetAmountsCount(Long updateBudgetAmountsCount) {
+    this.updateBudgetAmountsCount = updateBudgetAmountsCount;
+    return this;
+  }
+
+   /**
+   * Get updateBudgetAmountsCount
+   * @return updateBudgetAmountsCount
+  **/
+  @ApiModelProperty(value = "")
+  public Long getUpdateBudgetAmountsCount() {
+    return updateBudgetAmountsCount;
+  }
+
+  public void setUpdateBudgetAmountsCount(Long updateBudgetAmountsCount) {
+    this.updateBudgetAmountsCount = updateBudgetAmountsCount;
   }
 
   public SpreadsheetReport updateTimePeriodsCount(Long updateTimePeriodsCount) {
@@ -278,9 +406,15 @@ public class SpreadsheetReport {
         Objects.equals(this.spreadsheetId, spreadsheetReport.spreadsheetId) &&
         Objects.equals(this.sheetName, spreadsheetReport.sheetName) &&
         Objects.equals(this.newProjects, spreadsheetReport.newProjects) &&
+        Objects.equals(this.fields, spreadsheetReport.fields) &&
         Objects.equals(this.newFields, spreadsheetReport.newFields) &&
+        Objects.equals(this.newBudgets, spreadsheetReport.newBudgets) &&
         Objects.equals(this.updateFields, spreadsheetReport.updateFields) &&
+        Objects.equals(this.updateBudgets, spreadsheetReport.updateBudgets) &&
         Objects.equals(this.updateProjectFieldValuesCount, spreadsheetReport.updateProjectFieldValuesCount) &&
+        Objects.equals(this.updateBudgetFieldValuesCount, spreadsheetReport.updateBudgetFieldValuesCount) &&
+        Objects.equals(this.newBudgetAmountsCount, spreadsheetReport.newBudgetAmountsCount) &&
+        Objects.equals(this.updateBudgetAmountsCount, spreadsheetReport.updateBudgetAmountsCount) &&
         Objects.equals(this.updateTimePeriodsCount, spreadsheetReport.updateTimePeriodsCount) &&
         Objects.equals(this.updateProjects, spreadsheetReport.updateProjects) &&
         Objects.equals(this.warnings, spreadsheetReport.warnings) &&
@@ -289,7 +423,7 @@ public class SpreadsheetReport {
 
   @Override
   public int hashCode() {
-    return Objects.hash(portfolioId, spreadsheetId, sheetName, newProjects, newFields, updateFields, updateProjectFieldValuesCount, updateTimePeriodsCount, updateProjects, warnings, importType);
+    return Objects.hash(portfolioId, spreadsheetId, sheetName, newProjects, fields, newFields, newBudgets, updateFields, updateBudgets, updateProjectFieldValuesCount, updateBudgetFieldValuesCount, newBudgetAmountsCount, updateBudgetAmountsCount, updateTimePeriodsCount, updateProjects, warnings, importType);
   }
 
 
@@ -302,9 +436,15 @@ public class SpreadsheetReport {
     sb.append("    spreadsheetId: ").append(toIndentedString(spreadsheetId)).append("\n");
     sb.append("    sheetName: ").append(toIndentedString(sheetName)).append("\n");
     sb.append("    newProjects: ").append(toIndentedString(newProjects)).append("\n");
+    sb.append("    fields: ").append(toIndentedString(fields)).append("\n");
     sb.append("    newFields: ").append(toIndentedString(newFields)).append("\n");
+    sb.append("    newBudgets: ").append(toIndentedString(newBudgets)).append("\n");
     sb.append("    updateFields: ").append(toIndentedString(updateFields)).append("\n");
+    sb.append("    updateBudgets: ").append(toIndentedString(updateBudgets)).append("\n");
     sb.append("    updateProjectFieldValuesCount: ").append(toIndentedString(updateProjectFieldValuesCount)).append("\n");
+    sb.append("    updateBudgetFieldValuesCount: ").append(toIndentedString(updateBudgetFieldValuesCount)).append("\n");
+    sb.append("    newBudgetAmountsCount: ").append(toIndentedString(newBudgetAmountsCount)).append("\n");
+    sb.append("    updateBudgetAmountsCount: ").append(toIndentedString(updateBudgetAmountsCount)).append("\n");
     sb.append("    updateTimePeriodsCount: ").append(toIndentedString(updateTimePeriodsCount)).append("\n");
     sb.append("    updateProjects: ").append(toIndentedString(updateProjects)).append("\n");
     sb.append("    warnings: ").append(toIndentedString(warnings)).append("\n");

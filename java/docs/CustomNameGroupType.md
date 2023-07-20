@@ -8,5 +8,7 @@
 
 * `STATUS` (value: `"STATUS"`)
 
+* `COST` (value: `"COST"`)
+
 
 

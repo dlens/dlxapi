@@ -35,6 +35,9 @@ public class User extends DlResource {
   @SerializedName("username")
   private String username = null;
 
+  @SerializedName("email")
+  private String email = null;
+
   @SerializedName("firstName")
   private String firstName = null;
 
@@ -44,8 +47,8 @@ public class User extends DlResource {
   @SerializedName("status")
   private UserStatus status = null;
 
-  @SerializedName("isLocked")
-  private Boolean isLocked = null;
+  @SerializedName("lastLoginAt")
+  private Long lastLoginAt = null;
 
   @SerializedName("invitationUrl")
   private String invitationUrl = null;
@@ -72,6 +75,24 @@ public class User extends DlResource {
 
   public void setUsername(String username) {
     this.username = username;
+  }
+
+  public User email(String email) {
+    this.email = email;
+    return this;
+  }
+
+   /**
+   * Get email
+   * @return email
+  **/
+  @ApiModelProperty(value = "")
+  public String getEmail() {
+    return email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
   }
 
   public User firstName(String firstName) {
@@ -128,22 +149,22 @@ public class User extends DlResource {
     this.status = status;
   }
 
-  public User isLocked(Boolean isLocked) {
-    this.isLocked = isLocked;
+  public User lastLoginAt(Long lastLoginAt) {
+    this.lastLoginAt = lastLoginAt;
     return this;
   }
 
    /**
-   * Get isLocked
-   * @return isLocked
+   * Get lastLoginAt
+   * @return lastLoginAt
   **/
   @ApiModelProperty(value = "")
-  public Boolean isIsLocked() {
-    return isLocked;
+  public Long getLastLoginAt() {
+    return lastLoginAt;
   }
 
-  public void setIsLocked(Boolean isLocked) {
-    this.isLocked = isLocked;
+  public void setLastLoginAt(Long lastLoginAt) {
+    this.lastLoginAt = lastLoginAt;
   }
 
   public User invitationUrl(String invitationUrl) {
@@ -211,10 +232,11 @@ public class User extends DlResource {
     }
     User user = (User) o;
     return Objects.equals(this.username, user.username) &&
+        Objects.equals(this.email, user.email) &&
         Objects.equals(this.firstName, user.firstName) &&
         Objects.equals(this.lastName, user.lastName) &&
         Objects.equals(this.status, user.status) &&
-        Objects.equals(this.isLocked, user.isLocked) &&
+        Objects.equals(this.lastLoginAt, user.lastLoginAt) &&
         Objects.equals(this.invitationUrl, user.invitationUrl) &&
         Objects.equals(this.invitationUrlExpiration, user.invitationUrlExpiration) &&
         Objects.equals(this.role, user.role) &&
@@ -223,7 +245,7 @@ public class User extends DlResource {
 
   @Override
   public int hashCode() {
-    return Objects.hash(username, firstName, lastName, status, isLocked, invitationUrl, invitationUrlExpiration, role, super.hashCode());
+    return Objects.hash(username, email, firstName, lastName, status, lastLoginAt, invitationUrl, invitationUrlExpiration, role, super.hashCode());
   }
 
 
@@ -233,10 +255,11 @@ public class User extends DlResource {
     sb.append("class User {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    username: ").append(toIndentedString(username)).append("\n");
+    sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
     sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("    isLocked: ").append(toIndentedString(isLocked)).append("\n");
+    sb.append("    lastLoginAt: ").append(toIndentedString(lastLoginAt)).append("\n");
     sb.append("    invitationUrl: ").append(toIndentedString(invitationUrl)).append("\n");
     sb.append("    invitationUrlExpiration: ").append(toIndentedString(invitationUrlExpiration)).append("\n");
     sb.append("    role: ").append(toIndentedString(role)).append("\n");

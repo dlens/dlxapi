@@ -33,6 +33,8 @@ public enum PortfolioPlanUserRole {
   
   VIEWER("VIEWER"),
   
+  VIEWER_COMBINED("VIEWER_COMBINED"),
+  
   CONTRIBUTOR("CONTRIBUTOR"),
   
   PARTICIPANT("PARTICIPANT");

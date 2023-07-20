@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **user** | [**User**](User.md) |  |  [optional]
 **addedByUser** | [**User**](User.md) |  |  [optional]
 **groupId** | **String** |  |  [optional]
+**locked** | **Boolean** |  |  [optional]
 
 
 

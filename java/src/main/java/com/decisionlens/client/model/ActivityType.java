@@ -61,6 +61,8 @@ public enum ActivityType {
   
   FIELDISIDEAFIELDREQUIREDUPDATEDEVENT("FieldIsIdeaFieldRequiredUpdatedEvent"),
   
+  FIELDISAUTOSCALEUPDATEDEVENT("FieldIsAutoScaleUpdatedEvent"),
+  
   PORTFOLIOARCHIVEDEVENT("PortfolioArchivedEvent"),
   
   PORTFOLIOCREATEDEVENT("PortfolioCreatedEvent"),
@@ -74,6 +76,8 @@ public enum ActivityType {
   SUBPORTFOLIOREMOVEDEVENT("SubPortfolioRemovedEvent"),
   
   PORTFOLIOPLANCREATEDEVENT("PortfolioPlanCreatedEvent"),
+  
+  PORTFOLIORANKUPDATEDEVENT("PortfolioRankUpdatedEvent"),
   
   PORTFOLIOPLANDELETEDEVENT("PortfolioPlanDeletedEvent"),
   
@@ -94,6 +98,8 @@ public enum ActivityType {
   PROJECTFIELDVALUEDELETEDEVENT("ProjectFieldValueDeletedEvent"),
   
   PROJECTFIELDVALUEUPDATEDEVENT("ProjectFieldValueUpdatedEvent"),
+  
+  PROJECTRANKFIELDVALUEUPDATEDEVENT("ProjectRankFieldValueUpdatedEvent"),
   
   PROJECTTAGADDEDEVENT("ProjectTagAddedEvent"),
   
@@ -129,7 +135,11 @@ public enum ActivityType {
   
   USERADDEDEVENT("UserAddedEvent"),
   
+  USERLOCKEDUPDATEDEVENT("UserLockedUpdatedEvent"),
+  
   USERAPPROVALADDEDEVENT("UserApprovalAddedEvent"),
+  
+  USERDELETEDFROMGROUPEVENT("UserDeletedFromGroupEvent"),
   
   USERAUTHENTICATEDEVENT("UserAuthenticatedEvent"),
   
@@ -199,6 +209,8 @@ public enum ActivityType {
   
   CATEGORYOPTIONDELETEDEVENT("CategoryOptionDeletedEvent"),
   
+  CATEGORYOPTIONPOSITIONUPDATEDEVENT("CategoryOptionPositionUpdatedEvent"),
+  
   PROJECTCONTRIBUTINGUSERADDEDEVENT("ProjectContributingUserAddedEvent"),
   
   PROJECTCONTRIBUTINGUSERDELETEDEVENT("ProjectContributingUserDeletedEvent"),
@@ -221,7 +233,69 @@ public enum ActivityType {
   
   PROJECTDEPENDSONADDEDEVENT("ProjectDependsOnAddedEvent"),
   
-  PROJECTDEPENDSONREMOVEDEVENT("ProjectDependsOnRemovedEvent");
+  PROJECTDEPENDSONREMOVEDEVENT("ProjectDependsOnRemovedEvent"),
+  
+  PORTFOLIOPROJECTSCREATEDEVENT("PortfolioProjectsCreatedEvent"),
+  
+  PORTFOLIOPROJECTSUPDATEDEVENT("PortfolioProjectsUpdatedEvent"),
+  
+  GOALADDEDEVENT("GoalAddedEvent"),
+  
+  GOALUPDATEDEVENT("GoalUpdatedEvent"),
+  
+  GOALDELETEDEVENT("GoalDeletedEvent"),
+  
+  PROJECTFIELDVALUESDELETEDEVENT("ProjectFieldValuesDeletedEvent"),
+  
+  RESOURCEPOOLFIELDVALUEUPDATEDEVENT("ResourcePoolFieldValueUpdatedEvent"),
+  
+  SCALEPOINTCREATEDEVENT("ScalePointCreatedEvent"),
+  
+  SCALEPOINTDELETEDEVENT("ScalePointDeletedEvent"),
+  
+  SCALEPOINTNAMEUPDATEDEVENT("ScalePointNameUpdatedEvent"),
+  
+  SCALEPOINTAUTOVALUEUPDATEDEVENT("ScalePointAutoValueUpdatedEvent"),
+  
+  SCALEPOINTAUTOSCALEVALUEUPDATEDEVENT("ScalePointAutoScaleValueUpdatedEvent"),
+  
+  SCALEPOINTMANUALSCALEVALUEUPDATEDEVENT("ScalePointManualScaleValueUpdatedEvent"),
+  
+  SCALEPOINTMANUALVALUEUPDATEDEVENT("ScalePointManualValueUpdatedEvent"),
+  
+  SCALEPOINTPROJECTUPDATEDEVENT("ScalePointProjectUpdatedEvent"),
+  
+  FIELDATTRIBUTESPLANNINGWINDOWSTARTUPDATEDEVENT("FieldAttributesPlanningWindowStartUpdatedEvent"),
+  
+  FIELDATTRIBUTESPLANNINGWINDOWENDUPDATEDEVENT("FieldAttributesPlanningWindowEndUpdatedEvent"),
+  
+  PORTFOLIOSCOREWEIGHTSUPDATEDEVENT("PortfolioScoreWeightsUpdatedEvent"),
+  
+  SCOREWEIGHTCREATEDEVENT("ScoreWeightCreatedEvent"),
+  
+  SCOREWEIGHTDELETEDEVENT("ScoreWeightDeletedEvent"),
+  
+  SCOREWEIGHTNAMEUPDATEDEVENT("ScoreWeightNameUpdatedEvent"),
+  
+  SCOREWEIGHTFIELDWEIGHTCREATEDEVENT("ScoreWeightFieldWeightCreatedEvent"),
+  
+  SCOREWEIGHTFIELDWEIGHTVALUEUPDATEDEVENT("ScoreWeightFieldWeightValueUpdatedEvent"),
+  
+  SCOREWEIGHTFIELDWEIGHTLOCKUPDATEDEVENT("ScoreWeightFieldWeightLockUpdatedEvent"),
+  
+  SCOREWEIGHTFIELDWEIGHTDELETEDEVENT("ScoreWeightFieldWeightDeletedEvent"),
+  
+  FIELDATTRIBUTESCATEGORYDISPLAYORDERUPDATEDEVENT("FieldAttributesCategoryDisplayOrderUpdatedEvent"),
+  
+  FIELDATTRIBUTESDATAFORMATSDECIMALPLACESUPDATEDEVENT("FieldAttributesDataFormatsDecimalPlacesUpdatedEvent"),
+  
+  FIELDATTRIBUTESDATAFORMATSCURRENCYUPDATEDEVENT("FieldAttributesDataFormatsCurrencyUpdatedEvent"),
+  
+  FIELDATTRIBUTESDATAFORMATSNEGATIVESUPDATEDEVENT("FieldAttributesDataFormatsNegativesUpdatedEvent"),
+  
+  FIELDRANKEDBASEDONSORTORDEREVENT("FieldRankedBasedOnSortOrderEvent"),
+  
+  FIELDATTRIBUTESDATAFORMATSDATEFORMATUPDATEDEVENT("FieldAttributesDataFormatsDateFormatUpdatedEvent");
 
   private String value;
 

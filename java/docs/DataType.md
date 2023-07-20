@@ -18,5 +18,9 @@
 
 * `CATEGORY` (value: `"CATEGORY"`)
 
+* `STAR_CATEGORY` (value: `"STAR_CATEGORY"`)
+
+* `RANK` (value: `"RANK"`)
+
 
 

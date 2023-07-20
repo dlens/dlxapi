@@ -41,7 +41,11 @@ public enum DataType {
   
   TEXT_ARRAY("TEXT_ARRAY"),
   
-  CATEGORY("CATEGORY");
+  CATEGORY("CATEGORY"),
+  
+  STAR_CATEGORY("STAR_CATEGORY"),
+  
+  RANK("RANK");
 
   private String value;
 

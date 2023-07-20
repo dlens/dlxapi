@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **roles** | [**List&lt;PortfolioPlanUserRole&gt;**](PortfolioPlanUserRole.md) |  |  [optional]
 **fieldPermissions** | [**Permissions**](Permissions.md) |  |  [optional]
 **projectPermissions** | [**Permissions**](Permissions.md) |  |  [optional]
+**portfolioLastUpdatedAt** | **String** |  |  [optional]
 
 
 

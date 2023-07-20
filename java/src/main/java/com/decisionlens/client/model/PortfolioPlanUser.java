@@ -51,6 +51,9 @@ public class PortfolioPlanUser extends DlResource {
   @SerializedName("projectPermissions")
   private Permissions projectPermissions = null;
 
+  @SerializedName("portfolioLastUpdatedAt")
+  private String portfolioLastUpdatedAt = null;
+
   public PortfolioPlanUser user(User user) {
     this.user = user;
     return this;
@@ -149,6 +152,24 @@ public class PortfolioPlanUser extends DlResource {
     this.projectPermissions = projectPermissions;
   }
 
+  public PortfolioPlanUser portfolioLastUpdatedAt(String portfolioLastUpdatedAt) {
+    this.portfolioLastUpdatedAt = portfolioLastUpdatedAt;
+    return this;
+  }
+
+   /**
+   * Get portfolioLastUpdatedAt
+   * @return portfolioLastUpdatedAt
+  **/
+  @ApiModelProperty(value = "")
+  public String getPortfolioLastUpdatedAt() {
+    return portfolioLastUpdatedAt;
+  }
+
+  public void setPortfolioLastUpdatedAt(String portfolioLastUpdatedAt) {
+    this.portfolioLastUpdatedAt = portfolioLastUpdatedAt;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -164,12 +185,13 @@ public class PortfolioPlanUser extends DlResource {
         Objects.equals(this.roles, portfolioPlanUser.roles) &&
         Objects.equals(this.fieldPermissions, portfolioPlanUser.fieldPermissions) &&
         Objects.equals(this.projectPermissions, portfolioPlanUser.projectPermissions) &&
+        Objects.equals(this.portfolioLastUpdatedAt, portfolioPlanUser.portfolioLastUpdatedAt) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(user, portfolioPlan, roles, fieldPermissions, projectPermissions, super.hashCode());
+    return Objects.hash(user, portfolioPlan, roles, fieldPermissions, projectPermissions, portfolioLastUpdatedAt, super.hashCode());
   }
 
 
@@ -183,6 +205,7 @@ public class PortfolioPlanUser extends DlResource {
     sb.append("    roles: ").append(toIndentedString(roles)).append("\n");
     sb.append("    fieldPermissions: ").append(toIndentedString(fieldPermissions)).append("\n");
     sb.append("    projectPermissions: ").append(toIndentedString(projectPermissions)).append("\n");
+    sb.append("    portfolioLastUpdatedAt: ").append(toIndentedString(portfolioLastUpdatedAt)).append("\n");
     sb.append("}");
     return sb.toString();
   }

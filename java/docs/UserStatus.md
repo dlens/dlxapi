@@ -16,5 +16,7 @@
 
 * `SECRET_KEY_PENDING` (value: `"SECRET_KEY_PENDING"`)
 
+* `UNKNOWN` (value: `"UNKNOWN"`)
+
 
 

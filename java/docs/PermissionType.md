@@ -16,5 +16,7 @@
 
 * `BUDGET` (value: `"BUDGET"`)
 
+* `CATEGORIES` (value: `"CATEGORIES"`)
+
 
 

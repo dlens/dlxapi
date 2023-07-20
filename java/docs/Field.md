@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **String** |  |  [optional]
+**originalName** | **String** |  |  [optional]
 **description** | **String** |  |  [optional]
 **type** | [**FieldType**](FieldType.md) |  |  [optional]
 **source** | [**Source**](Source.md) |  |  [optional]
@@ -22,6 +23,8 @@ Name | Type | Description | Notes
 **isIdeaField** | **Boolean** |  |  [optional]
 **ideaFieldPosition** | **Integer** |  |  [optional]
 **isIdeaFieldRequired** | **Boolean** |  |  [optional]
+**scale** | [**Scale**](Scale.md) |  |  [optional]
+**attributes** | [**FieldAttributes**](FieldAttributes.md) |  |  [optional]
 
 
 

@@ -5,6 +5,7 @@ All URIs are relative to *http://localhost:9005/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createField**](FieldsApi.md#createField) | **POST** /fields | Creates a new field in a portfolio.
+[**createFields**](FieldsApi.md#createFields) | **POST** /fields/bulk | Create new fields in a portfolio.
 [**deleteField**](FieldsApi.md#deleteField) | **DELETE** /fields/{id} | Delete a field. Also deletes the values for every project.
 [**getField**](FieldsApi.md#getField) | **GET** /fields/{id} | Retrieves a field.
 [**getFieldsForPortfolio**](FieldsApi.md#getFieldsForPortfolio) | **GET** /fields | Retrieves fields for a portfolio.
@@ -51,6 +52,59 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**Field**](Field.md)| Field to create |
+ **expand** | **String**| JSON string containing an array expand specifications for fields.  An expand specification must have a path and includes optional properties match, unique, allPossible, limit, offset, orderBy. | [optional]
+
+### Return type
+
+[**List&lt;Field&gt;**](Field.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="createFields"></a>
+# **createFields**
+> List&lt;Field&gt; createFields(fields, expand)
+
+Create new fields in a portfolio.
+
+### Example
+```java
+// Import classes:
+//import com.decisionlens.client.ApiClient;
+//import com.decisionlens.client.ApiException;
+//import com.decisionlens.client.Configuration;
+//import com.decisionlens.client.auth.*;
+//import com.decisionlens.client.api.FieldsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: OAuth2
+OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+FieldsApi apiInstance = new FieldsApi();
+List<Field> fields = Arrays.asList(new Field()); // List<Field> | Field to create
+String expand = "expand_example"; // String | JSON string containing an array expand specifications for fields.  An expand specification must have a path and includes optional properties match, unique, allPossible, limit, offset, orderBy.
+try {
+    List<Field> result = apiInstance.createFields(fields, expand);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling FieldsApi#createFields");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **fields** | [**List&lt;Field&gt;**](Field.md)| Field to create |
  **expand** | **String**| JSON string containing an array expand specifications for fields.  An expand specification must have a path and includes optional properties match, unique, allPossible, limit, offset, orderBy. | [optional]
 
 ### Return type

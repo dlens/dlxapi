@@ -33,7 +33,7 @@ import java.util.List;
 
 public class FieldCreatedMessagePayload {
   @SerializedName("fields")
-  private List<Field> fields = null;
+  private List<Field> fields = new ArrayList<Field>();
 
   public FieldCreatedMessagePayload fields(List<Field> fields) {
     this.fields = fields;
@@ -41,9 +41,6 @@ public class FieldCreatedMessagePayload {
   }
 
   public FieldCreatedMessagePayload addFieldsItem(Field fieldsItem) {
-    if (this.fields == null) {
-      this.fields = new ArrayList<Field>();
-    }
     this.fields.add(fieldsItem);
     return this;
   }
@@ -52,7 +49,7 @@ public class FieldCreatedMessagePayload {
    * Get fields
    * @return fields
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
   public List<Field> getFields() {
     return fields;
   }

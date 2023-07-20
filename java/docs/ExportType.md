@@ -8,5 +8,9 @@
 
 * `SCHEDULE` (value: `"SCHEDULE"`)
 
+* `SPEND_PLAN` (value: `"SPEND_PLAN"`)
+
+* `GROUP` (value: `"GROUP"`)
+
 
 

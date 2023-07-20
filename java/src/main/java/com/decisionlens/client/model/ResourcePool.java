@@ -18,6 +18,7 @@ import java.util.Arrays;
 import com.decisionlens.client.model.DlResource;
 import com.decisionlens.client.model.Field;
 import com.decisionlens.client.model.ResourcePoolBudgetAmounts;
+import com.decisionlens.client.model.ResourcePoolFieldValue;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -26,6 +27,8 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * ResourcePool
@@ -40,6 +43,9 @@ public class ResourcePool extends DlResource {
 
   @SerializedName("field")
   private Field field = null;
+
+  @SerializedName("fieldValues")
+  private List<ResourcePoolFieldValue> fieldValues = null;
 
   public ResourcePool name(String name) {
     this.name = name;
@@ -95,6 +101,32 @@ public class ResourcePool extends DlResource {
     this.field = field;
   }
 
+  public ResourcePool fieldValues(List<ResourcePoolFieldValue> fieldValues) {
+    this.fieldValues = fieldValues;
+    return this;
+  }
+
+  public ResourcePool addFieldValuesItem(ResourcePoolFieldValue fieldValuesItem) {
+    if (this.fieldValues == null) {
+      this.fieldValues = new ArrayList<ResourcePoolFieldValue>();
+    }
+    this.fieldValues.add(fieldValuesItem);
+    return this;
+  }
+
+   /**
+   * Get fieldValues
+   * @return fieldValues
+  **/
+  @ApiModelProperty(value = "")
+  public List<ResourcePoolFieldValue> getFieldValues() {
+    return fieldValues;
+  }
+
+  public void setFieldValues(List<ResourcePoolFieldValue> fieldValues) {
+    this.fieldValues = fieldValues;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -108,12 +140,13 @@ public class ResourcePool extends DlResource {
     return Objects.equals(this.name, resourcePool.name) &&
         Objects.equals(this.budgetAmounts, resourcePool.budgetAmounts) &&
         Objects.equals(this.field, resourcePool.field) &&
+        Objects.equals(this.fieldValues, resourcePool.fieldValues) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, budgetAmounts, field, super.hashCode());
+    return Objects.hash(name, budgetAmounts, field, fieldValues, super.hashCode());
   }
 
 
@@ -125,6 +158,7 @@ public class ResourcePool extends DlResource {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    budgetAmounts: ").append(toIndentedString(budgetAmounts)).append("\n");
     sb.append("    field: ").append(toIndentedString(field)).append("\n");
+    sb.append("    fieldValues: ").append(toIndentedString(fieldValues)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -68,7 +68,7 @@ public class RegisterUserRequest {
    * Get emailId
    * @return emailId
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
   public String getEmailId() {
     return emailId;
   }

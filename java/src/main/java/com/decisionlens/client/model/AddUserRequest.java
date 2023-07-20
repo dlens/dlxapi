@@ -36,6 +36,9 @@ public class AddUserRequest {
   @SerializedName("message")
   private String message = null;
 
+  @SerializedName("sendRegistrationEmail")
+  private Boolean sendRegistrationEmail = null;
+
   public AddUserRequest user(User user) {
     this.user = user;
     return this;
@@ -72,6 +75,24 @@ public class AddUserRequest {
     this.message = message;
   }
 
+  public AddUserRequest sendRegistrationEmail(Boolean sendRegistrationEmail) {
+    this.sendRegistrationEmail = sendRegistrationEmail;
+    return this;
+  }
+
+   /**
+   * Get sendRegistrationEmail
+   * @return sendRegistrationEmail
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isSendRegistrationEmail() {
+    return sendRegistrationEmail;
+  }
+
+  public void setSendRegistrationEmail(Boolean sendRegistrationEmail) {
+    this.sendRegistrationEmail = sendRegistrationEmail;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -83,12 +104,13 @@ public class AddUserRequest {
     }
     AddUserRequest addUserRequest = (AddUserRequest) o;
     return Objects.equals(this.user, addUserRequest.user) &&
-        Objects.equals(this.message, addUserRequest.message);
+        Objects.equals(this.message, addUserRequest.message) &&
+        Objects.equals(this.sendRegistrationEmail, addUserRequest.sendRegistrationEmail);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(user, message);
+    return Objects.hash(user, message, sendRegistrationEmail);
   }
 
 
@@ -99,6 +121,7 @@ public class AddUserRequest {
     
     sb.append("    user: ").append(toIndentedString(user)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
+    sb.append("    sendRegistrationEmail: ").append(toIndentedString(sendRegistrationEmail)).append("\n");
     sb.append("}");
     return sb.toString();
   }

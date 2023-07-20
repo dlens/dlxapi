@@ -31,9 +31,15 @@ public enum MessageType {
   
   FIELDCREATEDMESSAGE("FieldCreatedMessage"),
   
+  BUDGETFIELDCREATEDMESSAGE("BudgetFieldCreatedMessage"),
+  
   FIELDSUPDATEDMESSAGE("FieldsUpdatedMessage"),
   
+  BUDGETFIELDSUPDATEDMESSAGE("BudgetFieldsUpdatedMessage"),
+  
   FIELDSDELETEDMESSAGE("FieldsDeletedMessage"),
+  
+  BUDGETFIELDSDELETEDMESSAGE("BudgetFieldsDeletedMessage"),
   
   PROJECTSCREATEDMESSAGE("ProjectsCreatedMessage"),
   
@@ -54,6 +60,8 @@ public enum MessageType {
   REMOVEDFROMPORTFOLIOMESSAGE("RemovedFromPortfolioMessage"),
   
   FIELDVALUESUPDATEDMESSAGE("FieldValuesUpdatedMessage"),
+  
+  FIELDVALUESDATAUPDATEDMESSAGE("FieldValuesDataUpdatedMessage"),
   
   RESOURCEPOOLSUPDATEDMESSAGE("ResourcePoolsUpdatedMessage"),
   
@@ -109,7 +117,25 @@ public enum MessageType {
   
   CUSTOMNAMESUPDATEDMESSAGE("CustomNamesUpdatedMessage"),
   
-  PROJECTDEPENDENCIESUPDATEDMESSAGE("ProjectDependenciesUpdatedMessage");
+  PROJECTDEPENDENCIESUPDATEDMESSAGE("ProjectDependenciesUpdatedMessage"),
+  
+  PROJECTSCORESUPDATEDMESSAGE("ProjectScoresUpdatedMessage"),
+  
+  PROJECTSCORESUPDATEDAGGREGATEDMESSAGE("ProjectScoresUpdatedAggregatedMessage"),
+  
+  PROJECTRANKSUPDATEDAGGREGATEDMESSAGE("ProjectRanksUpdatedAggregatedMessage"),
+  
+  PROJECTDATACACHEMESSAGE("ProjectDataCacheMessage"),
+  
+  GOALSUPDATEDMESSAGE("GoalsUpdatedMessage"),
+  
+  FIELDVALUESPROJECTDELETEDMESSAGE("FieldValuesProjectDeletedMessage"),
+  
+  RESOURCEPOOLFIELDVALUESUPDATEDMESSAGE("ResourcePoolFieldValuesUpdatedMessage"),
+  
+  SCOREWEIGHTSUPDATEDMESSAGE("ScoreWeightsUpdatedMessage"),
+  
+  USERUPDATEDMESSAGE("UserUpdatedMessage");
 
   private String value;
 

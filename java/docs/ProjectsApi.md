@@ -5,11 +5,14 @@ All URIs are relative to *http://localhost:9005/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**addContributingUsersForProject**](ProjectsApi.md#addContributingUsersForProject) | **POST** /projects/{id}/users | Add users to a project.
+[**copyProject**](ProjectsApi.md#copyProject) | **POST** /projects/{id}/copy | Creates a copy of the project, including portfolio data, dependencies, attachments
 [**createProject**](ProjectsApi.md#createProject) | **POST** /projects | Creates a new project.
+[**deleteFieldValuesForProject**](ProjectsApi.md#deleteFieldValuesForProject) | **DELETE** /projects/{id}/fieldValues | Deletes all field values for a certain fields for a particular project
 [**deleteProject**](ProjectsApi.md#deleteProject) | **DELETE** /projects/{id} | Delete a project.
 [**deleteProjects**](ProjectsApi.md#deleteProjects) | **POST** /projects/delete | Delete projects.
 [**getProject**](ProjectsApi.md#getProject) | **GET** /projects/{id} | Retrieves a project.
 [**getProjectForPortfolioPlan**](ProjectsApi.md#getProjectForPortfolioPlan) | **GET** /projects/{projectId}/portfolioPlan/{portfolioPlanId} | Retrieves a project for a portfolioPlan.
+[**getProjectsDataForPortfolio**](ProjectsApi.md#getProjectsDataForPortfolio) | **GET** /projects/data | Fetch project data for portfolio and data id.
 [**getProjectsForPortfolio**](ProjectsApi.md#getProjectsForPortfolio) | **GET** /projects | Retrieves projects contained within a portfolio. Possible expand paths are - (items.fieldValues, contributingUserIds)
 [**removeContributingUsersFromProject**](ProjectsApi.md#removeContributingUsersFromProject) | **DELETE** /projects/{id}/users | Remove contributing users from a project.
 [**setProjectDependencies**](ProjectsApi.md#setProjectDependencies) | **PUT** /projects/{id}/dependencies | Adds or removes dependsOn and/or dependant linked projects to a project.
@@ -58,6 +61,59 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**List&lt;PortfolioPlanUser&gt;**](PortfolioPlanUser.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="copyProject"></a>
+# **copyProject**
+> Project copyProject(id, body)
+
+Creates a copy of the project, including portfolio data, dependencies, attachments
+
+### Example
+```java
+// Import classes:
+//import com.decisionlens.client.ApiClient;
+//import com.decisionlens.client.ApiException;
+//import com.decisionlens.client.Configuration;
+//import com.decisionlens.client.auth.*;
+//import com.decisionlens.client.api.ProjectsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: OAuth2
+OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+ProjectsApi apiInstance = new ProjectsApi();
+String id = "id_example"; // String | project id
+Project body = new Project(); // Project | Info to be included in the new project copy; only name will suffice
+try {
+    Project result = apiInstance.copyProject(id, body);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ProjectsApi#copyProject");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| project id |
+ **body** | [**Project**](Project.md)| Info to be included in the new project copy; only name will suffice | [optional]
+
+### Return type
+
+[**Project**](Project.md)
 
 ### Authorization
 
@@ -120,6 +176,58 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
+
+<a name="deleteFieldValuesForProject"></a>
+# **deleteFieldValuesForProject**
+> deleteFieldValuesForProject(id, fieldIds)
+
+Deletes all field values for a certain fields for a particular project
+
+### Example
+```java
+// Import classes:
+//import com.decisionlens.client.ApiClient;
+//import com.decisionlens.client.ApiException;
+//import com.decisionlens.client.Configuration;
+//import com.decisionlens.client.auth.*;
+//import com.decisionlens.client.api.ProjectsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: OAuth2
+OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+ProjectsApi apiInstance = new ProjectsApi();
+String id = "id_example"; // String | project id
+List<String> fieldIds = Arrays.asList("fieldIds_example"); // List<String> | field ids
+try {
+    apiInstance.deleteFieldValuesForProject(id, fieldIds);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ProjectsApi#deleteFieldValuesForProject");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| project id |
+ **fieldIds** | [**List&lt;String&gt;**](String.md)| field ids |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
 
 <a name="deleteProject"></a>
 # **deleteProject**
@@ -315,6 +423,59 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Project**](Project.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getProjectsDataForPortfolio"></a>
+# **getProjectsDataForPortfolio**
+> MinifiedProjects getProjectsDataForPortfolio(portfolioId, dataId)
+
+Fetch project data for portfolio and data id.
+
+### Example
+```java
+// Import classes:
+//import com.decisionlens.client.ApiClient;
+//import com.decisionlens.client.ApiException;
+//import com.decisionlens.client.Configuration;
+//import com.decisionlens.client.auth.*;
+//import com.decisionlens.client.api.ProjectsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: OAuth2
+OAuth OAuth2 = (OAuth) defaultClient.getAuthentication("OAuth2");
+OAuth2.setAccessToken("YOUR ACCESS TOKEN");
+
+ProjectsApi apiInstance = new ProjectsApi();
+String portfolioId = "portfolioId_example"; // String | Portfolio Id
+String dataId = "dataId_example"; // String | Data Id
+try {
+    MinifiedProjects result = apiInstance.getProjectsDataForPortfolio(portfolioId, dataId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ProjectsApi#getProjectsDataForPortfolio");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **portfolioId** | **String**| Portfolio Id |
+ **dataId** | **String**| Data Id |
+
+### Return type
+
+[**MinifiedProjects**](MinifiedProjects.md)
 
 ### Authorization
 

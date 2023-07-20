@@ -33,6 +33,9 @@ public class TimePeriod {
   @SerializedName("startDate")
   private Long startDate = null;
 
+  @SerializedName("endDate")
+  private Long endDate = null;
+
   @SerializedName("type")
   private TimePeriodType type = null;
 
@@ -52,6 +55,24 @@ public class TimePeriod {
 
   public void setStartDate(Long startDate) {
     this.startDate = startDate;
+  }
+
+  public TimePeriod endDate(Long endDate) {
+    this.endDate = endDate;
+    return this;
+  }
+
+   /**
+   * Get endDate
+   * @return endDate
+  **/
+  @ApiModelProperty(value = "")
+  public Long getEndDate() {
+    return endDate;
+  }
+
+  public void setEndDate(Long endDate) {
+    this.endDate = endDate;
   }
 
   public TimePeriod type(TimePeriodType type) {
@@ -83,12 +104,13 @@ public class TimePeriod {
     }
     TimePeriod timePeriod = (TimePeriod) o;
     return Objects.equals(this.startDate, timePeriod.startDate) &&
+        Objects.equals(this.endDate, timePeriod.endDate) &&
         Objects.equals(this.type, timePeriod.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(startDate, type);
+    return Objects.hash(startDate, endDate, type);
   }
 
 
@@ -98,6 +120,7 @@ public class TimePeriod {
     sb.append("class TimePeriod {\n");
     
     sb.append("    startDate: ").append(toIndentedString(startDate)).append("\n");
+    sb.append("    endDate: ").append(toIndentedString(endDate)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();

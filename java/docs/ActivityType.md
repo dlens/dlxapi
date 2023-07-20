@@ -36,6 +36,8 @@
 
 * `FIELDISIDEAFIELDREQUIREDUPDATEDEVENT` (value: `"FieldIsIdeaFieldRequiredUpdatedEvent"`)
 
+* `FIELDISAUTOSCALEUPDATEDEVENT` (value: `"FieldIsAutoScaleUpdatedEvent"`)
+
 * `PORTFOLIOARCHIVEDEVENT` (value: `"PortfolioArchivedEvent"`)
 
 * `PORTFOLIOCREATEDEVENT` (value: `"PortfolioCreatedEvent"`)
@@ -49,6 +51,8 @@
 * `SUBPORTFOLIOREMOVEDEVENT` (value: `"SubPortfolioRemovedEvent"`)
 
 * `PORTFOLIOPLANCREATEDEVENT` (value: `"PortfolioPlanCreatedEvent"`)
+
+* `PORTFOLIORANKUPDATEDEVENT` (value: `"PortfolioRankUpdatedEvent"`)
 
 * `PORTFOLIOPLANDELETEDEVENT` (value: `"PortfolioPlanDeletedEvent"`)
 
@@ -69,6 +73,8 @@
 * `PROJECTFIELDVALUEDELETEDEVENT` (value: `"ProjectFieldValueDeletedEvent"`)
 
 * `PROJECTFIELDVALUEUPDATEDEVENT` (value: `"ProjectFieldValueUpdatedEvent"`)
+
+* `PROJECTRANKFIELDVALUEUPDATEDEVENT` (value: `"ProjectRankFieldValueUpdatedEvent"`)
 
 * `PROJECTTAGADDEDEVENT` (value: `"ProjectTagAddedEvent"`)
 
@@ -104,7 +110,11 @@
 
 * `USERADDEDEVENT` (value: `"UserAddedEvent"`)
 
+* `USERLOCKEDUPDATEDEVENT` (value: `"UserLockedUpdatedEvent"`)
+
 * `USERAPPROVALADDEDEVENT` (value: `"UserApprovalAddedEvent"`)
+
+* `USERDELETEDFROMGROUPEVENT` (value: `"UserDeletedFromGroupEvent"`)
 
 * `USERAUTHENTICATEDEVENT` (value: `"UserAuthenticatedEvent"`)
 
@@ -174,6 +184,8 @@
 
 * `CATEGORYOPTIONDELETEDEVENT` (value: `"CategoryOptionDeletedEvent"`)
 
+* `CATEGORYOPTIONPOSITIONUPDATEDEVENT` (value: `"CategoryOptionPositionUpdatedEvent"`)
+
 * `PROJECTCONTRIBUTINGUSERADDEDEVENT` (value: `"ProjectContributingUserAddedEvent"`)
 
 * `PROJECTCONTRIBUTINGUSERDELETEDEVENT` (value: `"ProjectContributingUserDeletedEvent"`)
@@ -197,6 +209,68 @@
 * `PROJECTDEPENDSONADDEDEVENT` (value: `"ProjectDependsOnAddedEvent"`)
 
 * `PROJECTDEPENDSONREMOVEDEVENT` (value: `"ProjectDependsOnRemovedEvent"`)
+
+* `PORTFOLIOPROJECTSCREATEDEVENT` (value: `"PortfolioProjectsCreatedEvent"`)
+
+* `PORTFOLIOPROJECTSUPDATEDEVENT` (value: `"PortfolioProjectsUpdatedEvent"`)
+
+* `GOALADDEDEVENT` (value: `"GoalAddedEvent"`)
+
+* `GOALUPDATEDEVENT` (value: `"GoalUpdatedEvent"`)
+
+* `GOALDELETEDEVENT` (value: `"GoalDeletedEvent"`)
+
+* `PROJECTFIELDVALUESDELETEDEVENT` (value: `"ProjectFieldValuesDeletedEvent"`)
+
+* `RESOURCEPOOLFIELDVALUEUPDATEDEVENT` (value: `"ResourcePoolFieldValueUpdatedEvent"`)
+
+* `SCALEPOINTCREATEDEVENT` (value: `"ScalePointCreatedEvent"`)
+
+* `SCALEPOINTDELETEDEVENT` (value: `"ScalePointDeletedEvent"`)
+
+* `SCALEPOINTNAMEUPDATEDEVENT` (value: `"ScalePointNameUpdatedEvent"`)
+
+* `SCALEPOINTAUTOVALUEUPDATEDEVENT` (value: `"ScalePointAutoValueUpdatedEvent"`)
+
+* `SCALEPOINTAUTOSCALEVALUEUPDATEDEVENT` (value: `"ScalePointAutoScaleValueUpdatedEvent"`)
+
+* `SCALEPOINTMANUALSCALEVALUEUPDATEDEVENT` (value: `"ScalePointManualScaleValueUpdatedEvent"`)
+
+* `SCALEPOINTMANUALVALUEUPDATEDEVENT` (value: `"ScalePointManualValueUpdatedEvent"`)
+
+* `SCALEPOINTPROJECTUPDATEDEVENT` (value: `"ScalePointProjectUpdatedEvent"`)
+
+* `FIELDATTRIBUTESPLANNINGWINDOWSTARTUPDATEDEVENT` (value: `"FieldAttributesPlanningWindowStartUpdatedEvent"`)
+
+* `FIELDATTRIBUTESPLANNINGWINDOWENDUPDATEDEVENT` (value: `"FieldAttributesPlanningWindowEndUpdatedEvent"`)
+
+* `PORTFOLIOSCOREWEIGHTSUPDATEDEVENT` (value: `"PortfolioScoreWeightsUpdatedEvent"`)
+
+* `SCOREWEIGHTCREATEDEVENT` (value: `"ScoreWeightCreatedEvent"`)
+
+* `SCOREWEIGHTDELETEDEVENT` (value: `"ScoreWeightDeletedEvent"`)
+
+* `SCOREWEIGHTNAMEUPDATEDEVENT` (value: `"ScoreWeightNameUpdatedEvent"`)
+
+* `SCOREWEIGHTFIELDWEIGHTCREATEDEVENT` (value: `"ScoreWeightFieldWeightCreatedEvent"`)
+
+* `SCOREWEIGHTFIELDWEIGHTVALUEUPDATEDEVENT` (value: `"ScoreWeightFieldWeightValueUpdatedEvent"`)
+
+* `SCOREWEIGHTFIELDWEIGHTLOCKUPDATEDEVENT` (value: `"ScoreWeightFieldWeightLockUpdatedEvent"`)
+
+* `SCOREWEIGHTFIELDWEIGHTDELETEDEVENT` (value: `"ScoreWeightFieldWeightDeletedEvent"`)
+
+* `FIELDATTRIBUTESCATEGORYDISPLAYORDERUPDATEDEVENT` (value: `"FieldAttributesCategoryDisplayOrderUpdatedEvent"`)
+
+* `FIELDATTRIBUTESDATAFORMATSDECIMALPLACESUPDATEDEVENT` (value: `"FieldAttributesDataFormatsDecimalPlacesUpdatedEvent"`)
+
+* `FIELDATTRIBUTESDATAFORMATSCURRENCYUPDATEDEVENT` (value: `"FieldAttributesDataFormatsCurrencyUpdatedEvent"`)
+
+* `FIELDATTRIBUTESDATAFORMATSNEGATIVESUPDATEDEVENT` (value: `"FieldAttributesDataFormatsNegativesUpdatedEvent"`)
+
+* `FIELDRANKEDBASEDONSORTORDEREVENT` (value: `"FieldRankedBasedOnSortOrderEvent"`)
+
+* `FIELDATTRIBUTESDATAFORMATSDATEFORMATUPDATEDEVENT` (value: `"FieldAttributesDataFormatsDateFormatUpdatedEvent"`)
 
 
 

@@ -38,6 +38,9 @@ public class CategoryOptionCreatedEvent {
   @SerializedName("id")
   private String id = null;
 
+  @SerializedName("position")
+  private Integer position = null;
+
   @SerializedName("fieldId")
   private String fieldId = null;
 
@@ -95,6 +98,24 @@ public class CategoryOptionCreatedEvent {
     this.id = id;
   }
 
+  public CategoryOptionCreatedEvent position(Integer position) {
+    this.position = position;
+    return this;
+  }
+
+   /**
+   * Get position
+   * @return position
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getPosition() {
+    return position;
+  }
+
+  public void setPosition(Integer position) {
+    this.position = position;
+  }
+
   public CategoryOptionCreatedEvent fieldId(String fieldId) {
     this.fieldId = fieldId;
     return this;
@@ -126,12 +147,13 @@ public class CategoryOptionCreatedEvent {
     return Objects.equals(this.portfolioId, categoryOptionCreatedEvent.portfolioId) &&
         Objects.equals(this.name, categoryOptionCreatedEvent.name) &&
         Objects.equals(this.id, categoryOptionCreatedEvent.id) &&
+        Objects.equals(this.position, categoryOptionCreatedEvent.position) &&
         Objects.equals(this.fieldId, categoryOptionCreatedEvent.fieldId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(portfolioId, name, id, fieldId);
+    return Objects.hash(portfolioId, name, id, position, fieldId);
   }
 
 
@@ -143,6 +165,7 @@ public class CategoryOptionCreatedEvent {
     sb.append("    portfolioId: ").append(toIndentedString(portfolioId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    position: ").append(toIndentedString(position)).append("\n");
     sb.append("    fieldId: ").append(toIndentedString(fieldId)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -39,7 +39,9 @@ public enum UserStatus {
   
   PASSWORD_EXPIRED("PASSWORD_EXPIRED"),
   
-  SECRET_KEY_PENDING("SECRET_KEY_PENDING");
+  SECRET_KEY_PENDING("SECRET_KEY_PENDING"),
+  
+  UNKNOWN("UNKNOWN");
 
   private String value;
 

@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **hasDependentProjectIds** | **List&lt;String&gt;** |  |  [optional]
 **contributingUserIds** | **List&lt;String&gt;** |  |  [optional]
 **isDraft** | **Boolean** |  |  [optional]
+**rank** | **Integer** |  |  [optional]
 
 
 

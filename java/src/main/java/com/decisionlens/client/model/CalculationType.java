@@ -31,7 +31,9 @@ public enum CalculationType {
   
   SUM("SUM"),
   
-  AVERAGE("AVERAGE");
+  AVERAGE("AVERAGE"),
+  
+  NONE("NONE");
 
   private String value;
 

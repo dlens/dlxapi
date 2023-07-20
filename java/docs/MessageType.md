@@ -6,9 +6,15 @@
 
 * `FIELDCREATEDMESSAGE` (value: `"FieldCreatedMessage"`)
 
+* `BUDGETFIELDCREATEDMESSAGE` (value: `"BudgetFieldCreatedMessage"`)
+
 * `FIELDSUPDATEDMESSAGE` (value: `"FieldsUpdatedMessage"`)
 
+* `BUDGETFIELDSUPDATEDMESSAGE` (value: `"BudgetFieldsUpdatedMessage"`)
+
 * `FIELDSDELETEDMESSAGE` (value: `"FieldsDeletedMessage"`)
+
+* `BUDGETFIELDSDELETEDMESSAGE` (value: `"BudgetFieldsDeletedMessage"`)
 
 * `PROJECTSCREATEDMESSAGE` (value: `"ProjectsCreatedMessage"`)
 
@@ -29,6 +35,8 @@
 * `REMOVEDFROMPORTFOLIOMESSAGE` (value: `"RemovedFromPortfolioMessage"`)
 
 * `FIELDVALUESUPDATEDMESSAGE` (value: `"FieldValuesUpdatedMessage"`)
+
+* `FIELDVALUESDATAUPDATEDMESSAGE` (value: `"FieldValuesDataUpdatedMessage"`)
 
 * `RESOURCEPOOLSUPDATEDMESSAGE` (value: `"ResourcePoolsUpdatedMessage"`)
 
@@ -85,6 +93,24 @@
 * `CUSTOMNAMESUPDATEDMESSAGE` (value: `"CustomNamesUpdatedMessage"`)
 
 * `PROJECTDEPENDENCIESUPDATEDMESSAGE` (value: `"ProjectDependenciesUpdatedMessage"`)
+
+* `PROJECTSCORESUPDATEDMESSAGE` (value: `"ProjectScoresUpdatedMessage"`)
+
+* `PROJECTSCORESUPDATEDAGGREGATEDMESSAGE` (value: `"ProjectScoresUpdatedAggregatedMessage"`)
+
+* `PROJECTRANKSUPDATEDAGGREGATEDMESSAGE` (value: `"ProjectRanksUpdatedAggregatedMessage"`)
+
+* `PROJECTDATACACHEMESSAGE` (value: `"ProjectDataCacheMessage"`)
+
+* `GOALSUPDATEDMESSAGE` (value: `"GoalsUpdatedMessage"`)
+
+* `FIELDVALUESPROJECTDELETEDMESSAGE` (value: `"FieldValuesProjectDeletedMessage"`)
+
+* `RESOURCEPOOLFIELDVALUESUPDATEDMESSAGE` (value: `"ResourcePoolFieldValuesUpdatedMessage"`)
+
+* `SCOREWEIGHTSUPDATEDMESSAGE` (value: `"ScoreWeightsUpdatedMessage"`)
+
+* `USERUPDATEDMESSAGE` (value: `"UserUpdatedMessage"`)
 
 
 

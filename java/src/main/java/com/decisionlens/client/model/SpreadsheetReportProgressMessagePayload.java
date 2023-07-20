@@ -42,11 +42,23 @@ public class SpreadsheetReportProgressMessagePayload {
   @SerializedName("newFields")
   private SpreadsheetReportProgress newFields = null;
 
+  @SerializedName("newBudgetFields")
+  private SpreadsheetReportProgress newBudgetFields = null;
+
   @SerializedName("newProjects")
   private SpreadsheetReportProgress newProjects = null;
 
   @SerializedName("updateProjects")
   private SpreadsheetReportProgress updateProjects = null;
+
+  @SerializedName("newBudgets")
+  private SpreadsheetReportProgress newBudgets = null;
+
+  @SerializedName("updateBudgets")
+  private SpreadsheetReportProgress updateBudgets = null;
+
+  @SerializedName("budgetAmounts")
+  private SpreadsheetReportProgress budgetAmounts = null;
 
   public SpreadsheetReportProgressMessagePayload portfolioId(String portfolioId) {
     this.portfolioId = portfolioId;
@@ -120,6 +132,24 @@ public class SpreadsheetReportProgressMessagePayload {
     this.newFields = newFields;
   }
 
+  public SpreadsheetReportProgressMessagePayload newBudgetFields(SpreadsheetReportProgress newBudgetFields) {
+    this.newBudgetFields = newBudgetFields;
+    return this;
+  }
+
+   /**
+   * Get newBudgetFields
+   * @return newBudgetFields
+  **/
+  @ApiModelProperty(value = "")
+  public SpreadsheetReportProgress getNewBudgetFields() {
+    return newBudgetFields;
+  }
+
+  public void setNewBudgetFields(SpreadsheetReportProgress newBudgetFields) {
+    this.newBudgetFields = newBudgetFields;
+  }
+
   public SpreadsheetReportProgressMessagePayload newProjects(SpreadsheetReportProgress newProjects) {
     this.newProjects = newProjects;
     return this;
@@ -156,6 +186,60 @@ public class SpreadsheetReportProgressMessagePayload {
     this.updateProjects = updateProjects;
   }
 
+  public SpreadsheetReportProgressMessagePayload newBudgets(SpreadsheetReportProgress newBudgets) {
+    this.newBudgets = newBudgets;
+    return this;
+  }
+
+   /**
+   * Get newBudgets
+   * @return newBudgets
+  **/
+  @ApiModelProperty(value = "")
+  public SpreadsheetReportProgress getNewBudgets() {
+    return newBudgets;
+  }
+
+  public void setNewBudgets(SpreadsheetReportProgress newBudgets) {
+    this.newBudgets = newBudgets;
+  }
+
+  public SpreadsheetReportProgressMessagePayload updateBudgets(SpreadsheetReportProgress updateBudgets) {
+    this.updateBudgets = updateBudgets;
+    return this;
+  }
+
+   /**
+   * Get updateBudgets
+   * @return updateBudgets
+  **/
+  @ApiModelProperty(value = "")
+  public SpreadsheetReportProgress getUpdateBudgets() {
+    return updateBudgets;
+  }
+
+  public void setUpdateBudgets(SpreadsheetReportProgress updateBudgets) {
+    this.updateBudgets = updateBudgets;
+  }
+
+  public SpreadsheetReportProgressMessagePayload budgetAmounts(SpreadsheetReportProgress budgetAmounts) {
+    this.budgetAmounts = budgetAmounts;
+    return this;
+  }
+
+   /**
+   * Get budgetAmounts
+   * @return budgetAmounts
+  **/
+  @ApiModelProperty(value = "")
+  public SpreadsheetReportProgress getBudgetAmounts() {
+    return budgetAmounts;
+  }
+
+  public void setBudgetAmounts(SpreadsheetReportProgress budgetAmounts) {
+    this.budgetAmounts = budgetAmounts;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -170,13 +254,17 @@ public class SpreadsheetReportProgressMessagePayload {
         Objects.equals(this.spreadsheetId, spreadsheetReportProgressMessagePayload.spreadsheetId) &&
         Objects.equals(this.sheetName, spreadsheetReportProgressMessagePayload.sheetName) &&
         Objects.equals(this.newFields, spreadsheetReportProgressMessagePayload.newFields) &&
+        Objects.equals(this.newBudgetFields, spreadsheetReportProgressMessagePayload.newBudgetFields) &&
         Objects.equals(this.newProjects, spreadsheetReportProgressMessagePayload.newProjects) &&
-        Objects.equals(this.updateProjects, spreadsheetReportProgressMessagePayload.updateProjects);
+        Objects.equals(this.updateProjects, spreadsheetReportProgressMessagePayload.updateProjects) &&
+        Objects.equals(this.newBudgets, spreadsheetReportProgressMessagePayload.newBudgets) &&
+        Objects.equals(this.updateBudgets, spreadsheetReportProgressMessagePayload.updateBudgets) &&
+        Objects.equals(this.budgetAmounts, spreadsheetReportProgressMessagePayload.budgetAmounts);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(portfolioId, spreadsheetId, sheetName, newFields, newProjects, updateProjects);
+    return Objects.hash(portfolioId, spreadsheetId, sheetName, newFields, newBudgetFields, newProjects, updateProjects, newBudgets, updateBudgets, budgetAmounts);
   }
 
 
@@ -189,8 +277,12 @@ public class SpreadsheetReportProgressMessagePayload {
     sb.append("    spreadsheetId: ").append(toIndentedString(spreadsheetId)).append("\n");
     sb.append("    sheetName: ").append(toIndentedString(sheetName)).append("\n");
     sb.append("    newFields: ").append(toIndentedString(newFields)).append("\n");
+    sb.append("    newBudgetFields: ").append(toIndentedString(newBudgetFields)).append("\n");
     sb.append("    newProjects: ").append(toIndentedString(newProjects)).append("\n");
     sb.append("    updateProjects: ").append(toIndentedString(updateProjects)).append("\n");
+    sb.append("    newBudgets: ").append(toIndentedString(newBudgets)).append("\n");
+    sb.append("    updateBudgets: ").append(toIndentedString(updateBudgets)).append("\n");
+    sb.append("    budgetAmounts: ").append(toIndentedString(budgetAmounts)).append("\n");
     sb.append("}");
     return sb.toString();
   }

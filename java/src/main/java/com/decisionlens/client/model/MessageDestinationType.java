@@ -33,6 +33,8 @@ public enum MessageDestinationType {
   
   GROUP_USER("GROUP_USER"),
   
+  GROUP("GROUP"),
+  
   PORTFOLIO("PORTFOLIO"),
   
   PORTFOLIO_USER("PORTFOLIO_USER"),

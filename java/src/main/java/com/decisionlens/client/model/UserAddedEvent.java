@@ -36,11 +36,17 @@ public class UserAddedEvent {
   @SerializedName("username")
   private String username = null;
 
+  @SerializedName("email")
+  private String email = null;
+
   @SerializedName("addedByUser")
   private User addedByUser = null;
 
   @SerializedName("groupId")
   private String groupId = null;
+
+  @SerializedName("locked")
+  private Boolean locked = null;
 
   public UserAddedEvent id(String id) {
     this.id = id;
@@ -76,6 +82,24 @@ public class UserAddedEvent {
 
   public void setUsername(String username) {
     this.username = username;
+  }
+
+  public UserAddedEvent email(String email) {
+    this.email = email;
+    return this;
+  }
+
+   /**
+   * Get email
+   * @return email
+  **/
+  @ApiModelProperty(value = "")
+  public String getEmail() {
+    return email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
   }
 
   public UserAddedEvent addedByUser(User addedByUser) {
@@ -114,6 +138,24 @@ public class UserAddedEvent {
     this.groupId = groupId;
   }
 
+  public UserAddedEvent locked(Boolean locked) {
+    this.locked = locked;
+    return this;
+  }
+
+   /**
+   * Get locked
+   * @return locked
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isLocked() {
+    return locked;
+  }
+
+  public void setLocked(Boolean locked) {
+    this.locked = locked;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -126,13 +168,15 @@ public class UserAddedEvent {
     UserAddedEvent userAddedEvent = (UserAddedEvent) o;
     return Objects.equals(this.id, userAddedEvent.id) &&
         Objects.equals(this.username, userAddedEvent.username) &&
+        Objects.equals(this.email, userAddedEvent.email) &&
         Objects.equals(this.addedByUser, userAddedEvent.addedByUser) &&
-        Objects.equals(this.groupId, userAddedEvent.groupId);
+        Objects.equals(this.groupId, userAddedEvent.groupId) &&
+        Objects.equals(this.locked, userAddedEvent.locked);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, username, addedByUser, groupId);
+    return Objects.hash(id, username, email, addedByUser, groupId, locked);
   }
 
 
@@ -143,8 +187,10 @@ public class UserAddedEvent {
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    username: ").append(toIndentedString(username)).append("\n");
+    sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    addedByUser: ").append(toIndentedString(addedByUser)).append("\n");
     sb.append("    groupId: ").append(toIndentedString(groupId)).append("\n");
+    sb.append("    locked: ").append(toIndentedString(locked)).append("\n");
     sb.append("}");
     return sb.toString();
   }

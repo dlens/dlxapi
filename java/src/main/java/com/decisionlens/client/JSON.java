@@ -59,13 +59,12 @@ public class JSON {
                 classByDiscriminatorValue.put("Attachments".toUpperCase(), Attachments.class);
                 classByDiscriminatorValue.put("BudgetAllocations".toUpperCase(), BudgetAllocations.class);
                 classByDiscriminatorValue.put("CategoryOptions".toUpperCase(), CategoryOptions.class);
-                classByDiscriminatorValue.put("Classifications".toUpperCase(), Classifications.class);
                 classByDiscriminatorValue.put("Comments".toUpperCase(), Comments.class);
-                classByDiscriminatorValue.put("Constraints".toUpperCase(), Constraints.class);
                 classByDiscriminatorValue.put("CustomNames".toUpperCase(), CustomNames.class);
                 classByDiscriminatorValue.put("FieldGrades".toUpperCase(), FieldGrades.class);
                 classByDiscriminatorValue.put("FieldValues".toUpperCase(), FieldValues.class);
                 classByDiscriminatorValue.put("Fields".toUpperCase(), Fields.class);
+                classByDiscriminatorValue.put("Goals".toUpperCase(), Goals.class);
                 classByDiscriminatorValue.put("Groups".toUpperCase(), Groups.class);
                 classByDiscriminatorValue.put("JiraFieldMappings".toUpperCase(), JiraFieldMappings.class);
                 classByDiscriminatorValue.put("Permissions".toUpperCase(), Permissions.class);
@@ -78,7 +77,11 @@ public class JSON {
                 classByDiscriminatorValue.put("Recommendations".toUpperCase(), Recommendations.class);
                 classByDiscriminatorValue.put("ResourcePoolBudgetAmounts".toUpperCase(), ResourcePoolBudgetAmounts.class);
                 classByDiscriminatorValue.put("ResourcePools".toUpperCase(), ResourcePools.class);
+                classByDiscriminatorValue.put("ScoreWeights".toUpperCase(), ScoreWeights.class);
+                classByDiscriminatorValue.put("ServiceInfoDetails".toUpperCase(), ServiceInfoDetails.class);
                 classByDiscriminatorValue.put("Sheets".toUpperCase(), Sheets.class);
+                classByDiscriminatorValue.put("SpreadsheetFields".toUpperCase(), SpreadsheetFields.class);
+                classByDiscriminatorValue.put("SpreadsheetWarnings".toUpperCase(), SpreadsheetWarnings.class);
                 classByDiscriminatorValue.put("Tags".toUpperCase(), Tags.class);
                 classByDiscriminatorValue.put("Users".toUpperCase(), Users.class);
                 classByDiscriminatorValue.put("ValueCounts".toUpperCase(), ValueCounts.class);
@@ -96,7 +99,6 @@ public class JSON {
                 classByDiscriminatorValue.put("Attachment".toUpperCase(), Attachment.class);
                 classByDiscriminatorValue.put("CategoryOption".toUpperCase(), CategoryOption.class);
                 classByDiscriminatorValue.put("Comment".toUpperCase(), Comment.class);
-                classByDiscriminatorValue.put("Constraint".toUpperCase(), Constraint.class);
                 classByDiscriminatorValue.put("Field".toUpperCase(), Field.class);
                 classByDiscriminatorValue.put("FileAttachment".toUpperCase(), FileAttachment.class);
                 classByDiscriminatorValue.put("Group".toUpperCase(), Group.class);
@@ -110,6 +112,7 @@ public class JSON {
                 classByDiscriminatorValue.put("PortfolioPlanUser".toUpperCase(), PortfolioPlanUser.class);
                 classByDiscriminatorValue.put("Project".toUpperCase(), Project.class);
                 classByDiscriminatorValue.put("ResourcePool".toUpperCase(), ResourcePool.class);
+                classByDiscriminatorValue.put("ScoreWeight".toUpperCase(), ScoreWeight.class);
                 classByDiscriminatorValue.put("Source".toUpperCase(), Source.class);
                 classByDiscriminatorValue.put("Spreadsheet".toUpperCase(), Spreadsheet.class);
                 classByDiscriminatorValue.put("Tag".toUpperCase(), Tag.class);
@@ -118,6 +121,17 @@ public class JSON {
                 return getClassByDiscriminator(
                                            classByDiscriminatorValue,
                                            getDiscriminatorValue(readElement, "href"));
+            }
+          })
+          .registerTypeSelector(FieldValue.class, new TypeSelector() {
+            @Override
+            public Class getClassForElement(JsonElement readElement) {
+                Map classByDiscriminatorValue = new HashMap();
+                classByDiscriminatorValue.put("ResourcePoolFieldValue".toUpperCase(), ResourcePoolFieldValue.class);
+                classByDiscriminatorValue.put("FieldValue".toUpperCase(), FieldValue.class);
+                return getClassByDiscriminator(
+                                           classByDiscriminatorValue,
+                                           getDiscriminatorValue(readElement, "field"));
             }
           })
         ;

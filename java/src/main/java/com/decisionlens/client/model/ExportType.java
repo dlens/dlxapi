@@ -31,7 +31,11 @@ public enum ExportType {
   
   PROJECT("PROJECT"),
   
-  SCHEDULE("SCHEDULE");
+  SCHEDULE("SCHEDULE"),
+  
+  SPEND_PLAN("SPEND_PLAN"),
+  
+  GROUP("GROUP");
 
   private String value;
 

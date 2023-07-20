@@ -31,6 +31,12 @@ public enum ImportType {
   
   PROJECT("PROJECT"),
   
+  BUDGET("BUDGET"),
+  
+  BUDGET_AMOUNTS("BUDGET_AMOUNTS"),
+  
+  COST("COST"),
+  
   COSTAGGREGATE("COSTAGGREGATE"),
   
   ALLOCATE("ALLOCATE"),

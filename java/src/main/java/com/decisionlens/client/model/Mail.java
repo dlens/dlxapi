@@ -16,6 +16,7 @@ package com.decisionlens.client.model;
 import java.util.Objects;
 import java.util.Arrays;
 import com.decisionlens.client.model.TemplateProperty;
+import com.decisionlens.client.model.User;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -42,13 +43,13 @@ public class Mail {
   private String replyToDisplayName = null;
 
   @SerializedName("to")
-  private List<String> to = null;
+  private List<User> to = null;
 
   @SerializedName("cc")
-  private List<String> cc = null;
+  private List<User> cc = null;
 
   @SerializedName("bcc")
-  private List<String> bcc = null;
+  private List<User> bcc = null;
 
   @SerializedName("subject")
   private String subject = null;
@@ -116,14 +117,14 @@ public class Mail {
     this.replyToDisplayName = replyToDisplayName;
   }
 
-  public Mail to(List<String> to) {
+  public Mail to(List<User> to) {
     this.to = to;
     return this;
   }
 
-  public Mail addToItem(String toItem) {
+  public Mail addToItem(User toItem) {
     if (this.to == null) {
-      this.to = new ArrayList<String>();
+      this.to = new ArrayList<User>();
     }
     this.to.add(toItem);
     return this;
@@ -134,22 +135,22 @@ public class Mail {
    * @return to
   **/
   @ApiModelProperty(value = "")
-  public List<String> getTo() {
+  public List<User> getTo() {
     return to;
   }
 
-  public void setTo(List<String> to) {
+  public void setTo(List<User> to) {
     this.to = to;
   }
 
-  public Mail cc(List<String> cc) {
+  public Mail cc(List<User> cc) {
     this.cc = cc;
     return this;
   }
 
-  public Mail addCcItem(String ccItem) {
+  public Mail addCcItem(User ccItem) {
     if (this.cc == null) {
-      this.cc = new ArrayList<String>();
+      this.cc = new ArrayList<User>();
     }
     this.cc.add(ccItem);
     return this;
@@ -160,22 +161,22 @@ public class Mail {
    * @return cc
   **/
   @ApiModelProperty(value = "")
-  public List<String> getCc() {
+  public List<User> getCc() {
     return cc;
   }
 
-  public void setCc(List<String> cc) {
+  public void setCc(List<User> cc) {
     this.cc = cc;
   }
 
-  public Mail bcc(List<String> bcc) {
+  public Mail bcc(List<User> bcc) {
     this.bcc = bcc;
     return this;
   }
 
-  public Mail addBccItem(String bccItem) {
+  public Mail addBccItem(User bccItem) {
     if (this.bcc == null) {
-      this.bcc = new ArrayList<String>();
+      this.bcc = new ArrayList<User>();
     }
     this.bcc.add(bccItem);
     return this;
@@ -186,11 +187,11 @@ public class Mail {
    * @return bcc
   **/
   @ApiModelProperty(value = "")
-  public List<String> getBcc() {
+  public List<User> getBcc() {
     return bcc;
   }
 
-  public void setBcc(List<String> bcc) {
+  public void setBcc(List<User> bcc) {
     this.bcc = bcc;
   }
 

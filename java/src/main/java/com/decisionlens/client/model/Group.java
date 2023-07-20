@@ -37,8 +37,23 @@ public class Group extends DlResource {
   @SerializedName("domain")
   private String domain = null;
 
+  @SerializedName("linkedDomain")
+  private String linkedDomain = null;
+
+  @SerializedName("parentDomain")
+  private String parentDomain = null;
+
   @SerializedName("isActive")
   private Boolean isActive = null;
+
+  @SerializedName("authType")
+  private String authType = null;
+
+  @SerializedName("authUrl")
+  private String authUrl = null;
+
+  @SerializedName("logoutUrl")
+  private String logoutUrl = null;
 
   @SerializedName("users")
   private Users users = null;
@@ -79,6 +94,42 @@ public class Group extends DlResource {
     this.domain = domain;
   }
 
+  public Group linkedDomain(String linkedDomain) {
+    this.linkedDomain = linkedDomain;
+    return this;
+  }
+
+   /**
+   * Get linkedDomain
+   * @return linkedDomain
+  **/
+  @ApiModelProperty(value = "")
+  public String getLinkedDomain() {
+    return linkedDomain;
+  }
+
+  public void setLinkedDomain(String linkedDomain) {
+    this.linkedDomain = linkedDomain;
+  }
+
+  public Group parentDomain(String parentDomain) {
+    this.parentDomain = parentDomain;
+    return this;
+  }
+
+   /**
+   * Get parentDomain
+   * @return parentDomain
+  **/
+  @ApiModelProperty(value = "")
+  public String getParentDomain() {
+    return parentDomain;
+  }
+
+  public void setParentDomain(String parentDomain) {
+    this.parentDomain = parentDomain;
+  }
+
   public Group isActive(Boolean isActive) {
     this.isActive = isActive;
     return this;
@@ -95,6 +146,60 @@ public class Group extends DlResource {
 
   public void setIsActive(Boolean isActive) {
     this.isActive = isActive;
+  }
+
+  public Group authType(String authType) {
+    this.authType = authType;
+    return this;
+  }
+
+   /**
+   * Get authType
+   * @return authType
+  **/
+  @ApiModelProperty(value = "")
+  public String getAuthType() {
+    return authType;
+  }
+
+  public void setAuthType(String authType) {
+    this.authType = authType;
+  }
+
+  public Group authUrl(String authUrl) {
+    this.authUrl = authUrl;
+    return this;
+  }
+
+   /**
+   * Get authUrl
+   * @return authUrl
+  **/
+  @ApiModelProperty(value = "")
+  public String getAuthUrl() {
+    return authUrl;
+  }
+
+  public void setAuthUrl(String authUrl) {
+    this.authUrl = authUrl;
+  }
+
+  public Group logoutUrl(String logoutUrl) {
+    this.logoutUrl = logoutUrl;
+    return this;
+  }
+
+   /**
+   * Get logoutUrl
+   * @return logoutUrl
+  **/
+  @ApiModelProperty(value = "")
+  public String getLogoutUrl() {
+    return logoutUrl;
+  }
+
+  public void setLogoutUrl(String logoutUrl) {
+    this.logoutUrl = logoutUrl;
   }
 
   public Group users(Users users) {
@@ -127,14 +232,19 @@ public class Group extends DlResource {
     Group group = (Group) o;
     return Objects.equals(this.name, group.name) &&
         Objects.equals(this.domain, group.domain) &&
+        Objects.equals(this.linkedDomain, group.linkedDomain) &&
+        Objects.equals(this.parentDomain, group.parentDomain) &&
         Objects.equals(this.isActive, group.isActive) &&
+        Objects.equals(this.authType, group.authType) &&
+        Objects.equals(this.authUrl, group.authUrl) &&
+        Objects.equals(this.logoutUrl, group.logoutUrl) &&
         Objects.equals(this.users, group.users) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, domain, isActive, users, super.hashCode());
+    return Objects.hash(name, domain, linkedDomain, parentDomain, isActive, authType, authUrl, logoutUrl, users, super.hashCode());
   }
 
 
@@ -145,7 +255,12 @@ public class Group extends DlResource {
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    domain: ").append(toIndentedString(domain)).append("\n");
+    sb.append("    linkedDomain: ").append(toIndentedString(linkedDomain)).append("\n");
+    sb.append("    parentDomain: ").append(toIndentedString(parentDomain)).append("\n");
     sb.append("    isActive: ").append(toIndentedString(isActive)).append("\n");
+    sb.append("    authType: ").append(toIndentedString(authType)).append("\n");
+    sb.append("    authUrl: ").append(toIndentedString(authUrl)).append("\n");
+    sb.append("    logoutUrl: ").append(toIndentedString(logoutUrl)).append("\n");
     sb.append("    users: ").append(toIndentedString(users)).append("\n");
     sb.append("}");
     return sb.toString();

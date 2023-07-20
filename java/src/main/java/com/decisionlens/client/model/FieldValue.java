@@ -34,6 +34,7 @@ import java.util.List;
  * FieldValue
  */
 
+
 public class FieldValue {
   @SerializedName("field")
   private Field field = null;
@@ -68,6 +69,9 @@ public class FieldValue {
   @SerializedName("modifiedAt")
   private String modifiedAt = null;
 
+  public FieldValue() {
+    this.field = this.getClass().getSimpleName();
+  }
   public FieldValue field(Field field) {
     this.field = field;
     return this;

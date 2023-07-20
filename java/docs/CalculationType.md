@@ -8,5 +8,7 @@
 
 * `AVERAGE` (value: `"AVERAGE"`)
 
+* `NONE` (value: `"NONE"`)
+
 
 

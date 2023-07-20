@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **userRegistrationToken** | **String** |  | 
-**emailId** | **String** |  |  [optional]
+**emailId** | **String** |  | 
 **landingPage** | **String** |  |  [optional]
 **doNotNotify** | **Boolean** |  |  [optional]
 

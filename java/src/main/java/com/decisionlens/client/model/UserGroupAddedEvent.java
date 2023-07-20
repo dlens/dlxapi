@@ -42,6 +42,9 @@ public class UserGroupAddedEvent {
   @SerializedName("groupId")
   private String groupId = null;
 
+  @SerializedName("locked")
+  private Boolean locked = null;
+
   public UserGroupAddedEvent id(String id) {
     this.id = id;
     return this;
@@ -114,6 +117,24 @@ public class UserGroupAddedEvent {
     this.groupId = groupId;
   }
 
+  public UserGroupAddedEvent locked(Boolean locked) {
+    this.locked = locked;
+    return this;
+  }
+
+   /**
+   * Get locked
+   * @return locked
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isLocked() {
+    return locked;
+  }
+
+  public void setLocked(Boolean locked) {
+    this.locked = locked;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -127,12 +148,13 @@ public class UserGroupAddedEvent {
     return Objects.equals(this.id, userGroupAddedEvent.id) &&
         Objects.equals(this.user, userGroupAddedEvent.user) &&
         Objects.equals(this.addedByUser, userGroupAddedEvent.addedByUser) &&
-        Objects.equals(this.groupId, userGroupAddedEvent.groupId);
+        Objects.equals(this.groupId, userGroupAddedEvent.groupId) &&
+        Objects.equals(this.locked, userGroupAddedEvent.locked);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, user, addedByUser, groupId);
+    return Objects.hash(id, user, addedByUser, groupId, locked);
   }
 
 
@@ -145,6 +167,7 @@ public class UserGroupAddedEvent {
     sb.append("    user: ").append(toIndentedString(user)).append("\n");
     sb.append("    addedByUser: ").append(toIndentedString(addedByUser)).append("\n");
     sb.append("    groupId: ").append(toIndentedString(groupId)).append("\n");
+    sb.append("    locked: ").append(toIndentedString(locked)).append("\n");
     sb.append("}");
     return sb.toString();
   }

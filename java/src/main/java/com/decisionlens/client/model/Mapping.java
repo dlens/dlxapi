@@ -16,6 +16,7 @@ package com.decisionlens.client.model;
 import java.util.Objects;
 import java.util.Arrays;
 import com.decisionlens.client.model.DataType;
+import com.decisionlens.client.model.DateFormat;
 import com.decisionlens.client.model.DlResource;
 import com.decisionlens.client.model.FieldType;
 import com.decisionlens.client.model.ImportType;
@@ -61,6 +62,12 @@ public class Mapping extends DlResource {
   @SerializedName("position")
   private Integer position = null;
 
+  @SerializedName("dateFormat")
+  private DateFormat dateFormat = null;
+
+  @SerializedName("rawDateFormats")
+  private List<String> rawDateFormats = null;
+
   @SerializedName("values")
   private List<String> values = null;
 
@@ -72,6 +79,9 @@ public class Mapping extends DlResource {
 
   @SerializedName("timePeriod")
   private TimePeriod timePeriod = null;
+
+  @SerializedName("isDuplicated")
+  private Boolean isDuplicated = false;
 
   public Mapping name(String name) {
     this.name = name;
@@ -217,6 +227,50 @@ public class Mapping extends DlResource {
     this.position = position;
   }
 
+  public Mapping dateFormat(DateFormat dateFormat) {
+    this.dateFormat = dateFormat;
+    return this;
+  }
+
+   /**
+   * Get dateFormat
+   * @return dateFormat
+  **/
+  @ApiModelProperty(value = "")
+  public DateFormat getDateFormat() {
+    return dateFormat;
+  }
+
+  public void setDateFormat(DateFormat dateFormat) {
+    this.dateFormat = dateFormat;
+  }
+
+  public Mapping rawDateFormats(List<String> rawDateFormats) {
+    this.rawDateFormats = rawDateFormats;
+    return this;
+  }
+
+  public Mapping addRawDateFormatsItem(String rawDateFormatsItem) {
+    if (this.rawDateFormats == null) {
+      this.rawDateFormats = new ArrayList<String>();
+    }
+    this.rawDateFormats.add(rawDateFormatsItem);
+    return this;
+  }
+
+   /**
+   * Get rawDateFormats
+   * @return rawDateFormats
+  **/
+  @ApiModelProperty(value = "")
+  public List<String> getRawDateFormats() {
+    return rawDateFormats;
+  }
+
+  public void setRawDateFormats(List<String> rawDateFormats) {
+    this.rawDateFormats = rawDateFormats;
+  }
+
   public Mapping values(List<String> values) {
     this.values = values;
     return this;
@@ -313,6 +367,24 @@ public class Mapping extends DlResource {
     this.timePeriod = timePeriod;
   }
 
+  public Mapping isDuplicated(Boolean isDuplicated) {
+    this.isDuplicated = isDuplicated;
+    return this;
+  }
+
+   /**
+   * Get isDuplicated
+   * @return isDuplicated
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isIsDuplicated() {
+    return isDuplicated;
+  }
+
+  public void setIsDuplicated(Boolean isDuplicated) {
+    this.isDuplicated = isDuplicated;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -331,16 +403,19 @@ public class Mapping extends DlResource {
         Objects.equals(this.dataType, mapping.dataType) &&
         Objects.equals(this.importType, mapping.importType) &&
         Objects.equals(this.position, mapping.position) &&
+        Objects.equals(this.dateFormat, mapping.dateFormat) &&
+        Objects.equals(this.rawDateFormats, mapping.rawDateFormats) &&
         Objects.equals(this.values, mapping.values) &&
         Objects.equals(this.numericValues, mapping.numericValues) &&
         Objects.equals(this.booleanValues, mapping.booleanValues) &&
         Objects.equals(this.timePeriod, mapping.timePeriod) &&
+        Objects.equals(this.isDuplicated, mapping.isDuplicated) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, originalName, type, inititalType, targetType, dataType, importType, position, values, numericValues, booleanValues, timePeriod, super.hashCode());
+    return Objects.hash(name, originalName, type, inititalType, targetType, dataType, importType, position, dateFormat, rawDateFormats, values, numericValues, booleanValues, timePeriod, isDuplicated, super.hashCode());
   }
 
 
@@ -357,10 +432,13 @@ public class Mapping extends DlResource {
     sb.append("    dataType: ").append(toIndentedString(dataType)).append("\n");
     sb.append("    importType: ").append(toIndentedString(importType)).append("\n");
     sb.append("    position: ").append(toIndentedString(position)).append("\n");
+    sb.append("    dateFormat: ").append(toIndentedString(dateFormat)).append("\n");
+    sb.append("    rawDateFormats: ").append(toIndentedString(rawDateFormats)).append("\n");
     sb.append("    values: ").append(toIndentedString(values)).append("\n");
     sb.append("    numericValues: ").append(toIndentedString(numericValues)).append("\n");
     sb.append("    booleanValues: ").append(toIndentedString(booleanValues)).append("\n");
     sb.append("    timePeriod: ").append(toIndentedString(timePeriod)).append("\n");
+    sb.append("    isDuplicated: ").append(toIndentedString(isDuplicated)).append("\n");
     sb.append("}");
     return sb.toString();
   }

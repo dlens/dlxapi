@@ -41,6 +41,9 @@ public class Permission {
   @SerializedName("projectIds")
   private List<String> projectIds = null;
 
+  @SerializedName("categoryOptionIds")
+  private List<String> categoryOptionIds = null;
+
   @SerializedName("enabled")
   private Boolean enabled = null;
 
@@ -114,6 +117,32 @@ public class Permission {
     this.projectIds = projectIds;
   }
 
+  public Permission categoryOptionIds(List<String> categoryOptionIds) {
+    this.categoryOptionIds = categoryOptionIds;
+    return this;
+  }
+
+  public Permission addCategoryOptionIdsItem(String categoryOptionIdsItem) {
+    if (this.categoryOptionIds == null) {
+      this.categoryOptionIds = new ArrayList<String>();
+    }
+    this.categoryOptionIds.add(categoryOptionIdsItem);
+    return this;
+  }
+
+   /**
+   * Get categoryOptionIds
+   * @return categoryOptionIds
+  **/
+  @ApiModelProperty(value = "")
+  public List<String> getCategoryOptionIds() {
+    return categoryOptionIds;
+  }
+
+  public void setCategoryOptionIds(List<String> categoryOptionIds) {
+    this.categoryOptionIds = categoryOptionIds;
+  }
+
   public Permission enabled(Boolean enabled) {
     this.enabled = enabled;
     return this;
@@ -145,12 +174,13 @@ public class Permission {
     return Objects.equals(this.type, permission.type) &&
         Objects.equals(this.fieldIds, permission.fieldIds) &&
         Objects.equals(this.projectIds, permission.projectIds) &&
+        Objects.equals(this.categoryOptionIds, permission.categoryOptionIds) &&
         Objects.equals(this.enabled, permission.enabled);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, fieldIds, projectIds, enabled);
+    return Objects.hash(type, fieldIds, projectIds, categoryOptionIds, enabled);
   }
 
 
@@ -162,6 +192,7 @@ public class Permission {
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    fieldIds: ").append(toIndentedString(fieldIds)).append("\n");
     sb.append("    projectIds: ").append(toIndentedString(projectIds)).append("\n");
+    sb.append("    categoryOptionIds: ").append(toIndentedString(categoryOptionIds)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("}");
     return sb.toString();

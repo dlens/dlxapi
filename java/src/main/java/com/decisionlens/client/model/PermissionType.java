@@ -39,7 +39,9 @@ public enum PermissionType {
   
   ALLOCATE("ALLOCATE"),
   
-  BUDGET("BUDGET");
+  BUDGET("BUDGET"),
+  
+  CATEGORIES("CATEGORIES");
 
   private String value;
 
