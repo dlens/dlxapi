@@ -4,10 +4,60 @@ All URIs are relative to *http://localhost:9005/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**delete_user**](UserApi.md#delete_user) | **DELETE** /users/{id} | Delete user
 [**get_user**](UserApi.md#get_user) | **GET** /users/{id} | Get user
 [**get_user_activities**](UserApi.md#get_user_activities) | **GET** /users/{id}/activities | Get user activities
 [**get_user_activities_for_group**](UserApi.md#get_user_activities_for_group) | **GET** /users/activities | Get user activities for group
 
+
+# **delete_user**
+> delete_user(id)
+
+Delete user
+
+### Example
+```python
+from __future__ import print_function
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: OAuth2
+configuration = swagger_client.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# create an instance of the API class
+api_instance = swagger_client.UserApi(swagger_client.ApiClient(configuration))
+id = 'id_example' # str | User id
+
+try:
+    # Delete user
+    api_instance.delete_user(id)
+except ApiException as e:
+    print("Exception when calling UserApi->delete_user: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **str**| User id | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_user**
 > User get_user(id)
@@ -15,20 +65,19 @@ Method | HTTP request | Description
 Get user
 
 ### Example
-
 ```python
 from __future__ import print_function
 import time
-import dlxapi
-from dlxapi.rest import ApiException
+import swagger_client
+from swagger_client.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = dlxapi.Configuration()
+configuration = swagger_client.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = dlxapi.UserApi(dlxapi.ApiClient(configuration))
+api_instance = swagger_client.UserApi(swagger_client.ApiClient(configuration))
 id = 'id_example' # str | User id
 
 try:
@@ -66,20 +115,19 @@ Name | Type | Description  | Notes
 Get user activities
 
 ### Example
-
 ```python
 from __future__ import print_function
 import time
-import dlxapi
-from dlxapi.rest import ApiException
+import swagger_client
+from swagger_client.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = dlxapi.Configuration()
+configuration = swagger_client.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = dlxapi.UserApi(dlxapi.ApiClient(configuration))
+api_instance = swagger_client.UserApi(swagger_client.ApiClient(configuration))
 id = 'id_example' # str | User id
 limit = 56 # int | Pagination limit (optional)
 offset = 56 # int | Pagination offset (optional)
@@ -123,20 +171,19 @@ Name | Type | Description  | Notes
 Get user activities for group
 
 ### Example
-
 ```python
 from __future__ import print_function
 import time
-import dlxapi
-from dlxapi.rest import ApiException
+import swagger_client
+from swagger_client.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = dlxapi.Configuration()
+configuration = swagger_client.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = dlxapi.UserApi(dlxapi.ApiClient(configuration))
+api_instance = swagger_client.UserApi(swagger_client.ApiClient(configuration))
 limit = 56 # int | Pagination limit (optional)
 offset = 56 # int | Pagination offset (optional)
 match = 'match_example' # str | Semi-colon delimited list of expressions to include in the response only the items in a collections that satisfy the expression(s). All other items should be exluded. (optional)

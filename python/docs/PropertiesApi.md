@@ -14,20 +14,19 @@ Method | HTTP request | Description
 Get configuration properties for user if userId and groupId are present, otherwise properties for authenticated user will be returned
 
 ### Example
-
 ```python
 from __future__ import print_function
 import time
-import dlxapi
-from dlxapi.rest import ApiException
+import swagger_client
+from swagger_client.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = dlxapi.Configuration()
+configuration = swagger_client.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = dlxapi.PropertiesApi(dlxapi.ApiClient(configuration))
+api_instance = swagger_client.PropertiesApi(swagger_client.ApiClient(configuration))
 user_id = 'user_id_example' # str | User id (optional)
 
 try:
@@ -65,21 +64,20 @@ Name | Type | Description  | Notes
 Set configuration properties
 
 ### Example
-
 ```python
 from __future__ import print_function
 import time
-import dlxapi
-from dlxapi.rest import ApiException
+import swagger_client
+from swagger_client.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = dlxapi.Configuration()
+configuration = swagger_client.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = dlxapi.PropertiesApi(dlxapi.ApiClient(configuration))
-body = [dlxapi.ModelProperty()] # list[ModelProperty] | Properties that needed to be created/updated for the current user.
+api_instance = swagger_client.PropertiesApi(swagger_client.ApiClient(configuration))
+body = [swagger_client.ModelProperty()] # list[ModelProperty] | Properties that needed to be created/updated for the current user.
 
 try:
     # Set configuration properties

@@ -9,32 +9,32 @@ Method | HTTP request | Description
 
 
 # **spreadsheet_to_mappings**
-> Mappings spreadsheet_to_mappings(file)
+> Mappings spreadsheet_to_mappings(file, columns_only=columns_only)
 
 Accepts upload of spreadsheet and converts data into mappings.
 
 Maps the fields in the spreadsheet to appropriate buckets
 
 ### Example
-
 ```python
 from __future__ import print_function
 import time
-import dlxapi
-from dlxapi.rest import ApiException
+import swagger_client
+from swagger_client.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = dlxapi.Configuration()
+configuration = swagger_client.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = dlxapi.MappingsApi(dlxapi.ApiClient(configuration))
+api_instance = swagger_client.MappingsApi(swagger_client.ApiClient(configuration))
 file = '/path/to/file.txt' # file | maybe put supported file types here?
+columns_only = true # bool | return columns only the case for cost import (optional) (default to true)
 
 try:
     # Accepts upload of spreadsheet and converts data into mappings.
-    api_response = api_instance.spreadsheet_to_mappings(file)
+    api_response = api_instance.spreadsheet_to_mappings(file, columns_only=columns_only)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling MappingsApi->spreadsheet_to_mappings: %s\n" % e)
@@ -45,6 +45,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **file** | **file**| maybe put supported file types here? | 
+ **columns_only** | **bool**| return columns only the case for cost import | [optional] [default to true]
 
 ### Return type
 
@@ -67,22 +68,21 @@ Name | Type | Description  | Notes
 Update mapping
 
 ### Example
-
 ```python
 from __future__ import print_function
 import time
-import dlxapi
-from dlxapi.rest import ApiException
+import swagger_client
+from swagger_client.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = dlxapi.Configuration()
+configuration = swagger_client.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = dlxapi.MappingsApi(dlxapi.ApiClient(configuration))
+api_instance = swagger_client.MappingsApi(swagger_client.ApiClient(configuration))
 id = 'id_example' # str | Mapping id
-body = dlxapi.Operations() # Operations | JSON Patch Operations to update mapping.
+body = swagger_client.Operations() # Operations | JSON Patch Operations to update mapping.
 expand = 'expand_example' # str | JSON string containing an array expand specifications for fields.  An expand specification must have a path and includes optional properties match, unique, allPossible, limit, offset, orderBy. (optional)
 
 try:

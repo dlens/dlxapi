@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **portfolio_plan_id** | **str** |  | [optional] 
 **items** | [**list[Recommendation]**](Recommendation.md) |  | [optional] 
-**initial_portfolio_plan_grades** | [**PortfolioPlanGrades**](PortfolioPlanGrades.md) |  | [optional] 
+**initial_portfolio_plan_insights** | [**PortfolioPlanInsights**](PortfolioPlanInsights.md) |  | [optional] 
 **schedule_result_info** | **str** |  | [optional] 
 **overconstrained_message** | **str** |  | [optional] 
 

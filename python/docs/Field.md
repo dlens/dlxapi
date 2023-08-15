@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** |  | [optional] 
+**original_name** | **str** |  | [optional] 
 **description** | **str** |  | [optional] 
 **type** | [**FieldType**](FieldType.md) |  | [optional] 
 **source** | [**Source**](Source.md) |  | [optional] 
@@ -21,6 +22,8 @@ Name | Type | Description | Notes
 **is_idea_field** | **bool** |  | [optional] [default to False]
 **idea_field_position** | **int** |  | [optional] 
 **is_idea_field_required** | **bool** |  | [optional] [default to False]
+**scale** | [**Scale**](Scale.md) |  | [optional] 
+**attributes** | [**FieldAttributes**](FieldAttributes.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

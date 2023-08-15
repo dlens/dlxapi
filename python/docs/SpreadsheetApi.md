@@ -19,20 +19,19 @@ Method | HTTP request | Description
 Creates spreadsheet from file upload.
 
 ### Example
-
 ```python
 from __future__ import print_function
 import time
-import dlxapi
-from dlxapi.rest import ApiException
+import swagger_client
+from swagger_client.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = dlxapi.Configuration()
+configuration = swagger_client.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = dlxapi.SpreadsheetApi(dlxapi.ApiClient(configuration))
+api_instance = swagger_client.SpreadsheetApi(swagger_client.ApiClient(configuration))
 file = '/path/to/file.txt' # file | xls or xlsx file upload
 
 try:
@@ -71,21 +70,20 @@ Name | Type | Description  | Notes
 Creates spreadsheet from kloudless file
 
 ### Example
-
 ```python
 from __future__ import print_function
 import time
-import dlxapi
-from dlxapi.rest import ApiException
+import swagger_client
+from swagger_client.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = dlxapi.Configuration()
+configuration = swagger_client.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = dlxapi.SpreadsheetApi(dlxapi.ApiClient(configuration))
-kloudless_file = dlxapi.KloudlessFile() # KloudlessFile | kloudless file
+api_instance = swagger_client.SpreadsheetApi(swagger_client.ApiClient(configuration))
+kloudless_file = swagger_client.KloudlessFile() # KloudlessFile | kloudless file
 
 try:
     api_response = api_instance.create_spreadsheet_for_kloudless_file(kloudless_file)
@@ -121,20 +119,19 @@ Name | Type | Description  | Notes
 Delete spreadsheet and mappings
 
 ### Example
-
 ```python
 from __future__ import print_function
 import time
-import dlxapi
-from dlxapi.rest import ApiException
+import swagger_client
+from swagger_client.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = dlxapi.Configuration()
+configuration = swagger_client.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = dlxapi.SpreadsheetApi(dlxapi.ApiClient(configuration))
+api_instance = swagger_client.SpreadsheetApi(swagger_client.ApiClient(configuration))
 id = 'id_example' # str | spreadsheet id
 
 try:
@@ -166,34 +163,34 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_mappings_for_spreadsheet**
-> Mappings get_mappings_for_spreadsheet(id, sheet_name=sheet_name, import_type=import_type, expand=expand)
+> Mappings get_mappings_for_spreadsheet(id, sheet_name=sheet_name, import_type=import_type, expand=expand, columns_only=columns_only)
 
 
 
 Get mappings for spreadsheet
 
 ### Example
-
 ```python
 from __future__ import print_function
 import time
-import dlxapi
-from dlxapi.rest import ApiException
+import swagger_client
+from swagger_client.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = dlxapi.Configuration()
+configuration = swagger_client.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = dlxapi.SpreadsheetApi(dlxapi.ApiClient(configuration))
+api_instance = swagger_client.SpreadsheetApi(swagger_client.ApiClient(configuration))
 id = 'id_example' # str | spreadsheet id
 sheet_name = 'sheet_name_example' # str |  (optional)
 import_type = NULL # object | Whether import PROJECT or COST data. Defaults to PROJECT (optional)
 expand = 'expand_example' # str | JSON string containing an array expand specifications for fields.  An expand specification must have a path and includes optional properties match, unique, allPossible, limit, offset, orderBy. (optional)
+columns_only = true # bool | return columns only the case for cost import (optional) (default to true)
 
 try:
-    api_response = api_instance.get_mappings_for_spreadsheet(id, sheet_name=sheet_name, import_type=import_type, expand=expand)
+    api_response = api_instance.get_mappings_for_spreadsheet(id, sheet_name=sheet_name, import_type=import_type, expand=expand, columns_only=columns_only)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling SpreadsheetApi->get_mappings_for_spreadsheet: %s\n" % e)
@@ -207,6 +204,7 @@ Name | Type | Description  | Notes
  **sheet_name** | **str**|  | [optional] 
  **import_type** | [**object**](.md)| Whether import PROJECT or COST data. Defaults to PROJECT | [optional] 
  **expand** | **str**| JSON string containing an array expand specifications for fields.  An expand specification must have a path and includes optional properties match, unique, allPossible, limit, offset, orderBy. | [optional] 
+ **columns_only** | **bool**| return columns only the case for cost import | [optional] [default to true]
 
 ### Return type
 
@@ -231,20 +229,19 @@ Name | Type | Description  | Notes
 Get spreadsheet
 
 ### Example
-
 ```python
 from __future__ import print_function
 import time
-import dlxapi
-from dlxapi.rest import ApiException
+import swagger_client
+from swagger_client.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = dlxapi.Configuration()
+configuration = swagger_client.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = dlxapi.SpreadsheetApi(dlxapi.ApiClient(configuration))
+api_instance = swagger_client.SpreadsheetApi(swagger_client.ApiClient(configuration))
 id = 'id_example' # str | spreadsheet id
 
 try:

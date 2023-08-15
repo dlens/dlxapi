@@ -15,20 +15,19 @@ Method | HTTP request | Description
 Retrieves a resource pool.
 
 ### Example
-
 ```python
 from __future__ import print_function
 import time
-import dlxapi
-from dlxapi.rest import ApiException
+import swagger_client
+from swagger_client.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = dlxapi.Configuration()
+configuration = swagger_client.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = dlxapi.ResourcePoolsApi(dlxapi.ApiClient(configuration))
+api_instance = swagger_client.ResourcePoolsApi(swagger_client.ApiClient(configuration))
 id = 'id_example' # str | Resource Pool id
 portfolio_plan_id = 'portfolio_plan_id_example' # str | Portfolio Plan id (optional)
 
@@ -68,20 +67,19 @@ Name | Type | Description  | Notes
 Fetch resource pools for portfolio plan
 
 ### Example
-
 ```python
 from __future__ import print_function
 import time
-import dlxapi
-from dlxapi.rest import ApiException
+import swagger_client
+from swagger_client.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = dlxapi.Configuration()
+configuration = swagger_client.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = dlxapi.ResourcePoolsApi(dlxapi.ApiClient(configuration))
+api_instance = swagger_client.ResourcePoolsApi(swagger_client.ApiClient(configuration))
 portfolio_plan_id = 'portfolio_plan_id_example' # str | Portfolio Plan id
 plan_overrides_only = false # bool | Returns only plan overrides. default is false. (optional) (default to false)
 expand = 'expand_example' # str | JSON string containing an array expand specifications for fields.  An expand specification must have a path and includes optional properties match, unique, allPossible, limit, offset, orderBy. (optional)
@@ -131,22 +129,21 @@ Name | Type | Description  | Notes
 Update resource pool budget amounts in a portfolio plan
 
 ### Example
-
 ```python
 from __future__ import print_function
 import time
-import dlxapi
-from dlxapi.rest import ApiException
+import swagger_client
+from swagger_client.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = dlxapi.Configuration()
+configuration = swagger_client.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = dlxapi.ResourcePoolsApi(dlxapi.ApiClient(configuration))
+api_instance = swagger_client.ResourcePoolsApi(swagger_client.ApiClient(configuration))
 portfolio_plan_id = 'portfolio_plan_id_example' # str | Portfolio Plan id
-body = [dlxapi.ResourcePoolBudgetAmountPatchItem()] # list[ResourcePoolBudgetAmountPatchItem] | JSON Patch Operations to update multiple resource pool budget amounts
+body = [swagger_client.ResourcePoolBudgetAmountPatchItem()] # list[ResourcePoolBudgetAmountPatchItem] | JSON Patch Operations to update multiple resource pool budget amounts
 
 try:
     # Update resource pool budget amounts in a portfolio plan

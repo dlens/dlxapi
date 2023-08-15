@@ -14,21 +14,20 @@ Method | HTTP request | Description
 Register Portfolio User
 
 ### Example
-
 ```python
 from __future__ import print_function
 import time
-import dlxapi
-from dlxapi.rest import ApiException
+import swagger_client
+from swagger_client.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = dlxapi.Configuration()
+configuration = swagger_client.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = dlxapi.RegistrationApi(dlxapi.ApiClient(configuration))
-register_user_request = dlxapi.RegisterUserRequest() # RegisterUserRequest | Register user request
+api_instance = swagger_client.RegistrationApi(swagger_client.ApiClient(configuration))
+register_user_request = swagger_client.RegisterUserRequest() # RegisterUserRequest | Register user request
 
 try:
     # Register Portfolio User
@@ -65,21 +64,20 @@ Name | Type | Description  | Notes
 Register User
 
 ### Example
-
 ```python
 from __future__ import print_function
 import time
-import dlxapi
-from dlxapi.rest import ApiException
+import swagger_client
+from swagger_client.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = dlxapi.Configuration()
+configuration = swagger_client.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = dlxapi.RegistrationApi(dlxapi.ApiClient(configuration))
-register_user_request = dlxapi.RegisterUserRequest() # RegisterUserRequest | Register user request
+api_instance = swagger_client.RegistrationApi(swagger_client.ApiClient(configuration))
+register_user_request = swagger_client.RegisterUserRequest() # RegisterUserRequest | Register user request
 
 try:
     # Register User

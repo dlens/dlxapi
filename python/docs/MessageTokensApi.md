@@ -13,20 +13,19 @@ Method | HTTP request | Description
 Get message authorization token for a destination
 
 ### Example
-
 ```python
 from __future__ import print_function
 import time
-import dlxapi
-from dlxapi.rest import ApiException
+import swagger_client
+from swagger_client.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = dlxapi.Configuration()
+configuration = swagger_client.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = dlxapi.MessageTokensApi(dlxapi.ApiClient(configuration))
+api_instance = swagger_client.MessageTokensApi(swagger_client.ApiClient(configuration))
 destination_type = NULL # object | Message destination type
 portfolio_id = 'portfolio_id_example' # str | Portfolio id for PORTFOLIO destination type (optional)
 portfolio_plan_id = 'portfolio_plan_id_example' # str | Portfolio plan id for PORTFOLIOPLAN destination type (optional)

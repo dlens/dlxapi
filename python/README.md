@@ -22,9 +22,8 @@ pip install git+https://github.com/GIT_USER_ID/GIT_REPO_ID.git
 (you may need to run `pip` with root permission: `sudo pip install git+https://github.com/GIT_USER_ID/GIT_REPO_ID.git`)
 
 Then import the package:
-
 ```python
-import dlxapi 
+import swagger_client 
 ```
 
 ### Setuptools
@@ -37,9 +36,8 @@ python setup.py install --user
 (or `sudo python setup.py install` to install the package for all users)
 
 Then import the package:
-
 ```python
-import dlxapi
+import swagger_client
 ```
 
 ## Getting Started
@@ -49,16 +47,16 @@ Please follow the [installation procedure](#installation--usage) and then run th
 ```python
 from __future__ import print_function
 import time
-import dlxapi
-from dlxapi.rest import ApiException
+import swagger_client
+from swagger_client.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = dlxapi.Configuration()
+configuration = swagger_client.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = dlxapi.ActivitiesApi(dlxapi.ApiClient(configuration))
+api_instance = swagger_client.ActivitiesApi(swagger_client.ApiClient(configuration))
 domains = ['domains_example'] # list[str] | List of domains for where activities need to be reindexed, if not provided reindex will be done for all domains (optional)
 
 try:
@@ -83,7 +81,12 @@ Class | Method | HTTP request | Description
 *AttachmentsApi* | [**get_attachment**](docs/AttachmentsApi.md#get_attachment) | **GET** /attachments/{id} | Get Attachment by id
 *AttachmentsApi* | [**get_attachments**](docs/AttachmentsApi.md#get_attachments) | **GET** /attachments | Get Attachment by portfolio id
 *AttachmentsApi* | [**update_attachment**](docs/AttachmentsApi.md#update_attachment) | **PATCH** /attachments/{id} | Update a single attachment
-*ClassificationApi* | [**get_classification_data**](docs/ClassificationApi.md#get_classification_data) | **GET** /classification/{dataType} | Fetch classification training or testing data.
+*BudgetFieldsApi* | [**create_budget_field**](docs/BudgetFieldsApi.md#create_budget_field) | **POST** /fields/budgets | Creates a new budget field
+*BudgetFieldsApi* | [**delete_budget_field**](docs/BudgetFieldsApi.md#delete_budget_field) | **DELETE** /fields/budgets/{id} | Delete a budget field
+*BudgetFieldsApi* | [**get_budget_field**](docs/BudgetFieldsApi.md#get_budget_field) | **GET** /fields/budgets/{id} | Retrieves a budget field
+*BudgetFieldsApi* | [**get_budget_fields_for_portfolio**](docs/BudgetFieldsApi.md#get_budget_fields_for_portfolio) | **GET** /fields/budgets | Retrieves budget fields for a portfolio.
+*BudgetFieldsApi* | [**update_budget_field**](docs/BudgetFieldsApi.md#update_budget_field) | **PATCH** /fields/budgets/{id} | Updates a budget field utilizing JSON Patch Operations.
+*BudgetFieldsApi* | [**update_budget_fields**](docs/BudgetFieldsApi.md#update_budget_fields) | **PATCH** /fields/budgets | Update budget fields
 *CommentsApi* | [**create_comment**](docs/CommentsApi.md#create_comment) | **POST** /comments | Creates a new comment
 *CommentsApi* | [**delete_comment**](docs/CommentsApi.md#delete_comment) | **DELETE** /comments/{id} | Delete a single comment
 *CommentsApi* | [**get_comments**](docs/CommentsApi.md#get_comments) | **GET** /comments | Retrieves comments based on params
@@ -95,16 +98,35 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**get_category_options_for_field**](docs/DefaultApi.md#get_category_options_for_field) | **GET** /fields/{fieldId}/categoryOptions | Retrieves categories for a field
 *DefaultApi* | [**update_category_option**](docs/DefaultApi.md#update_category_option) | **PATCH** /fields/{fieldId}/categoryOptions/{categoryOptionId} | Update a single category
 *FieldsApi* | [**create_field**](docs/FieldsApi.md#create_field) | **POST** /fields | Creates a new field in a portfolio.
+*FieldsApi* | [**create_fields**](docs/FieldsApi.md#create_fields) | **POST** /fields/bulk | Create new fields in a portfolio.
 *FieldsApi* | [**delete_field**](docs/FieldsApi.md#delete_field) | **DELETE** /fields/{id} | Delete a field. Also deletes the values for every project.
 *FieldsApi* | [**get_field**](docs/FieldsApi.md#get_field) | **GET** /fields/{id} | Retrieves a field.
 *FieldsApi* | [**get_fields_for_portfolio**](docs/FieldsApi.md#get_fields_for_portfolio) | **GET** /fields | Retrieves fields for a portfolio.
 *FieldsApi* | [**set_idea_form_fields**](docs/FieldsApi.md#set_idea_form_fields) | **PUT** /fields/ideaForm | Set idea form fields for a portfolio.
 *FieldsApi* | [**update_field**](docs/FieldsApi.md#update_field) | **PATCH** /fields/{id} | Updates a field utilizing JSON Patch Operations. If the update logic makes changes to other fields, all updated fields will be returned in the response. 
 *FieldsApi* | [**update_fields**](docs/FieldsApi.md#update_fields) | **PATCH** /fields | Update fields associated with a portfolio.
-*GroupsApi* | [**create_group**](docs/GroupsApi.md#create_group) | **POST** /groups | Creates a new group. System Administator operation.
+*GoalsApi* | [**get_goals_for_portfolio**](docs/GoalsApi.md#get_goals_for_portfolio) | **GET** /goals | Get Goals by portfolio id
+*GoalsApi* | [**update_goals_for_portfolio**](docs/GoalsApi.md#update_goals_for_portfolio) | **PATCH** /goals | Updates Goals for portfolio
+*GroupsApi* | [**create_group**](docs/GroupsApi.md#create_group) | **POST** /groups | Creates a new group. System Administrator operation.
+*GroupsApi* | [**export_group**](docs/GroupsApi.md#export_group) | **POST** /groups/{id}/export | Export Group
 *GroupsApi* | [**get_activities_for_group**](docs/GroupsApi.md#get_activities_for_group) | **GET** /groups/{id}/activities | Get activities for group. System Administator operation.
 *GroupsApi* | [**get_groups**](docs/GroupsApi.md#get_groups) | **GET** /groups | Get groups. System Administator operation.
+*GroupsApi* | [**get_portfolios_for_group**](docs/GroupsApi.md#get_portfolios_for_group) | **GET** /groups/{id}/portfolios | Get portfolios for group. Group administrator operation.
 *GroupsApi* | [**get_users_for_group**](docs/GroupsApi.md#get_users_for_group) | **GET** /groups/{id}/users | Get users for group. System Administator operation.
+*GroupsApi* | [**provision_group**](docs/GroupsApi.md#provision_group) | **POST** /groups/provision | Provision a group (tenant).
+*InfoApi* | [**get_info**](docs/InfoApi.md#get_info) | **GET** /info | Get service build information
+*JiraApi* | [**create_comment_from_jira**](docs/JiraApi.md#create_comment_from_jira) | **POST** /jira/instance/{id}/comment | 
+*JiraApi* | [**create_jira_field_mapping**](docs/JiraApi.md#create_jira_field_mapping) | **POST** /jira/instance/{id}/mapping | 
+*JiraApi* | [**create_jira_instance**](docs/JiraApi.md#create_jira_instance) | **POST** /jira/instance | 
+*JiraApi* | [**delete_field_mapping**](docs/JiraApi.md#delete_field_mapping) | **DELETE** /jira/instance/{id}/mapping/{mappingId} | Delete jira field mapping
+*JiraApi* | [**delete_jira_instance**](docs/JiraApi.md#delete_jira_instance) | **DELETE** /jira/instance/{id} | Delete jira instance
+*JiraApi* | [**disable_jira_instance**](docs/JiraApi.md#disable_jira_instance) | **POST** /jira/instance/{id}/disable | 
+*JiraApi* | [**enable_jira_instance**](docs/JiraApi.md#enable_jira_instance) | **POST** /jira/instance/{id}/enable | 
+*JiraApi* | [**get_field_mapping**](docs/JiraApi.md#get_field_mapping) | **GET** /jira/instance/{id}/mapping/{mappingId} | 
+*JiraApi* | [**get_field_mappings**](docs/JiraApi.md#get_field_mappings) | **GET** /jira/instance/{id}/mappings | 
+*JiraApi* | [**get_jira_instance**](docs/JiraApi.md#get_jira_instance) | **GET** /jira/instance/{id} | 
+*JiraApi* | [**get_mapped_project_for_epic**](docs/JiraApi.md#get_mapped_project_for_epic) | **GET** /jira/instance/{id}/mappedProject/{epicId} | 
+*JiraApi* | [**start_sync_for_jira_instance**](docs/JiraApi.md#start_sync_for_jira_instance) | **POST** /jira/instance/{id}/sync | 
 *LogoutApi* | [**logout**](docs/LogoutApi.md#logout) | **GET** /oauth/logout | Logout
 *MailApi* | [**send_mail**](docs/MailApi.md#send_mail) | **POST** /mail | Send mail
 *MailApi* | [**send_registration_mail**](docs/MailApi.md#send_registration_mail) | **POST** /registrationMail | Send registration mail
@@ -115,20 +137,21 @@ Class | Method | HTTP request | Description
 *NotificationsApi* | [**get_notifications**](docs/NotificationsApi.md#get_notifications) | **GET** /notifications | Retrieves portfolio notifications log.
 *NotificationsApi* | [**reindex_notifications**](docs/NotificationsApi.md#reindex_notifications) | **POST** /reindex/notifications | Reindex notifications. System Administator operation.
 *PlansApi* | [**export_whats_in**](docs/PlansApi.md#export_whats_in) | **GET** /portfolioPlans/whatsin/export | Export Whats In Comparison
-*PlansApi* | [**get_grades_for_portfolio_plan**](docs/PlansApi.md#get_grades_for_portfolio_plan) | **GET** /portfolioPlans/{id}/grades | Retrieves grades for portfolio plan.
 *PlansApi* | [**get_insights_for_portfolio_plan**](docs/PlansApi.md#get_insights_for_portfolio_plan) | **GET** /portfolioPlans/{id}/insights | Retrieves insights for portfolio plan.
 *PlansApi* | [**get_value_insights_for_portfolio_plan**](docs/PlansApi.md#get_value_insights_for_portfolio_plan) | **GET** /portfolioPlans/{id}/insights/value | Retrieves value insights for portfolio plan.
 *PlansApi* | [**get_whats_in**](docs/PlansApi.md#get_whats_in) | **GET** /portfolioPlans/whatsin | Retrieves portfolioPlans with projects for WhatsIn
 *PodsApi* | [**import_pod_template**](docs/PodsApi.md#import_pod_template) | **PUT** /pods/template | Import pod template in JSON format
 *PortfolioPlanUsersApi* | [**delete_portfolio_plan_user**](docs/PortfolioPlanUsersApi.md#delete_portfolio_plan_user) | **DELETE** /portfolioPlanUsers/{id} | Delete a portfolio plan user
 *PortfolioPlanUsersApi* | [**update_portfolio_plan_users**](docs/PortfolioPlanUsersApi.md#update_portfolio_plan_users) | **PATCH** /portfolioPlanUsers/{id} | Update portfolio plan users
+*PortfolioPlansApi* | [**add_and_delete_field_values_for_fields**](docs/PortfolioPlansApi.md#add_and_delete_field_values_for_fields) | **PATCH** /portfolioPlans/{portfolioPlanId}/project/{projectId}/addRemoveCosts | add field values for the fields, and remove all field values for fields, for the supplied project
 *PortfolioPlansApi* | [**add_portfolio_plan_users**](docs/PortfolioPlansApi.md#add_portfolio_plan_users) | **POST** /portfolioPlans/{id}/users | Add users to a portfolio plan.
 *PortfolioPlansApi* | [**apply_recommendations_for_portfolio_plan**](docs/PortfolioPlansApi.md#apply_recommendations_for_portfolio_plan) | **POST** /portfolioPlans/{id}/recommendations | Apply recommendations of a portfolio plan.
 *PortfolioPlansApi* | [**create_portfolio_plan**](docs/PortfolioPlansApi.md#create_portfolio_plan) | **POST** /portfolioPlans | Create a portfolio plan
 *PortfolioPlansApi* | [**create_projects_in_portfolio_plan**](docs/PortfolioPlansApi.md#create_projects_in_portfolio_plan) | **POST** /portfolioPlans/{id}/projects | Create new projects
 *PortfolioPlansApi* | [**delete_portfolio_plan**](docs/PortfolioPlansApi.md#delete_portfolio_plan) | **DELETE** /portfolioPlans/{id} | Deletes portfolio plan
-*PortfolioPlansApi* | [**export_portfolio_plan**](docs/PortfolioPlansApi.md#export_portfolio_plan) | **GET** /portfolioPlans/{id}/export | Export portfolio plan
+*PortfolioPlansApi* | [**export_portfolio_plan**](docs/PortfolioPlansApi.md#export_portfolio_plan) | **POST** /portfolioPlans/{id}/export | Export portfolio plan
 *PortfolioPlansApi* | [**get_budget_allocations_for_portfolio_plan**](docs/PortfolioPlansApi.md#get_budget_allocations_for_portfolio_plan) | **GET** /portfolioPlans/{id}/budgetAllocations | Retrieves budget allocations for a portfolio plan.
+*PortfolioPlansApi* | [**get_field_values_data_for_portfolio_plan**](docs/PortfolioPlansApi.md#get_field_values_data_for_portfolio_plan) | **GET** /portfolioPlans/{portfolioPlanId}/data/{dataId} | Fetch field values data for portfolio plan and data id.
 *PortfolioPlansApi* | [**get_minified_projects_for_portfolio_plan**](docs/PortfolioPlansApi.md#get_minified_projects_for_portfolio_plan) | **GET** /portfolioPlans/{id}/projects/minify | Retrieves minified projects contained within a portfolio plan.
 *PortfolioPlansApi* | [**get_portfolio_plan**](docs/PortfolioPlansApi.md#get_portfolio_plan) | **GET** /portfolioPlans/{id} | Retrieves portfolio plan
 *PortfolioPlansApi* | [**get_portfolio_plan_activities**](docs/PortfolioPlansApi.md#get_portfolio_plan_activities) | **GET** /portfolioPlans/{id}/activities | Retrieves portfolio plan activities log.
@@ -141,15 +164,20 @@ Class | Method | HTTP request | Description
 *PortfolioPlansApi* | [**get_schedule_for_portfolio_plan**](docs/PortfolioPlansApi.md#get_schedule_for_portfolio_plan) | **GET** /portfolioPlans/{id}/schedule | Retrieves schedule for portfolio plan. The schedule is stored in a new portfolio plan.
 *PortfolioPlansApi* | [**rebaseline_portfolio_plan**](docs/PortfolioPlansApi.md#rebaseline_portfolio_plan) | **POST** /portfolioPlans/{id}/rebaseline | Rebaseline a portfolio plan.
 *PortfolioPlansApi* | [**update_portfolio_plan**](docs/PortfolioPlansApi.md#update_portfolio_plan) | **PATCH** /portfolioPlans/{id} | Updates a portfolio plan utilizing JSON Patch Operations. 
+*PortfolioPlansApi* | [**update_portfolio_plan_budget_field_values**](docs/PortfolioPlansApi.md#update_portfolio_plan_budget_field_values) | **PATCH** /portfolioPlans/{id}/fieldValues/budgets | Update field values in a portfolio plan
 *PortfolioPlansApi* | [**update_portfolio_plan_field_values**](docs/PortfolioPlansApi.md#update_portfolio_plan_field_values) | **PATCH** /portfolioPlans/{id}/fieldValues | Update field values in a portfolio plan
 *PortfolioPlansApi* | [**update_portfolio_plan_users**](docs/PortfolioPlansApi.md#update_portfolio_plan_users) | **PATCH** /portfolioPlans/{id}/users | Update users in a portfolio plan
 *PortfoliosApi* | [**archive_portfolio**](docs/PortfoliosApi.md#archive_portfolio) | **DELETE** /portfolios/{id} | Archive a portfolio.
 *PortfoliosApi* | [**create_portfolio**](docs/PortfoliosApi.md#create_portfolio) | **POST** /portfolios | Creates a new portfolio.
+*PortfoliosApi* | [**delete_spreadsheet_report_for_portfolio**](docs/PortfoliosApi.md#delete_spreadsheet_report_for_portfolio) | **DELETE** /portfolios/{portfolioId}/spreadsheet/{spreadsheetId}/report | Deletes the spreadsheet report for a portfolio
+*PortfoliosApi* | [**download_spreadsheet_template**](docs/PortfoliosApi.md#download_spreadsheet_template) | **GET** /portfolios/{portfolioId}/spreadsheet/template | Download spreadsheet template for portfolio
 *PortfoliosApi* | [**export_portfolio_data**](docs/PortfoliosApi.md#export_portfolio_data) | **GET** /portfolios/{id}/pod | Export portfolio data in JSON format
 *PortfoliosApi* | [**get_portfolio**](docs/PortfoliosApi.md#get_portfolio) | **GET** /portfolios/{id} | Retrieves a portfolio.
 *PortfoliosApi* | [**get_portfolio_activities**](docs/PortfoliosApi.md#get_portfolio_activities) | **GET** /portfolios/{id}/activities | Retrieves portfolio activities log.
+*PortfoliosApi* | [**get_portfolio_plan_users_for_portfolio**](docs/PortfoliosApi.md#get_portfolio_plan_users_for_portfolio) | **GET** /portfolios/{portfolioId}/portfolioPlanUsers | Retrieves portfolio plan users for portfolio
 *PortfoliosApi* | [**get_portfolio_resource_pools**](docs/PortfoliosApi.md#get_portfolio_resource_pools) | **GET** /portfolios/{id}/resourcePools | (Deprecated. Use getResourcePoolsForPortfolioPlan) Retrieves resource pools in a portfolio.
 *PortfoliosApi* | [**get_portfolios**](docs/PortfoliosApi.md#get_portfolios) | **GET** /portfolios | Get portfolios.
+*PortfoliosApi* | [**get_portfolios_for_user**](docs/PortfoliosApi.md#get_portfolios_for_user) | **GET** /portfolios/user/{id} | Retrieves portfolios for specific user.
 *PortfoliosApi* | [**get_projects_for_portfolio**](docs/PortfoliosApi.md#get_projects_for_portfolio) | **GET** /portfolios/{portfolioId}/projects | Retrieves projects for portfolio
 *PortfoliosApi* | [**get_spreadsheet_report_for_portfolio**](docs/PortfoliosApi.md#get_spreadsheet_report_for_portfolio) | **GET** /portfolios/{portfolioId}/spreadsheet/{spreadsheetId}/report | Retrieves spreadsheet report for portfolio
 *PortfoliosApi* | [**import_portfolio_data**](docs/PortfoliosApi.md#import_portfolio_data) | **POST** /portfolios/{id}/pod | Import portfolio data in JSON format
@@ -160,12 +188,16 @@ Class | Method | HTTP request | Description
 *PortfoliosApi* | [**update_portfolio**](docs/PortfoliosApi.md#update_portfolio) | **PATCH** /portfolios/{id} | Update a portfolio.
 *PortfoliosApi* | [**update_portfolio_field_values**](docs/PortfoliosApi.md#update_portfolio_field_values) | **PATCH** /portfolios/{id}/fieldValues | Update field values in a portfolio
 *PortfoliosApi* | [**update_portfolio_resource_pool_budget_amounts**](docs/PortfoliosApi.md#update_portfolio_resource_pool_budget_amounts) | **PATCH** /portfolios/{id}/resourcePoolBudgetAmounts | (Deprecated. Use updateResourcePoolBudgetAmountsForPortfolioPlan) Update resource pool budget amounts in a portfolio
+*PortfoliosApi* | [**update_spreadsheet_report_for_portfolio**](docs/PortfoliosApi.md#update_spreadsheet_report_for_portfolio) | **PATCH** /portfolios/{portfolioId}/spreadsheet/{spreadsheetId}/report | Updates the spreadsheet report for a portfolio
 *ProjectsApi* | [**add_contributing_users_for_project**](docs/ProjectsApi.md#add_contributing_users_for_project) | **POST** /projects/{id}/users | Add users to a project.
+*ProjectsApi* | [**copy_project**](docs/ProjectsApi.md#copy_project) | **POST** /projects/{id}/copy | Creates a copy of the project, including portfolio data, dependencies, attachments
 *ProjectsApi* | [**create_project**](docs/ProjectsApi.md#create_project) | **POST** /projects | Creates a new project.
+*ProjectsApi* | [**delete_field_values_for_project**](docs/ProjectsApi.md#delete_field_values_for_project) | **DELETE** /projects/{id}/fieldValues | Deletes all field values for a certain fields for a particular project
 *ProjectsApi* | [**delete_project**](docs/ProjectsApi.md#delete_project) | **DELETE** /projects/{id} | Delete a project.
 *ProjectsApi* | [**delete_projects**](docs/ProjectsApi.md#delete_projects) | **POST** /projects/delete | Delete projects.
 *ProjectsApi* | [**get_project**](docs/ProjectsApi.md#get_project) | **GET** /projects/{id} | Retrieves a project.
 *ProjectsApi* | [**get_project_for_portfolio_plan**](docs/ProjectsApi.md#get_project_for_portfolio_plan) | **GET** /projects/{projectId}/portfolioPlan/{portfolioPlanId} | Retrieves a project for a portfolioPlan.
+*ProjectsApi* | [**get_projects_data_for_portfolio**](docs/ProjectsApi.md#get_projects_data_for_portfolio) | **GET** /projects/data | Fetch project data for portfolio and data id.
 *ProjectsApi* | [**get_projects_for_portfolio**](docs/ProjectsApi.md#get_projects_for_portfolio) | **GET** /projects | Retrieves projects contained within a portfolio. Possible expand paths are - (items.fieldValues, contributingUserIds)
 *ProjectsApi* | [**remove_contributing_users_from_project**](docs/ProjectsApi.md#remove_contributing_users_from_project) | **DELETE** /projects/{id}/users | Remove contributing users from a project.
 *ProjectsApi* | [**set_project_dependencies**](docs/ProjectsApi.md#set_project_dependencies) | **PUT** /projects/{id}/dependencies | Adds or removes dependsOn and/or dependant linked projects to a project.
@@ -177,6 +209,8 @@ Class | Method | HTTP request | Description
 *ResourcePoolsApi* | [**get_resource_pool**](docs/ResourcePoolsApi.md#get_resource_pool) | **GET** /resourcePools/{id} | Retrieves a resource pool.
 *ResourcePoolsApi* | [**get_resource_pools_for_portfolio_plan**](docs/ResourcePoolsApi.md#get_resource_pools_for_portfolio_plan) | **GET** /resourcePools | Fetch resource pools for portfolio plan
 *ResourcePoolsApi* | [**update_resource_pool_budget_amounts_for_portfolio_plan**](docs/ResourcePoolsApi.md#update_resource_pool_budget_amounts_for_portfolio_plan) | **PATCH** /resourcePools | Update resource pool budget amounts in a portfolio plan
+*ScoreWeightsApi* | [**get_score_weights_for_portfolio**](docs/ScoreWeightsApi.md#get_score_weights_for_portfolio) | **GET** /scoreWeights | Fetch score weights for portfolio
+*ScoreWeightsApi* | [**update_score_weights_for_portfolio**](docs/ScoreWeightsApi.md#update_score_weights_for_portfolio) | **PATCH** /scoreWeights | Updates Score Weights for portfolio
 *SourcesApi* | [**fetch_data_for_source**](docs/SourcesApi.md#fetch_data_for_source) | **GET** /sources/{id}/fetchData | Fetch data for source.
 *SourcesApi* | [**send_data_for_source**](docs/SourcesApi.md#send_data_for_source) | **POST** /sources/{id}/sendData | Send data for source.
 *SpreadsheetApi* | [**create_spreadsheet**](docs/SpreadsheetApi.md#create_spreadsheet) | **POST** /spreadsheet | 
@@ -189,76 +223,85 @@ Class | Method | HTTP request | Description
 *TagsApi* | [**get_tag**](docs/TagsApi.md#get_tag) | **GET** /tags/{id} | Retrieves a tag
 *TagsApi* | [**get_tags_for_portfolio**](docs/TagsApi.md#get_tags_for_portfolio) | **GET** /tags | Retrieves tags for a portfolio
 *TagsApi* | [**update_tag**](docs/TagsApi.md#update_tag) | **PATCH** /tags/{id} | Update a single tag
+*UserApi* | [**delete_user**](docs/UserApi.md#delete_user) | **DELETE** /users/{id} | Delete user
 *UserApi* | [**get_user**](docs/UserApi.md#get_user) | **GET** /users/{id} | Get user
 *UserApi* | [**get_user_activities**](docs/UserApi.md#get_user_activities) | **GET** /users/{id}/activities | Get user activities
 *UserApi* | [**get_user_activities_for_group**](docs/UserApi.md#get_user_activities_for_group) | **GET** /users/activities | Get user activities for group
 *UsersApi* | [**create_user**](docs/UsersApi.md#create_user) | **POST** /users | Creates a new user.
 *UsersApi* | [**get_users**](docs/UsersApi.md#get_users) | **GET** /users | Get users.
+*UsersApi* | [**update_user**](docs/UsersApi.md#update_user) | **PATCH** /users/{id} | Update the status of user
 
 
 ## Documentation For Models
 
  - [AccessTokenGeneratedEvent](docs/AccessTokenGeneratedEvent.md)
- - [Activities](docs/Activities.md)
- - [Activity](docs/Activity.md)
  - [ActivityType](docs/ActivityType.md)
+ - [AddAndDeleteFieldValuesForFieldsRequest](docs/AddAndDeleteFieldValuesForFieldsRequest.md)
  - [AddUserRequest](docs/AddUserRequest.md)
  - [AddUsersRequest](docs/AddUsersRequest.md)
  - [AddedToPortfolioMessagePayload](docs/AddedToPortfolioMessagePayload.md)
  - [AddedToPortfolioPlanMessagePayload](docs/AddedToPortfolioPlanMessagePayload.md)
- - [Attachment](docs/Attachment.md)
  - [AttachmentCreatedEvent](docs/AttachmentCreatedEvent.md)
  - [AttachmentDeletedEvent](docs/AttachmentDeletedEvent.md)
  - [AttachmentNameUpdatedEvent](docs/AttachmentNameUpdatedEvent.md)
  - [AttachmentUpdatedMessagePayload](docs/AttachmentUpdatedMessagePayload.md)
- - [Attachments](docs/Attachments.md)
  - [Attributes](docs/Attributes.md)
  - [AuthorizationCodeGeneratedEvent](docs/AuthorizationCodeGeneratedEvent.md)
  - [BalanceFieldDetail](docs/BalanceFieldDetail.md)
  - [BudgetAllocation](docs/BudgetAllocation.md)
- - [BudgetAllocations](docs/BudgetAllocations.md)
+ - [BudgetFieldCreatedMessagePayload](docs/BudgetFieldCreatedMessagePayload.md)
+ - [BudgetFieldsDeletedMessagePayload](docs/BudgetFieldsDeletedMessagePayload.md)
+ - [BudgetFieldsUpdatedMessagePayload](docs/BudgetFieldsUpdatedMessagePayload.md)
  - [CalculationType](docs/CalculationType.md)
- - [CategoryOption](docs/CategoryOption.md)
+ - [CategorizationInsight](docs/CategorizationInsight.md)
+ - [CategoryDisplayOrder](docs/CategoryDisplayOrder.md)
  - [CategoryOptionAddedMessagePayload](docs/CategoryOptionAddedMessagePayload.md)
  - [CategoryOptionCreatedEvent](docs/CategoryOptionCreatedEvent.md)
  - [CategoryOptionDeletedEvent](docs/CategoryOptionDeletedEvent.md)
  - [CategoryOptionDeletedMessagePayload](docs/CategoryOptionDeletedMessagePayload.md)
  - [CategoryOptionNameUpdatedEvent](docs/CategoryOptionNameUpdatedEvent.md)
+ - [CategoryOptionPositionUpdatedEvent](docs/CategoryOptionPositionUpdatedEvent.md)
  - [CategoryOptionUpdatedMessagePayload](docs/CategoryOptionUpdatedMessagePayload.md)
- - [CategoryOptions](docs/CategoryOptions.md)
- - [Classification](docs/Classification.md)
- - [Classifications](docs/Classifications.md)
- - [Comment](docs/Comment.md)
+ - [Column](docs/Column.md)
+ - [ColumnType](docs/ColumnType.md)
  - [CommentAddedEvent](docs/CommentAddedEvent.md)
  - [CommentAddedMessagePayload](docs/CommentAddedMessagePayload.md)
  - [CommentDeletedEvent](docs/CommentDeletedEvent.md)
  - [CommentDeletedMessagePayload](docs/CommentDeletedMessagePayload.md)
  - [CommentEditedEvent](docs/CommentEditedEvent.md)
  - [CommentEditedMessagePayload](docs/CommentEditedMessagePayload.md)
- - [Comments](docs/Comments.md)
- - [Constraint](docs/Constraint.md)
- - [ConstraintType](docs/ConstraintType.md)
- - [Constraints](docs/Constraints.md)
  - [CostBudgetAllocation](docs/CostBudgetAllocation.md)
+ - [Currency](docs/Currency.md)
  - [CustomName](docs/CustomName.md)
  - [CustomNameAddedEvent](docs/CustomNameAddedEvent.md)
  - [CustomNameDeletedEvent](docs/CustomNameDeletedEvent.md)
  - [CustomNameGroupType](docs/CustomNameGroupType.md)
  - [CustomNameType](docs/CustomNameType.md)
  - [CustomNameUpdatedEvent](docs/CustomNameUpdatedEvent.md)
- - [CustomNames](docs/CustomNames.md)
  - [CustomNamesUpdatedMessagePayload](docs/CustomNamesUpdatedMessagePayload.md)
+ - [DLCGroup](docs/DLCGroup.md)
+ - [DLIApplication](docs/DLIApplication.md)
+ - [DataFormats](docs/DataFormats.md)
  - [DataType](docs/DataType.md)
  - [DataUpdatedMessagePayload](docs/DataUpdatedMessagePayload.md)
+ - [DateFormat](docs/DateFormat.md)
  - [DlCollection](docs/DlCollection.md)
  - [DlResource](docs/DlResource.md)
  - [DlcPortfolio](docs/DlcPortfolio.md)
  - [DraftProjectsSubmittedMessagePayload](docs/DraftProjectsSubmittedMessagePayload.md)
  - [ErrorResponse](docs/ErrorResponse.md)
  - [ExpandComponent](docs/ExpandComponent.md)
+ - [ExportConfig](docs/ExportConfig.md)
  - [ExportFormatType](docs/ExportFormatType.md)
  - [ExportType](docs/ExportType.md)
- - [Field](docs/Field.md)
+ - [FieldAttributes](docs/FieldAttributes.md)
+ - [FieldAttributesCategoryDisplayOrderUpdatedEvent](docs/FieldAttributesCategoryDisplayOrderUpdatedEvent.md)
+ - [FieldAttributesDataFormatsCurrencyUpdatedEvent](docs/FieldAttributesDataFormatsCurrencyUpdatedEvent.md)
+ - [FieldAttributesDataFormatsDateFormatUpdatedEvent](docs/FieldAttributesDataFormatsDateFormatUpdatedEvent.md)
+ - [FieldAttributesDataFormatsDecimalPlacesUpdatedEvent](docs/FieldAttributesDataFormatsDecimalPlacesUpdatedEvent.md)
+ - [FieldAttributesDataFormatsNegativesUpdatedEvent](docs/FieldAttributesDataFormatsNegativesUpdatedEvent.md)
+ - [FieldAttributesPlanningWindowEndUpdatedEvent](docs/FieldAttributesPlanningWindowEndUpdatedEvent.md)
+ - [FieldAttributesPlanningWindowStartUpdatedEvent](docs/FieldAttributesPlanningWindowStartUpdatedEvent.md)
  - [FieldCalculationTypeUpdatedEvent](docs/FieldCalculationTypeUpdatedEvent.md)
  - [FieldCategoryOptionsUpdatedEvent](docs/FieldCategoryOptionsUpdatedEvent.md)
  - [FieldCreatedEvent](docs/FieldCreatedEvent.md)
@@ -267,13 +310,15 @@ Class | Method | HTTP request | Description
  - [FieldDeletedEvent](docs/FieldDeletedEvent.md)
  - [FieldDescriptionUpdatedEvent](docs/FieldDescriptionUpdatedEvent.md)
  - [FieldGrade](docs/FieldGrade.md)
- - [FieldGrades](docs/FieldGrades.md)
  - [FieldIdeaFieldPositionUpdatedEvent](docs/FieldIdeaFieldPositionUpdatedEvent.md)
+ - [FieldInsight](docs/FieldInsight.md)
+ - [FieldIsAutoScaleUpdatedEvent](docs/FieldIsAutoScaleUpdatedEvent.md)
  - [FieldIsFieldTypeApprovedUpdatedEvent](docs/FieldIsFieldTypeApprovedUpdatedEvent.md)
  - [FieldIsIdeaFieldRequiredUpdatedEvent](docs/FieldIsIdeaFieldRequiredUpdatedEvent.md)
  - [FieldIsIdeaFieldUpdatedEvent](docs/FieldIsIdeaFieldUpdatedEvent.md)
  - [FieldNameUpdatedEvent](docs/FieldNameUpdatedEvent.md)
  - [FieldPositionUpdatedEvent](docs/FieldPositionUpdatedEvent.md)
+ - [FieldRankedBasedOnSortOrderEvent](docs/FieldRankedBasedOnSortOrderEvent.md)
  - [FieldTagAddedEvent](docs/FieldTagAddedEvent.md)
  - [FieldTagRemovedEvent](docs/FieldTagRemovedEvent.md)
  - [FieldTargetTypeUpdatedEvent](docs/FieldTargetTypeUpdatedEvent.md)
@@ -282,26 +327,34 @@ Class | Method | HTTP request | Description
  - [FieldTypeUpdatedEvent](docs/FieldTypeUpdatedEvent.md)
  - [FieldValue](docs/FieldValue.md)
  - [FieldValuePatchItem](docs/FieldValuePatchItem.md)
- - [FieldValues](docs/FieldValues.md)
  - [FieldValuesCollectionInfo](docs/FieldValuesCollectionInfo.md)
+ - [FieldValuesDataUpdatedMessagePayload](docs/FieldValuesDataUpdatedMessagePayload.md)
+ - [FieldValuesProjectDeletedMessagePayload](docs/FieldValuesProjectDeletedMessagePayload.md)
  - [FieldValuesUpdatedMessagePayload](docs/FieldValuesUpdatedMessagePayload.md)
- - [Fields](docs/Fields.md)
+ - [FieldWeight](docs/FieldWeight.md)
  - [FieldsDeletedMessagePayload](docs/FieldsDeletedMessagePayload.md)
  - [FieldsUpdatedMessagePayload](docs/FieldsUpdatedMessagePayload.md)
- - [FileAttachment](docs/FileAttachment.md)
+ - [Filter](docs/Filter.md)
+ - [FilterType](docs/FilterType.md)
+ - [Goal](docs/Goal.md)
+ - [GoalAddedEvent](docs/GoalAddedEvent.md)
+ - [GoalDeletedEvent](docs/GoalDeletedEvent.md)
+ - [GoalUpdatedEvent](docs/GoalUpdatedEvent.md)
+ - [GoalsUpdatedMessagePayload](docs/GoalsUpdatedMessagePayload.md)
  - [Grade](docs/Grade.md)
  - [GradingType](docs/GradingType.md)
- - [Group](docs/Group.md)
- - [Groups](docs/Groups.md)
  - [Header](docs/Header.md)
  - [IdeaFormFieldRequest](docs/IdeaFormFieldRequest.md)
  - [ImportType](docs/ImportType.md)
+ - [Insight](docs/Insight.md)
+ - [InsightType](docs/InsightType.md)
+ - [JiraComment](docs/JiraComment.md)
  - [KloudlessFile](docs/KloudlessFile.md)
  - [LikertScaleFieldInsight](docs/LikertScaleFieldInsight.md)
  - [LikertScaleInsight](docs/LikertScaleInsight.md)
  - [LikertScaleType](docs/LikertScaleType.md)
  - [Mail](docs/Mail.md)
- - [Mapping](docs/Mapping.md)
+ - [MappedProject](docs/MappedProject.md)
  - [Mappings](docs/Mappings.md)
  - [Message](docs/Message.md)
  - [MessageDestinationType](docs/MessageDestinationType.md)
@@ -312,6 +365,7 @@ Class | Method | HTTP request | Description
  - [MinifiedProjects](docs/MinifiedProjects.md)
  - [MinifiedYearlyFieldValue](docs/MinifiedYearlyFieldValue.md)
  - [ModelProperty](docs/ModelProperty.md)
+ - [Negatives](docs/Negatives.md)
  - [NotificationsMessagePayload](docs/NotificationsMessagePayload.md)
  - [Operation](docs/Operation.md)
  - [OperationType](docs/OperationType.md)
@@ -319,27 +373,22 @@ Class | Method | HTTP request | Description
  - [PatchItem](docs/PatchItem.md)
  - [Permission](docs/Permission.md)
  - [PermissionType](docs/PermissionType.md)
- - [Permissions](docs/Permissions.md)
- - [PlanGrade](docs/PlanGrade.md)
  - [PlanType](docs/PlanType.md)
- - [Portfolio](docs/Portfolio.md)
+ - [PlanningPeriod](docs/PlanningPeriod.md)
+ - [PlanningWindow](docs/PlanningWindow.md)
  - [PortfolioArchivedEvent](docs/PortfolioArchivedEvent.md)
  - [PortfolioArchivedMessagePayload](docs/PortfolioArchivedMessagePayload.md)
  - [PortfolioBudgetTimePeriodTypeUpdatedEvent](docs/PortfolioBudgetTimePeriodTypeUpdatedEvent.md)
  - [PortfolioCreatedEvent](docs/PortfolioCreatedEvent.md)
  - [PortfolioIsMonthlySpendPlanUpdatedEvent](docs/PortfolioIsMonthlySpendPlanUpdatedEvent.md)
  - [PortfolioNameUpdatedEvent](docs/PortfolioNameUpdatedEvent.md)
- - [PortfolioPlan](docs/PortfolioPlan.md)
  - [PortfolioPlanCreatedEvent](docs/PortfolioPlanCreatedEvent.md)
  - [PortfolioPlanDataImportedEvent](docs/PortfolioPlanDataImportedEvent.md)
  - [PortfolioPlanDeletedEvent](docs/PortfolioPlanDeletedEvent.md)
  - [PortfolioPlanDescriptionUpdatedEvent](docs/PortfolioPlanDescriptionUpdatedEvent.md)
  - [PortfolioPlanGrade](docs/PortfolioPlanGrade.md)
- - [PortfolioPlanGrades](docs/PortfolioPlanGrades.md)
- - [PortfolioPlanInsights](docs/PortfolioPlanInsights.md)
  - [PortfolioPlanNameUpdatedEvent](docs/PortfolioPlanNameUpdatedEvent.md)
  - [PortfolioPlanRebaselinedEvent](docs/PortfolioPlanRebaselinedEvent.md)
- - [PortfolioPlanUser](docs/PortfolioPlanUser.md)
  - [PortfolioPlanUserCreatedMessagePayload](docs/PortfolioPlanUserCreatedMessagePayload.md)
  - [PortfolioPlanUserCreatedV2Event](docs/PortfolioPlanUserCreatedV2Event.md)
  - [PortfolioPlanUserDeletedEvent](docs/PortfolioPlanUserDeletedEvent.md)
@@ -350,16 +399,16 @@ Class | Method | HTTP request | Description
  - [PortfolioPlanUserRole](docs/PortfolioPlanUserRole.md)
  - [PortfolioPlanUserRolesUpdatedNewEvent](docs/PortfolioPlanUserRolesUpdatedNewEvent.md)
  - [PortfolioPlanUserUpdatedMessagePayload](docs/PortfolioPlanUserUpdatedMessagePayload.md)
- - [PortfolioPlanUsers](docs/PortfolioPlanUsers.md)
  - [PortfolioPlanWithProjects](docs/PortfolioPlanWithProjects.md)
- - [PortfolioPlans](docs/PortfolioPlans.md)
  - [PortfolioPlansUpdatedMessagePayload](docs/PortfolioPlansUpdatedMessagePayload.md)
  - [PortfolioPlansWithProjects](docs/PortfolioPlansWithProjects.md)
+ - [PortfolioProjectsCreatedEvent](docs/PortfolioProjectsCreatedEvent.md)
+ - [PortfolioProjectsUpdatedEvent](docs/PortfolioProjectsUpdatedEvent.md)
+ - [PortfolioRankUpdatedEvent](docs/PortfolioRankUpdatedEvent.md)
+ - [PortfolioScoreWeightsUpdatedEvent](docs/PortfolioScoreWeightsUpdatedEvent.md)
  - [PortfolioTimeIntervalUpdatedEvent](docs/PortfolioTimeIntervalUpdatedEvent.md)
  - [PortfolioUpdatedMessagePayload](docs/PortfolioUpdatedMessagePayload.md)
  - [PortfolioUserRegistrationTokenUpdatedEvent](docs/PortfolioUserRegistrationTokenUpdatedEvent.md)
- - [Portfolios](docs/Portfolios.md)
- - [Project](docs/Project.md)
  - [ProjectAccessGrantedMessagePayload](docs/ProjectAccessGrantedMessagePayload.md)
  - [ProjectAccessRevokedMessagePayload](docs/ProjectAccessRevokedMessagePayload.md)
  - [ProjectAttachmentAddedEvent](docs/ProjectAttachmentAddedEvent.md)
@@ -377,37 +426,40 @@ Class | Method | HTTP request | Description
  - [ProjectFieldValue](docs/ProjectFieldValue.md)
  - [ProjectFieldValueDeletedEvent](docs/ProjectFieldValueDeletedEvent.md)
  - [ProjectFieldValueUpdatedEvent](docs/ProjectFieldValueUpdatedEvent.md)
+ - [ProjectFieldValuesDeletedEvent](docs/ProjectFieldValuesDeletedEvent.md)
  - [ProjectPortfolioPlanDeletedEvent](docs/ProjectPortfolioPlanDeletedEvent.md)
  - [ProjectPortfolioPlanFieldValueDeletedEvent](docs/ProjectPortfolioPlanFieldValueDeletedEvent.md)
  - [ProjectPortfolioPlanFieldValueUpdatedEvent](docs/ProjectPortfolioPlanFieldValueUpdatedEvent.md)
  - [ProjectPortfolioPlanFieldValuesCopiedEvent](docs/ProjectPortfolioPlanFieldValuesCopiedEvent.md)
  - [ProjectPortfolioPlanIsDraftUpdatedEvent](docs/ProjectPortfolioPlanIsDraftUpdatedEvent.md)
+ - [ProjectRankFieldValueUpdatedEvent](docs/ProjectRankFieldValueUpdatedEvent.md)
+ - [ProjectRankUpdatedCascades](docs/ProjectRankUpdatedCascades.md)
+ - [ProjectScoresUpdatedMessagePayload](docs/ProjectScoresUpdatedMessagePayload.md)
  - [ProjectSummary](docs/ProjectSummary.md)
  - [ProjectTagAddedEvent](docs/ProjectTagAddedEvent.md)
  - [ProjectTagRemovedEvent](docs/ProjectTagRemovedEvent.md)
- - [Projects](docs/Projects.md)
  - [ProjectsCreatedMessagePayload](docs/ProjectsCreatedMessagePayload.md)
  - [ProjectsDeletedMessagePayload](docs/ProjectsDeletedMessagePayload.md)
- - [Properties](docs/Properties.md)
  - [PropertyName](docs/PropertyName.md)
+ - [ProvisionGroupRequest](docs/ProvisionGroupRequest.md)
+ - [ProvisionGroupResponse](docs/ProvisionGroupResponse.md)
  - [Recommendation](docs/Recommendation.md)
  - [RecommendationType](docs/RecommendationType.md)
- - [Recommendations](docs/Recommendations.md)
  - [RegisterUserRequest](docs/RegisterUserRequest.md)
  - [RemoveContributingUsersRequest](docs/RemoveContributingUsersRequest.md)
  - [RemovedFromPortfolioMessagePayload](docs/RemovedFromPortfolioMessagePayload.md)
  - [RemovedFromPortfolioPlanMessagePayload](docs/RemovedFromPortfolioPlanMessagePayload.md)
- - [ResourcePool](docs/ResourcePool.md)
  - [ResourcePoolBudgetAmount](docs/ResourcePoolBudgetAmount.md)
  - [ResourcePoolBudgetAmountPatchItem](docs/ResourcePoolBudgetAmountPatchItem.md)
  - [ResourcePoolBudgetAmountUpdatedEvent](docs/ResourcePoolBudgetAmountUpdatedEvent.md)
- - [ResourcePoolBudgetAmounts](docs/ResourcePoolBudgetAmounts.md)
  - [ResourcePoolCreatedEvent](docs/ResourcePoolCreatedEvent.md)
  - [ResourcePoolDeletedEvent](docs/ResourcePoolDeletedEvent.md)
+ - [ResourcePoolFieldValuePatchItem](docs/ResourcePoolFieldValuePatchItem.md)
+ - [ResourcePoolFieldValueUpdatedEvent](docs/ResourcePoolFieldValueUpdatedEvent.md)
+ - [ResourcePoolFieldValuesUpdatedMessagePayload](docs/ResourcePoolFieldValuesUpdatedMessagePayload.md)
  - [ResourcePoolNameUpdatedEvent](docs/ResourcePoolNameUpdatedEvent.md)
  - [ResourcePoolPlanBudgetAmountUpdatedEvent](docs/ResourcePoolPlanBudgetAmountUpdatedEvent.md)
  - [ResourcePoolPlanBudgetCopiedEvent](docs/ResourcePoolPlanBudgetCopiedEvent.md)
- - [ResourcePools](docs/ResourcePools.md)
  - [ResourcePoolsCreatedMessagePayload](docs/ResourcePoolsCreatedMessagePayload.md)
  - [ResourcePoolsDeletedMessagePayload](docs/ResourcePoolsDeletedMessagePayload.md)
  - [ResourcePoolsUpdatedMessagePayload](docs/ResourcePoolsUpdatedMessagePayload.md)
@@ -415,23 +467,42 @@ Class | Method | HTTP request | Description
  - [RiskType](docs/RiskType.md)
  - [RoleType](docs/RoleType.md)
  - [Row](docs/Row.md)
+ - [SSOPrincipalTransmitMethod](docs/SSOPrincipalTransmitMethod.md)
+ - [Scale](docs/Scale.md)
+ - [ScalePoint](docs/ScalePoint.md)
+ - [ScalePointAutoScaleValueUpdatedEvent](docs/ScalePointAutoScaleValueUpdatedEvent.md)
+ - [ScalePointAutoValueUpdatedEvent](docs/ScalePointAutoValueUpdatedEvent.md)
+ - [ScalePointCreatedEvent](docs/ScalePointCreatedEvent.md)
+ - [ScalePointDeletedEvent](docs/ScalePointDeletedEvent.md)
+ - [ScalePointManualScaleValueUpdatedEvent](docs/ScalePointManualScaleValueUpdatedEvent.md)
+ - [ScalePointManualValueUpdatedEvent](docs/ScalePointManualValueUpdatedEvent.md)
+ - [ScalePointNameUpdatedEvent](docs/ScalePointNameUpdatedEvent.md)
+ - [ScalePointProjectUpdatedEvent](docs/ScalePointProjectUpdatedEvent.md)
  - [SchedulingCriteria](docs/SchedulingCriteria.md)
+ - [Schema](docs/Schema.md)
+ - [ScoreWeightCreatedEvent](docs/ScoreWeightCreatedEvent.md)
+ - [ScoreWeightDeletedEvent](docs/ScoreWeightDeletedEvent.md)
+ - [ScoreWeightFieldWeightCreatedEvent](docs/ScoreWeightFieldWeightCreatedEvent.md)
+ - [ScoreWeightFieldWeightDeletedEvent](docs/ScoreWeightFieldWeightDeletedEvent.md)
+ - [ScoreWeightFieldWeightLockUpdatedEvent](docs/ScoreWeightFieldWeightLockUpdatedEvent.md)
+ - [ScoreWeightFieldWeightValueUpdatedEvent](docs/ScoreWeightFieldWeightValueUpdatedEvent.md)
+ - [ScoreWeightNameUpdatedEvent](docs/ScoreWeightNameUpdatedEvent.md)
+ - [ScoreWeightsUpdatedMessagePayload](docs/ScoreWeightsUpdatedMessagePayload.md)
+ - [ServiceInfo](docs/ServiceInfo.md)
  - [SetDependenciesRequest](docs/SetDependenciesRequest.md)
  - [Sheet](docs/Sheet.md)
- - [Sheets](docs/Sheets.md)
- - [Source](docs/Source.md)
  - [SourceCreatedEvent](docs/SourceCreatedEvent.md)
  - [SourceDeletedEvent](docs/SourceDeletedEvent.md)
  - [SourceNameUpdatedEvent](docs/SourceNameUpdatedEvent.md)
  - [SourceType](docs/SourceType.md)
- - [Spreadsheet](docs/Spreadsheet.md)
+ - [SpreadsheetField](docs/SpreadsheetField.md)
  - [SpreadsheetReport](docs/SpreadsheetReport.md)
  - [SpreadsheetReportProgress](docs/SpreadsheetReportProgress.md)
  - [SpreadsheetReportProgressMessagePayload](docs/SpreadsheetReportProgressMessagePayload.md)
  - [SpreadsheetReportProgressStatus](docs/SpreadsheetReportProgressStatus.md)
+ - [SpreadsheetWarning](docs/SpreadsheetWarning.md)
  - [SubPortfolioAddedEvent](docs/SubPortfolioAddedEvent.md)
  - [SubPortfolioRemovedEvent](docs/SubPortfolioRemovedEvent.md)
- - [Tag](docs/Tag.md)
  - [TagAddedMessagePayload](docs/TagAddedMessagePayload.md)
  - [TagColorUpdatedEvent](docs/TagColorUpdatedEvent.md)
  - [TagCreatedEvent](docs/TagCreatedEvent.md)
@@ -440,28 +511,79 @@ Class | Method | HTTP request | Description
  - [TagNameUpdatedEvent](docs/TagNameUpdatedEvent.md)
  - [TagParentUpdatedEvent](docs/TagParentUpdatedEvent.md)
  - [TagUpdatedMessagePayload](docs/TagUpdatedMessagePayload.md)
- - [Tags](docs/Tags.md)
  - [TargetType](docs/TargetType.md)
  - [TemplateProperty](docs/TemplateProperty.md)
  - [TimeInterval](docs/TimeInterval.md)
  - [TimePeriod](docs/TimePeriod.md)
  - [TimePeriodType](docs/TimePeriodType.md)
  - [ToastMessagePayload](docs/ToastMessagePayload.md)
- - [User](docs/User.md)
  - [UserAddedEvent](docs/UserAddedEvent.md)
  - [UserApprovalAddedEvent](docs/UserApprovalAddedEvent.md)
  - [UserAuthenticatedEvent](docs/UserAuthenticatedEvent.md)
+ - [UserDeletedFromGroupEvent](docs/UserDeletedFromGroupEvent.md)
  - [UserGroupAddedEvent](docs/UserGroupAddedEvent.md)
+ - [UserLockedUpdatedEvent](docs/UserLockedUpdatedEvent.md)
  - [UserRegistrationToken](docs/UserRegistrationToken.md)
  - [UserStatus](docs/UserStatus.md)
- - [Users](docs/Users.md)
- - [ValidConstraintValue](docs/ValidConstraintValue.md)
+ - [UserUpdatedMessagePayload](docs/UserUpdatedMessagePayload.md)
  - [ValueCount](docs/ValueCount.md)
- - [ValueCounts](docs/ValueCounts.md)
  - [ValueInsights](docs/ValueInsights.md)
  - [Warnings](docs/Warnings.md)
  - [WhatsIn](docs/WhatsIn.md)
  - [Wiwo](docs/Wiwo.md)
+ - [Activities](docs/Activities.md)
+ - [Activity](docs/Activity.md)
+ - [Attachment](docs/Attachment.md)
+ - [Attachments](docs/Attachments.md)
+ - [BudgetAllocations](docs/BudgetAllocations.md)
+ - [CategoryOption](docs/CategoryOption.md)
+ - [CategoryOptions](docs/CategoryOptions.md)
+ - [Comment](docs/Comment.md)
+ - [Comments](docs/Comments.md)
+ - [CustomNames](docs/CustomNames.md)
+ - [Field](docs/Field.md)
+ - [FieldGrades](docs/FieldGrades.md)
+ - [FieldValues](docs/FieldValues.md)
+ - [Fields](docs/Fields.md)
+ - [FileAttachment](docs/FileAttachment.md)
+ - [Goals](docs/Goals.md)
+ - [Group](docs/Group.md)
+ - [Groups](docs/Groups.md)
+ - [JiraFieldMapping](docs/JiraFieldMapping.md)
+ - [JiraFieldMappings](docs/JiraFieldMappings.md)
+ - [JiraInstance](docs/JiraInstance.md)
+ - [Mapping](docs/Mapping.md)
+ - [Permissions](docs/Permissions.md)
+ - [PlanGrade](docs/PlanGrade.md)
+ - [Portfolio](docs/Portfolio.md)
+ - [PortfolioPlan](docs/PortfolioPlan.md)
+ - [PortfolioPlanGrades](docs/PortfolioPlanGrades.md)
+ - [PortfolioPlanInsights](docs/PortfolioPlanInsights.md)
+ - [PortfolioPlanUser](docs/PortfolioPlanUser.md)
+ - [PortfolioPlanUsers](docs/PortfolioPlanUsers.md)
+ - [PortfolioPlans](docs/PortfolioPlans.md)
+ - [Portfolios](docs/Portfolios.md)
+ - [Project](docs/Project.md)
+ - [Projects](docs/Projects.md)
+ - [Properties](docs/Properties.md)
+ - [Recommendations](docs/Recommendations.md)
+ - [ResourcePool](docs/ResourcePool.md)
+ - [ResourcePoolBudgetAmounts](docs/ResourcePoolBudgetAmounts.md)
+ - [ResourcePoolFieldValue](docs/ResourcePoolFieldValue.md)
+ - [ResourcePools](docs/ResourcePools.md)
+ - [ScoreWeight](docs/ScoreWeight.md)
+ - [ScoreWeights](docs/ScoreWeights.md)
+ - [ServiceInfoDetails](docs/ServiceInfoDetails.md)
+ - [Sheets](docs/Sheets.md)
+ - [Source](docs/Source.md)
+ - [Spreadsheet](docs/Spreadsheet.md)
+ - [SpreadsheetFields](docs/SpreadsheetFields.md)
+ - [SpreadsheetWarnings](docs/SpreadsheetWarnings.md)
+ - [Tag](docs/Tag.md)
+ - [Tags](docs/Tags.md)
+ - [User](docs/User.md)
+ - [Users](docs/Users.md)
+ - [ValueCounts](docs/ValueCounts.md)
 
 
 ## Documentation For Authorization

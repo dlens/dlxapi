@@ -4,10 +4,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **username** | **str** |  | [optional] 
+**email** | **str** |  | [optional] 
 **first_name** | **str** |  | [optional] 
 **last_name** | **str** |  | [optional] 
 **status** | [**UserStatus**](UserStatus.md) |  | [optional] 
-**is_locked** | **bool** |  | [optional] 
+**last_login_at** | **int** |  | [optional] 
 **invitation_url** | **str** |  | [optional] 
 **invitation_url_expiration** | **int** |  | [optional] 
 **role** | [**RoleType**](RoleType.md) |  | [optional] 

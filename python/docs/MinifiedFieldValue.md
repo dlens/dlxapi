@@ -8,8 +8,8 @@ Name | Type | Description | Notes
 **bv** | **bool** | Boolean Value | [optional] 
 **yrs** | [**dict(str, MinifiedYearlyFieldValue)**](MinifiedYearlyFieldValue.md) | Yearly cost/allocate data | [optional] 
 **mns** | **dict(str, float)** | Monthly cost/allocate data | [optional] 
-**vs** | **list[str]** |  | [optional] 
-**nvs** | **list[float]** |  | [optional] 
+**vs** | **list[str]** | Text values array | [optional] 
+**nvs** | **list[float]** | Numeric values array | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

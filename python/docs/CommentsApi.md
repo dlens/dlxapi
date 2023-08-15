@@ -16,21 +16,20 @@ Method | HTTP request | Description
 Creates a new comment
 
 ### Example
-
 ```python
 from __future__ import print_function
 import time
-import dlxapi
-from dlxapi.rest import ApiException
+import swagger_client
+from swagger_client.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = dlxapi.Configuration()
+configuration = swagger_client.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = dlxapi.CommentsApi(dlxapi.ApiClient(configuration))
-body = dlxapi.Comment() # Comment | Comment to create
+api_instance = swagger_client.CommentsApi(swagger_client.ApiClient(configuration))
+body = swagger_client.Comment() # Comment | Comment to create
 
 try:
     # Creates a new comment
@@ -67,20 +66,19 @@ Name | Type | Description  | Notes
 Delete a single comment
 
 ### Example
-
 ```python
 from __future__ import print_function
 import time
-import dlxapi
-from dlxapi.rest import ApiException
+import swagger_client
+from swagger_client.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = dlxapi.Configuration()
+configuration = swagger_client.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = dlxapi.CommentsApi(dlxapi.ApiClient(configuration))
+api_instance = swagger_client.CommentsApi(swagger_client.ApiClient(configuration))
 id = 'id_example' # str | Comment ID
 
 try:
@@ -117,20 +115,19 @@ void (empty response body)
 Retrieves comments based on params
 
 ### Example
-
 ```python
 from __future__ import print_function
 import time
-import dlxapi
-from dlxapi.rest import ApiException
+import swagger_client
+from swagger_client.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = dlxapi.Configuration()
+configuration = swagger_client.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = dlxapi.CommentsApi(dlxapi.ApiClient(configuration))
+api_instance = swagger_client.CommentsApi(swagger_client.ApiClient(configuration))
 portfolio_id = 'portfolio_id_example' # str | Use when you want all comments from all projects inside this portfolio (optional)
 project_id = 'project_id_example' # str | Use when you want comments for a specific project (optional)
 offset = 56 # int | The page number from where the search will be done (optional)
@@ -176,22 +173,21 @@ Name | Type | Description  | Notes
 Update a single comment
 
 ### Example
-
 ```python
 from __future__ import print_function
 import time
-import dlxapi
-from dlxapi.rest import ApiException
+import swagger_client
+from swagger_client.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = dlxapi.Configuration()
+configuration = swagger_client.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = dlxapi.CommentsApi(dlxapi.ApiClient(configuration))
+api_instance = swagger_client.CommentsApi(swagger_client.ApiClient(configuration))
 id = 'id_example' # str | Comment ID
-body = dlxapi.Operations() # Operations | JSON Patch operations to update value field.
+body = swagger_client.Operations() # Operations | JSON Patch operations to update value field.
 
 try:
     # Update a single comment

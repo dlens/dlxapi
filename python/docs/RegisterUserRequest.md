@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **user_registration_token** | **str** |  | 
-**email_id** | **str** |  | [optional] 
+**email_id** | **str** |  | 
 **landing_page** | **str** |  | [optional] 
 **do_not_notify** | **bool** |  | [optional] [default to False]
 

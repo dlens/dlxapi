@@ -9,8 +9,9 @@ Name | Type | Description | Notes
 **mt** | **int** | Project modified time in epoch millis | [optional] 
 **fvs** | [**dict(str, MinifiedFieldValue)**](MinifiedFieldValue.md) | Minified field values. Key is field index. | [optional] 
 **cus** | **list[str]** | Contibuting user indices. | [optional] 
+**doi** | **list[str]** | Depends On project Ids | [optional] 
 **hdi** | **list[str]** | Has Dependent Ids | [optional] 
-**doi** | **list[str]** | Depends on project ids | [optional] 
+**r** | **int** | Rank of the project | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

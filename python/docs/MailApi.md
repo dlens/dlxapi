@@ -14,21 +14,20 @@ Method | HTTP request | Description
 Send mail
 
 ### Example
-
 ```python
 from __future__ import print_function
 import time
-import dlxapi
-from dlxapi.rest import ApiException
+import swagger_client
+from swagger_client.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = dlxapi.Configuration()
+configuration = swagger_client.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = dlxapi.MailApi(dlxapi.ApiClient(configuration))
-mail = dlxapi.Mail() # Mail | mail request
+api_instance = swagger_client.MailApi(swagger_client.ApiClient(configuration))
+mail = swagger_client.Mail() # Mail | mail request
 
 try:
     # Send mail
@@ -64,21 +63,20 @@ void (empty response body)
 Send registration mail
 
 ### Example
-
 ```python
 from __future__ import print_function
 import time
-import dlxapi
-from dlxapi.rest import ApiException
+import swagger_client
+from swagger_client.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = dlxapi.Configuration()
+configuration = swagger_client.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = dlxapi.MailApi(dlxapi.ApiClient(configuration))
-mail = dlxapi.Mail() # Mail | mail request
+api_instance = swagger_client.MailApi(swagger_client.ApiClient(configuration))
+mail = swagger_client.Mail() # Mail | mail request
 access_token = 'access_token_example' # str | access token (optional)
 
 try:
