@@ -31,26 +31,52 @@ class Spreadsheet(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'id': 'str',
         'name': 'str',
         'sheets': 'Sheets'
     }
 
     attribute_map = {
+        'id': 'id',
         'name': 'name',
         'sheets': 'sheets'
     }
 
-    def __init__(self, name=None, sheets=None):  # noqa: E501
+    def __init__(self, id=None, name=None, sheets=None):  # noqa: E501
         """Spreadsheet - a model defined in Swagger"""  # noqa: E501
 
+        self._id = None
         self._name = None
         self._sheets = None
         self.discriminator = None
 
+        if id is not None:
+            self.id = id
         if name is not None:
             self.name = name
         if sheets is not None:
             self.sheets = sheets
+
+    @property
+    def id(self):
+        """Gets the id of this Spreadsheet.  # noqa: E501
+
+
+        :return: The id of this Spreadsheet.  # noqa: E501
+        :rtype: str
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the name of this Spreadsheet.
+
+
+        :param id: The id of this Spreadsheet.  # noqa: E501
+        :type: str
+        """
+
+        self._id = id
 
     @property
     def name(self):
