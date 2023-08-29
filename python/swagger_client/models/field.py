@@ -31,6 +31,7 @@ class Field(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'id': 'str',
         'name': 'str',
         'original_name': 'str',
         'description': 'str',
@@ -55,6 +56,7 @@ class Field(object):
     }
 
     attribute_map = {
+        'id': 'id',
         'name': 'name',
         'original_name': 'originalName',
         'description': 'description',
@@ -78,9 +80,10 @@ class Field(object):
         'attributes': 'attributes'
     }
 
-    def __init__(self, name=None, original_name=None, description=None, type=None, source=None, portfolio=None, parent=None, position=None, type_position=None, field_values=None, target_type=None, data_type=None, calculation_type=None, is_field_type_approved=True, tag_ids=None, category_options=None, is_idea_field=False, idea_field_position=None, is_idea_field_required=False, scale=None, attributes=None):  # noqa: E501
+    def __init__(self, id=None, name=None, original_name=None, description=None, type=None, source=None, portfolio=None, parent=None, position=None, type_position=None, field_values=None, target_type=None, data_type=None, calculation_type=None, is_field_type_approved=True, tag_ids=None, category_options=None, is_idea_field=False, idea_field_position=None, is_idea_field_required=False, scale=None, attributes=None):  # noqa: E501
         """Field - a model defined in Swagger"""  # noqa: E501
 
+        self._id = None
         self._name = None
         self._original_name = None
         self._description = None
@@ -104,6 +107,8 @@ class Field(object):
         self._attributes = None
         self.discriminator = None
 
+        if id is not None:
+            self.id = id
         if name is not None:
             self.name = name
         if original_name is not None:
@@ -146,6 +151,27 @@ class Field(object):
             self.scale = scale
         if attributes is not None:
             self.attributes = attributes
+
+    @property
+    def id(self):
+        """Gets the id of this Field.  # noqa: E501
+
+
+        :return: The id of this Field.  # noqa: E501
+        :rtype: str
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this Field.
+
+
+        :param id: The id of this Field.  # noqa: E501
+        :type: str
+        """
+
+        self._id = id
 
     @property
     def name(self):

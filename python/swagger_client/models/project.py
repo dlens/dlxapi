@@ -31,6 +31,7 @@ class Project(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'id': 'str',
         'name': 'str',
         'position': 'int',
         'field_values': 'FieldValues',
@@ -42,6 +43,7 @@ class Project(object):
     }
 
     attribute_map = {
+        'id': 'id',
         'name': 'name',
         'position': 'position',
         'field_values': 'fieldValues',
@@ -52,9 +54,10 @@ class Project(object):
         'rank': 'rank'
     }
 
-    def __init__(self, name=None, position=None, field_values=None, depends_on_project_ids=None, has_dependent_project_ids=None, contributing_user_ids=None, is_draft=None, rank=None):  # noqa: E501
+    def __init__(self, id=None, name=None, position=None, field_values=None, depends_on_project_ids=None, has_dependent_project_ids=None, contributing_user_ids=None, is_draft=None, rank=None):  # noqa: E501
         """Project - a model defined in Swagger"""  # noqa: E501
 
+        self._id = None
         self._name = None
         self._position = None
         self._field_values = None
@@ -65,6 +68,8 @@ class Project(object):
         self._rank = None
         self.discriminator = None
 
+        if id is not None:
+            self.id = id
         if name is not None:
             self.name = name
         if position is not None:
@@ -81,6 +86,27 @@ class Project(object):
             self.is_draft = is_draft
         if rank is not None:
             self.rank = rank
+
+    @property
+    def id(self):
+        """Gets the id of this Project.  # noqa: E501
+
+
+        :return: The id of this Project.  # noqa: E501
+        :rtype: str
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this Project.
+
+
+        :param id: The id of this Project.  # noqa: E501
+        :type: str
+        """
+
+        self._id = id
 
     @property
     def name(self):

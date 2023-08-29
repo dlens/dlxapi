@@ -31,6 +31,7 @@ class Portfolio(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'id' : 'str',
         'name': 'str',
         'description': 'str',
         'is_archived': 'bool',
@@ -51,6 +52,7 @@ class Portfolio(object):
     }
 
     attribute_map = {
+        'id': 'id',
         'name': 'name',
         'description': 'description',
         'is_archived': 'isArchived',
@@ -70,9 +72,10 @@ class Portfolio(object):
         'custom_names': 'customNames'
     }
 
-    def __init__(self, name=None, description=None, is_archived=None, baseline_portfolio_plan_user=None, fields=None, projects=None, portfolio_plans=None, portfolio_plan_users=None, attributes=None, is_combined=None, user_registration_token=None, sub_portfolios=None, combined_portfolios=None, resource_pools=None, total_budget=0.0, new_notifications_count=None, custom_names=None):  # noqa: E501
+    def __init__(self, id=None, name=None, description=None, is_archived=None, baseline_portfolio_plan_user=None, fields=None, projects=None, portfolio_plans=None, portfolio_plan_users=None, attributes=None, is_combined=None, user_registration_token=None, sub_portfolios=None, combined_portfolios=None, resource_pools=None, total_budget=0.0, new_notifications_count=None, custom_names=None):  # noqa: E501
         """Portfolio - a model defined in Swagger"""  # noqa: E501
 
+        self._id = None
         self._name = None
         self._description = None
         self._is_archived = None
@@ -92,6 +95,8 @@ class Portfolio(object):
         self._custom_names = None
         self.discriminator = None
 
+        if id is not None:
+            self.id = id
         if name is not None:
             self.name = name
         if description is not None:
@@ -126,6 +131,28 @@ class Portfolio(object):
             self.new_notifications_count = new_notifications_count
         if custom_names is not None:
             self.custom_names = custom_names
+
+    @property
+    def id(self):
+        """Gets the id of this Portfolio.  # noqa: E501
+
+
+        :return: The id of this Portfolio.  # noqa: E501
+        :rtype: str
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this Portfolio.
+
+
+        :param id: The id of this Portfolio.  # noqa: E501
+        :type: str
+        """
+
+        self._id = id
+
 
     @property
     def name(self):
