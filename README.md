@@ -7,7 +7,7 @@ This repository contains API's for Decision Lens Accelerate in several programmi
 * [java](java): The Java API
 * [R](R): The R API
 * [javascript](javascript): The JavaScript API
-* [Python](Python): The R API
+* [Python](python): The Python API
 
 ## API Token
 An API token is required to invoke APIs. This token can be generated using OAUth2 client credentials flow. 
