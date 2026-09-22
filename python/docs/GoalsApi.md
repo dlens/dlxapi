@@ -1,12 +1,11 @@
-# swagger_client.GoalsApi
+# dlxapi.GoalsApi
 
-All URIs are relative to *http://localhost:9005/v1*
+All URIs are relative to *https://api-gov.decisionlens.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**get_goals_for_portfolio**](GoalsApi.md#get_goals_for_portfolio) | **GET** /goals | Get Goals by portfolio id
 [**update_goals_for_portfolio**](GoalsApi.md#update_goals_for_portfolio) | **PATCH** /goals | Updates Goals for portfolio
-
 
 # **get_goals_for_portfolio**
 > Goals get_goals_for_portfolio(portfolio_id, offset=offset, limit=limit, order_by=order_by)
@@ -17,16 +16,16 @@ Get Goals by portfolio id
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.GoalsApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.GoalsApi(dlxapi.ApiClient(configuration))
 portfolio_id = 'portfolio_id_example' # str | Portfolio id
 offset = 56 # int | Pagination offset (optional)
 limit = 56 # int | Pagination limit (optional)
@@ -47,7 +46,7 @@ Name | Type | Description  | Notes
  **portfolio_id** | **str**| Portfolio id | 
  **offset** | **int**| Pagination offset | [optional] 
  **limit** | **int**| Pagination limit | [optional] 
- **order_by** | **str**| Comma delimited list of order by expressions. Use &#39;-&#39; in front of expression for reverse order. | [optional] 
+ **order_by** | **str**| Comma delimited list of order by expressions. Use &#x27;-&#x27; in front of expression for reverse order. | [optional] 
 
 ### Return type
 
@@ -65,7 +64,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_goals_for_portfolio**
-> list[Goal] update_goals_for_portfolio(portfolio_id, goals)
+> list[Goal] update_goals_for_portfolio(body, portfolio_id)
 
 Updates Goals for portfolio
 
@@ -73,22 +72,22 @@ Updates Goals for portfolio
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.GoalsApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.GoalsApi(dlxapi.ApiClient(configuration))
+body = [dlxapi.Goal()] # list[Goal] | Goals
 portfolio_id = 'portfolio_id_example' # str | Portfolio id
-goals = [swagger_client.Goal()] # list[Goal] | Goals
 
 try:
     # Updates Goals for portfolio
-    api_response = api_instance.update_goals_for_portfolio(portfolio_id, goals)
+    api_response = api_instance.update_goals_for_portfolio(body, portfolio_id)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling GoalsApi->update_goals_for_portfolio: %s\n" % e)
@@ -98,8 +97,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **body** | [**list[Goal]**](Goal.md)| Goals | 
  **portfolio_id** | **str**| Portfolio id | 
- **goals** | [**list[Goal]**](Goal.md)| Goals | 
 
 ### Return type
 

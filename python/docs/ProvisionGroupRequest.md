@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **domain** | **str** |  | 
 **linked_domain** | **str** |  | [optional] 
 **user_names** | **list[str]** |  | [optional] 
+**auth_type** | **str** | Authentication type for the primary group. If omitted or blank, inferred from authUrl. | [optional] 
 **auth_url** | **str** |  | [optional] 
 **logout_url** | **str** |  | [optional] 
 **sso_principal_key** | **str** |  | [optional] 
@@ -14,7 +15,7 @@ Name | Type | Description | Notes
 **dli_properties** | **dict(str, str)** |  | [optional] 
 **dlx_properties** | **dict(str, str)** |  | [optional] 
 **dlc_properties** | **dict(str, str)** |  | [optional] 
+**group_roles** | **list[str]** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
 

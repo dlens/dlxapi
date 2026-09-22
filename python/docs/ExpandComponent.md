@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **limit** | **int** | pagination - limit | [optional] 
 **offset** | **int** | pagination - offset | [optional] 
 **order_by** | **str** | order the values returned in the collection | [optional] 
+**match_keys** | **list[str]** | filter the collection by only including the matched keys. example - [\&quot;123\&quot;,\&quot;456\&quot;,\&quot;789\&quot;] | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
 

@@ -8,8 +8,6 @@ Name | Type | Description | Notes
 **max_size** | **int** |  | [optional] 
 **max_limit** | **int** |  | [optional] 
 **offset** | **int** |  | [optional] 
-**href** | **str** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
 

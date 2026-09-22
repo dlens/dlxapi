@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **doi** | **list[str]** | Depends On project Ids | [optional] 
 **hdi** | **list[str]** | Has Dependent Ids | [optional] 
 **r** | **int** | Rank of the project | [optional] 
+**pcs** | [**list[MinifiedProjectChange]**](MinifiedProjectChange.md) | Minified project changes. Populated when expand&#x3D;projectChanges. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
 

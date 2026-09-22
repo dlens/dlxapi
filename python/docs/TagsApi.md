@@ -1,6 +1,6 @@
-# swagger_client.TagsApi
+# dlxapi.TagsApi
 
-All URIs are relative to *http://localhost:9005/v1*
+All URIs are relative to *https://api-gov.decisionlens.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -9,7 +9,6 @@ Method | HTTP request | Description
 [**get_tag**](TagsApi.md#get_tag) | **GET** /tags/{id} | Retrieves a tag
 [**get_tags_for_portfolio**](TagsApi.md#get_tags_for_portfolio) | **GET** /tags | Retrieves tags for a portfolio
 [**update_tag**](TagsApi.md#update_tag) | **PATCH** /tags/{id} | Update a single tag
-
 
 # **create_tag**
 > Tag create_tag(body)
@@ -20,17 +19,17 @@ Creates a new tag
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.TagsApi(swagger_client.ApiClient(configuration))
-body = swagger_client.Tag() # Tag | Tag to create
+api_instance = dlxapi.TagsApi(dlxapi.ApiClient(configuration))
+body = dlxapi.Tag() # Tag | Tag to create
 
 try:
     # Creates a new tag
@@ -70,16 +69,16 @@ Delete a single tag
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.TagsApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.TagsApi(dlxapi.ApiClient(configuration))
 id = 'id_example' # str | Tag ID
 
 try:
@@ -106,7 +105,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -119,16 +118,16 @@ Retrieves a tag
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.TagsApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.TagsApi(dlxapi.ApiClient(configuration))
 id = 'id_example' # str | Tag id
 
 try:
@@ -169,16 +168,16 @@ Retrieves tags for a portfolio
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.TagsApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.TagsApi(dlxapi.ApiClient(configuration))
 portfolio_id = 'portfolio_id_example' # str | Portfolio id
 
 try:
@@ -211,7 +210,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_tag**
-> Tag update_tag(id, body)
+> Tag update_tag(body, id)
 
 Update a single tag
 
@@ -219,22 +218,22 @@ Update a single tag
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.TagsApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.TagsApi(dlxapi.ApiClient(configuration))
+body = dlxapi.Operations() # Operations | JSON Patch operations to update value field.
 id = 'id_example' # str | Tag ID
-body = swagger_client.Operations() # Operations | JSON Patch operations to update value field.
 
 try:
     # Update a single tag
-    api_response = api_instance.update_tag(id, body)
+    api_response = api_instance.update_tag(body, id)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling TagsApi->update_tag: %s\n" % e)
@@ -244,8 +243,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Tag ID | 
  **body** | [**Operations**](Operations.md)| JSON Patch operations to update value field. | 
+ **id** | **str**| Tag ID | 
 
 ### Return type
 

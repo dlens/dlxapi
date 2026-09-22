@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **mns** | **dict(str, float)** | Monthly cost/allocate data | [optional] 
 **vs** | **list[str]** | Text values array | [optional] 
 **nvs** | **list[float]** | Numeric values array | [optional] 
+**loc** | [**MinifiedLocation**](MinifiedLocation.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
 

@@ -1,11 +1,10 @@
-# swagger_client.PodsApi
+# dlxapi.PodsApi
 
-All URIs are relative to *http://localhost:9005/v1*
+All URIs are relative to *https://api-gov.decisionlens.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**import_pod_template**](PodsApi.md#import_pod_template) | **PUT** /pods/template | Import pod template in JSON format
-
 
 # **import_pod_template**
 > import_pod_template(pod_file, template_name)
@@ -16,18 +15,18 @@ Import pod template in JSON format
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.PodsApi(swagger_client.ApiClient(configuration))
-pod_file = '/path/to/file.txt' # file | The pod file to upload.
-template_name = 'template_name_example' # str | pod template name
+api_instance = dlxapi.PodsApi(dlxapi.ApiClient(configuration))
+pod_file = 'pod_file_example' # str | 
+template_name = 'template_name_example' # str | 
 
 try:
     # Import pod template in JSON format
@@ -40,8 +39,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pod_file** | **file**| The pod file to upload. | 
- **template_name** | **str**| pod template name | 
+ **pod_file** | **str**|  | 
+ **template_name** | **str**|  | 
 
 ### Return type
 

@@ -1,6 +1,6 @@
-# swagger_client.DefaultApi
+# dlxapi.DefaultApi
 
-All URIs are relative to *http://localhost:9005/v1*
+All URIs are relative to *https://api-gov.decisionlens.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -11,9 +11,8 @@ Method | HTTP request | Description
 [**get_category_options_for_field**](DefaultApi.md#get_category_options_for_field) | **GET** /fields/{fieldId}/categoryOptions | Retrieves categories for a field
 [**update_category_option**](DefaultApi.md#update_category_option) | **PATCH** /fields/{fieldId}/categoryOptions/{categoryOptionId} | Update a single category
 
-
 # **create_category_option**
-> CategoryOption create_category_option(body)
+> CategoryOption create_category_option(body, field_id)
 
 Creates a new category
 
@@ -21,21 +20,22 @@ Creates a new category
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.DefaultApi(swagger_client.ApiClient(configuration))
-body = swagger_client.CategoryOption() # CategoryOption | Category option to create
+api_instance = dlxapi.DefaultApi(dlxapi.ApiClient(configuration))
+body = dlxapi.CategoryOption() # CategoryOption | Category option to create
+field_id = 'field_id_example' # str | ID of the field
 
 try:
     # Creates a new category
-    api_response = api_instance.create_category_option(body)
+    api_response = api_instance.create_category_option(body, field_id)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->create_category_option: %s\n" % e)
@@ -46,6 +46,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**CategoryOption**](CategoryOption.md)| Category option to create | 
+ **field_id** | **str**| ID of the field | 
 
 ### Return type
 
@@ -63,7 +64,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_category_options**
-> CategoryOptions create_category_options(body)
+> CategoryOptions create_category_options(body, field_id)
 
 Creates new category options
 
@@ -71,21 +72,22 @@ Creates new category options
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.DefaultApi(swagger_client.ApiClient(configuration))
-body = swagger_client.CategoryOptions() # CategoryOptions | Category options to create
+api_instance = dlxapi.DefaultApi(dlxapi.ApiClient(configuration))
+body = dlxapi.CategoryOptions() # CategoryOptions | Category options to create
+field_id = 'field_id_example' # str | Field id
 
 try:
     # Creates new category options
-    api_response = api_instance.create_category_options(body)
+    api_response = api_instance.create_category_options(body, field_id)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->create_category_options: %s\n" % e)
@@ -96,6 +98,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**CategoryOptions**](CategoryOptions.md)| Category options to create | 
+ **field_id** | **str**| Field id | 
 
 ### Return type
 
@@ -121,16 +124,16 @@ Delete a single category option
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.DefaultApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.DefaultApi(dlxapi.ApiClient(configuration))
 field_id = 'field_id_example' # str | Field id
 category_option_id = 'category_option_id_example' # str | Category Option ID
 
@@ -159,7 +162,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -172,16 +175,16 @@ Retrieves a category
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.DefaultApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.DefaultApi(dlxapi.ApiClient(configuration))
 field_id = 'field_id_example' # str | Field id
 category_option_id = 'category_option_id_example' # str | Category Option id
 
@@ -224,16 +227,16 @@ Retrieves categories for a field
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.DefaultApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.DefaultApi(dlxapi.ApiClient(configuration))
 field_id = 'field_id_example' # str | Field id
 
 try:
@@ -266,7 +269,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_category_option**
-> CategoryOption update_category_option(field_id, category_option_id, body)
+> CategoryOption update_category_option(body, field_id, category_option_id)
 
 Update a single category
 
@@ -274,23 +277,23 @@ Update a single category
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.DefaultApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.DefaultApi(dlxapi.ApiClient(configuration))
+body = dlxapi.CategoryOption() # CategoryOption | JSON Patch operations to update value field.
 field_id = 'field_id_example' # str | Field id
 category_option_id = 'category_option_id_example' # str | Category Option id
-body = swagger_client.CategoryOption() # CategoryOption | JSON Patch operations to update value field.
 
 try:
     # Update a single category
-    api_response = api_instance.update_category_option(field_id, category_option_id, body)
+    api_response = api_instance.update_category_option(body, field_id, category_option_id)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->update_category_option: %s\n" % e)
@@ -300,9 +303,9 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **body** | [**CategoryOption**](CategoryOption.md)| JSON Patch operations to update value field. | 
  **field_id** | **str**| Field id | 
  **category_option_id** | **str**| Category Option id | 
- **body** | [**CategoryOption**](CategoryOption.md)| JSON Patch operations to update value field. | 
 
 ### Return type
 

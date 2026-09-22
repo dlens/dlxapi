@@ -1,11 +1,10 @@
-# swagger_client.ActivitiesApi
+# dlxapi.ActivitiesApi
 
-All URIs are relative to *http://localhost:9005/v1*
+All URIs are relative to *https://api-gov.decisionlens.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**reindex_activities**](ActivitiesApi.md#reindex_activities) | **POST** /reindex/activities | Reindex activities. System Administator operation.
-
 
 # **reindex_activities**
 > str reindex_activities(domains=domains)
@@ -16,16 +15,16 @@ Reindex activities. System Administator operation.
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.ActivitiesApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.ActivitiesApi(dlxapi.ApiClient(configuration))
 domains = ['domains_example'] # list[str] | List of domains for where activities need to be reindexed, if not provided reindex will be done for all domains (optional)
 
 try:
@@ -52,8 +51,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Content-Type**: Not defined
+ - **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

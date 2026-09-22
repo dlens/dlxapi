@@ -1,18 +1,20 @@
-# swagger_client.FieldsApi
+# dlxapi.FieldsApi
 
-All URIs are relative to *http://localhost:9005/v1*
+All URIs are relative to *https://api-gov.decisionlens.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_field**](FieldsApi.md#create_field) | **POST** /fields | Creates a new field in a portfolio.
 [**create_fields**](FieldsApi.md#create_fields) | **POST** /fields/bulk | Create new fields in a portfolio.
+[**create_fields_from_datahub**](FieldsApi.md#create_fields_from_datahub) | **POST** /fields/datahub/bulk | Create new fields in a portfolio via datahub-service.
 [**delete_field**](FieldsApi.md#delete_field) | **DELETE** /fields/{id} | Delete a field. Also deletes the values for every project.
+[**delete_fields**](FieldsApi.md#delete_fields) | **POST** /fields/delete | Delete fields.
 [**get_field**](FieldsApi.md#get_field) | **GET** /fields/{id} | Retrieves a field.
 [**get_fields_for_portfolio**](FieldsApi.md#get_fields_for_portfolio) | **GET** /fields | Retrieves fields for a portfolio.
 [**set_idea_form_fields**](FieldsApi.md#set_idea_form_fields) | **PUT** /fields/ideaForm | Set idea form fields for a portfolio.
 [**update_field**](FieldsApi.md#update_field) | **PATCH** /fields/{id} | Updates a field utilizing JSON Patch Operations. If the update logic makes changes to other fields, all updated fields will be returned in the response. 
+[**update_field_data_for_fields**](FieldsApi.md#update_field_data_for_fields) | **PATCH** /fields/fieldData | Update field value for fields
 [**update_fields**](FieldsApi.md#update_fields) | **PATCH** /fields | Update fields associated with a portfolio.
-
 
 # **create_field**
 > list[Field] create_field(body, expand=expand)
@@ -23,17 +25,17 @@ Creates a new field in a portfolio.
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.FieldsApi(swagger_client.ApiClient(configuration))
-body = swagger_client.Field() # Field | Field to create
+api_instance = dlxapi.FieldsApi(dlxapi.ApiClient(configuration))
+body = dlxapi.Field() # Field | Field to create
 expand = 'expand_example' # str | JSON string containing an array expand specifications for fields.  An expand specification must have a path and includes optional properties match, unique, allPossible, limit, offset, orderBy. (optional)
 
 try:
@@ -67,7 +69,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_fields**
-> list[Field] create_fields(fields, expand=expand)
+> list[Field] create_fields(body, expand=expand)
 
 Create new fields in a portfolio.
 
@@ -75,22 +77,22 @@ Create new fields in a portfolio.
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.FieldsApi(swagger_client.ApiClient(configuration))
-fields = [swagger_client.Field()] # list[Field] | Field to create
+api_instance = dlxapi.FieldsApi(dlxapi.ApiClient(configuration))
+body = [dlxapi.Field()] # list[Field] | Field to create
 expand = 'expand_example' # str | JSON string containing an array expand specifications for fields.  An expand specification must have a path and includes optional properties match, unique, allPossible, limit, offset, orderBy. (optional)
 
 try:
     # Create new fields in a portfolio.
-    api_response = api_instance.create_fields(fields, expand=expand)
+    api_response = api_instance.create_fields(body, expand=expand)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling FieldsApi->create_fields: %s\n" % e)
@@ -100,7 +102,61 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **fields** | [**list[Field]**](Field.md)| Field to create | 
+ **body** | [**list[Field]**](Field.md)| Field to create | 
+ **expand** | **str**| JSON string containing an array expand specifications for fields.  An expand specification must have a path and includes optional properties match, unique, allPossible, limit, offset, orderBy. | [optional] 
+
+### Return type
+
+[**list[Field]**](Field.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **create_fields_from_datahub**
+> list[Field] create_fields_from_datahub(body, expand=expand)
+
+Create new fields in a portfolio via datahub-service.
+
+This endpoint is specifically for datahub-service to create new fields. It automatically publishes FieldCreatedEvent with isGrouped true after successful creation.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import dlxapi
+from dlxapi.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: OAuth2
+configuration = dlxapi.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# create an instance of the API class
+api_instance = dlxapi.FieldsApi(dlxapi.ApiClient(configuration))
+body = [dlxapi.Field()] # list[Field] | Fields to create (array)
+expand = 'expand_example' # str | JSON string containing an array expand specifications for fields.  An expand specification must have a path and includes optional properties match, unique, allPossible, limit, offset, orderBy. (optional)
+
+try:
+    # Create new fields in a portfolio via datahub-service.
+    api_response = api_instance.create_fields_from_datahub(body, expand=expand)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling FieldsApi->create_fields_from_datahub: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**list[Field]**](Field.md)| Fields to create (array) | 
  **expand** | **str**| JSON string containing an array expand specifications for fields.  An expand specification must have a path and includes optional properties match, unique, allPossible, limit, offset, orderBy. | [optional] 
 
 ### Return type
@@ -127,16 +183,16 @@ Delete a field. Also deletes the values for every project.
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.FieldsApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.FieldsApi(dlxapi.ApiClient(configuration))
 id = 'id_example' # str | Field id
 
 try:
@@ -167,6 +223,55 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **delete_fields**
+> delete_fields(body)
+
+Delete fields.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import dlxapi
+from dlxapi.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: OAuth2
+configuration = dlxapi.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# create an instance of the API class
+api_instance = dlxapi.FieldsApi(dlxapi.ApiClient(configuration))
+body = ['body_example'] # list[str] | Field ids
+
+try:
+    # Delete fields.
+    api_instance.delete_fields(body)
+except ApiException as e:
+    print("Exception when calling FieldsApi->delete_fields: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**list[str]**](str.md)| Field ids | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_field**
 > Field get_field(id, expand=expand)
 
@@ -176,16 +281,16 @@ Retrieves a field.
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.FieldsApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.FieldsApi(dlxapi.ApiClient(configuration))
 id = 'id_example' # str | Field id
 expand = 'expand_example' # str | JSON string containing an array expand specifications for fields.  An expand specification must have a path and includes optional properties match, unique, allPossible, limit, offset, orderBy. (optional)
 
@@ -228,16 +333,16 @@ Retrieves fields for a portfolio.
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.FieldsApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.FieldsApi(dlxapi.ApiClient(configuration))
 portfolio_id = 'portfolio_id_example' # str | Portfolio id
 expand = 'expand_example' # str | JSON string containing an array expand specifications for fields.  An expand specification must have a path and includes optional properties match, unique, allPossible, limit, offset, orderBy. (optional)
 limit = 56 # int | Pagination limit (optional)
@@ -261,7 +366,7 @@ Name | Type | Description  | Notes
  **expand** | **str**| JSON string containing an array expand specifications for fields.  An expand specification must have a path and includes optional properties match, unique, allPossible, limit, offset, orderBy. | [optional] 
  **limit** | **int**| Pagination limit | [optional] 
  **offset** | **int**| Pagination offset | [optional] 
- **order_by** | **str**| Comma delimited list of order by expressions. Use &#39;-&#39; in front of expression for reverse order. | [optional] 
+ **order_by** | **str**| Comma delimited list of order by expressions. Use &#x27;-&#x27; in front of expression for reverse order. | [optional] 
  **match** | **str**| Semi-colon delimited list of expressions to include in the response only the items in a collections that satisfy the expression(s). All other items should be exluded. | [optional] 
 
 ### Return type
@@ -288,17 +393,17 @@ Set idea form fields for a portfolio.
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.FieldsApi(swagger_client.ApiClient(configuration))
-body = swagger_client.IdeaFormFieldRequest() # IdeaFormFieldRequest | Idea form field request
+api_instance = dlxapi.FieldsApi(dlxapi.ApiClient(configuration))
+body = dlxapi.IdeaFormFieldRequest() # IdeaFormFieldRequest | Idea form field request
 expand = 'expand_example' # str | JSON string containing an array expand specifications for fields.  An expand specification must have a path and includes optional properties match, unique, allPossible, limit, offset, orderBy. (optional)
 
 try:
@@ -332,7 +437,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_field**
-> list[Field] update_field(id, body, expand=expand)
+> list[Field] update_field(body, id, expand=expand)
 
 Updates a field utilizing JSON Patch Operations. If the update logic makes changes to other fields, all updated fields will be returned in the response. 
 
@@ -340,23 +445,23 @@ Updates a field utilizing JSON Patch Operations. If the update logic makes chang
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.FieldsApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.FieldsApi(dlxapi.ApiClient(configuration))
+body = dlxapi.Operations() # Operations | JSON Patch Operations to update field.
 id = 'id_example' # str | Field id
-body = swagger_client.Operations() # Operations | JSON Patch Operations to update field.
 expand = 'expand_example' # str | JSON string containing an array expand specifications for fields.  An expand specification must have a path and includes optional properties match, unique, allPossible, limit, offset, orderBy. (optional)
 
 try:
     # Updates a field utilizing JSON Patch Operations. If the update logic makes changes to other fields, all updated fields will be returned in the response. 
-    api_response = api_instance.update_field(id, body, expand=expand)
+    api_response = api_instance.update_field(body, id, expand=expand)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling FieldsApi->update_field: %s\n" % e)
@@ -366,13 +471,67 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Field id | 
  **body** | [**Operations**](Operations.md)| JSON Patch Operations to update field. | 
+ **id** | **str**| Field id | 
  **expand** | **str**| JSON string containing an array expand specifications for fields.  An expand specification must have a path and includes optional properties match, unique, allPossible, limit, offset, orderBy. | [optional] 
 
 ### Return type
 
 [**list[Field]**](Field.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_field_data_for_fields**
+> list[FieldData] update_field_data_for_fields(body, portfolio_id, expand=expand)
+
+Update field value for fields
+
+### Example
+```python
+from __future__ import print_function
+import time
+import dlxapi
+from dlxapi.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: OAuth2
+configuration = dlxapi.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# create an instance of the API class
+api_instance = dlxapi.FieldsApi(dlxapi.ApiClient(configuration))
+body = [dlxapi.FieldDataPatchItem()] # list[FieldDataPatchItem] | JSON Patch Operations to update multiple field values.
+portfolio_id = 'portfolio_id_example' # str | Portfolio id
+expand = 'expand_example' # str | JSON string containing an array expand specifications for fields.  An expand specification must have a path and includes optional properties match, unique, allPossible, limit, offset, orderBy. (optional)
+
+try:
+    # Update field value for fields
+    api_response = api_instance.update_field_data_for_fields(body, portfolio_id, expand=expand)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling FieldsApi->update_field_data_for_fields: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**list[FieldDataPatchItem]**](FieldDataPatchItem.md)| JSON Patch Operations to update multiple field values. | 
+ **portfolio_id** | **str**| Portfolio id | 
+ **expand** | **str**| JSON string containing an array expand specifications for fields.  An expand specification must have a path and includes optional properties match, unique, allPossible, limit, offset, orderBy. | [optional] 
+
+### Return type
+
+[**list[FieldData]**](FieldData.md)
 
 ### Authorization
 
@@ -394,17 +553,17 @@ Update fields associated with a portfolio.
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.FieldsApi(swagger_client.ApiClient(configuration))
-body = [swagger_client.PatchItem()] # list[PatchItem] | JSON Patch Operations to update multiple fields.
+api_instance = dlxapi.FieldsApi(dlxapi.ApiClient(configuration))
+body = [dlxapi.PatchItem()] # list[PatchItem] | JSON Patch Operations to update multiple fields.
 expand = 'expand_example' # str | JSON string containing an array expand specifications for fields.  An expand specification must have a path and includes optional properties match, unique, allPossible, limit, offset, orderBy. (optional)
 
 try:

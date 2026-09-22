@@ -1,11 +1,10 @@
-# swagger_client.ApiActivityApi
+# dlxapi.ApiActivityApi
 
-All URIs are relative to *http://localhost:9005/v1*
+All URIs are relative to *https://api-gov.decisionlens.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**reset_api_activity_time**](ApiActivityApi.md#reset_api_activity_time) | **POST** /apiActivity/reset | Reset last API Acitivity time
-
 
 # **reset_api_activity_time**
 > reset_api_activity_time()
@@ -16,16 +15,16 @@ Reset last API Acitivity time
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.ApiActivityApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.ApiActivityApi(dlxapi.ApiClient(configuration))
 
 try:
     # Reset last API Acitivity time
@@ -48,7 +47,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

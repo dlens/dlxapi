@@ -1,15 +1,14 @@
-# swagger_client.RegistrationApi
+# dlxapi.RegistrationApi
 
-All URIs are relative to *http://localhost:9005/v1*
+All URIs are relative to *https://api-gov.decisionlens.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**register_portfolio_user**](RegistrationApi.md#register_portfolio_user) | **POST** /registerPortfolioUser | Register Portfolio User
 [**register_user**](RegistrationApi.md#register_user) | **POST** /registerUser | Register User
 
-
 # **register_portfolio_user**
-> PortfolioPlanUser register_portfolio_user(register_user_request)
+> PortfolioPlanUser register_portfolio_user(body)
 
 Register Portfolio User
 
@@ -17,21 +16,21 @@ Register Portfolio User
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.RegistrationApi(swagger_client.ApiClient(configuration))
-register_user_request = swagger_client.RegisterUserRequest() # RegisterUserRequest | Register user request
+api_instance = dlxapi.RegistrationApi(dlxapi.ApiClient(configuration))
+body = dlxapi.RegisterUserRequest() # RegisterUserRequest | Register user request
 
 try:
     # Register Portfolio User
-    api_response = api_instance.register_portfolio_user(register_user_request)
+    api_response = api_instance.register_portfolio_user(body)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling RegistrationApi->register_portfolio_user: %s\n" % e)
@@ -41,7 +40,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **register_user_request** | [**RegisterUserRequest**](RegisterUserRequest.md)| Register user request | 
+ **body** | [**RegisterUserRequest**](RegisterUserRequest.md)| Register user request | 
 
 ### Return type
 
@@ -59,7 +58,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **register_user**
-> User register_user(register_user_request)
+> User register_user(body)
 
 Register User
 
@@ -67,21 +66,21 @@ Register User
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.RegistrationApi(swagger_client.ApiClient(configuration))
-register_user_request = swagger_client.RegisterUserRequest() # RegisterUserRequest | Register user request
+api_instance = dlxapi.RegistrationApi(dlxapi.ApiClient(configuration))
+body = dlxapi.RegisterUserRequest() # RegisterUserRequest | Register user request
 
 try:
     # Register User
-    api_response = api_instance.register_user(register_user_request)
+    api_response = api_instance.register_user(body)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling RegistrationApi->register_user: %s\n" % e)
@@ -91,7 +90,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **register_user_request** | [**RegisterUserRequest**](RegisterUserRequest.md)| Register user request | 
+ **body** | [**RegisterUserRequest**](RegisterUserRequest.md)| Register user request | 
 
 ### Return type
 

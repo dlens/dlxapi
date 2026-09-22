@@ -1,11 +1,10 @@
-# swagger_client.InfoApi
+# dlxapi.InfoApi
 
-All URIs are relative to *http://localhost:9005/v1*
+All URIs are relative to *https://api-gov.decisionlens.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**get_info**](InfoApi.md#get_info) | **GET** /info | Get service build information
-
 
 # **get_info**
 > ServiceInfoDetails get_info()
@@ -16,16 +15,16 @@ Get service build information
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.InfoApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.InfoApi(dlxapi.ApiClient(configuration))
 
 try:
     # Get service build information

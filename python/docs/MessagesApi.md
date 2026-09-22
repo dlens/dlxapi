@@ -1,14 +1,13 @@
-# swagger_client.MessagesApi
+# dlxapi.MessagesApi
 
-All URIs are relative to *http://localhost:9005/v1*
+All URIs are relative to *https://api-gov.decisionlens.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**send_messages**](MessagesApi.md#send_messages) | **POST** /messages | Send Message(s)
 
-
 # **send_messages**
-> send_messages(messages)
+> send_messages(body)
 
 Send Message(s)
 
@@ -16,21 +15,21 @@ Send Message(s)
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.MessagesApi(swagger_client.ApiClient(configuration))
-messages = [swagger_client.Message()] # list[Message] | 
+api_instance = dlxapi.MessagesApi(dlxapi.ApiClient(configuration))
+body = [dlxapi.Message()] # list[Message] | 
 
 try:
     # Send Message(s)
-    api_instance.send_messages(messages)
+    api_instance.send_messages(body)
 except ApiException as e:
     print("Exception when calling MessagesApi->send_messages: %s\n" % e)
 ```
@@ -39,7 +38,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **messages** | [**list[Message]**](Message.md)|  | 
+ **body** | [**list[Message]**](Message.md)|  | 
 
 ### Return type
 

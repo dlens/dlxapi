@@ -10,7 +10,8 @@ Name | Type | Description | Notes
 **expected_allocation** | **float** |  | [optional] 
 **project_count** | **int** |  | [optional] 
 **project_ids** | **list[str]** |  | [optional] 
+**min_value** | **float** |  | [optional] 
+**max_value** | **float** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
 

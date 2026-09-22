@@ -1,15 +1,65 @@
-# swagger_client.AttachmentsApi
+# dlxapi.AttachmentsApi
 
-All URIs are relative to *http://localhost:9005/v1*
+All URIs are relative to *https://api-gov.decisionlens.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**copy_attachments**](AttachmentsApi.md#copy_attachments) | **POST** /attachments/copyAttachments | Copies attachments to a list of portfolio ids
 [**create_attachment**](AttachmentsApi.md#create_attachment) | **POST** /attachments | Creates a new attachment from a file upload
 [**download_attachment**](AttachmentsApi.md#download_attachment) | **GET** /attachments/{id}/download | Downloads the file content of an Attachment
 [**get_attachment**](AttachmentsApi.md#get_attachment) | **GET** /attachments/{id} | Get Attachment by id
 [**get_attachments**](AttachmentsApi.md#get_attachments) | **GET** /attachments | Get Attachment by portfolio id
 [**update_attachment**](AttachmentsApi.md#update_attachment) | **PATCH** /attachments/{id} | Update a single attachment
 
+# **copy_attachments**
+> CopyAttachmentsResponse copy_attachments(body)
+
+Copies attachments to a list of portfolio ids
+
+### Example
+```python
+from __future__ import print_function
+import time
+import dlxapi
+from dlxapi.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: OAuth2
+configuration = dlxapi.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# create an instance of the API class
+api_instance = dlxapi.AttachmentsApi(dlxapi.ApiClient(configuration))
+body = dlxapi.CopyAttachmentsRequest() # CopyAttachmentsRequest | Copy Attachments Request
+
+try:
+    # Copies attachments to a list of portfolio ids
+    api_response = api_instance.copy_attachments(body)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling AttachmentsApi->copy_attachments: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**CopyAttachmentsRequest**](CopyAttachmentsRequest.md)| Copy Attachments Request | 
+
+### Return type
+
+[**CopyAttachmentsResponse**](CopyAttachmentsResponse.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_attachment**
 > Attachment create_attachment(file, portfolio_id)
@@ -20,17 +70,17 @@ Creates a new attachment from a file upload
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.AttachmentsApi(swagger_client.ApiClient(configuration))
-file = '/path/to/file.txt' # file | File to be uploaded
+api_instance = dlxapi.AttachmentsApi(dlxapi.ApiClient(configuration))
+file = 'file_example' # str | 
 portfolio_id = 'portfolio_id_example' # str | the portfolio id that the attachment belongs to
 
 try:
@@ -45,7 +95,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **file** | **file**| File to be uploaded | 
+ **file** | **str**|  | 
  **portfolio_id** | **str**| the portfolio id that the attachment belongs to | 
 
 ### Return type
@@ -72,16 +122,16 @@ Downloads the file content of an Attachment
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.AttachmentsApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.AttachmentsApi(dlxapi.ApiClient(configuration))
 id = 'id_example' # str | Attachment id
 
 try:
@@ -122,16 +172,16 @@ Get Attachment by id
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.AttachmentsApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.AttachmentsApi(dlxapi.ApiClient(configuration))
 id = 'id_example' # str | Attachment id
 
 try:
@@ -164,7 +214,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_attachments**
-> Attachments get_attachments(portfolio_id, offset=offset, limit=limit, order_by=order_by, match=match)
+> Attachments get_attachments(portfolio_id=portfolio_id, attachment_ids=attachment_ids, offset=offset, limit=limit, order_by=order_by, match=match)
 
 Get Attachment by portfolio id
 
@@ -172,17 +222,18 @@ Get Attachment by portfolio id
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.AttachmentsApi(swagger_client.ApiClient(configuration))
-portfolio_id = 'portfolio_id_example' # str | Portfolio id
+api_instance = dlxapi.AttachmentsApi(dlxapi.ApiClient(configuration))
+portfolio_id = 'portfolio_id_example' # str | Portfolio id (optional)
+attachment_ids = ['attachment_ids_example'] # list[str] | List of attachment ids (optional)
 offset = 56 # int | Pagination offset (optional)
 limit = 56 # int | Pagination limit (optional)
 order_by = 'order_by_example' # str | Comma delimited list of order by expressions. Use '-' in front of expression for reverse order. (optional)
@@ -190,7 +241,7 @@ match = 'match_example' # str | Semi-colon delimited list of expressions to incl
 
 try:
     # Get Attachment by portfolio id
-    api_response = api_instance.get_attachments(portfolio_id, offset=offset, limit=limit, order_by=order_by, match=match)
+    api_response = api_instance.get_attachments(portfolio_id=portfolio_id, attachment_ids=attachment_ids, offset=offset, limit=limit, order_by=order_by, match=match)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling AttachmentsApi->get_attachments: %s\n" % e)
@@ -200,10 +251,11 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **portfolio_id** | **str**| Portfolio id | 
+ **portfolio_id** | **str**| Portfolio id | [optional] 
+ **attachment_ids** | [**list[str]**](str.md)| List of attachment ids | [optional] 
  **offset** | **int**| Pagination offset | [optional] 
  **limit** | **int**| Pagination limit | [optional] 
- **order_by** | **str**| Comma delimited list of order by expressions. Use &#39;-&#39; in front of expression for reverse order. | [optional] 
+ **order_by** | **str**| Comma delimited list of order by expressions. Use &#x27;-&#x27; in front of expression for reverse order. | [optional] 
  **match** | **str**| Semi-colon delimited list of expressions to include in the response only the items in a collections that satisfy the expression(s). All other items should be exluded. | [optional] 
 
 ### Return type
@@ -222,7 +274,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_attachment**
-> Attachment update_attachment(id, body)
+> Attachment update_attachment(body, id)
 
 Update a single attachment
 
@@ -230,22 +282,22 @@ Update a single attachment
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import dlxapi
+from dlxapi.rest import ApiException
 from pprint import pprint
 
 # Configure OAuth2 access token for authorization: OAuth2
-configuration = swagger_client.Configuration()
+configuration = dlxapi.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
-api_instance = swagger_client.AttachmentsApi(swagger_client.ApiClient(configuration))
+api_instance = dlxapi.AttachmentsApi(dlxapi.ApiClient(configuration))
+body = dlxapi.Operations() # Operations | JSON Patch operations to update value field.
 id = 'id_example' # str | Attachment ID
-body = swagger_client.Operations() # Operations | JSON Patch operations to update value field.
 
 try:
     # Update a single attachment
-    api_response = api_instance.update_attachment(id, body)
+    api_response = api_instance.update_attachment(body, id)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling AttachmentsApi->update_attachment: %s\n" % e)
@@ -255,8 +307,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Attachment ID | 
  **body** | [**Operations**](Operations.md)| JSON Patch operations to update value field. | 
+ **id** | **str**| Attachment ID | 
 
 ### Return type
 

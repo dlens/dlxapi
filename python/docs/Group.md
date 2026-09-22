@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **auth_url** | **str** |  | [optional] 
 **logout_url** | **str** |  | [optional] 
 **users** | [**Users**](Users.md) |  | [optional] 
+**roles** | **list[str]** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
 

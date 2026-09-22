@@ -11,7 +11,8 @@ Name | Type | Description | Notes
 **contributing_user_ids** | **list[str]** |  | [optional] 
 **is_draft** | **bool** |  | [optional] 
 **rank** | **int** |  | [optional] 
+**source_project_id** | **str** |  | [optional] 
+**project_changes** | [**ProjectChanges**](ProjectChanges.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
 
