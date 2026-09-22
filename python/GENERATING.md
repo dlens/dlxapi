@@ -33,3 +33,15 @@ dependency used by the token helper. Keep the README installation URL's
 Validate imports of every API/model module in both namespaces, inherited model
 fields (including `Spreadsheet.id`), request construction, response decoding,
 and wheel installation before publishing.
+
+## Publishing the prebuilt wheel
+
+After regeneration and validation, build from this `python` directory:
+
+```sh
+python -m pip wheel --no-deps --wheel-dir dist .
+```
+
+Commit `dist/swagger_client-1.0.0-py3-none-any.whl` with the generated source
+updates. Rebuild it whenever the Python package changes. The wheel currently
+contains the source from commit `4c13ca4b0a49c5417f7a63a58250decaa3f606f9`.
