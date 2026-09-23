@@ -354,7 +354,9 @@ class FieldValue(object):
 
     def get_real_child_model(self, data):
         """Returns the real base class specified by the discriminator"""
-        discriminator_value = data[self.discriminator].lower()
+        discriminator_value = data.get(self.discriminator)
+        if not isinstance(discriminator_value, six.string_types):
+            return None
         return self.discriminator_value_class_map.get(discriminator_value)
 
     def to_dict(self):
