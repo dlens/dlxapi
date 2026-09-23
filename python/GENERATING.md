@@ -2,22 +2,22 @@
 
 This refresh uses Swagger Codegen CLI **3.0.43** and the `dlx-server` **prod**
 API specification at commit `90ea8d4f40d168e35ac6eb5bc046078c7e16b800`.
-The merged specification SHA-256 is `bc1215192f8d714e481f55975b37dac18af4d92bf3da790e8a38015e3529b388`.
-
-Build the specification from `api-spec/src/main/resources` by concatenating the
-`swagger/*` arguments of `exec-maven-plugin` in `api-event/pom.xml`, in order.
-This follows `MergeSwagger` without relying on an older consolidated artifact.
+Use **`api-client/src/main/resources/swagger/swagger.yaml`** from that checkout
+as the generation input. Its SHA-256 is `708830b82f4daef0100b8c2b34ac40b0d5d8c31088fc5a8a861f90bf98c89475`.
+Do not use `swagger-processed.yaml` or concatenate the source fragments for
+Python client generation. Copy `swagger.yaml` into this directory before running
+the commands below, or pass its full path with `-i`.
 
 Generate into two empty temporary directories:
 
 ```sh
 java -jar swagger-codegen-cli-3.0.43.jar generate \
-  -l python -t codegen-templates -i swagger-processed.yaml -o generated-dlxapi \
-  --additional-properties packageName=dlxapi,projectName=swagger-client,packageVersion=1.0.1,packageUrl=https://github.com/dlens/dlxapi \
+  -l python -t codegen-templates -i swagger.yaml -o generated-dlxapi \
+  --additional-properties packageName=dlxapi,projectName=swagger-client,packageVersion=1.0.2,packageUrl=https://github.com/dlens/dlxapi \
   --git-user-id dlens --git-repo-id dlxapi
 java -jar swagger-codegen-cli-3.0.43.jar generate \
-  -l python -t codegen-templates -i swagger-processed.yaml -o generated-swagger-client \
-  --additional-properties packageName=swagger_client,projectName=swagger-client,packageVersion=1.0.1,packageUrl=https://github.com/dlens/dlxapi \
+  -l python -t codegen-templates -i swagger.yaml -o generated-swagger-client \
+  --additional-properties packageName=swagger_client,projectName=swagger-client,packageVersion=1.0.2,packageUrl=https://github.com/dlens/dlxapi \
   --git-user-id dlens --git-repo-id dlxapi
 ```
 
@@ -42,8 +42,8 @@ After regeneration and validation, build from this `python` directory:
 python -m pip wheel --no-deps --wheel-dir dist .
 ```
 
-Commit `dist/swagger_client-1.0.1-py3-none-any.whl` with the generated source
-updates. Rebuild it whenever the Python package changes. The 1.0.1 wheel includes the custom discriminator template below.
+Commit `dist/swagger_client-1.0.2-py3-none-any.whl` with the generated source
+updates. Rebuild it whenever the Python package changes. The 1.0.2 wheel includes the custom discriminator template below.
 
 ## Python discriminator template
 
