@@ -37,12 +37,13 @@ class DraftProjectsSubmittedMessagePayload(object):
         'attachments': 'attachments'
     }
 
-    def __init__(self, projects=None, attachments=None):  # noqa: E501
+    def __init__(self, projects=None, attachments=None, _check_required=True):  # noqa: E501
         """DraftProjectsSubmittedMessagePayload - a model defined in Swagger"""  # noqa: E501
         self._projects = None
         self._attachments = None
         self.discriminator = None
-        self.projects = projects
+        if _check_required or projects is not None:
+            self.projects = projects
         if attachments is not None:
             self.attachments = attachments
 

@@ -47,7 +47,7 @@ class UploadResultSheet(object):
         'message': 'message'
     }
 
-    def __init__(self, success=None, table_name=None, row_count=None, column_count=None, table_display_name=None, source_type=None, message=None):  # noqa: E501
+    def __init__(self, success=None, table_name=None, row_count=None, column_count=None, table_display_name=None, source_type=None, message=None, _check_required=True):  # noqa: E501
         """UploadResultSheet - a model defined in Swagger"""  # noqa: E501
         self._success = None
         self._table_name = None
@@ -57,14 +57,20 @@ class UploadResultSheet(object):
         self._source_type = None
         self._message = None
         self.discriminator = None
-        self.success = success
-        self.table_name = table_name
-        self.row_count = row_count
-        self.column_count = column_count
-        self.table_display_name = table_display_name
+        if _check_required or success is not None:
+            self.success = success
+        if _check_required or table_name is not None:
+            self.table_name = table_name
+        if _check_required or row_count is not None:
+            self.row_count = row_count
+        if _check_required or column_count is not None:
+            self.column_count = column_count
+        if _check_required or table_display_name is not None:
+            self.table_display_name = table_display_name
         if source_type is not None:
             self.source_type = source_type
-        self.message = message
+        if _check_required or message is not None:
+            self.message = message
 
     @property
     def success(self):

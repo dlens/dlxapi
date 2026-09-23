@@ -37,7 +37,7 @@ class SchemaRequest(object):
         'name': 'name'
     }
 
-    def __init__(self, service=None, name=None):  # noqa: E501
+    def __init__(self, service=None, name=None, _check_required=True):  # noqa: E501
         """SchemaRequest - a model defined in Swagger"""  # noqa: E501
         self._service = None
         self._name = None

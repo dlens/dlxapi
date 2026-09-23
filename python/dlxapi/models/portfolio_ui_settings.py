@@ -37,7 +37,7 @@ class PortfolioUiSettings(object):
         'ui_settings': 'uiSettings'
     }
 
-    def __init__(self, portfolio_id=None, ui_settings=None):  # noqa: E501
+    def __init__(self, portfolio_id=None, ui_settings=None, _check_required=True):  # noqa: E501
         """PortfolioUiSettings - a model defined in Swagger"""  # noqa: E501
         self._portfolio_id = None
         self._ui_settings = None

@@ -41,7 +41,7 @@ class PortfolioMessagesCreatedEvent(object):
         'messages': 'messages'
     }
 
-    def __init__(self, id=None, portfolio_id=None, name=None, messages=None):  # noqa: E501
+    def __init__(self, id=None, portfolio_id=None, name=None, messages=None, _check_required=True):  # noqa: E501
         """PortfolioMessagesCreatedEvent - a model defined in Swagger"""  # noqa: E501
         self._id = None
         self._portfolio_id = None

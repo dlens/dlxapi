@@ -39,7 +39,7 @@ class CostTypeAttributes(object):
         'cell_colors': 'cellColors'
     }
 
-    def __init__(self, operator=None, operands=None, cell_colors=None):  # noqa: E501
+    def __init__(self, operator=None, operands=None, cell_colors=None, _check_required=True):  # noqa: E501
         """CostTypeAttributes - a model defined in Swagger"""  # noqa: E501
         self._operator = None
         self._operands = None

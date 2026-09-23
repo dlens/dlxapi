@@ -35,11 +35,12 @@ class CustomNamesUpdatedMessagePayload(object):
         'custom_names': 'customNames'
     }
 
-    def __init__(self, custom_names=None):  # noqa: E501
+    def __init__(self, custom_names=None, _check_required=True):  # noqa: E501
         """CustomNamesUpdatedMessagePayload - a model defined in Swagger"""  # noqa: E501
         self._custom_names = None
         self.discriminator = None
-        self.custom_names = custom_names
+        if _check_required or custom_names is not None:
+            self.custom_names = custom_names
 
     @property
     def custom_names(self):

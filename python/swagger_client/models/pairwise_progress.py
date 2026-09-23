@@ -41,7 +41,7 @@ class PairwiseProgress(object):
         'last_updated_at': 'lastUpdatedAt'
     }
 
-    def __init__(self, total=None, completed=None, pairwise_votes=None, last_updated_at=None):  # noqa: E501
+    def __init__(self, total=None, completed=None, pairwise_votes=None, last_updated_at=None, _check_required=True):  # noqa: E501
         """PairwiseProgress - a model defined in Swagger"""  # noqa: E501
         self._total = None
         self._completed = None

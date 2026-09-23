@@ -47,7 +47,7 @@ class PortfolioPlanUserCreatedV2Event(object):
         'portfolio_plan': 'portfolioPlan'
     }
 
-    def __init__(self, portfolio_plan_user_role_list=None, portfolio_id=None, permissions=None, id=None, contributing_project_ids=None, user=None, portfolio_plan=None):  # noqa: E501
+    def __init__(self, portfolio_plan_user_role_list=None, portfolio_id=None, permissions=None, id=None, contributing_project_ids=None, user=None, portfolio_plan=None, _check_required=True):  # noqa: E501
         """PortfolioPlanUserCreatedV2Event - a model defined in Swagger"""  # noqa: E501
         self._portfolio_plan_user_role_list = None
         self._portfolio_id = None

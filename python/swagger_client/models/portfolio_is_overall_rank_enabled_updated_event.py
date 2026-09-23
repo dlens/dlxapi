@@ -45,7 +45,7 @@ class PortfolioIsOverallRankEnabledUpdatedEvent(object):
         'portfolio_plan': 'portfolioPlan'
     }
 
-    def __init__(self, is_overall_rank_enabled=None, portfolio_id=None, previous_is_overall_rank_enabled=None, name=None, id=None, portfolio_plan=None):  # noqa: E501
+    def __init__(self, is_overall_rank_enabled=None, portfolio_id=None, previous_is_overall_rank_enabled=None, name=None, id=None, portfolio_plan=None, _check_required=True):  # noqa: E501
         """PortfolioIsOverallRankEnabledUpdatedEvent - a model defined in Swagger"""  # noqa: E501
         self._is_overall_rank_enabled = None
         self._portfolio_id = None

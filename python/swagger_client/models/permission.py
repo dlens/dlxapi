@@ -51,7 +51,7 @@ class Permission(object):
         'enabled': 'enabled'
     }
 
-    def __init__(self, type=None, field_ids=None, project_ids=None, view_project_ids=None, category_option_ids=None, view_category_option_ids=None, cost_type_ids=None, view_cost_type_ids=None, enabled=None):  # noqa: E501
+    def __init__(self, type=None, field_ids=None, project_ids=None, view_project_ids=None, category_option_ids=None, view_category_option_ids=None, cost_type_ids=None, view_cost_type_ids=None, enabled=None, _check_required=True):  # noqa: E501
         """Permission - a model defined in Swagger"""  # noqa: E501
         self._type = None
         self._field_ids = None
@@ -63,7 +63,8 @@ class Permission(object):
         self._view_cost_type_ids = None
         self._enabled = None
         self.discriminator = None
-        self.type = type
+        if _check_required or type is not None:
+            self.type = type
         if field_ids is not None:
             self.field_ids = field_ids
         if project_ids is not None:

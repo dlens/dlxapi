@@ -43,7 +43,7 @@ class PortfolioPlanDataFieldValuesSyncedEvent(object):
         'portfolio_plan': 'portfolioPlan'
     }
 
-    def __init__(self, id=None, portfolio_id=None, source_portfolio=None, updated_projects_size=None, portfolio_plan=None):  # noqa: E501
+    def __init__(self, id=None, portfolio_id=None, source_portfolio=None, updated_projects_size=None, portfolio_plan=None, _check_required=True):  # noqa: E501
         """PortfolioPlanDataFieldValuesSyncedEvent - a model defined in Swagger"""  # noqa: E501
         self._id = None
         self._portfolio_id = None

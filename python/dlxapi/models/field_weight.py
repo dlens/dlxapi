@@ -41,7 +41,7 @@ class FieldWeight(object):
         'is_locked': 'isLocked'
     }
 
-    def __init__(self, field_id=None, value=None, global_value=None, is_locked=None):  # noqa: E501
+    def __init__(self, field_id=None, value=None, global_value=None, is_locked=None, _check_required=True):  # noqa: E501
         """FieldWeight - a model defined in Swagger"""  # noqa: E501
         self._field_id = None
         self._value = None

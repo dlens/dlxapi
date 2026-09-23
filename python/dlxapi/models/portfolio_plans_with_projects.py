@@ -37,7 +37,7 @@ class PortfolioPlansWithProjects(object):
         'projects': 'projects'
     }
 
-    def __init__(self, id=None, projects=None):  # noqa: E501
+    def __init__(self, id=None, projects=None, _check_required=True):  # noqa: E501
         """PortfolioPlansWithProjects - a model defined in Swagger"""  # noqa: E501
         self._id = None
         self._projects = None

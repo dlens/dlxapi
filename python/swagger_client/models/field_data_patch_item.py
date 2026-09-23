@@ -39,7 +39,7 @@ class FieldDataPatchItem(object):
         'operations': 'operations'
     }
 
-    def __init__(self, field_id=None, source_field_id=None, operations=None):  # noqa: E501
+    def __init__(self, field_id=None, source_field_id=None, operations=None, _check_required=True):  # noqa: E501
         """FieldDataPatchItem - a model defined in Swagger"""  # noqa: E501
         self._field_id = None
         self._source_field_id = None

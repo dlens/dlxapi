@@ -41,15 +41,17 @@ class Header(object):
         'last_name': 'lastName'
     }
 
-    def __init__(self, destination=None, username=None, first_name=None, last_name=None):  # noqa: E501
+    def __init__(self, destination=None, username=None, first_name=None, last_name=None, _check_required=True):  # noqa: E501
         """Header - a model defined in Swagger"""  # noqa: E501
         self._destination = None
         self._username = None
         self._first_name = None
         self._last_name = None
         self.discriminator = None
-        self.destination = destination
-        self.username = username
+        if _check_required or destination is not None:
+            self.destination = destination
+        if _check_required or username is not None:
+            self.username = username
         if first_name is not None:
             self.first_name = first_name
         if last_name is not None:

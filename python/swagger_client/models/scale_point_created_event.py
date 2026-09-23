@@ -57,7 +57,7 @@ class ScalePointCreatedEvent(object):
         'auto_value': 'autoValue'
     }
 
-    def __init__(self, portfolio_id=None, field=None, auto_scale_value=None, name=None, manual_scale_value=None, project=None, id=None, position=None, category=None, manual_value=None, portfolio_plan=None, auto_value=None):  # noqa: E501
+    def __init__(self, portfolio_id=None, field=None, auto_scale_value=None, name=None, manual_scale_value=None, project=None, id=None, position=None, category=None, manual_value=None, portfolio_plan=None, auto_value=None, _check_required=True):  # noqa: E501
         """ScalePointCreatedEvent - a model defined in Swagger"""  # noqa: E501
         self._portfolio_id = None
         self._field = None

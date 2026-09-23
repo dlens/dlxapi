@@ -41,16 +41,19 @@ class ConnectorSyncTableResult(object):
         'message': 'message'
     }
 
-    def __init__(self, connection_id=None, table_name=None, status=None, message=None):  # noqa: E501
+    def __init__(self, connection_id=None, table_name=None, status=None, message=None, _check_required=True):  # noqa: E501
         """ConnectorSyncTableResult - a model defined in Swagger"""  # noqa: E501
         self._connection_id = None
         self._table_name = None
         self._status = None
         self._message = None
         self.discriminator = None
-        self.connection_id = connection_id
-        self.table_name = table_name
-        self.status = status
+        if _check_required or connection_id is not None:
+            self.connection_id = connection_id
+        if _check_required or table_name is not None:
+            self.table_name = table_name
+        if _check_required or status is not None:
+            self.status = status
         if message is not None:
             self.message = message
 

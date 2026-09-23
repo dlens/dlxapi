@@ -37,7 +37,7 @@ class TaskProgress(object):
         'total': 'total'
     }
 
-    def __init__(self, completed=None, total=None):  # noqa: E501
+    def __init__(self, completed=None, total=None, _check_required=True):  # noqa: E501
         """TaskProgress - a model defined in Swagger"""  # noqa: E501
         self._completed = None
         self._total = None

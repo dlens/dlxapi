@@ -39,7 +39,7 @@ class PortfolioHealthReport(object):
         'orphaned_data': 'orphanedData'
     }
 
-    def __init__(self, portfolio_id=None, data=None, orphaned_data=None):  # noqa: E501
+    def __init__(self, portfolio_id=None, data=None, orphaned_data=None, _check_required=True):  # noqa: E501
         """PortfolioHealthReport - a model defined in Swagger"""  # noqa: E501
         self._portfolio_id = None
         self._data = None

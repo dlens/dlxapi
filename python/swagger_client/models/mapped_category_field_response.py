@@ -41,17 +41,21 @@ class MappedCategoryFieldResponse(object):
         'category_options': 'categoryOptions'
     }
 
-    def __init__(self, field_name=None, hub_field_id=None, spoke_field_ids=None, category_options=None):  # noqa: E501
+    def __init__(self, field_name=None, hub_field_id=None, spoke_field_ids=None, category_options=None, _check_required=True):  # noqa: E501
         """MappedCategoryFieldResponse - a model defined in Swagger"""  # noqa: E501
         self._field_name = None
         self._hub_field_id = None
         self._spoke_field_ids = None
         self._category_options = None
         self.discriminator = None
-        self.field_name = field_name
-        self.hub_field_id = hub_field_id
-        self.spoke_field_ids = spoke_field_ids
-        self.category_options = category_options
+        if _check_required or field_name is not None:
+            self.field_name = field_name
+        if _check_required or hub_field_id is not None:
+            self.hub_field_id = hub_field_id
+        if _check_required or spoke_field_ids is not None:
+            self.spoke_field_ids = spoke_field_ids
+        if _check_required or category_options is not None:
+            self.category_options = category_options
 
     @property
     def field_name(self):

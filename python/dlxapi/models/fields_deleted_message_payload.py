@@ -37,14 +37,15 @@ class FieldsDeletedMessagePayload(object):
         'fields': 'fields'
     }
 
-    def __init__(self, portfolio_id=None, fields=None):  # noqa: E501
+    def __init__(self, portfolio_id=None, fields=None, _check_required=True):  # noqa: E501
         """FieldsDeletedMessagePayload - a model defined in Swagger"""  # noqa: E501
         self._portfolio_id = None
         self._fields = None
         self.discriminator = None
         if portfolio_id is not None:
             self.portfolio_id = portfolio_id
-        self.fields = fields
+        if _check_required or fields is not None:
+            self.fields = fields
 
     @property
     def portfolio_id(self):

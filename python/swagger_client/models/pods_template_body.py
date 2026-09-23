@@ -37,13 +37,15 @@ class PodsTemplateBody(object):
         'template_name': 'templateName'
     }
 
-    def __init__(self, pod_file=None, template_name=None):  # noqa: E501
+    def __init__(self, pod_file=None, template_name=None, _check_required=True):  # noqa: E501
         """PodsTemplateBody - a model defined in Swagger"""  # noqa: E501
         self._pod_file = None
         self._template_name = None
         self.discriminator = None
-        self.pod_file = pod_file
-        self.template_name = template_name
+        if _check_required or pod_file is not None:
+            self.pod_file = pod_file
+        if _check_required or template_name is not None:
+            self.template_name = template_name
 
     @property
     def pod_file(self):

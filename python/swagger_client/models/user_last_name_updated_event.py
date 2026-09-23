@@ -43,7 +43,7 @@ class UserLastNameUpdatedEvent(object):
         'last_name': 'lastName'
     }
 
-    def __init__(self, id=None, username=None, email=None, previous_last_name=None, last_name=None):  # noqa: E501
+    def __init__(self, id=None, username=None, email=None, previous_last_name=None, last_name=None, _check_required=True):  # noqa: E501
         """UserLastNameUpdatedEvent - a model defined in Swagger"""  # noqa: E501
         self._id = None
         self._username = None

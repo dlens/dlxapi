@@ -39,15 +39,18 @@ class TablesListResponse(object):
         'total_count': 'totalCount'
     }
 
-    def __init__(self, success=None, tables=None, total_count=None):  # noqa: E501
+    def __init__(self, success=None, tables=None, total_count=None, _check_required=True):  # noqa: E501
         """TablesListResponse - a model defined in Swagger"""  # noqa: E501
         self._success = None
         self._tables = None
         self._total_count = None
         self.discriminator = None
-        self.success = success
-        self.tables = tables
-        self.total_count = total_count
+        if _check_required or success is not None:
+            self.success = success
+        if _check_required or tables is not None:
+            self.tables = tables
+        if _check_required or total_count is not None:
+            self.total_count = total_count
 
     @property
     def success(self):

@@ -37,7 +37,7 @@ class Warnings(object):
         'messages': 'messages'
     }
 
-    def __init__(self, size=None, messages=None):  # noqa: E501
+    def __init__(self, size=None, messages=None, _check_required=True):  # noqa: E501
         """Warnings - a model defined in Swagger"""  # noqa: E501
         self._size = None
         self._messages = None

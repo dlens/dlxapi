@@ -39,16 +39,18 @@ class CreateTableGroupRequest(object):
         'mappings': 'mappings'
     }
 
-    def __init__(self, name=None, description=None, mappings=None):  # noqa: E501
+    def __init__(self, name=None, description=None, mappings=None, _check_required=True):  # noqa: E501
         """CreateTableGroupRequest - a model defined in Swagger"""  # noqa: E501
         self._name = None
         self._description = None
         self._mappings = None
         self.discriminator = None
-        self.name = name
+        if _check_required or name is not None:
+            self.name = name
         if description is not None:
             self.description = description
-        self.mappings = mappings
+        if _check_required or mappings is not None:
+            self.mappings = mappings
 
     @property
     def name(self):

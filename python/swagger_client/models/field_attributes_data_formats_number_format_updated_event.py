@@ -45,7 +45,7 @@ class FieldAttributesDataFormatsNumberFormatUpdatedEvent(object):
         'portfolio_plan': 'portfolioPlan'
     }
 
-    def __init__(self, previous_number_format=None, portfolio_id=None, number_format=None, name=None, id=None, portfolio_plan=None):  # noqa: E501
+    def __init__(self, previous_number_format=None, portfolio_id=None, number_format=None, name=None, id=None, portfolio_plan=None, _check_required=True):  # noqa: E501
         """FieldAttributesDataFormatsNumberFormatUpdatedEvent - a model defined in Swagger"""  # noqa: E501
         self._previous_number_format = None
         self._portfolio_id = None

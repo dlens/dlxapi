@@ -57,7 +57,7 @@ class Connection(object):
         'updated_at': 'updatedAt'
     }
 
-    def __init__(self, id=None, connector_id=None, app_id=None, parameter_values=None, sink=None, source_label=None, last_refreshed_at=None, last_refresh_status=None, last_refresh_message=None, table=None, created_at=None, updated_at=None):  # noqa: E501
+    def __init__(self, id=None, connector_id=None, app_id=None, parameter_values=None, sink=None, source_label=None, last_refreshed_at=None, last_refresh_status=None, last_refresh_message=None, table=None, created_at=None, updated_at=None, _check_required=True):  # noqa: E501
         """Connection - a model defined in Swagger"""  # noqa: E501
         self._id = None
         self._connector_id = None
@@ -76,8 +76,10 @@ class Connection(object):
             self.id = id
         if connector_id is not None:
             self.connector_id = connector_id
-        self.app_id = app_id
-        self.parameter_values = parameter_values
+        if _check_required or app_id is not None:
+            self.app_id = app_id
+        if _check_required or parameter_values is not None:
+            self.parameter_values = parameter_values
         if sink is not None:
             self.sink = sink
         if source_label is not None:

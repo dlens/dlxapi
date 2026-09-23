@@ -37,14 +37,15 @@ class FieldDataUpdatedMessagePayload(object):
         'field_datas': 'fieldDatas'
     }
 
-    def __init__(self, portfolio_id=None, field_datas=None):  # noqa: E501
+    def __init__(self, portfolio_id=None, field_datas=None, _check_required=True):  # noqa: E501
         """FieldDataUpdatedMessagePayload - a model defined in Swagger"""  # noqa: E501
         self._portfolio_id = None
         self._field_datas = None
         self.discriminator = None
         if portfolio_id is not None:
             self.portfolio_id = portfolio_id
-        self.field_datas = field_datas
+        if _check_required or field_datas is not None:
+            self.field_datas = field_datas
 
     @property
     def portfolio_id(self):

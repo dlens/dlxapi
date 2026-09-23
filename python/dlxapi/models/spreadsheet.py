@@ -42,7 +42,7 @@ class Spreadsheet(DlResource):
     if hasattr(DlResource, "attribute_map"):
         attribute_map.update(DlResource.attribute_map)
 
-    def __init__(self, name=None, sheets=None, *args, **kwargs):  # noqa: E501
+    def __init__(self, name=None, sheets=None, _check_required=True, *args, **kwargs):  # noqa: E501
         """Spreadsheet - a model defined in Swagger"""  # noqa: E501
         self._name = None
         self._sheets = None
@@ -51,7 +51,7 @@ class Spreadsheet(DlResource):
             self.name = name
         if sheets is not None:
             self.sheets = sheets
-        DlResource.__init__(self, *args, **kwargs)
+        DlResource.__init__(self, *args, _check_required=_check_required, **kwargs)
 
     @property
     def name(self):

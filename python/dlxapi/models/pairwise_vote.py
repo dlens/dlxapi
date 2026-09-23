@@ -41,15 +41,17 @@ class PairwiseVote(object):
         'user_id': 'userId'
     }
 
-    def __init__(self, dominant_field_id=None, recessive_field_id=None, vote=None, user_id=None):  # noqa: E501
+    def __init__(self, dominant_field_id=None, recessive_field_id=None, vote=None, user_id=None, _check_required=True):  # noqa: E501
         """PairwiseVote - a model defined in Swagger"""  # noqa: E501
         self._dominant_field_id = None
         self._recessive_field_id = None
         self._vote = None
         self._user_id = None
         self.discriminator = None
-        self.dominant_field_id = dominant_field_id
-        self.recessive_field_id = recessive_field_id
+        if _check_required or dominant_field_id is not None:
+            self.dominant_field_id = dominant_field_id
+        if _check_required or recessive_field_id is not None:
+            self.recessive_field_id = recessive_field_id
         if vote is not None:
             self.vote = vote
         if user_id is not None:

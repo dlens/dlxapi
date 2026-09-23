@@ -48,7 +48,7 @@ class App(DlResource):
     if hasattr(DlResource, "attribute_map"):
         attribute_map.update(DlResource.attribute_map)
 
-    def __init__(self, name=None, description=None, group_ids=None, is_archived=None, role=None, *args, **kwargs):  # noqa: E501
+    def __init__(self, name=None, description=None, group_ids=None, is_archived=None, role=None, _check_required=True, *args, **kwargs):  # noqa: E501
         """App - a model defined in Swagger"""  # noqa: E501
         self._name = None
         self._description = None
@@ -66,7 +66,7 @@ class App(DlResource):
             self.is_archived = is_archived
         if role is not None:
             self.role = role
-        DlResource.__init__(self, *args, **kwargs)
+        DlResource.__init__(self, *args, _check_required=_check_required, **kwargs)
 
     @property
     def name(self):

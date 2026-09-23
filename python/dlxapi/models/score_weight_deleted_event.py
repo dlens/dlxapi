@@ -43,7 +43,7 @@ class ScoreWeightDeletedEvent(object):
         'portfolio_plan': 'portfolioPlan'
     }
 
-    def __init__(self, is_default=None, portfolio_id=None, name=None, id=None, portfolio_plan=None):  # noqa: E501
+    def __init__(self, is_default=None, portfolio_id=None, name=None, id=None, portfolio_plan=None, _check_required=True):  # noqa: E501
         """ScoreWeightDeletedEvent - a model defined in Swagger"""  # noqa: E501
         self._is_default = None
         self._portfolio_id = None

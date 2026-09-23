@@ -53,7 +53,7 @@ class ReassignCostRequest(object):
         'note': 'note'
     }
 
-    def __init__(self, source_project_ids=None, target_project_ids=None, source_cost_field_id=None, target_cost_field_id=None, apply_to_other_plans=True, time_period=None, request_type=None, amount=None, transfer_type=None, note=None):  # noqa: E501
+    def __init__(self, source_project_ids=None, target_project_ids=None, source_cost_field_id=None, target_cost_field_id=None, apply_to_other_plans=True, time_period=None, request_type=None, amount=None, transfer_type=None, note=None, _check_required=True):  # noqa: E501
         """ReassignCostRequest - a model defined in Swagger"""  # noqa: E501
         self._source_project_ids = None
         self._target_project_ids = None
@@ -66,10 +66,12 @@ class ReassignCostRequest(object):
         self._transfer_type = None
         self._note = None
         self.discriminator = None
-        self.source_project_ids = source_project_ids
+        if _check_required or source_project_ids is not None:
+            self.source_project_ids = source_project_ids
         if target_project_ids is not None:
             self.target_project_ids = target_project_ids
-        self.source_cost_field_id = source_cost_field_id
+        if _check_required or source_cost_field_id is not None:
+            self.source_cost_field_id = source_cost_field_id
         if target_cost_field_id is not None:
             self.target_cost_field_id = target_cost_field_id
         if apply_to_other_plans is not None:

@@ -53,7 +53,7 @@ class FieldDataUpdatedEvent(object):
         'is_from_import': 'isFromImport'
     }
 
-    def __init__(self, source_field=None, portfolio_id=None, field=None, numeric_value=None, id=None, previous_numeric_value=None, value=None, previous_value=None, portfolio_plan=None, is_from_import=None):  # noqa: E501
+    def __init__(self, source_field=None, portfolio_id=None, field=None, numeric_value=None, id=None, previous_numeric_value=None, value=None, previous_value=None, portfolio_plan=None, is_from_import=None, _check_required=True):  # noqa: E501
         """FieldDataUpdatedEvent - a model defined in Swagger"""  # noqa: E501
         self._source_field = None
         self._portfolio_id = None

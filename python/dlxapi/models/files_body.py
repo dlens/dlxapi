@@ -37,12 +37,13 @@ class FilesBody(object):
         'name': 'name'
     }
 
-    def __init__(self, file=None, name=None):  # noqa: E501
+    def __init__(self, file=None, name=None, _check_required=True):  # noqa: E501
         """FilesBody - a model defined in Swagger"""  # noqa: E501
         self._file = None
         self._name = None
         self.discriminator = None
-        self.file = file
+        if _check_required or file is not None:
+            self.file = file
         if name is not None:
             self.name = name
 

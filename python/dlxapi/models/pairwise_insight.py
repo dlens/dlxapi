@@ -55,7 +55,7 @@ class PairwiseInsight(object):
         'cluster': 'cluster'
     }
 
-    def __init__(self, dominant_field_id=None, recessive_field_id=None, dominant_field=None, recessive_field=None, agreement_level=None, agreement_context=None, alignment_context=None, outliers=None, recommended_action=None, outlier=None, cluster=None):  # noqa: E501
+    def __init__(self, dominant_field_id=None, recessive_field_id=None, dominant_field=None, recessive_field=None, agreement_level=None, agreement_context=None, alignment_context=None, outliers=None, recommended_action=None, outlier=None, cluster=None, _check_required=True):  # noqa: E501
         """PairwiseInsight - a model defined in Swagger"""  # noqa: E501
         self._dominant_field_id = None
         self._recessive_field_id = None

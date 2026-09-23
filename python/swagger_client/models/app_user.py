@@ -37,7 +37,7 @@ class AppUser(object):
         'app_role': 'appRole'
     }
 
-    def __init__(self, user=None, app_role=None):  # noqa: E501
+    def __init__(self, user=None, app_role=None, _check_required=True):  # noqa: E501
         """AppUser - a model defined in Swagger"""  # noqa: E501
         self._user = None
         self._app_role = None

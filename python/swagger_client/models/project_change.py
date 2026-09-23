@@ -72,7 +72,7 @@ class ProjectChange(DlResource):
     if hasattr(DlResource, "attribute_map"):
         attribute_map.update(DlResource.attribute_map)
 
-    def __init__(self, portfolio_id=None, project_id=None, approval_id=None, field_id=None, status=None, field_values=None, previous_field_values=None, user_id=None, approver_user_id=None, moved_to_approval_id=None, advanced_to_approval_id=None, advanced_from_project_change_id=None, prior_stage=None, reviewed_at=None, note_event_id=None, note=None, attachment_ids=None, *args, **kwargs):  # noqa: E501
+    def __init__(self, portfolio_id=None, project_id=None, approval_id=None, field_id=None, status=None, field_values=None, previous_field_values=None, user_id=None, approver_user_id=None, moved_to_approval_id=None, advanced_to_approval_id=None, advanced_from_project_change_id=None, prior_stage=None, reviewed_at=None, note_event_id=None, note=None, attachment_ids=None, _check_required=True, *args, **kwargs):  # noqa: E501
         """ProjectChange - a model defined in Swagger"""  # noqa: E501
         self._portfolio_id = None
         self._project_id = None
@@ -126,7 +126,7 @@ class ProjectChange(DlResource):
             self.note = note
         if attachment_ids is not None:
             self.attachment_ids = attachment_ids
-        DlResource.__init__(self, *args, **kwargs)
+        DlResource.__init__(self, *args, _check_required=_check_required, **kwargs)
 
     @property
     def portfolio_id(self):

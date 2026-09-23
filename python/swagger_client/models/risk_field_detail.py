@@ -39,7 +39,7 @@ class RiskFieldDetail(object):
         'allocation': 'allocation'
     }
 
-    def __init__(self, type=None, project_count=0, allocation=0.0):  # noqa: E501
+    def __init__(self, type=None, project_count=0, allocation=0.0, _check_required=True):  # noqa: E501
         """RiskFieldDetail - a model defined in Swagger"""  # noqa: E501
         self._type = None
         self._project_count = None

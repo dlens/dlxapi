@@ -45,7 +45,7 @@ class AxesConfig(object):
         'field_id': 'fieldId'
     }
 
-    def __init__(self, x=None, y=None, group_by=None, time_frame=None, summary_section_type=None, field_id=None):  # noqa: E501
+    def __init__(self, x=None, y=None, group_by=None, time_frame=None, summary_section_type=None, field_id=None, _check_required=True):  # noqa: E501
         """AxesConfig - a model defined in Swagger"""  # noqa: E501
         self._x = None
         self._y = None

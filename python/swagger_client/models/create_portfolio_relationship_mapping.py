@@ -47,7 +47,7 @@ class CreatePortfolioRelationshipMapping(object):
         'source': 'source'
     }
 
-    def __init__(self, name=None, hub_portfolio=None, spoke_portfolios=None, project_ids_to_map=None, mapping_field_name=None, direction=None, source=None):  # noqa: E501
+    def __init__(self, name=None, hub_portfolio=None, spoke_portfolios=None, project_ids_to_map=None, mapping_field_name=None, direction=None, source=None, _check_required=True):  # noqa: E501
         """CreatePortfolioRelationshipMapping - a model defined in Swagger"""  # noqa: E501
         self._name = None
         self._hub_portfolio = None
@@ -57,9 +57,12 @@ class CreatePortfolioRelationshipMapping(object):
         self._direction = None
         self._source = None
         self.discriminator = None
-        self.name = name
-        self.hub_portfolio = hub_portfolio
-        self.spoke_portfolios = spoke_portfolios
+        if _check_required or name is not None:
+            self.name = name
+        if _check_required or hub_portfolio is not None:
+            self.hub_portfolio = hub_portfolio
+        if _check_required or spoke_portfolios is not None:
+            self.spoke_portfolios = spoke_portfolios
         if project_ids_to_map is not None:
             self.project_ids_to_map = project_ids_to_map
         if mapping_field_name is not None:

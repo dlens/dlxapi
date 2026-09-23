@@ -43,7 +43,7 @@ class SurveyProgress(object):
         'pairwise_progress': 'pairwiseProgress'
     }
 
-    def __init__(self, project=None, overall=None, projects_progress=None, comments_count=None, pairwise_progress=None):  # noqa: E501
+    def __init__(self, project=None, overall=None, projects_progress=None, comments_count=None, pairwise_progress=None, _check_required=True):  # noqa: E501
         """SurveyProgress - a model defined in Swagger"""  # noqa: E501
         self._project = None
         self._overall = None

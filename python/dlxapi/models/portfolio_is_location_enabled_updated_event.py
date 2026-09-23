@@ -45,7 +45,7 @@ class PortfolioIsLocationEnabledUpdatedEvent(object):
         'portfolio_plan': 'portfolioPlan'
     }
 
-    def __init__(self, id=None, portfolio_id=None, name=None, is_location_enabled=None, previous_is_location_enabled=None, portfolio_plan=None):  # noqa: E501
+    def __init__(self, id=None, portfolio_id=None, name=None, is_location_enabled=None, previous_is_location_enabled=None, portfolio_plan=None, _check_required=True):  # noqa: E501
         """PortfolioIsLocationEnabledUpdatedEvent - a model defined in Swagger"""  # noqa: E501
         self._id = None
         self._portfolio_id = None

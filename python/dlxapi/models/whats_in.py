@@ -43,7 +43,7 @@ class WhatsIn(object):
         'offset': 'offset'
     }
 
-    def __init__(self, project_summaries=None, portfolio_plans_with_projects=None, max_size=None, max_limit=None, offset=None):  # noqa: E501
+    def __init__(self, project_summaries=None, portfolio_plans_with_projects=None, max_size=None, max_limit=None, offset=None, _check_required=True):  # noqa: E501
         """WhatsIn - a model defined in Swagger"""  # noqa: E501
         self._project_summaries = None
         self._portfolio_plans_with_projects = None

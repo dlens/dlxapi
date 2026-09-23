@@ -45,7 +45,7 @@ class FieldAttributesDataFormatsCurrencyUpdatedEvent(object):
         'previous_currency': 'previousCurrency'
     }
 
-    def __init__(self, portfolio_id=None, name=None, currency=None, id=None, portfolio_plan=None, previous_currency=None):  # noqa: E501
+    def __init__(self, portfolio_id=None, name=None, currency=None, id=None, portfolio_plan=None, previous_currency=None, _check_required=True):  # noqa: E501
         """FieldAttributesDataFormatsCurrencyUpdatedEvent - a model defined in Swagger"""  # noqa: E501
         self._portfolio_id = None
         self._name = None

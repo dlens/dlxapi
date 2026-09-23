@@ -39,15 +39,18 @@ class TableGroupsListResponse(object):
         'total_count': 'totalCount'
     }
 
-    def __init__(self, success=None, groups=None, total_count=None):  # noqa: E501
+    def __init__(self, success=None, groups=None, total_count=None, _check_required=True):  # noqa: E501
         """TableGroupsListResponse - a model defined in Swagger"""  # noqa: E501
         self._success = None
         self._groups = None
         self._total_count = None
         self.discriminator = None
-        self.success = success
-        self.groups = groups
-        self.total_count = total_count
+        if _check_required or success is not None:
+            self.success = success
+        if _check_required or groups is not None:
+            self.groups = groups
+        if _check_required or total_count is not None:
+            self.total_count = total_count
 
     @property
     def success(self):

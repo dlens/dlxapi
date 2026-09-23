@@ -84,7 +84,7 @@ class Portfolio(DlResource):
     if hasattr(DlResource, "attribute_map"):
         attribute_map.update(DlResource.attribute_map)
 
-    def __init__(self, name=None, description=None, is_archived=None, baseline_portfolio_plan_user=None, fields=None, projects=None, portfolio_plans=None, portfolio_plan_users=None, portfolio_owners_size=None, attributes=None, is_combined=None, user_registration_token=None, sub_portfolios=None, combined_portfolios=None, rollup_sub_portfolios=None, rollup_portfolios=None, budgets=None, total_budget=0.0, new_notifications_count=None, custom_names=None, portfolio_state=None, summary_settings=None, contributor_permissions=None, *args, **kwargs):  # noqa: E501
+    def __init__(self, name=None, description=None, is_archived=None, baseline_portfolio_plan_user=None, fields=None, projects=None, portfolio_plans=None, portfolio_plan_users=None, portfolio_owners_size=None, attributes=None, is_combined=None, user_registration_token=None, sub_portfolios=None, combined_portfolios=None, rollup_sub_portfolios=None, rollup_portfolios=None, budgets=None, total_budget=0.0, new_notifications_count=None, custom_names=None, portfolio_state=None, summary_settings=None, contributor_permissions=None, _check_required=True, *args, **kwargs):  # noqa: E501
         """Portfolio - a model defined in Swagger"""  # noqa: E501
         self._name = None
         self._description = None
@@ -156,7 +156,7 @@ class Portfolio(DlResource):
             self.summary_settings = summary_settings
         if contributor_permissions is not None:
             self.contributor_permissions = contributor_permissions
-        DlResource.__init__(self, *args, **kwargs)
+        DlResource.__init__(self, *args, _check_required=_check_required, **kwargs)
 
     @property
     def name(self):

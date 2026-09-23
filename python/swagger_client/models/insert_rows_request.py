@@ -35,11 +35,12 @@ class InsertRowsRequest(object):
         'rows': 'rows'
     }
 
-    def __init__(self, rows=None):  # noqa: E501
+    def __init__(self, rows=None, _check_required=True):  # noqa: E501
         """InsertRowsRequest - a model defined in Swagger"""  # noqa: E501
         self._rows = None
         self.discriminator = None
-        self.rows = rows
+        if _check_required or rows is not None:
+            self.rows = rows
 
     @property
     def rows(self):

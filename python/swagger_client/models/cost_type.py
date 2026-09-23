@@ -56,7 +56,7 @@ class CostType(DlResource):
     if hasattr(DlResource, "attribute_map"):
         attribute_map.update(DlResource.attribute_map)
 
-    def __init__(self, name=None, description=None, time_period_type=None, portfolio_id=None, is_for_funded_projects=None, position=None, default_type=None, data_type=None, attributes=None, *args, **kwargs):  # noqa: E501
+    def __init__(self, name=None, description=None, time_period_type=None, portfolio_id=None, is_for_funded_projects=None, position=None, default_type=None, data_type=None, attributes=None, _check_required=True, *args, **kwargs):  # noqa: E501
         """CostType - a model defined in Swagger"""  # noqa: E501
         self._name = None
         self._description = None
@@ -86,7 +86,7 @@ class CostType(DlResource):
             self.data_type = data_type
         if attributes is not None:
             self.attributes = attributes
-        DlResource.__init__(self, *args, **kwargs)
+        DlResource.__init__(self, *args, _check_required=_check_required, **kwargs)
 
     @property
     def name(self):

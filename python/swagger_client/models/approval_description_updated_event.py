@@ -45,7 +45,7 @@ class ApprovalDescriptionUpdatedEvent(object):
         'previous_description': 'previousDescription'
     }
 
-    def __init__(self, id=None, portfolio_id=None, portfolio_plan=None, name=None, description=None, previous_description=None):  # noqa: E501
+    def __init__(self, id=None, portfolio_id=None, portfolio_plan=None, name=None, description=None, previous_description=None, _check_required=True):  # noqa: E501
         """ApprovalDescriptionUpdatedEvent - a model defined in Swagger"""  # noqa: E501
         self._id = None
         self._portfolio_id = None

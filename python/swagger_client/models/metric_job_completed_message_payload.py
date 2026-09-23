@@ -37,7 +37,7 @@ class MetricJobCompletedMessagePayload(object):
         'metric_job_type': 'metricJobType'
     }
 
-    def __init__(self, portfolio_id=None, metric_job_type=None):  # noqa: E501
+    def __init__(self, portfolio_id=None, metric_job_type=None, _check_required=True):  # noqa: E501
         """MetricJobCompletedMessagePayload - a model defined in Swagger"""  # noqa: E501
         self._portfolio_id = None
         self._metric_job_type = None

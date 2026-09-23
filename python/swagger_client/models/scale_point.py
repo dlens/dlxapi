@@ -49,7 +49,7 @@ class ScalePoint(object):
         'auto_value_modified_at': 'autoValueModifiedAt'
     }
 
-    def __init__(self, name=None, auto_scale_value=None, manual_scale_value=None, auto_value=None, manual_value=None, category_id=None, project=None, auto_value_modified_at=None):  # noqa: E501
+    def __init__(self, name=None, auto_scale_value=None, manual_scale_value=None, auto_value=None, manual_value=None, category_id=None, project=None, auto_value_modified_at=None, _check_required=True):  # noqa: E501
         """ScalePoint - a model defined in Swagger"""  # noqa: E501
         self._name = None
         self._auto_scale_value = None

@@ -37,7 +37,7 @@ class ValueCount(object):
         'count': 'count'
     }
 
-    def __init__(self, value=None, count=None):  # noqa: E501
+    def __init__(self, value=None, count=None, _check_required=True):  # noqa: E501
         """ValueCount - a model defined in Swagger"""  # noqa: E501
         self._value = None
         self._count = None

@@ -37,7 +37,7 @@ class PortfolioMappingFieldsResponse(object):
         'fields': 'fields'
     }
 
-    def __init__(self, portfolio_id=None, fields=None):  # noqa: E501
+    def __init__(self, portfolio_id=None, fields=None, _check_required=True):  # noqa: E501
         """PortfolioMappingFieldsResponse - a model defined in Swagger"""  # noqa: E501
         self._portfolio_id = None
         self._fields = None

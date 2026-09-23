@@ -39,15 +39,18 @@ class Message(object):
         'payload': 'payload'
     }
 
-    def __init__(self, type=None, header=None, payload=None):  # noqa: E501
+    def __init__(self, type=None, header=None, payload=None, _check_required=True):  # noqa: E501
         """Message - a model defined in Swagger"""  # noqa: E501
         self._type = None
         self._header = None
         self._payload = None
         self.discriminator = None
-        self.type = type
-        self.header = header
-        self.payload = payload
+        if _check_required or type is not None:
+            self.type = type
+        if _check_required or header is not None:
+            self.header = header
+        if _check_required or payload is not None:
+            self.payload = payload
 
     @property
     def type(self):

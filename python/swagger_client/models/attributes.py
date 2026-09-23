@@ -71,7 +71,7 @@ class Attributes(object):
         'last_metric_job_submitted_at': 'lastMetricJobSubmittedAt'
     }
 
-    def __init__(self, time_interval=None, budget_time_period_type=None, is_monthly_spend_plan=None, is_overall_rank_enabled=None, is_cost_adjusted_value_score_enabled=None, is_portfolio_open=None, show_portfolio_open_indicator=None, send_contributor_submission_emails=None, budget_option=None, is_budget_option_selected=None, is_presence_enabled=None, is_priority_enabled=None, time_period=None, cost_target_algorithm_type=None, strategy_navigator_algorithm=None, is_location_enabled=None, is_approvals_enabled=None, is_active_approver=None, last_metric_job_submitted_at=None):  # noqa: E501
+    def __init__(self, time_interval=None, budget_time_period_type=None, is_monthly_spend_plan=None, is_overall_rank_enabled=None, is_cost_adjusted_value_score_enabled=None, is_portfolio_open=None, show_portfolio_open_indicator=None, send_contributor_submission_emails=None, budget_option=None, is_budget_option_selected=None, is_presence_enabled=None, is_priority_enabled=None, time_period=None, cost_target_algorithm_type=None, strategy_navigator_algorithm=None, is_location_enabled=None, is_approvals_enabled=None, is_active_approver=None, last_metric_job_submitted_at=None, _check_required=True):  # noqa: E501
         """Attributes - a model defined in Swagger"""  # noqa: E501
         self._time_interval = None
         self._budget_time_period_type = None

@@ -45,7 +45,7 @@ class FieldIsFieldTypeApprovedUpdatedEvent(object):
         'portfolio_plan': 'portfolioPlan'
     }
 
-    def __init__(self, portfolio_id=None, is_field_type_approved=None, previous_is_field_type_approved=None, name=None, id=None, portfolio_plan=None):  # noqa: E501
+    def __init__(self, portfolio_id=None, is_field_type_approved=None, previous_is_field_type_approved=None, name=None, id=None, portfolio_plan=None, _check_required=True):  # noqa: E501
         """FieldIsFieldTypeApprovedUpdatedEvent - a model defined in Swagger"""  # noqa: E501
         self._portfolio_id = None
         self._is_field_type_approved = None

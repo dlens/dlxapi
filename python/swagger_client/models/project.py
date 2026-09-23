@@ -58,7 +58,7 @@ class Project(DlResource):
     if hasattr(DlResource, "attribute_map"):
         attribute_map.update(DlResource.attribute_map)
 
-    def __init__(self, name=None, position=None, field_values=None, depends_on_project_ids=None, has_dependent_project_ids=None, contributing_user_ids=None, is_draft=None, rank=None, source_project_id=None, project_changes=None, *args, **kwargs):  # noqa: E501
+    def __init__(self, name=None, position=None, field_values=None, depends_on_project_ids=None, has_dependent_project_ids=None, contributing_user_ids=None, is_draft=None, rank=None, source_project_id=None, project_changes=None, _check_required=True, *args, **kwargs):  # noqa: E501
         """Project - a model defined in Swagger"""  # noqa: E501
         self._name = None
         self._position = None
@@ -91,7 +91,7 @@ class Project(DlResource):
             self.source_project_id = source_project_id
         if project_changes is not None:
             self.project_changes = project_changes
-        DlResource.__init__(self, *args, **kwargs)
+        DlResource.__init__(self, *args, _check_required=_check_required, **kwargs)
 
     @property
     def name(self):

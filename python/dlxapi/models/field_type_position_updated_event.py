@@ -47,7 +47,7 @@ class FieldTypePositionUpdatedEvent(object):
         'portfolio_plan': 'portfolioPlan'
     }
 
-    def __init__(self, previous_type_position=None, portfolio_id=None, type_position=None, name=None, id=None, field_type=None, portfolio_plan=None):  # noqa: E501
+    def __init__(self, previous_type_position=None, portfolio_id=None, type_position=None, name=None, id=None, field_type=None, portfolio_plan=None, _check_required=True):  # noqa: E501
         """FieldTypePositionUpdatedEvent - a model defined in Swagger"""  # noqa: E501
         self._previous_type_position = None
         self._portfolio_id = None

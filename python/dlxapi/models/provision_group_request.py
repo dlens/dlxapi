@@ -59,7 +59,7 @@ class ProvisionGroupRequest(object):
         'group_roles': 'groupRoles'
     }
 
-    def __init__(self, name=None, domain=None, linked_domain=None, user_names=None, auth_type=None, auth_url=None, logout_url=None, sso_principal_key=None, sso_principal_transmit_method=None, dli_properties=None, dlx_properties=None, dlc_properties=None, group_roles=None):  # noqa: E501
+    def __init__(self, name=None, domain=None, linked_domain=None, user_names=None, auth_type=None, auth_url=None, logout_url=None, sso_principal_key=None, sso_principal_transmit_method=None, dli_properties=None, dlx_properties=None, dlc_properties=None, group_roles=None, _check_required=True):  # noqa: E501
         """ProvisionGroupRequest - a model defined in Swagger"""  # noqa: E501
         self._name = None
         self._domain = None
@@ -75,8 +75,10 @@ class ProvisionGroupRequest(object):
         self._dlc_properties = None
         self._group_roles = None
         self.discriminator = None
-        self.name = name
-        self.domain = domain
+        if _check_required or name is not None:
+            self.name = name
+        if _check_required or domain is not None:
+            self.domain = domain
         if linked_domain is not None:
             self.linked_domain = linked_domain
         if user_names is not None:

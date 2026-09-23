@@ -41,7 +41,7 @@ class Prompt(object):
         'portfolio_plan_ids': 'portfolioPlanIds'
     }
 
-    def __init__(self, prompt_type=None, prompt_text=None, project_ids=None, portfolio_plan_ids=None):  # noqa: E501
+    def __init__(self, prompt_type=None, prompt_text=None, project_ids=None, portfolio_plan_ids=None, _check_required=True):  # noqa: E501
         """Prompt - a model defined in Swagger"""  # noqa: E501
         self._prompt_type = None
         self._prompt_text = None

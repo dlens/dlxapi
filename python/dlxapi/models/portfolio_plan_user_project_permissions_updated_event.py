@@ -47,7 +47,7 @@ class PortfolioPlanUserProjectPermissionsUpdatedEvent(object):
         'portfolio_plan': 'portfolioPlan'
     }
 
-    def __init__(self, portfolio_plan_user_role_list=None, project_permissions=None, portfolio_id=None, previous_permissions=None, id=None, user=None, portfolio_plan=None):  # noqa: E501
+    def __init__(self, portfolio_plan_user_role_list=None, project_permissions=None, portfolio_id=None, previous_permissions=None, id=None, user=None, portfolio_plan=None, _check_required=True):  # noqa: E501
         """PortfolioPlanUserProjectPermissionsUpdatedEvent - a model defined in Swagger"""  # noqa: E501
         self._portfolio_plan_user_role_list = None
         self._project_permissions = None

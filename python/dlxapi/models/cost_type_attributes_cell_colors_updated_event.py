@@ -45,7 +45,7 @@ class CostTypeAttributesCellColorsUpdatedEvent(object):
         'previous_cell_colors': 'previousCellColors'
     }
 
-    def __init__(self, id=None, name=None, portfolio_id=None, portfolio_plan=None, cell_colors=None, previous_cell_colors=None):  # noqa: E501
+    def __init__(self, id=None, name=None, portfolio_id=None, portfolio_plan=None, cell_colors=None, previous_cell_colors=None, _check_required=True):  # noqa: E501
         """CostTypeAttributesCellColorsUpdatedEvent - a model defined in Swagger"""  # noqa: E501
         self._id = None
         self._name = None

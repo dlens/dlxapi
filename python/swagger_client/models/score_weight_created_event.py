@@ -45,7 +45,7 @@ class ScoreWeightCreatedEvent(object):
         'portfolio_plan': 'portfolioPlan'
     }
 
-    def __init__(self, is_default=None, field_weights=None, portfolio_id=None, name=None, id=None, portfolio_plan=None):  # noqa: E501
+    def __init__(self, is_default=None, field_weights=None, portfolio_id=None, name=None, id=None, portfolio_plan=None, _check_required=True):  # noqa: E501
         """ScoreWeightCreatedEvent - a model defined in Swagger"""  # noqa: E501
         self._is_default = None
         self._field_weights = None

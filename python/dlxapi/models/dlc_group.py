@@ -47,7 +47,7 @@ class DLCGroup(object):
         'roles': 'roles'
     }
 
-    def __init__(self, id=None, name=None, domain_name=None, sso_principal_transmit_method=None, sso_principal_key=None, dl4_domain=None, roles=None):  # noqa: E501
+    def __init__(self, id=None, name=None, domain_name=None, sso_principal_transmit_method=None, sso_principal_key=None, dl4_domain=None, roles=None, _check_required=True):  # noqa: E501
         """DLCGroup - a model defined in Swagger"""  # noqa: E501
         self._id = None
         self._name = None

@@ -50,7 +50,7 @@ class PrioritizationProject(Project):
     if hasattr(Project, "attribute_map"):
         attribute_map.update(Project.attribute_map)
 
-    def __init__(self, portfolio_id=None, portfolio_project_id=None, is_archived=None, minified_field_values=None, minified_reference_field_values=None, cost_tables=None, *args, **kwargs):  # noqa: E501
+    def __init__(self, portfolio_id=None, portfolio_project_id=None, is_archived=None, minified_field_values=None, minified_reference_field_values=None, cost_tables=None, _check_required=True, *args, **kwargs):  # noqa: E501
         """PrioritizationProject - a model defined in Swagger"""  # noqa: E501
         self._portfolio_id = None
         self._portfolio_project_id = None
@@ -71,7 +71,7 @@ class PrioritizationProject(Project):
             self.minified_reference_field_values = minified_reference_field_values
         if cost_tables is not None:
             self.cost_tables = cost_tables
-        Project.__init__(self, *args, **kwargs)
+        Project.__init__(self, *args, _check_required=_check_required, **kwargs)
 
     @property
     def portfolio_id(self):

@@ -51,7 +51,7 @@ class ApprovalCreatedEvent(object):
         'next_approval_id': 'nextApprovalId'
     }
 
-    def __init__(self, id=None, portfolio_id=None, portfolio_plan=None, name=None, description=None, is_active=None, approver_user_ids=None, selectors=None, next_approval_id=None):  # noqa: E501
+    def __init__(self, id=None, portfolio_id=None, portfolio_plan=None, name=None, description=None, is_active=None, approver_user_ids=None, selectors=None, next_approval_id=None, _check_required=True):  # noqa: E501
         """ApprovalCreatedEvent - a model defined in Swagger"""  # noqa: E501
         self._id = None
         self._portfolio_id = None

@@ -38,10 +38,10 @@ class AllOfChartColumnDataType(DataType):
     if hasattr(DataType, "attribute_map"):
         attribute_map.update(DataType.attribute_map)
 
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, _check_required=True, *args, **kwargs):  # noqa: E501
         """AllOfChartColumnDataType - a model defined in Swagger"""  # noqa: E501
         self.discriminator = None
-        DataType.__init__(self, *args, **kwargs)
+        DataType.__init__(self, *args, _check_required=_check_required, **kwargs)
 
     def to_dict(self):
         """Returns the model properties as a dict"""

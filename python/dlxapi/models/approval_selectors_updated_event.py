@@ -45,7 +45,7 @@ class ApprovalSelectorsUpdatedEvent(object):
         'previous_selectors': 'previousSelectors'
     }
 
-    def __init__(self, id=None, portfolio_id=None, portfolio_plan=None, name=None, selectors=None, previous_selectors=None):  # noqa: E501
+    def __init__(self, id=None, portfolio_id=None, portfolio_plan=None, name=None, selectors=None, previous_selectors=None, _check_required=True):  # noqa: E501
         """ApprovalSelectorsUpdatedEvent - a model defined in Swagger"""  # noqa: E501
         self._id = None
         self._portfolio_id = None

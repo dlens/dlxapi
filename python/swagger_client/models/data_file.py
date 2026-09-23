@@ -50,7 +50,7 @@ class DataFile(DlResource):
     if hasattr(DlResource, "attribute_map"):
         attribute_map.update(DlResource.attribute_map)
 
-    def __init__(self, id=None, name=None, mime_type=None, file_extension=None, size_bytes=None, uploaded_by=None, *args, **kwargs):  # noqa: E501
+    def __init__(self, id=None, name=None, mime_type=None, file_extension=None, size_bytes=None, uploaded_by=None, _check_required=True, *args, **kwargs):  # noqa: E501
         """DataFile - a model defined in Swagger"""  # noqa: E501
         self._id = None
         self._name = None
@@ -59,15 +59,19 @@ class DataFile(DlResource):
         self._size_bytes = None
         self._uploaded_by = None
         self.discriminator = None
-        self.id = id
-        self.name = name
+        if _check_required or id is not None:
+            self.id = id
+        if _check_required or name is not None:
+            self.name = name
         if mime_type is not None:
             self.mime_type = mime_type
-        self.file_extension = file_extension
-        self.size_bytes = size_bytes
+        if _check_required or file_extension is not None:
+            self.file_extension = file_extension
+        if _check_required or size_bytes is not None:
+            self.size_bytes = size_bytes
         if uploaded_by is not None:
             self.uploaded_by = uploaded_by
-        DlResource.__init__(self, *args, **kwargs)
+        DlResource.__init__(self, *args, _check_required=_check_required, **kwargs)
 
     @property
     def id(self):

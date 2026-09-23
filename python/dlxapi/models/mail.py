@@ -53,7 +53,7 @@ class Mail(object):
         'template_properties': 'templateProperties'
     }
 
-    def __init__(self, _from=None, reply_to=None, reply_to_display_name=None, to=None, cc=None, bcc=None, subject=None, message=None, template_name=None, template_properties=None):  # noqa: E501
+    def __init__(self, _from=None, reply_to=None, reply_to_display_name=None, to=None, cc=None, bcc=None, subject=None, message=None, template_name=None, template_properties=None, _check_required=True):  # noqa: E501
         """Mail - a model defined in Swagger"""  # noqa: E501
         self.__from = None
         self._reply_to = None

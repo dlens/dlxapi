@@ -45,7 +45,7 @@ class PortfolioSendContributorSubmissionEmailsUpdatedEvent(object):
         'portfolio_plan': 'portfolioPlan'
     }
 
-    def __init__(self, id=None, portfolio_id=None, name=None, send_contributor_submission_emails=None, previous_send_contributor_submission_emails=None, portfolio_plan=None):  # noqa: E501
+    def __init__(self, id=None, portfolio_id=None, name=None, send_contributor_submission_emails=None, previous_send_contributor_submission_emails=None, portfolio_plan=None, _check_required=True):  # noqa: E501
         """PortfolioSendContributorSubmissionEmailsUpdatedEvent - a model defined in Swagger"""  # noqa: E501
         self._id = None
         self._portfolio_id = None

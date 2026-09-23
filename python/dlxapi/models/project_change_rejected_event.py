@@ -57,7 +57,7 @@ class ProjectChangeRejectedEvent(object):
         'previous_field_values': 'previousFieldValues'
     }
 
-    def __init__(self, id=None, portfolio_id=None, portfolio_plan=None, project_id=None, project_change_id=None, project_name=None, approval_id=None, approver_user_id=None, field_id=None, field_name=None, field_values=None, previous_field_values=None):  # noqa: E501
+    def __init__(self, id=None, portfolio_id=None, portfolio_plan=None, project_id=None, project_change_id=None, project_name=None, approval_id=None, approver_user_id=None, field_id=None, field_name=None, field_values=None, previous_field_values=None, _check_required=True):  # noqa: E501
         """ProjectChangeRejectedEvent - a model defined in Swagger"""  # noqa: E501
         self._id = None
         self._portfolio_id = None

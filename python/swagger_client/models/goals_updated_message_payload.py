@@ -35,11 +35,12 @@ class GoalsUpdatedMessagePayload(object):
         'goals': 'goals'
     }
 
-    def __init__(self, goals=None):  # noqa: E501
+    def __init__(self, goals=None, _check_required=True):  # noqa: E501
         """GoalsUpdatedMessagePayload - a model defined in Swagger"""  # noqa: E501
         self._goals = None
         self.discriminator = None
-        self.goals = goals
+        if _check_required or goals is not None:
+            self.goals = goals
 
     @property
     def goals(self):

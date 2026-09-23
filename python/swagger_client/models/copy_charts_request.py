@@ -47,7 +47,7 @@ class CopyChartsRequest(object):
         'replace_target_charts': 'replaceTargetCharts'
     }
 
-    def __init__(self, source_type=None, from_source_id=None, target_type=None, to_source_id=None, field_id_mapping=None, remap_field_references=True, replace_target_charts=False):  # noqa: E501
+    def __init__(self, source_type=None, from_source_id=None, target_type=None, to_source_id=None, field_id_mapping=None, remap_field_references=True, replace_target_charts=False, _check_required=True):  # noqa: E501
         """CopyChartsRequest - a model defined in Swagger"""  # noqa: E501
         self._source_type = None
         self._from_source_id = None
@@ -57,11 +57,14 @@ class CopyChartsRequest(object):
         self._remap_field_references = None
         self._replace_target_charts = None
         self.discriminator = None
-        self.source_type = source_type
-        self.from_source_id = from_source_id
+        if _check_required or source_type is not None:
+            self.source_type = source_type
+        if _check_required or from_source_id is not None:
+            self.from_source_id = from_source_id
         if target_type is not None:
             self.target_type = target_type
-        self.to_source_id = to_source_id
+        if _check_required or to_source_id is not None:
+            self.to_source_id = to_source_id
         if field_id_mapping is not None:
             self.field_id_mapping = field_id_mapping
         if remap_field_references is not None:

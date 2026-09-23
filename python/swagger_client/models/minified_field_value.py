@@ -49,7 +49,7 @@ class MinifiedFieldValue(object):
         'loc': 'loc'
     }
 
-    def __init__(self, v=None, nv=None, bv=None, yrs=None, mns=None, vs=None, nvs=None, loc=None):  # noqa: E501
+    def __init__(self, v=None, nv=None, bv=None, yrs=None, mns=None, vs=None, nvs=None, loc=None, _check_required=True):  # noqa: E501
         """MinifiedFieldValue - a model defined in Swagger"""  # noqa: E501
         self._v = None
         self._nv = None

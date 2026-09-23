@@ -39,7 +39,7 @@ class TableGroupDetailsTableDetails(object):
         'info': 'info'
     }
 
-    def __init__(self, table_name=None, exists=None, info=None):  # noqa: E501
+    def __init__(self, table_name=None, exists=None, info=None, _check_required=True):  # noqa: E501
         """TableGroupDetailsTableDetails - a model defined in Swagger"""  # noqa: E501
         self._table_name = None
         self._exists = None

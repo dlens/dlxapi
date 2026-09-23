@@ -35,7 +35,7 @@ class ExerciseStepExecutions(object):
         'items': 'items'
     }
 
-    def __init__(self, items=None):  # noqa: E501
+    def __init__(self, items=None, _check_required=True):  # noqa: E501
         """ExerciseStepExecutions - a model defined in Swagger"""  # noqa: E501
         self._items = None
         self.discriminator = None

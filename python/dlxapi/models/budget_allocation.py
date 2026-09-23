@@ -53,7 +53,7 @@ class BudgetAllocation(object):
         'monthly_constrained_allocations': 'monthlyConstrainedAllocations'
     }
 
-    def __init__(self, budget_name=None, budget_id=None, yearly_budgets=None, yearly_allocations=None, yearly_time_periods=None, yearly_constrained_allocations=None, monthly_allocations=None, monthly_budgets=None, monthly_time_periods=None, monthly_constrained_allocations=None):  # noqa: E501
+    def __init__(self, budget_name=None, budget_id=None, yearly_budgets=None, yearly_allocations=None, yearly_time_periods=None, yearly_constrained_allocations=None, monthly_allocations=None, monthly_budgets=None, monthly_time_periods=None, monthly_constrained_allocations=None, _check_required=True):  # noqa: E501
         """BudgetAllocation - a model defined in Swagger"""  # noqa: E501
         self._budget_name = None
         self._budget_id = None

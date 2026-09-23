@@ -60,7 +60,7 @@ class Approval(DlResource):
     if hasattr(DlResource, "attribute_map"):
         attribute_map.update(DlResource.attribute_map)
 
-    def __init__(self, portfolio_id=None, name=None, description=None, is_active=None, is_open=None, position=None, approver_user_ids=None, approver_emails=None, selectors=None, next_approval_id=None, project_change_counts=None, *args, **kwargs):  # noqa: E501
+    def __init__(self, portfolio_id=None, name=None, description=None, is_active=None, is_open=None, position=None, approver_user_ids=None, approver_emails=None, selectors=None, next_approval_id=None, project_change_counts=None, _check_required=True, *args, **kwargs):  # noqa: E501
         """Approval - a model defined in Swagger"""  # noqa: E501
         self._portfolio_id = None
         self._name = None
@@ -96,7 +96,7 @@ class Approval(DlResource):
             self.next_approval_id = next_approval_id
         if project_change_counts is not None:
             self.project_change_counts = project_change_counts
-        DlResource.__init__(self, *args, **kwargs)
+        DlResource.__init__(self, *args, _check_required=_check_required, **kwargs)
 
     @property
     def portfolio_id(self):

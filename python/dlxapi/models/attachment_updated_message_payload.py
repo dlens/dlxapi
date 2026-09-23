@@ -35,11 +35,12 @@ class AttachmentUpdatedMessagePayload(object):
         'attachment': 'attachment'
     }
 
-    def __init__(self, attachment=None):  # noqa: E501
+    def __init__(self, attachment=None, _check_required=True):  # noqa: E501
         """AttachmentUpdatedMessagePayload - a model defined in Swagger"""  # noqa: E501
         self._attachment = None
         self.discriminator = None
-        self.attachment = attachment
+        if _check_required or attachment is not None:
+            self.attachment = attachment
 
     @property
     def attachment(self):

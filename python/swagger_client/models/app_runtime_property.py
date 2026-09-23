@@ -37,13 +37,15 @@ class AppRuntimeProperty(object):
         'value': 'value'
     }
 
-    def __init__(self, name=None, value=None):  # noqa: E501
+    def __init__(self, name=None, value=None, _check_required=True):  # noqa: E501
         """AppRuntimeProperty - a model defined in Swagger"""  # noqa: E501
         self._name = None
         self._value = None
         self.discriminator = None
-        self.name = name
-        self.value = value
+        if _check_required or name is not None:
+            self.name = name
+        if _check_required or value is not None:
+            self.value = value
 
     @property
     def name(self):

@@ -47,7 +47,7 @@ class FieldIsAutoScaleUpdatedEvent(object):
         'previous_is_auto_scale': 'previousIsAutoScale'
     }
 
-    def __init__(self, is_auto_scale=None, portfolio_id=None, name=None, id=None, field_type=None, portfolio_plan=None, previous_is_auto_scale=None):  # noqa: E501
+    def __init__(self, is_auto_scale=None, portfolio_id=None, name=None, id=None, field_type=None, portfolio_plan=None, previous_is_auto_scale=None, _check_required=True):  # noqa: E501
         """FieldIsAutoScaleUpdatedEvent - a model defined in Swagger"""  # noqa: E501
         self._is_auto_scale = None
         self._portfolio_id = None

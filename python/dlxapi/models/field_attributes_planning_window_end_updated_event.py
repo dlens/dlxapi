@@ -45,7 +45,7 @@ class FieldAttributesPlanningWindowEndUpdatedEvent(object):
         'previous_end': 'previousEnd'
     }
 
-    def __init__(self, portfolio_id=None, name=None, end=None, id=None, portfolio_plan=None, previous_end=None):  # noqa: E501
+    def __init__(self, portfolio_id=None, name=None, end=None, id=None, portfolio_plan=None, previous_end=None, _check_required=True):  # noqa: E501
         """FieldAttributesPlanningWindowEndUpdatedEvent - a model defined in Swagger"""  # noqa: E501
         self._portfolio_id = None
         self._name = None

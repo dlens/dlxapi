@@ -35,11 +35,12 @@ class PortfolioPlanUserDeletedMessagePayload(object):
         'portfolio_plan_user': 'portfolioPlanUser'
     }
 
-    def __init__(self, portfolio_plan_user=None):  # noqa: E501
+    def __init__(self, portfolio_plan_user=None, _check_required=True):  # noqa: E501
         """PortfolioPlanUserDeletedMessagePayload - a model defined in Swagger"""  # noqa: E501
         self._portfolio_plan_user = None
         self.discriminator = None
-        self.portfolio_plan_user = portfolio_plan_user
+        if _check_required or portfolio_plan_user is not None:
+            self.portfolio_plan_user = portfolio_plan_user
 
     @property
     def portfolio_plan_user(self):

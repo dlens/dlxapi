@@ -83,7 +83,7 @@ class DlResource(object):
 'User': 'User',
 'Source': 'Source'    }
 
-    def __init__(self, href=None, id=None, created_at=None, modified_at=None):  # noqa: E501
+    def __init__(self, href=None, id=None, created_at=None, modified_at=None, _check_required=True):  # noqa: E501
         """DlResource - a model defined in Swagger"""  # noqa: E501
         self._href = None
         self._id = None

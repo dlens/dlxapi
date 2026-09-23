@@ -37,13 +37,15 @@ class TestConnectorRequest(object):
         'parameter_values': 'parameterValues'
     }
 
-    def __init__(self, spec_name=None, parameter_values=None):  # noqa: E501
+    def __init__(self, spec_name=None, parameter_values=None, _check_required=True):  # noqa: E501
         """TestConnectorRequest - a model defined in Swagger"""  # noqa: E501
         self._spec_name = None
         self._parameter_values = None
         self.discriminator = None
-        self.spec_name = spec_name
-        self.parameter_values = parameter_values
+        if _check_required or spec_name is not None:
+            self.spec_name = spec_name
+        if _check_required or parameter_values is not None:
+            self.parameter_values = parameter_values
 
     @property
     def spec_name(self):

@@ -39,15 +39,18 @@ class AddPairwiseVoteCommentRequest(object):
         'recessive_field_id': 'recessiveFieldId'
     }
 
-    def __init__(self, comment=None, dominant_field_id=None, recessive_field_id=None):  # noqa: E501
+    def __init__(self, comment=None, dominant_field_id=None, recessive_field_id=None, _check_required=True):  # noqa: E501
         """AddPairwiseVoteCommentRequest - a model defined in Swagger"""  # noqa: E501
         self._comment = None
         self._dominant_field_id = None
         self._recessive_field_id = None
         self.discriminator = None
-        self.comment = comment
-        self.dominant_field_id = dominant_field_id
-        self.recessive_field_id = recessive_field_id
+        if _check_required or comment is not None:
+            self.comment = comment
+        if _check_required or dominant_field_id is not None:
+            self.dominant_field_id = dominant_field_id
+        if _check_required or recessive_field_id is not None:
+            self.recessive_field_id = recessive_field_id
 
     @property
     def comment(self):

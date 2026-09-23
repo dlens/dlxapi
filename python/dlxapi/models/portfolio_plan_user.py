@@ -52,7 +52,7 @@ class PortfolioPlanUser(DlResource):
     if hasattr(DlResource, "attribute_map"):
         attribute_map.update(DlResource.attribute_map)
 
-    def __init__(self, user=None, portfolio_plan=None, roles=None, field_permissions=None, project_permissions=None, cost_type_permissions=None, portfolio_last_updated_at=None, *args, **kwargs):  # noqa: E501
+    def __init__(self, user=None, portfolio_plan=None, roles=None, field_permissions=None, project_permissions=None, cost_type_permissions=None, portfolio_last_updated_at=None, _check_required=True, *args, **kwargs):  # noqa: E501
         """PortfolioPlanUser - a model defined in Swagger"""  # noqa: E501
         self._user = None
         self._portfolio_plan = None
@@ -62,7 +62,8 @@ class PortfolioPlanUser(DlResource):
         self._cost_type_permissions = None
         self._portfolio_last_updated_at = None
         self.discriminator = None
-        self.user = user
+        if _check_required or user is not None:
+            self.user = user
         if portfolio_plan is not None:
             self.portfolio_plan = portfolio_plan
         if roles is not None:
@@ -75,7 +76,7 @@ class PortfolioPlanUser(DlResource):
             self.cost_type_permissions = cost_type_permissions
         if portfolio_last_updated_at is not None:
             self.portfolio_last_updated_at = portfolio_last_updated_at
-        DlResource.__init__(self, *args, **kwargs)
+        DlResource.__init__(self, *args, _check_required=_check_required, **kwargs)
 
     @property
     def user(self):

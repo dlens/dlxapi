@@ -41,7 +41,7 @@ class Recommendation(object):
         'project': 'project'
     }
 
-    def __init__(self, type=None, field_values=None, portfolio_plan_insights=None, project=None):  # noqa: E501
+    def __init__(self, type=None, field_values=None, portfolio_plan_insights=None, project=None, _check_required=True):  # noqa: E501
         """Recommendation - a model defined in Swagger"""  # noqa: E501
         self._type = None
         self._field_values = None

@@ -35,11 +35,12 @@ class TablesTableNameBody(object):
         'new_table_display_name': 'newTableDisplayName'
     }
 
-    def __init__(self, new_table_display_name=None):  # noqa: E501
+    def __init__(self, new_table_display_name=None, _check_required=True):  # noqa: E501
         """TablesTableNameBody - a model defined in Swagger"""  # noqa: E501
         self._new_table_display_name = None
         self.discriminator = None
-        self.new_table_display_name = new_table_display_name
+        if _check_required or new_table_display_name is not None:
+            self.new_table_display_name = new_table_display_name
 
     @property
     def new_table_display_name(self):

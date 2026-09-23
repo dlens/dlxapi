@@ -35,11 +35,12 @@ class TagDeletedMessagePayload(object):
         'tag': 'tag'
     }
 
-    def __init__(self, tag=None):  # noqa: E501
+    def __init__(self, tag=None, _check_required=True):  # noqa: E501
         """TagDeletedMessagePayload - a model defined in Swagger"""  # noqa: E501
         self._tag = None
         self.discriminator = None
-        self.tag = tag
+        if _check_required or tag is not None:
+            self.tag = tag
 
     @property
     def tag(self):

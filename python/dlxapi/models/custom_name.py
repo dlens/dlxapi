@@ -39,7 +39,7 @@ class CustomName(object):
         'group_type': 'groupType'
     }
 
-    def __init__(self, type=None, value=None, group_type=None):  # noqa: E501
+    def __init__(self, type=None, value=None, group_type=None, _check_required=True):  # noqa: E501
         """CustomName - a model defined in Swagger"""  # noqa: E501
         self._type = None
         self._value = None

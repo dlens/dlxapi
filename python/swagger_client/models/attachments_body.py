@@ -35,11 +35,12 @@ class AttachmentsBody(object):
         'file': 'file'
     }
 
-    def __init__(self, file=None):  # noqa: E501
+    def __init__(self, file=None, _check_required=True):  # noqa: E501
         """AttachmentsBody - a model defined in Swagger"""  # noqa: E501
         self._file = None
         self.discriminator = None
-        self.file = file
+        if _check_required or file is not None:
+            self.file = file
 
     @property
     def file(self):

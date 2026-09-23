@@ -45,7 +45,7 @@ class IdeaFormFieldRequest(object):
         'field_requirement': 'fieldRequirement'
     }
 
-    def __init__(self, portfolio_id=None, field_ids=None, field_types=None, is_included=None, idea_field_position=None, field_requirement=None):  # noqa: E501
+    def __init__(self, portfolio_id=None, field_ids=None, field_types=None, is_included=None, idea_field_position=None, field_requirement=None, _check_required=True):  # noqa: E501
         """IdeaFormFieldRequest - a model defined in Swagger"""  # noqa: E501
         self._portfolio_id = None
         self._field_ids = None

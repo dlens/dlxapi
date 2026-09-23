@@ -35,7 +35,7 @@ class Summary(object):
         'content': 'content'
     }
 
-    def __init__(self, content=None):  # noqa: E501
+    def __init__(self, content=None, _check_required=True):  # noqa: E501
         """Summary - a model defined in Swagger"""  # noqa: E501
         self._content = None
         self.discriminator = None

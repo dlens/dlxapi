@@ -39,14 +39,16 @@ class MutateRowsResponse(object):
         'message': 'message'
     }
 
-    def __init__(self, success=None, affected_count=None, message=None):  # noqa: E501
+    def __init__(self, success=None, affected_count=None, message=None, _check_required=True):  # noqa: E501
         """MutateRowsResponse - a model defined in Swagger"""  # noqa: E501
         self._success = None
         self._affected_count = None
         self._message = None
         self.discriminator = None
-        self.success = success
-        self.affected_count = affected_count
+        if _check_required or success is not None:
+            self.success = success
+        if _check_required or affected_count is not None:
+            self.affected_count = affected_count
         if message is not None:
             self.message = message
 

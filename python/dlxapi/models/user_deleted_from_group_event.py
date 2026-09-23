@@ -41,7 +41,7 @@ class UserDeletedFromGroupEvent(object):
         'deleted': 'deleted'
     }
 
-    def __init__(self, id=None, user=None, group_id=None, deleted=None):  # noqa: E501
+    def __init__(self, id=None, user=None, group_id=None, deleted=None, _check_required=True):  # noqa: E501
         """UserDeletedFromGroupEvent - a model defined in Swagger"""  # noqa: E501
         self._id = None
         self._user = None

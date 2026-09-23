@@ -56,7 +56,7 @@ class CategoryOption(DlResource):
     if hasattr(DlResource, "attribute_map"):
         attribute_map.update(DlResource.attribute_map)
 
-    def __init__(self, name=None, portfolio_id=None, field_id=None, position=None, description=None, default_name=None, created_at_in_millis=None, status_attributes=None, display_settings=None, *args, **kwargs):  # noqa: E501
+    def __init__(self, name=None, portfolio_id=None, field_id=None, position=None, description=None, default_name=None, created_at_in_millis=None, status_attributes=None, display_settings=None, _check_required=True, *args, **kwargs):  # noqa: E501
         """CategoryOption - a model defined in Swagger"""  # noqa: E501
         self._name = None
         self._portfolio_id = None
@@ -86,7 +86,7 @@ class CategoryOption(DlResource):
             self.status_attributes = status_attributes
         if display_settings is not None:
             self.display_settings = display_settings
-        DlResource.__init__(self, *args, **kwargs)
+        DlResource.__init__(self, *args, _check_required=_check_required, **kwargs)
 
     @property
     def name(self):

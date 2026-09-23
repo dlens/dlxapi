@@ -49,7 +49,7 @@ class ProjectsCopyAndSyncRequest(object):
         'save_snapshot_for_portfolio2': 'saveSnapshotForPortfolio2'
     }
 
-    def __init__(self, mapping_id=None, portfolio1_id=None, portfolio2_id=None, projects_copy_to_portfolio1=None, projects_copy_to_portfolio2=None, field_ids=None, save_snapshot_for_portfolio1=False, save_snapshot_for_portfolio2=False):  # noqa: E501
+    def __init__(self, mapping_id=None, portfolio1_id=None, portfolio2_id=None, projects_copy_to_portfolio1=None, projects_copy_to_portfolio2=None, field_ids=None, save_snapshot_for_portfolio1=False, save_snapshot_for_portfolio2=False, _check_required=True):  # noqa: E501
         """ProjectsCopyAndSyncRequest - a model defined in Swagger"""  # noqa: E501
         self._mapping_id = None
         self._portfolio1_id = None
@@ -60,11 +60,16 @@ class ProjectsCopyAndSyncRequest(object):
         self._save_snapshot_for_portfolio1 = None
         self._save_snapshot_for_portfolio2 = None
         self.discriminator = None
-        self.mapping_id = mapping_id
-        self.portfolio1_id = portfolio1_id
-        self.portfolio2_id = portfolio2_id
-        self.projects_copy_to_portfolio1 = projects_copy_to_portfolio1
-        self.projects_copy_to_portfolio2 = projects_copy_to_portfolio2
+        if _check_required or mapping_id is not None:
+            self.mapping_id = mapping_id
+        if _check_required or portfolio1_id is not None:
+            self.portfolio1_id = portfolio1_id
+        if _check_required or portfolio2_id is not None:
+            self.portfolio2_id = portfolio2_id
+        if _check_required or projects_copy_to_portfolio1 is not None:
+            self.projects_copy_to_portfolio1 = projects_copy_to_portfolio1
+        if _check_required or projects_copy_to_portfolio2 is not None:
+            self.projects_copy_to_portfolio2 = projects_copy_to_portfolio2
         if field_ids is not None:
             self.field_ids = field_ids
         if save_snapshot_for_portfolio1 is not None:

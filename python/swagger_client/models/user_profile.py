@@ -39,7 +39,7 @@ class UserProfile(object):
         'is_email_editable': 'isEmailEditable'
     }
 
-    def __init__(self, user=None, reset_password_url=None, is_email_editable=None):  # noqa: E501
+    def __init__(self, user=None, reset_password_url=None, is_email_editable=None, _check_required=True):  # noqa: E501
         """UserProfile - a model defined in Swagger"""  # noqa: E501
         self._user = None
         self._reset_password_url = None

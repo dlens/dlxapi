@@ -35,11 +35,12 @@ class ConnectionSink(object):
         'table_name': 'tableName'
     }
 
-    def __init__(self, table_name=None):  # noqa: E501
+    def __init__(self, table_name=None, _check_required=True):  # noqa: E501
         """ConnectionSink - a model defined in Swagger"""  # noqa: E501
         self._table_name = None
         self.discriminator = None
-        self.table_name = table_name
+        if _check_required or table_name is not None:
+            self.table_name = table_name
 
     @property
     def table_name(self):

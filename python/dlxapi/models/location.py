@@ -44,17 +44,19 @@ class Location(DlResource):
     if hasattr(DlResource, "attribute_map"):
         attribute_map.update(DlResource.attribute_map)
 
-    def __init__(self, type=None, points=None, address=None, *args, **kwargs):  # noqa: E501
+    def __init__(self, type=None, points=None, address=None, _check_required=True, *args, **kwargs):  # noqa: E501
         """Location - a model defined in Swagger"""  # noqa: E501
         self._type = None
         self._points = None
         self._address = None
         self.discriminator = None
-        self.type = type
-        self.points = points
+        if _check_required or type is not None:
+            self.type = type
+        if _check_required or points is not None:
+            self.points = points
         if address is not None:
             self.address = address
-        DlResource.__init__(self, *args, **kwargs)
+        DlResource.__init__(self, *args, _check_required=_check_required, **kwargs)
 
     @property
     def type(self):

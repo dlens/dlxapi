@@ -43,7 +43,7 @@ class FieldDataDeletedEvent(object):
         'portfolio_plan': 'portfolioPlan'
     }
 
-    def __init__(self, source_field=None, portfolio_id=None, field=None, id=None, portfolio_plan=None):  # noqa: E501
+    def __init__(self, source_field=None, portfolio_id=None, field=None, id=None, portfolio_plan=None, _check_required=True):  # noqa: E501
         """FieldDataDeletedEvent - a model defined in Swagger"""  # noqa: E501
         self._source_field = None
         self._portfolio_id = None

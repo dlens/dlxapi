@@ -38,10 +38,10 @@ class AggregateFieldDataUpdatedMessagePayload(FieldDataUpdatedMessagePayload):
     if hasattr(FieldDataUpdatedMessagePayload, "attribute_map"):
         attribute_map.update(FieldDataUpdatedMessagePayload.attribute_map)
 
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, _check_required=True, *args, **kwargs):  # noqa: E501
         """AggregateFieldDataUpdatedMessagePayload - a model defined in Swagger"""  # noqa: E501
         self.discriminator = None
-        FieldDataUpdatedMessagePayload.__init__(self, *args, **kwargs)
+        FieldDataUpdatedMessagePayload.__init__(self, *args, _check_required=_check_required, **kwargs)
 
     def to_dict(self):
         """Returns the model properties as a dict"""

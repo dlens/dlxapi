@@ -39,7 +39,7 @@ class PrioritizationUserCreatedEvent(object):
         'user': 'user'
     }
 
-    def __init__(self, id=None, prioritization=None, user=None):  # noqa: E501
+    def __init__(self, id=None, prioritization=None, user=None, _check_required=True):  # noqa: E501
         """PrioritizationUserCreatedEvent - a model defined in Swagger"""  # noqa: E501
         self._id = None
         self._prioritization = None

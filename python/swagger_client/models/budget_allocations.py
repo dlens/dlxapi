@@ -48,7 +48,7 @@ class BudgetAllocations(DlCollection):
     if hasattr(DlCollection, "attribute_map"):
         attribute_map.update(DlCollection.attribute_map)
 
-    def __init__(self, portfolio_plan=None, time_period_type=None, yearly_start_time=None, monthly_start_time=None, items=None, *args, **kwargs):  # noqa: E501
+    def __init__(self, portfolio_plan=None, time_period_type=None, yearly_start_time=None, monthly_start_time=None, items=None, _check_required=True, *args, **kwargs):  # noqa: E501
         """BudgetAllocations - a model defined in Swagger"""  # noqa: E501
         self._portfolio_plan = None
         self._time_period_type = None
@@ -66,7 +66,7 @@ class BudgetAllocations(DlCollection):
             self.monthly_start_time = monthly_start_time
         if items is not None:
             self.items = items
-        DlCollection.__init__(self, *args, **kwargs)
+        DlCollection.__init__(self, *args, _check_required=_check_required, **kwargs)
 
     @property
     def portfolio_plan(self):

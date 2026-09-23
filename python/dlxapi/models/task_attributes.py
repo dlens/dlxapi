@@ -43,7 +43,7 @@ class TaskAttributes(object):
         'progress': 'progress'
     }
 
-    def __init__(self, survey_type=None, approval_id=None, survey_id=None, project_change_counts=None, progress=None):  # noqa: E501
+    def __init__(self, survey_type=None, approval_id=None, survey_id=None, project_change_counts=None, progress=None, _check_required=True):  # noqa: E501
         """TaskAttributes - a model defined in Swagger"""  # noqa: E501
         self._survey_type = None
         self._approval_id = None

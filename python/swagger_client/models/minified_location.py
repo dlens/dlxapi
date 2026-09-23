@@ -39,7 +39,7 @@ class MinifiedLocation(object):
         'addr': 'addr'
     }
 
-    def __init__(self, t=None, pts=None, addr=None):  # noqa: E501
+    def __init__(self, t=None, pts=None, addr=None, _check_required=True):  # noqa: E501
         """MinifiedLocation - a model defined in Swagger"""  # noqa: E501
         self._t = None
         self._pts = None

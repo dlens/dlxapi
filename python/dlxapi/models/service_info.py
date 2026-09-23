@@ -41,7 +41,7 @@ class ServiceInfo(object):
         'context_path': 'contextPath'
     }
 
-    def __init__(self, version=None, build_date=None, service_name=None, context_path=None):  # noqa: E501
+    def __init__(self, version=None, build_date=None, service_name=None, context_path=None, _check_required=True):  # noqa: E501
         """ServiceInfo - a model defined in Swagger"""  # noqa: E501
         self._version = None
         self._build_date = None

@@ -35,11 +35,12 @@ class InlineResponse201(object):
         'success': 'success'
     }
 
-    def __init__(self, success=None):  # noqa: E501
+    def __init__(self, success=None, _check_required=True):  # noqa: E501
         """InlineResponse201 - a model defined in Swagger"""  # noqa: E501
         self._success = None
         self.discriminator = None
-        self.success = success
+        if _check_required or success is not None:
+            self.success = success
 
     @property
     def success(self):

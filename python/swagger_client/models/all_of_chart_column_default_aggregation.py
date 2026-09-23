@@ -38,10 +38,10 @@ class AllOfChartColumnDefaultAggregation(AxisAggregation):
     if hasattr(AxisAggregation, "attribute_map"):
         attribute_map.update(AxisAggregation.attribute_map)
 
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, _check_required=True, *args, **kwargs):  # noqa: E501
         """AllOfChartColumnDefaultAggregation - a model defined in Swagger"""  # noqa: E501
         self.discriminator = None
-        AxisAggregation.__init__(self, *args, **kwargs)
+        AxisAggregation.__init__(self, *args, _check_required=_check_required, **kwargs)
 
     def to_dict(self):
         """Returns the model properties as a dict"""

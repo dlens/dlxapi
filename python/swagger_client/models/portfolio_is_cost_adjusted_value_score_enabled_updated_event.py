@@ -45,7 +45,7 @@ class PortfolioIsCostAdjustedValueScoreEnabledUpdatedEvent(object):
         'portfolio_plan': 'portfolioPlan'
     }
 
-    def __init__(self, portfolio_id=None, name=None, is_cost_adjusted_value_score_enabled=None, id=None, previous_is_cost_adjusted_value_score_enabled=None, portfolio_plan=None):  # noqa: E501
+    def __init__(self, portfolio_id=None, name=None, is_cost_adjusted_value_score_enabled=None, id=None, previous_is_cost_adjusted_value_score_enabled=None, portfolio_plan=None, _check_required=True):  # noqa: E501
         """PortfolioIsCostAdjustedValueScoreEnabledUpdatedEvent - a model defined in Swagger"""  # noqa: E501
         self._portfolio_id = None
         self._name = None

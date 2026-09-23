@@ -39,7 +39,7 @@ class Column(object):
         'type': 'type'
     }
 
-    def __init__(self, field_id=None, name=None, type=None):  # noqa: E501
+    def __init__(self, field_id=None, name=None, type=None, _check_required=True):  # noqa: E501
         """Column - a model defined in Swagger"""  # noqa: E501
         self._field_id = None
         self._name = None

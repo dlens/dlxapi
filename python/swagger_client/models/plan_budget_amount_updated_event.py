@@ -49,7 +49,7 @@ class PlanBudgetAmountUpdatedEvent(object):
         'previous_budget_amount': 'previousBudgetAmount'
     }
 
-    def __init__(self, portfolio_id=None, budget_amount=None, name=None, time_period=None, is_grouped=None, id=None, portfolio_plan=None, previous_budget_amount=None):  # noqa: E501
+    def __init__(self, portfolio_id=None, budget_amount=None, name=None, time_period=None, is_grouped=None, id=None, portfolio_plan=None, previous_budget_amount=None, _check_required=True):  # noqa: E501
         """PlanBudgetAmountUpdatedEvent - a model defined in Swagger"""  # noqa: E501
         self._portfolio_id = None
         self._budget_amount = None

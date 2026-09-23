@@ -37,7 +37,7 @@ class Goal(object):
         'value': 'value'
     }
 
-    def __init__(self, _date=None, value=None):  # noqa: E501
+    def __init__(self, _date=None, value=None, _check_required=True):  # noqa: E501
         """Goal - a model defined in Swagger"""  # noqa: E501
         self.__date = None
         self._value = None

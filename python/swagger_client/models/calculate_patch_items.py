@@ -45,7 +45,7 @@ class CalculatePatchItems(object):
         'note': 'note'
     }
 
-    def __init__(self, field_values=None, budget_amounts=None, adjustment_type=None, value=None, value_type=None, note=None):  # noqa: E501
+    def __init__(self, field_values=None, budget_amounts=None, adjustment_type=None, value=None, value_type=None, note=None, _check_required=True):  # noqa: E501
         """CalculatePatchItems - a model defined in Swagger"""  # noqa: E501
         self._field_values = None
         self._budget_amounts = None

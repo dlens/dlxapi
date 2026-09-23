@@ -39,7 +39,7 @@ class ProjectDataWithRecommendationsRequest(object):
         'project_ids': 'projectIds'
     }
 
-    def __init__(self, portfolio_plan=None, recommendations=None, project_ids=None):  # noqa: E501
+    def __init__(self, portfolio_plan=None, recommendations=None, project_ids=None, _check_required=True):  # noqa: E501
         """ProjectDataWithRecommendationsRequest - a model defined in Swagger"""  # noqa: E501
         self._portfolio_plan = None
         self._recommendations = None
@@ -47,7 +47,8 @@ class ProjectDataWithRecommendationsRequest(object):
         self.discriminator = None
         if portfolio_plan is not None:
             self.portfolio_plan = portfolio_plan
-        self.recommendations = recommendations
+        if _check_required or recommendations is not None:
+            self.recommendations = recommendations
         if project_ids is not None:
             self.project_ids = project_ids
 

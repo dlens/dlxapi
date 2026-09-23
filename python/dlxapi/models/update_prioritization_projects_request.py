@@ -37,12 +37,13 @@ class UpdatePrioritizationProjectsRequest(object):
         'category_field_filters': 'categoryFieldFilters'
     }
 
-    def __init__(self, portfolio_id=None, category_field_filters=None):  # noqa: E501
+    def __init__(self, portfolio_id=None, category_field_filters=None, _check_required=True):  # noqa: E501
         """UpdatePrioritizationProjectsRequest - a model defined in Swagger"""  # noqa: E501
         self._portfolio_id = None
         self._category_field_filters = None
         self.discriminator = None
-        self.portfolio_id = portfolio_id
+        if _check_required or portfolio_id is not None:
+            self.portfolio_id = portfolio_id
         if category_field_filters is not None:
             self.category_field_filters = category_field_filters
 

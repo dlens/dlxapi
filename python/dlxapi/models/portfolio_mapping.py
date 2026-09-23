@@ -41,15 +41,17 @@ class PortfolioMapping(object):
         'save_snapshot_before_send': 'saveSnapshotBeforeSend'
     }
 
-    def __init__(self, portfolio_id=None, project_ids_to_sync=None, field_ids_to_sync=None, save_snapshot_before_send=False):  # noqa: E501
+    def __init__(self, portfolio_id=None, project_ids_to_sync=None, field_ids_to_sync=None, save_snapshot_before_send=False, _check_required=True):  # noqa: E501
         """PortfolioMapping - a model defined in Swagger"""  # noqa: E501
         self._portfolio_id = None
         self._project_ids_to_sync = None
         self._field_ids_to_sync = None
         self._save_snapshot_before_send = None
         self.discriminator = None
-        self.portfolio_id = portfolio_id
-        self.project_ids_to_sync = project_ids_to_sync
+        if _check_required or portfolio_id is not None:
+            self.portfolio_id = portfolio_id
+        if _check_required or project_ids_to_sync is not None:
+            self.project_ids_to_sync = project_ids_to_sync
         if field_ids_to_sync is not None:
             self.field_ids_to_sync = field_ids_to_sync
         if save_snapshot_before_send is not None:

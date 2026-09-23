@@ -47,7 +47,7 @@ class ReassignedCostBetweenProjectsEvent(object):
         'time_period': 'timePeriod'
     }
 
-    def __init__(self, id=None, portfolio_id=None, portfolio_plan=None, cost_field=None, from_project=None, to_project=None, time_period=None):  # noqa: E501
+    def __init__(self, id=None, portfolio_id=None, portfolio_plan=None, cost_field=None, from_project=None, to_project=None, time_period=None, _check_required=True):  # noqa: E501
         """ReassignedCostBetweenProjectsEvent - a model defined in Swagger"""  # noqa: E501
         self._id = None
         self._portfolio_id = None

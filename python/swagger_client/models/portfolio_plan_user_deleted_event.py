@@ -41,7 +41,7 @@ class PortfolioPlanUserDeletedEvent(object):
         'portfolio_plan': 'portfolioPlan'
     }
 
-    def __init__(self, portfolio_id=None, id=None, user=None, portfolio_plan=None):  # noqa: E501
+    def __init__(self, portfolio_id=None, id=None, user=None, portfolio_plan=None, _check_required=True):  # noqa: E501
         """PortfolioPlanUserDeletedEvent - a model defined in Swagger"""  # noqa: E501
         self._portfolio_id = None
         self._id = None

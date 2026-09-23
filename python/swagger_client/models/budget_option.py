@@ -37,7 +37,7 @@ class BudgetOption(object):
         'field_id': 'fieldId'
     }
 
-    def __init__(self, type=None, field_id=None):  # noqa: E501
+    def __init__(self, type=None, field_id=None, _check_required=True):  # noqa: E501
         """BudgetOption - a model defined in Swagger"""  # noqa: E501
         self._type = None
         self._field_id = None

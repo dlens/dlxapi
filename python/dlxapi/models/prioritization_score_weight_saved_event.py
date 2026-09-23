@@ -39,7 +39,7 @@ class PrioritizationScoreWeightSavedEvent(object):
         'previous_score_weight': 'previousScoreWeight'
     }
 
-    def __init__(self, id=None, score_weight=None, previous_score_weight=None):  # noqa: E501
+    def __init__(self, id=None, score_weight=None, previous_score_weight=None, _check_required=True):  # noqa: E501
         """PrioritizationScoreWeightSavedEvent - a model defined in Swagger"""  # noqa: E501
         self._id = None
         self._score_weight = None

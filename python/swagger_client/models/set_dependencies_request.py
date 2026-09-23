@@ -37,7 +37,7 @@ class SetDependenciesRequest(object):
         'has_dependent_project_ids': 'hasDependentProjectIds'
     }
 
-    def __init__(self, depends_on_project_ids=None, has_dependent_project_ids=None):  # noqa: E501
+    def __init__(self, depends_on_project_ids=None, has_dependent_project_ids=None, _check_required=True):  # noqa: E501
         """SetDependenciesRequest - a model defined in Swagger"""  # noqa: E501
         self._depends_on_project_ids = None
         self._has_dependent_project_ids = None

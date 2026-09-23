@@ -45,7 +45,7 @@ class PortfolioShowPortfolioOpenIndicatorUpdatedEvent(object):
         'portfolio_plan': 'portfolioPlan'
     }
 
-    def __init__(self, portfolio_id=None, show_portfolio_open_indicator=None, previous_show_portfolio_open_indicator=None, name=None, id=None, portfolio_plan=None):  # noqa: E501
+    def __init__(self, portfolio_id=None, show_portfolio_open_indicator=None, previous_show_portfolio_open_indicator=None, name=None, id=None, portfolio_plan=None, _check_required=True):  # noqa: E501
         """PortfolioShowPortfolioOpenIndicatorUpdatedEvent - a model defined in Swagger"""  # noqa: E501
         self._portfolio_id = None
         self._show_portfolio_open_indicator = None

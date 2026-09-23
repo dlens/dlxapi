@@ -13,11 +13,11 @@ Generate into two empty temporary directories:
 ```sh
 java -jar swagger-codegen-cli-3.0.43.jar generate \
   -l python -t codegen-templates -i swagger.yaml -o generated-dlxapi \
-  --additional-properties packageName=dlxapi,projectName=swagger-client,packageVersion=1.0.2,packageUrl=https://github.com/dlens/dlxapi \
+  --additional-properties packageName=dlxapi,projectName=swagger-client,packageVersion=1.0.3,packageUrl=https://github.com/dlens/dlxapi \
   --git-user-id dlens --git-repo-id dlxapi
 java -jar swagger-codegen-cli-3.0.43.jar generate \
   -l python -t codegen-templates -i swagger.yaml -o generated-swagger-client \
-  --additional-properties packageName=swagger_client,projectName=swagger-client,packageVersion=1.0.2,packageUrl=https://github.com/dlens/dlxapi \
+  --additional-properties packageName=swagger_client,projectName=swagger-client,packageVersion=1.0.3,packageUrl=https://github.com/dlens/dlxapi \
   --git-user-id dlens --git-repo-id dlxapi
 ```
 
@@ -42,8 +42,8 @@ After regeneration and validation, build from this `python` directory:
 python -m pip wheel --no-deps --wheel-dir dist .
 ```
 
-Commit `dist/swagger_client-1.0.2-py3-none-any.whl` with the generated source
-updates. Rebuild it whenever the Python package changes. The 1.0.2 wheel includes the custom discriminator template below.
+Commit `dist/swagger_client-1.0.3-py3-none-any.whl` with the generated source
+updates. Rebuild it whenever the Python package changes. The 1.0.3 wheel includes the custom discriminator template below.
 
 ## Python discriminator template
 
@@ -60,3 +60,11 @@ without changing other language clients or hand-editing generated Python.
 Run `python -m unittest discover -s test -p test_discriminator_decoding.py`
 to check nested field values, absent/non-string discriminators, and normal
 string-based subtype decoding in both import namespaces.
+
+## Partial response resources
+
+The custom `api_client.mustache` passes `_check_required=False` when decoding
+responses. The model template skips missing required constructor arguments in
+that mode and propagates it to parent models. Nested resource references such
+as `Field.source` can therefore omit `Source.type`. Normal model construction
+and property assignment still enforce required fields.

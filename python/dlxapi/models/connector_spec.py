@@ -43,7 +43,7 @@ class ConnectorSpec(object):
         'parameters': 'parameters'
     }
 
-    def __init__(self, name=None, spec_version=None, label=None, auth=None, parameters=None):  # noqa: E501
+    def __init__(self, name=None, spec_version=None, label=None, auth=None, parameters=None, _check_required=True):  # noqa: E501
         """ConnectorSpec - a model defined in Swagger"""  # noqa: E501
         self._name = None
         self._spec_version = None
@@ -51,11 +51,16 @@ class ConnectorSpec(object):
         self._auth = None
         self._parameters = None
         self.discriminator = None
-        self.name = name
-        self.spec_version = spec_version
-        self.label = label
-        self.auth = auth
-        self.parameters = parameters
+        if _check_required or name is not None:
+            self.name = name
+        if _check_required or spec_version is not None:
+            self.spec_version = spec_version
+        if _check_required or label is not None:
+            self.label = label
+        if _check_required or auth is not None:
+            self.auth = auth
+        if _check_required or parameters is not None:
+            self.parameters = parameters
 
     @property
     def name(self):

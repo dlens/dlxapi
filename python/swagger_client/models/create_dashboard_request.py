@@ -37,12 +37,13 @@ class CreateDashboardRequest(object):
         'description': 'description'
     }
 
-    def __init__(self, name=None, description=None):  # noqa: E501
+    def __init__(self, name=None, description=None, _check_required=True):  # noqa: E501
         """CreateDashboardRequest - a model defined in Swagger"""  # noqa: E501
         self._name = None
         self._description = None
         self.discriminator = None
-        self.name = name
+        if _check_required or name is not None:
+            self.name = name
         if description is not None:
             self.description = description
 

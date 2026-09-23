@@ -41,7 +41,7 @@ class SummarySettings(object):
         'order': 'order'
     }
 
-    def __init__(self, summary_section_type=None, field_id=None, hide=None, order=None):  # noqa: E501
+    def __init__(self, summary_section_type=None, field_id=None, hide=None, order=None, _check_required=True):  # noqa: E501
         """SummarySettings - a model defined in Swagger"""  # noqa: E501
         self._summary_section_type = None
         self._field_id = None

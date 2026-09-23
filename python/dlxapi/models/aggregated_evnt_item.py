@@ -37,7 +37,7 @@ class AggregatedEvntItem(object):
         'event': 'event'
     }
 
-    def __init__(self, event_type=None, event=None):  # noqa: E501
+    def __init__(self, event_type=None, event=None, _check_required=True):  # noqa: E501
         """AggregatedEvntItem - a model defined in Swagger"""  # noqa: E501
         self._event_type = None
         self._event = None

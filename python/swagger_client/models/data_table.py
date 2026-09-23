@@ -65,7 +65,7 @@ class DataTable(object):
         'table_display_name': 'tableDisplayName'
     }
 
-    def __init__(self, table_name=None, file_name=None, created_at=None, row_count=None, column_count=None, user_id=None, group_id=None, group_name=None, source_type=None, source_connector_id=None, source_connector_name=None, source_label=None, source_portfolio_id=None, source_portfolio_name=None, last_refreshed_at=None, table_display_name=None):  # noqa: E501
+    def __init__(self, table_name=None, file_name=None, created_at=None, row_count=None, column_count=None, user_id=None, group_id=None, group_name=None, source_type=None, source_connector_id=None, source_connector_name=None, source_label=None, source_portfolio_id=None, source_portfolio_name=None, last_refreshed_at=None, table_display_name=None, _check_required=True):  # noqa: E501
         """DataTable - a model defined in Swagger"""  # noqa: E501
         self._table_name = None
         self._file_name = None
@@ -84,11 +84,16 @@ class DataTable(object):
         self._last_refreshed_at = None
         self._table_display_name = None
         self.discriminator = None
-        self.table_name = table_name
-        self.file_name = file_name
-        self.created_at = created_at
-        self.row_count = row_count
-        self.column_count = column_count
+        if _check_required or table_name is not None:
+            self.table_name = table_name
+        if _check_required or file_name is not None:
+            self.file_name = file_name
+        if _check_required or created_at is not None:
+            self.created_at = created_at
+        if _check_required or row_count is not None:
+            self.row_count = row_count
+        if _check_required or column_count is not None:
+            self.column_count = column_count
         if user_id is not None:
             self.user_id = user_id
         if group_id is not None:

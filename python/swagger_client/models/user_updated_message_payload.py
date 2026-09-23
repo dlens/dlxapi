@@ -35,11 +35,12 @@ class UserUpdatedMessagePayload(object):
         'user': 'user'
     }
 
-    def __init__(self, user=None):  # noqa: E501
+    def __init__(self, user=None, _check_required=True):  # noqa: E501
         """UserUpdatedMessagePayload - a model defined in Swagger"""  # noqa: E501
         self._user = None
         self.discriminator = None
-        self.user = user
+        if _check_required or user is not None:
+            self.user = user
 
     @property
     def user(self):

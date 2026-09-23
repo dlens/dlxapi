@@ -39,14 +39,16 @@ class PairwiseVotePatchItem(object):
         'operations': 'operations'
     }
 
-    def __init__(self, dominant_field_id=None, recessive_field_id=None, operations=None):  # noqa: E501
+    def __init__(self, dominant_field_id=None, recessive_field_id=None, operations=None, _check_required=True):  # noqa: E501
         """PairwiseVotePatchItem - a model defined in Swagger"""  # noqa: E501
         self._dominant_field_id = None
         self._recessive_field_id = None
         self._operations = None
         self.discriminator = None
-        self.dominant_field_id = dominant_field_id
-        self.recessive_field_id = recessive_field_id
+        if _check_required or dominant_field_id is not None:
+            self.dominant_field_id = dominant_field_id
+        if _check_required or recessive_field_id is not None:
+            self.recessive_field_id = recessive_field_id
         if operations is not None:
             self.operations = operations
 

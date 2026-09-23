@@ -39,15 +39,18 @@ class MappedCategoryOptionResponse(object):
         'spoke_category_option_ids': 'spokeCategoryOptionIds'
     }
 
-    def __init__(self, name=None, hub_category_option_id=None, spoke_category_option_ids=None):  # noqa: E501
+    def __init__(self, name=None, hub_category_option_id=None, spoke_category_option_ids=None, _check_required=True):  # noqa: E501
         """MappedCategoryOptionResponse - a model defined in Swagger"""  # noqa: E501
         self._name = None
         self._hub_category_option_id = None
         self._spoke_category_option_ids = None
         self.discriminator = None
-        self.name = name
-        self.hub_category_option_id = hub_category_option_id
-        self.spoke_category_option_ids = spoke_category_option_ids
+        if _check_required or name is not None:
+            self.name = name
+        if _check_required or hub_category_option_id is not None:
+            self.hub_category_option_id = hub_category_option_id
+        if _check_required or spoke_category_option_ids is not None:
+            self.spoke_category_option_ids = spoke_category_option_ids
 
     @property
     def name(self):

@@ -45,7 +45,7 @@ class PortfolioIsPortfolioOpenUpdatedEvent(object):
         'previous_is_portfolio_open': 'previousIsPortfolioOpen'
     }
 
-    def __init__(self, portfolio_id=None, is_portfolio_open=None, name=None, id=None, portfolio_plan=None, previous_is_portfolio_open=None):  # noqa: E501
+    def __init__(self, portfolio_id=None, is_portfolio_open=None, name=None, id=None, portfolio_plan=None, previous_is_portfolio_open=None, _check_required=True):  # noqa: E501
         """PortfolioIsPortfolioOpenUpdatedEvent - a model defined in Swagger"""  # noqa: E501
         self._portfolio_id = None
         self._is_portfolio_open = None

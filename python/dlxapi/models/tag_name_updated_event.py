@@ -45,7 +45,7 @@ class TagNameUpdatedEvent(object):
         'parent_id': 'parentId'
     }
 
-    def __init__(self, portfolio_id=None, color=None, previous_name=None, name=None, id=None, parent_id=None):  # noqa: E501
+    def __init__(self, portfolio_id=None, color=None, previous_name=None, name=None, id=None, parent_id=None, _check_required=True):  # noqa: E501
         """TagNameUpdatedEvent - a model defined in Swagger"""  # noqa: E501
         self._portfolio_id = None
         self._color = None

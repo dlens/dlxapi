@@ -39,13 +39,14 @@ class ProjectChangeStatusDecision(object):
         'attachment_ids': 'attachmentIds'
     }
 
-    def __init__(self, status=None, note=None, attachment_ids=None):  # noqa: E501
+    def __init__(self, status=None, note=None, attachment_ids=None, _check_required=True):  # noqa: E501
         """ProjectChangeStatusDecision - a model defined in Swagger"""  # noqa: E501
         self._status = None
         self._note = None
         self._attachment_ids = None
         self.discriminator = None
-        self.status = status
+        if _check_required or status is not None:
+            self.status = status
         if note is not None:
             self.note = note
         if attachment_ids is not None:

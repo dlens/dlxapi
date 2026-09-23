@@ -41,17 +41,21 @@ class DashboardImage(object):
         'size_bytes': 'sizeBytes'
     }
 
-    def __init__(self, image_id=None, name=None, mime_type=None, size_bytes=None):  # noqa: E501
+    def __init__(self, image_id=None, name=None, mime_type=None, size_bytes=None, _check_required=True):  # noqa: E501
         """DashboardImage - a model defined in Swagger"""  # noqa: E501
         self._image_id = None
         self._name = None
         self._mime_type = None
         self._size_bytes = None
         self.discriminator = None
-        self.image_id = image_id
-        self.name = name
-        self.mime_type = mime_type
-        self.size_bytes = size_bytes
+        if _check_required or image_id is not None:
+            self.image_id = image_id
+        if _check_required or name is not None:
+            self.name = name
+        if _check_required or mime_type is not None:
+            self.mime_type = mime_type
+        if _check_required or size_bytes is not None:
+            self.size_bytes = size_bytes
 
     @property
     def image_id(self):

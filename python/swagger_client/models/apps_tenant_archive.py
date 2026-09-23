@@ -37,13 +37,15 @@ class AppsTenantArchive(object):
         'group_ids': 'groupIds'
     }
 
-    def __init__(self, app_ids=None, group_ids=None):  # noqa: E501
+    def __init__(self, app_ids=None, group_ids=None, _check_required=True):  # noqa: E501
         """AppsTenantArchive - a model defined in Swagger"""  # noqa: E501
         self._app_ids = None
         self._group_ids = None
         self.discriminator = None
-        self.app_ids = app_ids
-        self.group_ids = group_ids
+        if _check_required or app_ids is not None:
+            self.app_ids = app_ids
+        if _check_required or group_ids is not None:
+            self.group_ids = group_ids
 
     @property
     def app_ids(self):

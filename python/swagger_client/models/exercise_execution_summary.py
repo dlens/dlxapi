@@ -47,7 +47,7 @@ class ExerciseExecutionSummary(object):
         'last_updated_at': 'lastUpdatedAt'
     }
 
-    def __init__(self, exercise_id=None, user_id=None, hub_portfolio=None, connected_portfolios=None, sync_direction=None, number_of_projects=None, last_updated_at=None):  # noqa: E501
+    def __init__(self, exercise_id=None, user_id=None, hub_portfolio=None, connected_portfolios=None, sync_direction=None, number_of_projects=None, last_updated_at=None, _check_required=True):  # noqa: E501
         """ExerciseExecutionSummary - a model defined in Swagger"""  # noqa: E501
         self._exercise_id = None
         self._user_id = None

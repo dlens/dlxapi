@@ -94,7 +94,7 @@ class Field(DlResource):
     if hasattr(DlResource, "attribute_map"):
         attribute_map.update(DlResource.attribute_map)
 
-    def __init__(self, name=None, original_name=None, description=None, type=None, source=None, portfolio=None, parent=None, position=None, type_position=None, spend_plan_position=None, field_values=None, field_datas=None, target_type=None, data_type=None, calculation_type=None, is_field_type_approved=None, tag_ids=None, category_options=None, is_idea_field=None, idea_field_position=None, field_requirement=None, scale=None, attributes=None, system_description=None, cost_type_id=None, cost_type_name=None, default_cost_type=None, field_values_updated_at=None, *args, **kwargs):  # noqa: E501
+    def __init__(self, name=None, original_name=None, description=None, type=None, source=None, portfolio=None, parent=None, position=None, type_position=None, spend_plan_position=None, field_values=None, field_datas=None, target_type=None, data_type=None, calculation_type=None, is_field_type_approved=None, tag_ids=None, category_options=None, is_idea_field=None, idea_field_position=None, field_requirement=None, scale=None, attributes=None, system_description=None, cost_type_id=None, cost_type_name=None, default_cost_type=None, field_values_updated_at=None, _check_required=True, *args, **kwargs):  # noqa: E501
         """Field - a model defined in Swagger"""  # noqa: E501
         self._name = None
         self._original_name = None
@@ -181,7 +181,7 @@ class Field(DlResource):
             self.default_cost_type = default_cost_type
         if field_values_updated_at is not None:
             self.field_values_updated_at = field_values_updated_at
-        DlResource.__init__(self, *args, **kwargs)
+        DlResource.__init__(self, *args, _check_required=_check_required, **kwargs)
 
     @property
     def name(self):

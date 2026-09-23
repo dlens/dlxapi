@@ -35,11 +35,12 @@ class ProjectAccessGrantedMessagePayload(object):
         'projects': 'projects'
     }
 
-    def __init__(self, projects=None):  # noqa: E501
+    def __init__(self, projects=None, _check_required=True):  # noqa: E501
         """ProjectAccessGrantedMessagePayload - a model defined in Swagger"""  # noqa: E501
         self._projects = None
         self.discriminator = None
-        self.projects = projects
+        if _check_required or projects is not None:
+            self.projects = projects
 
     @property
     def projects(self):

@@ -41,7 +41,7 @@ class SpreadsheetWarning(object):
         'items': 'items'
     }
 
-    def __init__(self, header_label=None, footer_label=None, resource_name=None, items=None):  # noqa: E501
+    def __init__(self, header_label=None, footer_label=None, resource_name=None, items=None, _check_required=True):  # noqa: E501
         """SpreadsheetWarning - a model defined in Swagger"""  # noqa: E501
         self._header_label = None
         self._footer_label = None

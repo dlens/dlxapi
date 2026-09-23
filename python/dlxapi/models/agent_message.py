@@ -37,7 +37,7 @@ class AgentMessage(object):
         'message': 'message'
     }
 
-    def __init__(self, type=None, message=None):  # noqa: E501
+    def __init__(self, type=None, message=None, _check_required=True):  # noqa: E501
         """AgentMessage - a model defined in Swagger"""  # noqa: E501
         self._type = None
         self._message = None

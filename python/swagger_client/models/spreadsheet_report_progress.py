@@ -35,7 +35,7 @@ class SpreadsheetReportProgress(object):
         'status': 'status'
     }
 
-    def __init__(self, status=None):  # noqa: E501
+    def __init__(self, status=None, _check_required=True):  # noqa: E501
         """SpreadsheetReportProgress - a model defined in Swagger"""  # noqa: E501
         self._status = None
         self.discriminator = None

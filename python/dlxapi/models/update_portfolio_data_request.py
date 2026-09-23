@@ -35,7 +35,7 @@ class UpdatePortfolioDataRequest(object):
         'source': 'source'
     }
 
-    def __init__(self, source=None):  # noqa: E501
+    def __init__(self, source=None, _check_required=True):  # noqa: E501
         """UpdatePortfolioDataRequest - a model defined in Swagger"""  # noqa: E501
         self._source = None
         self.discriminator = None

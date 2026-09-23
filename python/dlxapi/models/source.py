@@ -54,7 +54,7 @@ class Source(DlResource):
     if hasattr(DlResource, "attribute_map"):
         attribute_map.update(DlResource.attribute_map)
 
-    def __init__(self, name=None, type=None, portfolio=None, fields=None, projects=None, dlc_portfolio=None, prioritization=None, weight_set_id=None, *args, **kwargs):  # noqa: E501
+    def __init__(self, name=None, type=None, portfolio=None, fields=None, projects=None, dlc_portfolio=None, prioritization=None, weight_set_id=None, _check_required=True, *args, **kwargs):  # noqa: E501
         """Source - a model defined in Swagger"""  # noqa: E501
         self._name = None
         self._type = None
@@ -67,7 +67,8 @@ class Source(DlResource):
         self.discriminator = None
         if name is not None:
             self.name = name
-        self.type = type
+        if _check_required or type is not None:
+            self.type = type
         if portfolio is not None:
             self.portfolio = portfolio
         if fields is not None:
@@ -80,7 +81,7 @@ class Source(DlResource):
             self.prioritization = prioritization
         if weight_set_id is not None:
             self.weight_set_id = weight_set_id
-        DlResource.__init__(self, *args, **kwargs)
+        DlResource.__init__(self, *args, _check_required=_check_required, **kwargs)
 
     @property
     def name(self):

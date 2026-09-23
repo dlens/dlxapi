@@ -43,7 +43,7 @@ class ExportConfig(object):
         'filters': 'filters'
     }
 
-    def __init__(self, project_ids=None, cost_field_ids=None, columns=None, planning_period=None, filters=None):  # noqa: E501
+    def __init__(self, project_ids=None, cost_field_ids=None, columns=None, planning_period=None, filters=None, _check_required=True):  # noqa: E501
         """ExportConfig - a model defined in Swagger"""  # noqa: E501
         self._project_ids = None
         self._cost_field_ids = None

@@ -58,7 +58,7 @@ class {{classname}}({{#parent}}{{parent}}{{/parent}}{{^parent}}object{{/parent}}
     discriminator_value_class_map = {
         {{#if discriminator.mapping}}
           {{#each discriminator.mapping}}
-            '{{@key}}'.lower(): '{{this}}',
+            '{{@key}}': '{{this}}',
           {{/each}}
         {{else}}
           {{#children}}'{{^vendorExtensions.x-discriminator-value}}{{name}}{{/vendorExtensions.x-discriminator-value}}{{#vendorExtensions.x-discriminator-value}}{{{vendorExtensions.x-discriminator-value}}}{{/vendorExtensions.x-discriminator-value}}': '{{{classname}}}'{{^@last}},
@@ -67,7 +67,7 @@ class {{classname}}({{#parent}}{{parent}}{{/parent}}{{^parent}}object{{/parent}}
     }
 {{/discriminator}}
 
-    def __init__(self{{#vars}}, {{name}}={{#defaultValue}}{{{defaultValue}}}{{/defaultValue}}{{^defaultValue}}None{{/defaultValue}}{{/vars}}{{#parent}}, *args, **kwargs{{/parent}}):  # noqa: E501
+    def __init__(self{{#vars}}, {{name}}={{#defaultValue}}{{{defaultValue}}}{{/defaultValue}}{{^defaultValue}}None{{/defaultValue}}{{/vars}}, _check_required=True{{#parent}}, *args, **kwargs{{/parent}}):  # noqa: E501
         """{{classname}} - a model defined in Swagger"""  # noqa: E501
 {{#vars}}{{#@first}}
 {{/@first}}
@@ -77,7 +77,8 @@ class {{classname}}({{#parent}}{{parent}}{{/parent}}{{^parent}}object{{/parent}}
 {{#vars}}{{#@first}}
 {{/@first}}
 {{#required}}
-        self.{{name}} = {{name}}
+        if _check_required or {{name}} is not None:
+            self.{{name}} = {{name}}
 {{/required}}
 {{^required}}
         if {{name}} is not None:
@@ -85,7 +86,7 @@ class {{classname}}({{#parent}}{{parent}}{{/parent}}{{^parent}}object{{/parent}}
 {{/required}}
 {{/vars}}
 {{#parent}}
-        {{parent}}.__init__(self, *args, **kwargs)
+        {{parent}}.__init__(self, *args, _check_required=_check_required, **kwargs)
 {{/parent}}
 
 {{#vars}}

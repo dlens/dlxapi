@@ -41,15 +41,17 @@ class DiscoveredOption(object):
         'meta': 'meta'
     }
 
-    def __init__(self, value=None, label=None, description=None, meta=None):  # noqa: E501
+    def __init__(self, value=None, label=None, description=None, meta=None, _check_required=True):  # noqa: E501
         """DiscoveredOption - a model defined in Swagger"""  # noqa: E501
         self._value = None
         self._label = None
         self._description = None
         self._meta = None
         self.discriminator = None
-        self.value = value
-        self.label = label
+        if _check_required or value is not None:
+            self.value = value
+        if _check_required or label is not None:
+            self.label = label
         if description is not None:
             self.description = description
         if meta is not None:

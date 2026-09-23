@@ -35,11 +35,12 @@ class DatahubProjectsBody(object):
         'project_file': 'projectFile'
     }
 
-    def __init__(self, project_file=None):  # noqa: E501
+    def __init__(self, project_file=None, _check_required=True):  # noqa: E501
         """DatahubProjectsBody - a model defined in Swagger"""  # noqa: E501
         self._project_file = None
         self.discriminator = None
-        self.project_file = project_file
+        if _check_required or project_file is not None:
+            self.project_file = project_file
 
     @property
     def project_file(self):

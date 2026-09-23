@@ -67,7 +67,7 @@ class SpreadsheetReport(object):
         'import_type': 'importType'
     }
 
-    def __init__(self, portfolio_id=None, spreadsheet_id=None, sheet_name=None, new_projects=None, fields=None, new_fields=None, new_budgets=None, update_fields=None, update_budgets=None, update_project_field_values_count=None, update_field_data_values_count=None, new_budget_amounts_count=None, update_budget_amounts_count=None, update_time_periods_count=None, update_projects=None, warnings=None, import_type=None):  # noqa: E501
+    def __init__(self, portfolio_id=None, spreadsheet_id=None, sheet_name=None, new_projects=None, fields=None, new_fields=None, new_budgets=None, update_fields=None, update_budgets=None, update_project_field_values_count=None, update_field_data_values_count=None, new_budget_amounts_count=None, update_budget_amounts_count=None, update_time_periods_count=None, update_projects=None, warnings=None, import_type=None, _check_required=True):  # noqa: E501
         """SpreadsheetReport - a model defined in Swagger"""  # noqa: E501
         self._portfolio_id = None
         self._spreadsheet_id = None

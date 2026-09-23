@@ -39,13 +39,14 @@ class ApprovalSelector(object):
         'category_option_ids': 'categoryOptionIds'
     }
 
-    def __init__(self, type=None, project_ids=None, category_option_ids=None):  # noqa: E501
+    def __init__(self, type=None, project_ids=None, category_option_ids=None, _check_required=True):  # noqa: E501
         """ApprovalSelector - a model defined in Swagger"""  # noqa: E501
         self._type = None
         self._project_ids = None
         self._category_option_ids = None
         self.discriminator = None
-        self.type = type
+        if _check_required or type is not None:
+            self.type = type
         if project_ids is not None:
             self.project_ids = project_ids
         if category_option_ids is not None:

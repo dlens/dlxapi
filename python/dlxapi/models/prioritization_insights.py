@@ -35,7 +35,7 @@ class PrioritizationInsights(object):
         'insights': 'insights'
     }
 
-    def __init__(self, insights=None):  # noqa: E501
+    def __init__(self, insights=None, _check_required=True):  # noqa: E501
         """PrioritizationInsights - a model defined in Swagger"""  # noqa: E501
         self._insights = None
         self.discriminator = None

@@ -39,14 +39,16 @@ class MultiPortfolioCopyAndSyncResponse(object):
         'data': 'data'
     }
 
-    def __init__(self, success=None, message=None, data=None):  # noqa: E501
+    def __init__(self, success=None, message=None, data=None, _check_required=True):  # noqa: E501
         """MultiPortfolioCopyAndSyncResponse - a model defined in Swagger"""  # noqa: E501
         self._success = None
         self._message = None
         self._data = None
         self.discriminator = None
-        self.success = success
-        self.message = message
+        if _check_required or success is not None:
+            self.success = success
+        if _check_required or message is not None:
+            self.message = message
         if data is not None:
             self.data = data
 

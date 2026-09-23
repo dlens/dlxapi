@@ -41,17 +41,21 @@ class ChartDataSchema(object):
         'tables': 'tables'
     }
 
-    def __init__(self, id=None, label=None, param_key=None, tables=None):  # noqa: E501
+    def __init__(self, id=None, label=None, param_key=None, tables=None, _check_required=True):  # noqa: E501
         """ChartDataSchema - a model defined in Swagger"""  # noqa: E501
         self._id = None
         self._label = None
         self._param_key = None
         self._tables = None
         self.discriminator = None
-        self.id = id
-        self.label = label
-        self.param_key = param_key
-        self.tables = tables
+        if _check_required or id is not None:
+            self.id = id
+        if _check_required or label is not None:
+            self.label = label
+        if _check_required or param_key is not None:
+            self.param_key = param_key
+        if _check_required or tables is not None:
+            self.tables = tables
 
     @property
     def id(self):

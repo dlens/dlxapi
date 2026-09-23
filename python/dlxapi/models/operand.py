@@ -37,7 +37,7 @@ class Operand(object):
         'value': 'value'
     }
 
-    def __init__(self, type=None, value=None):  # noqa: E501
+    def __init__(self, type=None, value=None, _check_required=True):  # noqa: E501
         """Operand - a model defined in Swagger"""  # noqa: E501
         self._type = None
         self._value = None

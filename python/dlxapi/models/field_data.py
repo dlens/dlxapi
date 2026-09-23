@@ -40,13 +40,13 @@ class FieldData(FieldValue):
     if hasattr(FieldValue, "attribute_map"):
         attribute_map.update(FieldValue.attribute_map)
 
-    def __init__(self, source_field=None, *args, **kwargs):  # noqa: E501
+    def __init__(self, source_field=None, _check_required=True, *args, **kwargs):  # noqa: E501
         """FieldData - a model defined in Swagger"""  # noqa: E501
         self._source_field = None
         self.discriminator = None
         if source_field is not None:
             self.source_field = source_field
-        FieldValue.__init__(self, *args, **kwargs)
+        FieldValue.__init__(self, *args, _check_required=_check_required, **kwargs)
 
     @property
     def source_field(self):

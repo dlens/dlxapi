@@ -46,7 +46,7 @@ class AppProperty(DlResource):
     if hasattr(DlResource, "attribute_map"):
         attribute_map.update(DlResource.attribute_map)
 
-    def __init__(self, name=None, sensitive=False, value=None, value_length=None, *args, **kwargs):  # noqa: E501
+    def __init__(self, name=None, sensitive=False, value=None, value_length=None, _check_required=True, *args, **kwargs):  # noqa: E501
         """AppProperty - a model defined in Swagger"""  # noqa: E501
         self._name = None
         self._sensitive = None
@@ -61,7 +61,7 @@ class AppProperty(DlResource):
             self.value = value
         if value_length is not None:
             self.value_length = value_length
-        DlResource.__init__(self, *args, **kwargs)
+        DlResource.__init__(self, *args, _check_required=_check_required, **kwargs)
 
     @property
     def name(self):

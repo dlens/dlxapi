@@ -49,7 +49,7 @@ class FieldGrade(object):
         'risk_field_details': 'riskFieldDetails'
     }
 
-    def __init__(self, field=None, grade=None, min=0.0, max=0.0, current=0.0, grading_boundaries=None, balance_field_details=None, risk_field_details=None):  # noqa: E501
+    def __init__(self, field=None, grade=None, min=0.0, max=0.0, current=0.0, grading_boundaries=None, balance_field_details=None, risk_field_details=None, _check_required=True):  # noqa: E501
         """FieldGrade - a model defined in Swagger"""  # noqa: E501
         self._field = None
         self._grade = None

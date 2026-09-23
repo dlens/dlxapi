@@ -39,7 +39,7 @@ class AddPrioritizationUsersRequest(object):
         'send_email': 'sendEmail'
     }
 
-    def __init__(self, existing_user_ids=None, new_user_emails=None, send_email=False):  # noqa: E501
+    def __init__(self, existing_user_ids=None, new_user_emails=None, send_email=False, _check_required=True):  # noqa: E501
         """AddPrioritizationUsersRequest - a model defined in Swagger"""  # noqa: E501
         self._existing_user_ids = None
         self._new_user_emails = None

@@ -45,7 +45,7 @@ class CopySurveyRequest(object):
         'copy_users': 'copyUsers'
     }
 
-    def __init__(self, name=None, copy_instructions=True, copy_group_ratings=False, copy_projects=False, copy_reference_fields=True, copy_users=False):  # noqa: E501
+    def __init__(self, name=None, copy_instructions=True, copy_group_ratings=False, copy_projects=False, copy_reference_fields=True, copy_users=False, _check_required=True):  # noqa: E501
         """CopySurveyRequest - a model defined in Swagger"""  # noqa: E501
         self._name = None
         self._copy_instructions = None
@@ -54,7 +54,8 @@ class CopySurveyRequest(object):
         self._copy_reference_fields = None
         self._copy_users = None
         self.discriminator = None
-        self.name = name
+        if _check_required or name is not None:
+            self.name = name
         if copy_instructions is not None:
             self.copy_instructions = copy_instructions
         if copy_group_ratings is not None:

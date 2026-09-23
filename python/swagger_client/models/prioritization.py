@@ -76,7 +76,7 @@ class Prioritization(DlResource):
     if hasattr(DlResource, "attribute_map"):
         attribute_map.update(DlResource.attribute_map)
 
-    def __init__(self, name=None, description=None, type=None, is_archived=None, is_priorities_enabled=None, is_ratings_enabled=None, parent=None, rating_survey_weighting_mode=None, priority_survey_weighting_mode=None, weight_set_id_for_automatically_update_data=None, portfolio=None, surveys=None, category_field_filters=None, has_survey_raters=None, has_rating_comments=None, portfolio_data_updated_at=None, new_portfolio_data_available_at=None, portfolio_score_updated_at=None, prioritization_data_updated_at=None, *args, **kwargs):  # noqa: E501
+    def __init__(self, name=None, description=None, type=None, is_archived=None, is_priorities_enabled=None, is_ratings_enabled=None, parent=None, rating_survey_weighting_mode=None, priority_survey_weighting_mode=None, weight_set_id_for_automatically_update_data=None, portfolio=None, surveys=None, category_field_filters=None, has_survey_raters=None, has_rating_comments=None, portfolio_data_updated_at=None, new_portfolio_data_available_at=None, portfolio_score_updated_at=None, prioritization_data_updated_at=None, _check_required=True, *args, **kwargs):  # noqa: E501
         """Prioritization - a model defined in Swagger"""  # noqa: E501
         self._name = None
         self._description = None
@@ -98,10 +98,12 @@ class Prioritization(DlResource):
         self._portfolio_score_updated_at = None
         self._prioritization_data_updated_at = None
         self.discriminator = None
-        self.name = name
+        if _check_required or name is not None:
+            self.name = name
         if description is not None:
             self.description = description
-        self.type = type
+        if _check_required or type is not None:
+            self.type = type
         if is_archived is not None:
             self.is_archived = is_archived
         if is_priorities_enabled is not None:
@@ -134,7 +136,7 @@ class Prioritization(DlResource):
             self.portfolio_score_updated_at = portfolio_score_updated_at
         if prioritization_data_updated_at is not None:
             self.prioritization_data_updated_at = prioritization_data_updated_at
-        DlResource.__init__(self, *args, **kwargs)
+        DlResource.__init__(self, *args, _check_required=_check_required, **kwargs)
 
     @property
     def name(self):

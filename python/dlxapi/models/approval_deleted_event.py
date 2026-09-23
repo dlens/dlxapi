@@ -49,7 +49,7 @@ class ApprovalDeletedEvent(object):
         'selectors': 'selectors'
     }
 
-    def __init__(self, id=None, portfolio_id=None, portfolio_plan=None, name=None, description=None, is_active=None, approver_user_ids=None, selectors=None):  # noqa: E501
+    def __init__(self, id=None, portfolio_id=None, portfolio_plan=None, name=None, description=None, is_active=None, approver_user_ids=None, selectors=None, _check_required=True):  # noqa: E501
         """ApprovalDeletedEvent - a model defined in Swagger"""  # noqa: E501
         self._id = None
         self._portfolio_id = None

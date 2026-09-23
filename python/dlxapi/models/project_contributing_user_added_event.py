@@ -45,7 +45,7 @@ class ProjectContributingUserAddedEvent(object):
         'portfolio_plan': 'portfolioPlan'
     }
 
-    def __init__(self, portfolio_id=None, contributing_user=None, id=None, project_name=None, user_id=None, portfolio_plan=None):  # noqa: E501
+    def __init__(self, portfolio_id=None, contributing_user=None, id=None, project_name=None, user_id=None, portfolio_plan=None, _check_required=True):  # noqa: E501
         """ProjectContributingUserAddedEvent - a model defined in Swagger"""  # noqa: E501
         self._portfolio_id = None
         self._contributing_user = None

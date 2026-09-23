@@ -39,7 +39,7 @@ class FieldValuesUpdatedMessagePayload(object):
         'field_values': 'fieldValues'
     }
 
-    def __init__(self, portfolio_id=None, portfolio_plan_id=None, field_values=None):  # noqa: E501
+    def __init__(self, portfolio_id=None, portfolio_plan_id=None, field_values=None, _check_required=True):  # noqa: E501
         """FieldValuesUpdatedMessagePayload - a model defined in Swagger"""  # noqa: E501
         self._portfolio_id = None
         self._portfolio_plan_id = None
@@ -49,7 +49,8 @@ class FieldValuesUpdatedMessagePayload(object):
             self.portfolio_id = portfolio_id
         if portfolio_plan_id is not None:
             self.portfolio_plan_id = portfolio_plan_id
-        self.field_values = field_values
+        if _check_required or field_values is not None:
+            self.field_values = field_values
 
     @property
     def portfolio_id(self):

@@ -35,7 +35,7 @@ class ProjectFilter(object):
         'field_values': 'fieldValues'
     }
 
-    def __init__(self, field_values=None):  # noqa: E501
+    def __init__(self, field_values=None, _check_required=True):  # noqa: E501
         """ProjectFilter - a model defined in Swagger"""  # noqa: E501
         self._field_values = None
         self.discriminator = None

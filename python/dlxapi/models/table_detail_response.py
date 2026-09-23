@@ -39,15 +39,18 @@ class TableDetailResponse(object):
         'data': 'data'
     }
 
-    def __init__(self, success=None, table=None, data=None):  # noqa: E501
+    def __init__(self, success=None, table=None, data=None, _check_required=True):  # noqa: E501
         """TableDetailResponse - a model defined in Swagger"""  # noqa: E501
         self._success = None
         self._table = None
         self._data = None
         self.discriminator = None
-        self.success = success
-        self.table = table
-        self.data = data
+        if _check_required or success is not None:
+            self.success = success
+        if _check_required or table is not None:
+            self.table = table
+        if _check_required or data is not None:
+            self.data = data
 
     @property
     def success(self):

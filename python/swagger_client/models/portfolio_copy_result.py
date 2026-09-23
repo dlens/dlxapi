@@ -45,7 +45,7 @@ class PortfolioCopyResult(object):
         'error': 'error'
     }
 
-    def __init__(self, portfolio_id=None, projects_copied_count=None, projects_synced=None, project_count=None, success=None, error=None):  # noqa: E501
+    def __init__(self, portfolio_id=None, projects_copied_count=None, projects_synced=None, project_count=None, success=None, error=None, _check_required=True):  # noqa: E501
         """PortfolioCopyResult - a model defined in Swagger"""  # noqa: E501
         self._portfolio_id = None
         self._projects_copied_count = None
@@ -54,11 +54,16 @@ class PortfolioCopyResult(object):
         self._success = None
         self._error = None
         self.discriminator = None
-        self.portfolio_id = portfolio_id
-        self.projects_copied_count = projects_copied_count
-        self.projects_synced = projects_synced
-        self.project_count = project_count
-        self.success = success
+        if _check_required or portfolio_id is not None:
+            self.portfolio_id = portfolio_id
+        if _check_required or projects_copied_count is not None:
+            self.projects_copied_count = projects_copied_count
+        if _check_required or projects_synced is not None:
+            self.projects_synced = projects_synced
+        if _check_required or project_count is not None:
+            self.project_count = project_count
+        if _check_required or success is not None:
+            self.success = success
         if error is not None:
             self.error = error
 

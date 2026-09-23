@@ -54,7 +54,7 @@ class PortfolioPlanInsights(DlResource):
     if hasattr(DlResource, "attribute_map"):
         attribute_map.update(DlResource.attribute_map)
 
-    def __init__(self, portfolio=None, sub_portfolio_insights=None, insights=None, status_insights=None, budget=None, allocation=None, grading_type=None, wiwo=None, *args, **kwargs):  # noqa: E501
+    def __init__(self, portfolio=None, sub_portfolio_insights=None, insights=None, status_insights=None, budget=None, allocation=None, grading_type=None, wiwo=None, _check_required=True, *args, **kwargs):  # noqa: E501
         """PortfolioPlanInsights - a model defined in Swagger"""  # noqa: E501
         self._portfolio = None
         self._sub_portfolio_insights = None
@@ -81,7 +81,7 @@ class PortfolioPlanInsights(DlResource):
             self.grading_type = grading_type
         if wiwo is not None:
             self.wiwo = wiwo
-        DlResource.__init__(self, *args, **kwargs)
+        DlResource.__init__(self, *args, _check_required=_check_required, **kwargs)
 
     @property
     def portfolio(self):

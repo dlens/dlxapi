@@ -39,7 +39,7 @@ class FetchPortfoliosFromDLXResponse(object):
         'total_count': 'totalCount'
     }
 
-    def __init__(self, success=None, portfolios=None, total_count=None):  # noqa: E501
+    def __init__(self, success=None, portfolios=None, total_count=None, _check_required=True):  # noqa: E501
         """FetchPortfoliosFromDLXResponse - a model defined in Swagger"""  # noqa: E501
         self._success = None
         self._portfolios = None

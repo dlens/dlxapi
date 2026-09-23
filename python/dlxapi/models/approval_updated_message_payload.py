@@ -37,7 +37,7 @@ class ApprovalUpdatedMessagePayload(object):
         'portfolio_plan_id': 'portfolioPlanId'
     }
 
-    def __init__(self, portfolio_id=None, portfolio_plan_id=None):  # noqa: E501
+    def __init__(self, portfolio_id=None, portfolio_plan_id=None, _check_required=True):  # noqa: E501
         """ApprovalUpdatedMessagePayload - a model defined in Swagger"""  # noqa: E501
         self._portfolio_id = None
         self._portfolio_plan_id = None

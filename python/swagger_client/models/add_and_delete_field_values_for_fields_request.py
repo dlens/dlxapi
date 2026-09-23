@@ -41,7 +41,7 @@ class AddAndDeleteFieldValuesForFieldsRequest(object):
         'field_value': 'fieldValue'
     }
 
-    def __init__(self, field_ids_to_add=None, field_ids_to_remove=None, time_periods=None, field_value=None):  # noqa: E501
+    def __init__(self, field_ids_to_add=None, field_ids_to_remove=None, time_periods=None, field_value=None, _check_required=True):  # noqa: E501
         """AddAndDeleteFieldValuesForFieldsRequest - a model defined in Swagger"""  # noqa: E501
         self._field_ids_to_add = None
         self._field_ids_to_remove = None

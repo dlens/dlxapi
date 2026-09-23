@@ -39,7 +39,7 @@ class BalanceFieldDetail(object):
         'expected': 'expected'
     }
 
-    def __init__(self, category_name=None, actual=0.0, expected=0.0):  # noqa: E501
+    def __init__(self, category_name=None, actual=0.0, expected=0.0, _check_required=True):  # noqa: E501
         """BalanceFieldDetail - a model defined in Swagger"""  # noqa: E501
         self._category_name = None
         self._actual = None

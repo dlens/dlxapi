@@ -39,7 +39,7 @@ class GeoPoint(object):
         'address': 'address'
     }
 
-    def __init__(self, lat=None, lng=None, address=None):  # noqa: E501
+    def __init__(self, lat=None, lng=None, address=None, _check_required=True):  # noqa: E501
         """GeoPoint - a model defined in Swagger"""  # noqa: E501
         self._lat = None
         self._lng = None

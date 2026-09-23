@@ -39,7 +39,7 @@ class BudgetAmountPatchItem(object):
         'operations': 'operations'
     }
 
-    def __init__(self, budget_id=None, time_period=None, operations=None):  # noqa: E501
+    def __init__(self, budget_id=None, time_period=None, operations=None, _check_required=True):  # noqa: E501
         """BudgetAmountPatchItem - a model defined in Swagger"""  # noqa: E501
         self._budget_id = None
         self._time_period = None

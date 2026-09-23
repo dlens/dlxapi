@@ -37,12 +37,13 @@ class TablesUploadBody(object):
         'table_display_name': 'tableDisplayName'
     }
 
-    def __init__(self, file=None, table_display_name=None):  # noqa: E501
+    def __init__(self, file=None, table_display_name=None, _check_required=True):  # noqa: E501
         """TablesUploadBody - a model defined in Swagger"""  # noqa: E501
         self._file = None
         self._table_display_name = None
         self.discriminator = None
-        self.file = file
+        if _check_required or file is not None:
+            self.file = file
         if table_display_name is not None:
             self.table_display_name = table_display_name
 

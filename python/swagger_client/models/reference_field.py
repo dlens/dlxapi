@@ -44,7 +44,7 @@ class ReferenceField(Field):
     if hasattr(Field, "attribute_map"):
         attribute_map.update(Field.attribute_map)
 
-    def __init__(self, is_system=None, portfolio_field_id=None, minified_id=None, *args, **kwargs):  # noqa: E501
+    def __init__(self, is_system=None, portfolio_field_id=None, minified_id=None, _check_required=True, *args, **kwargs):  # noqa: E501
         """ReferenceField - a model defined in Swagger"""  # noqa: E501
         self._is_system = None
         self._portfolio_field_id = None
@@ -56,7 +56,7 @@ class ReferenceField(Field):
             self.portfolio_field_id = portfolio_field_id
         if minified_id is not None:
             self.minified_id = minified_id
-        Field.__init__(self, *args, **kwargs)
+        Field.__init__(self, *args, _check_required=_check_required, **kwargs)
 
     @property
     def is_system(self):

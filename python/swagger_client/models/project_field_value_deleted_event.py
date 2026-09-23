@@ -45,7 +45,7 @@ class ProjectFieldValueDeletedEvent(object):
         'portfolio_plan': 'portfolioPlan'
     }
 
-    def __init__(self, portfolio_id=None, field=None, name=None, time_period=None, id=None, portfolio_plan=None):  # noqa: E501
+    def __init__(self, portfolio_id=None, field=None, name=None, time_period=None, id=None, portfolio_plan=None, _check_required=True):  # noqa: E501
         """ProjectFieldValueDeletedEvent - a model defined in Swagger"""  # noqa: E501
         self._portfolio_id = None
         self._field = None

@@ -41,7 +41,7 @@ class HealthReportDataMetrics(object):
         'category_count': 'categoryCount'
     }
 
-    def __init__(self, user_count=None, project_count=None, field_count=None, category_count=None):  # noqa: E501
+    def __init__(self, user_count=None, project_count=None, field_count=None, category_count=None, _check_required=True):  # noqa: E501
         """HealthReportDataMetrics - a model defined in Swagger"""  # noqa: E501
         self._user_count = None
         self._project_count = None

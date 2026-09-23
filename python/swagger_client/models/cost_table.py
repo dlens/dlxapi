@@ -37,7 +37,7 @@ class CostTable(object):
         'cost_table_datas': 'costTableDatas'
     }
 
-    def __init__(self, time_period=None, cost_table_datas=None):  # noqa: E501
+    def __init__(self, time_period=None, cost_table_datas=None, _check_required=True):  # noqa: E501
         """CostTable - a model defined in Swagger"""  # noqa: E501
         self._time_period = None
         self._cost_table_datas = None

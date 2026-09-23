@@ -37,7 +37,7 @@ class CalculatedValues(object):
         'budgets': 'budgets'
     }
 
-    def __init__(self, field_values=None, budgets=None):  # noqa: E501
+    def __init__(self, field_values=None, budgets=None, _check_required=True):  # noqa: E501
         """CalculatedValues - a model defined in Swagger"""  # noqa: E501
         self._field_values = None
         self._budgets = None

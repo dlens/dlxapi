@@ -39,13 +39,14 @@ class ChartTimeFrame(object):
         'end_period': 'endPeriod'
     }
 
-    def __init__(self, mode=None, start_period=None, end_period=None):  # noqa: E501
+    def __init__(self, mode=None, start_period=None, end_period=None, _check_required=True):  # noqa: E501
         """ChartTimeFrame - a model defined in Swagger"""  # noqa: E501
         self._mode = None
         self._start_period = None
         self._end_period = None
         self.discriminator = None
-        self.mode = mode
+        if _check_required or mode is not None:
+            self.mode = mode
         if start_period is not None:
             self.start_period = start_period
         if end_period is not None:

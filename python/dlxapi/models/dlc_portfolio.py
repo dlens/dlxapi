@@ -49,7 +49,7 @@ class DlcPortfolio(object):
         'priority_scenarios': 'priorityScenarios'
     }
 
-    def __init__(self, id=None, url=None, task_url=None, last_updated_at=None, last_fetched_at=None, statuses=None, default_priority_scenario=None, priority_scenarios=None):  # noqa: E501
+    def __init__(self, id=None, url=None, task_url=None, last_updated_at=None, last_fetched_at=None, statuses=None, default_priority_scenario=None, priority_scenarios=None, _check_required=True):  # noqa: E501
         """DlcPortfolio - a model defined in Swagger"""  # noqa: E501
         self._id = None
         self._url = None

@@ -41,16 +41,19 @@ class AddColumnResponse(object):
         'message': 'message'
     }
 
-    def __init__(self, success=None, column_name=None, column_type=None, message=None):  # noqa: E501
+    def __init__(self, success=None, column_name=None, column_type=None, message=None, _check_required=True):  # noqa: E501
         """AddColumnResponse - a model defined in Swagger"""  # noqa: E501
         self._success = None
         self._column_name = None
         self._column_type = None
         self._message = None
         self.discriminator = None
-        self.success = success
-        self.column_name = column_name
-        self.column_type = column_type
+        if _check_required or success is not None:
+            self.success = success
+        if _check_required or column_name is not None:
+            self.column_name = column_name
+        if _check_required or column_type is not None:
+            self.column_type = column_type
         if message is not None:
             self.message = message
 

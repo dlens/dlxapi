@@ -49,7 +49,7 @@ class ProjectCategoryOptionAddedEvent(object):
         'portfolio_plan': 'portfolioPlan'
     }
 
-    def __init__(self, id=None, name=None, category_option_id=None, category_option_name=None, field_id=None, field_name=None, portfolio_id=None, portfolio_plan=None):  # noqa: E501
+    def __init__(self, id=None, name=None, category_option_id=None, category_option_name=None, field_id=None, field_name=None, portfolio_id=None, portfolio_plan=None, _check_required=True):  # noqa: E501
         """ProjectCategoryOptionAddedEvent - a model defined in Swagger"""  # noqa: E501
         self._id = None
         self._name = None

@@ -37,13 +37,15 @@ class ChartCategoryColor(object):
         'color': 'color'
     }
 
-    def __init__(self, field_id=None, color=None):  # noqa: E501
+    def __init__(self, field_id=None, color=None, _check_required=True):  # noqa: E501
         """ChartCategoryColor - a model defined in Swagger"""  # noqa: E501
         self._field_id = None
         self._color = None
         self.discriminator = None
-        self.field_id = field_id
-        self.color = color
+        if _check_required or field_id is not None:
+            self.field_id = field_id
+        if _check_required or color is not None:
+            self.color = color
 
     @property
     def field_id(self):

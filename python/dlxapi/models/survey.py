@@ -66,7 +66,7 @@ class Survey(DlResource):
     if hasattr(DlResource, "attribute_map"):
         attribute_map.update(DlResource.attribute_map)
 
-    def __init__(self, name=None, description=None, is_archived=None, is_turned_on=None, is_default=None, can_be_turned_on=None, allow_abstention=None, show_field_descriptions=None, survey_type=None, progress=None, prioritization_id=None, portfolio_id=None, portfolio_name=None, category_field_filters=None, *args, **kwargs):  # noqa: E501
+    def __init__(self, name=None, description=None, is_archived=None, is_turned_on=None, is_default=None, can_be_turned_on=None, allow_abstention=None, show_field_descriptions=None, survey_type=None, progress=None, prioritization_id=None, portfolio_id=None, portfolio_name=None, category_field_filters=None, _check_required=True, *args, **kwargs):  # noqa: E501
         """Survey - a model defined in Swagger"""  # noqa: E501
         self._name = None
         self._description = None
@@ -111,7 +111,7 @@ class Survey(DlResource):
             self.portfolio_name = portfolio_name
         if category_field_filters is not None:
             self.category_field_filters = category_field_filters
-        DlResource.__init__(self, *args, **kwargs)
+        DlResource.__init__(self, *args, _check_required=_check_required, **kwargs)
 
     @property
     def name(self):

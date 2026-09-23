@@ -48,7 +48,7 @@ class Comment(DlResource):
     if hasattr(DlResource, "attribute_map"):
         attribute_map.update(DlResource.attribute_map)
 
-    def __init__(self, portfolio_id=None, project=None, user=None, value=None, contributors_added=None, *args, **kwargs):  # noqa: E501
+    def __init__(self, portfolio_id=None, project=None, user=None, value=None, contributors_added=None, _check_required=True, *args, **kwargs):  # noqa: E501
         """Comment - a model defined in Swagger"""  # noqa: E501
         self._portfolio_id = None
         self._project = None
@@ -66,7 +66,7 @@ class Comment(DlResource):
             self.value = value
         if contributors_added is not None:
             self.contributors_added = contributors_added
-        DlResource.__init__(self, *args, **kwargs)
+        DlResource.__init__(self, *args, _check_required=_check_required, **kwargs)
 
     @property
     def portfolio_id(self):

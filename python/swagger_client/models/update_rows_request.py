@@ -35,11 +35,12 @@ class UpdateRowsRequest(object):
         'updates': 'updates'
     }
 
-    def __init__(self, updates=None):  # noqa: E501
+    def __init__(self, updates=None, _check_required=True):  # noqa: E501
         """UpdateRowsRequest - a model defined in Swagger"""  # noqa: E501
         self._updates = None
         self.discriminator = None
-        self.updates = updates
+        if _check_required or updates is not None:
+            self.updates = updates
 
     @property
     def updates(self):

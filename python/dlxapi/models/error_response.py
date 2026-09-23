@@ -39,14 +39,16 @@ class ErrorResponse(object):
         'details': 'details'
     }
 
-    def __init__(self, code=None, message=None, details=None):  # noqa: E501
+    def __init__(self, code=None, message=None, details=None, _check_required=True):  # noqa: E501
         """ErrorResponse - a model defined in Swagger"""  # noqa: E501
         self._code = None
         self._message = None
         self._details = None
         self.discriminator = None
-        self.code = code
-        self.message = message
+        if _check_required or code is not None:
+            self.code = code
+        if _check_required or message is not None:
+            self.message = message
         if details is not None:
             self.details = details
 

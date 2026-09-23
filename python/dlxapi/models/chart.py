@@ -59,7 +59,7 @@ class Chart(object):
         'updated_at': 'updatedAt'
     }
 
-    def __init__(self, id=None, name=None, source_type=None, source_id=None, source_name=None, source_archived=None, chart_type=None, axes=None, content=None, filters=None, created_by=None, created_at=None, updated_at=None):  # noqa: E501
+    def __init__(self, id=None, name=None, source_type=None, source_id=None, source_name=None, source_archived=None, chart_type=None, axes=None, content=None, filters=None, created_by=None, created_at=None, updated_at=None, _check_required=True):  # noqa: E501
         """Chart - a model defined in Swagger"""  # noqa: E501
         self._id = None
         self._name = None
@@ -77,15 +77,20 @@ class Chart(object):
         self.discriminator = None
         if id is not None:
             self.id = id
-        self.name = name
-        self.source_type = source_type
-        self.source_id = source_id
+        if _check_required or name is not None:
+            self.name = name
+        if _check_required or source_type is not None:
+            self.source_type = source_type
+        if _check_required or source_id is not None:
+            self.source_id = source_id
         if source_name is not None:
             self.source_name = source_name
         if source_archived is not None:
             self.source_archived = source_archived
-        self.chart_type = chart_type
-        self.axes = axes
+        if _check_required or chart_type is not None:
+            self.chart_type = chart_type
+        if _check_required or axes is not None:
+            self.axes = axes
         if content is not None:
             self.content = content
         if filters is not None:

@@ -43,7 +43,7 @@ class CostTypeIsForFundedProjectsUpdatedEvent(object):
         'portfolio_plan': 'portfolioPlan'
     }
 
-    def __init__(self, is_for_funded_projects=None, portfolio_id=None, previous_is_for_funded_projects=None, id=None, portfolio_plan=None):  # noqa: E501
+    def __init__(self, is_for_funded_projects=None, portfolio_id=None, previous_is_for_funded_projects=None, id=None, portfolio_plan=None, _check_required=True):  # noqa: E501
         """CostTypeIsForFundedProjectsUpdatedEvent - a model defined in Swagger"""  # noqa: E501
         self._is_for_funded_projects = None
         self._portfolio_id = None

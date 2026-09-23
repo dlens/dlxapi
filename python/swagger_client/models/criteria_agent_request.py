@@ -37,7 +37,7 @@ class CriteriaAgentRequest(object):
         'user_message': 'userMessage'
     }
 
-    def __init__(self, prioritization_id=None, user_message=None):  # noqa: E501
+    def __init__(self, prioritization_id=None, user_message=None, _check_required=True):  # noqa: E501
         """CriteriaAgentRequest - a model defined in Swagger"""  # noqa: E501
         self._prioritization_id = None
         self._user_message = None

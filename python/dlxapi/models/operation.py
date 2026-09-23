@@ -41,17 +41,19 @@ class Operation(object):
         'value': 'value'
     }
 
-    def __init__(self, op=None, _from=None, path=None, value=None):  # noqa: E501
+    def __init__(self, op=None, _from=None, path=None, value=None, _check_required=True):  # noqa: E501
         """Operation - a model defined in Swagger"""  # noqa: E501
         self._op = None
         self.__from = None
         self._path = None
         self._value = None
         self.discriminator = None
-        self.op = op
+        if _check_required or op is not None:
+            self.op = op
         if _from is not None:
             self._from = _from
-        self.path = path
+        if _check_required or path is not None:
+            self.path = path
         if value is not None:
             self.value = value
 

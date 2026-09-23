@@ -43,7 +43,7 @@ class SpreadsheetField(object):
         'warnings': 'warnings'
     }
 
-    def __init__(self, field=None, is_new=None, is_imported=None, is_project_identifier=None, warnings=None):  # noqa: E501
+    def __init__(self, field=None, is_new=None, is_imported=None, is_project_identifier=None, warnings=None, _check_required=True):  # noqa: E501
         """SpreadsheetField - a model defined in Swagger"""  # noqa: E501
         self._field = None
         self._is_new = None

@@ -47,7 +47,7 @@ class PrioritizationResult(object):
         'category_results': 'categoryResults'
     }
 
-    def __init__(self, project_id=None, field_id=None, score=None, weighted_score=None, numeric_value=None, alignment=None, category_results=None):  # noqa: E501
+    def __init__(self, project_id=None, field_id=None, score=None, weighted_score=None, numeric_value=None, alignment=None, category_results=None, _check_required=True):  # noqa: E501
         """PrioritizationResult - a model defined in Swagger"""  # noqa: E501
         self._project_id = None
         self._field_id = None

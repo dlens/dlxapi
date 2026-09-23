@@ -37,13 +37,15 @@ class IdTablesBody(object):
         'table_name': 'tableName'
     }
 
-    def __init__(self, key=None, table_name=None):  # noqa: E501
+    def __init__(self, key=None, table_name=None, _check_required=True):  # noqa: E501
         """IdTablesBody - a model defined in Swagger"""  # noqa: E501
         self._key = None
         self._table_name = None
         self.discriminator = None
-        self.key = key
-        self.table_name = table_name
+        if _check_required or key is not None:
+            self.key = key
+        if _check_required or table_name is not None:
+            self.table_name = table_name
 
     @property
     def key(self):

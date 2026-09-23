@@ -37,13 +37,15 @@ class FieldValuesProjectDeletedMessagePayload(object):
         'fields': 'fields'
     }
 
-    def __init__(self, project_id=None, fields=None):  # noqa: E501
+    def __init__(self, project_id=None, fields=None, _check_required=True):  # noqa: E501
         """FieldValuesProjectDeletedMessagePayload - a model defined in Swagger"""  # noqa: E501
         self._project_id = None
         self._fields = None
         self.discriminator = None
-        self.project_id = project_id
-        self.fields = fields
+        if _check_required or project_id is not None:
+            self.project_id = project_id
+        if _check_required or fields is not None:
+            self.fields = fields
 
     @property
     def project_id(self):

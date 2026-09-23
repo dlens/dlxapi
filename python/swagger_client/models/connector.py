@@ -57,7 +57,7 @@ class Connector(object):
         'updated_at': 'updatedAt'
     }
 
-    def __init__(self, id=None, group_id=None, name=None, spec_name=None, spec_version=None, parameter_values=None, last_synced_at=None, last_sync_status=None, table_count=None, connections=None, created_at=None, updated_at=None):  # noqa: E501
+    def __init__(self, id=None, group_id=None, name=None, spec_name=None, spec_version=None, parameter_values=None, last_synced_at=None, last_sync_status=None, table_count=None, connections=None, created_at=None, updated_at=None, _check_required=True):  # noqa: E501
         """Connector - a model defined in Swagger"""  # noqa: E501
         self._id = None
         self._group_id = None
@@ -76,11 +76,14 @@ class Connector(object):
             self.id = id
         if group_id is not None:
             self.group_id = group_id
-        self.name = name
-        self.spec_name = spec_name
+        if _check_required or name is not None:
+            self.name = name
+        if _check_required or spec_name is not None:
+            self.spec_name = spec_name
         if spec_version is not None:
             self.spec_version = spec_version
-        self.parameter_values = parameter_values
+        if _check_required or parameter_values is not None:
+            self.parameter_values = parameter_values
         if last_synced_at is not None:
             self.last_synced_at = last_synced_at
         if last_sync_status is not None:

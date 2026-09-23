@@ -47,7 +47,7 @@ class FieldCalculationTypeUpdatedEvent(object):
         'portfolio_plan': 'portfolioPlan'
     }
 
-    def __init__(self, calculation_type=None, portfolio_id=None, name=None, previous_calculation_type=None, id=None, field_type=None, portfolio_plan=None):  # noqa: E501
+    def __init__(self, calculation_type=None, portfolio_id=None, name=None, previous_calculation_type=None, id=None, field_type=None, portfolio_plan=None, _check_required=True):  # noqa: E501
         """FieldCalculationTypeUpdatedEvent - a model defined in Swagger"""  # noqa: E501
         self._calculation_type = None
         self._portfolio_id = None

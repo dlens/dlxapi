@@ -39,15 +39,18 @@ class MappedCategoriesResponse(object):
         'mapped_category_fields': 'mappedCategoryFields'
     }
 
-    def __init__(self, hub_portfolio_id=None, spoke_portfolio_ids=None, mapped_category_fields=None):  # noqa: E501
+    def __init__(self, hub_portfolio_id=None, spoke_portfolio_ids=None, mapped_category_fields=None, _check_required=True):  # noqa: E501
         """MappedCategoriesResponse - a model defined in Swagger"""  # noqa: E501
         self._hub_portfolio_id = None
         self._spoke_portfolio_ids = None
         self._mapped_category_fields = None
         self.discriminator = None
-        self.hub_portfolio_id = hub_portfolio_id
-        self.spoke_portfolio_ids = spoke_portfolio_ids
-        self.mapped_category_fields = mapped_category_fields
+        if _check_required or hub_portfolio_id is not None:
+            self.hub_portfolio_id = hub_portfolio_id
+        if _check_required or spoke_portfolio_ids is not None:
+            self.spoke_portfolio_ids = spoke_portfolio_ids
+        if _check_required or mapped_category_fields is not None:
+            self.mapped_category_fields = mapped_category_fields
 
     @property
     def hub_portfolio_id(self):

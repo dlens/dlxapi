@@ -37,7 +37,7 @@ class GetPairwiseVotesResponse(object):
         'users': 'users'
     }
 
-    def __init__(self, votes=None, users=None):  # noqa: E501
+    def __init__(self, votes=None, users=None, _check_required=True):  # noqa: E501
         """GetPairwiseVotesResponse - a model defined in Swagger"""  # noqa: E501
         self._votes = None
         self._users = None

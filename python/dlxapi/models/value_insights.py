@@ -35,7 +35,7 @@ class ValueInsights(object):
         'likert_scale_field_insights': 'likertScaleFieldInsights'
     }
 
-    def __init__(self, likert_scale_field_insights=None):  # noqa: E501
+    def __init__(self, likert_scale_field_insights=None, _check_required=True):  # noqa: E501
         """ValueInsights - a model defined in Swagger"""  # noqa: E501
         self._likert_scale_field_insights = None
         self.discriminator = None

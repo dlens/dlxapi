@@ -39,14 +39,16 @@ class MultiPortfolioCopyAndSyncRequestDestinationPortfolioMappings(object):
         'save_snapshot_before_send': 'saveSnapshotBeforeSend'
     }
 
-    def __init__(self, mapping_id=None, portfolio_id=None, save_snapshot_before_send=False):  # noqa: E501
+    def __init__(self, mapping_id=None, portfolio_id=None, save_snapshot_before_send=False, _check_required=True):  # noqa: E501
         """MultiPortfolioCopyAndSyncRequestDestinationPortfolioMappings - a model defined in Swagger"""  # noqa: E501
         self._mapping_id = None
         self._portfolio_id = None
         self._save_snapshot_before_send = None
         self.discriminator = None
-        self.mapping_id = mapping_id
-        self.portfolio_id = portfolio_id
+        if _check_required or mapping_id is not None:
+            self.mapping_id = mapping_id
+        if _check_required or portfolio_id is not None:
+            self.portfolio_id = portfolio_id
         if save_snapshot_before_send is not None:
             self.save_snapshot_before_send = save_snapshot_before_send
 

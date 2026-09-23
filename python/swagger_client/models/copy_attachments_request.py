@@ -37,13 +37,15 @@ class CopyAttachmentsRequest(object):
         'destination_portfolio_ids': 'destinationPortfolioIds'
     }
 
-    def __init__(self, attachment_ids=None, destination_portfolio_ids=None):  # noqa: E501
+    def __init__(self, attachment_ids=None, destination_portfolio_ids=None, _check_required=True):  # noqa: E501
         """CopyAttachmentsRequest - a model defined in Swagger"""  # noqa: E501
         self._attachment_ids = None
         self._destination_portfolio_ids = None
         self.discriminator = None
-        self.attachment_ids = attachment_ids
-        self.destination_portfolio_ids = destination_portfolio_ids
+        if _check_required or attachment_ids is not None:
+            self.attachment_ids = attachment_ids
+        if _check_required or destination_portfolio_ids is not None:
+            self.destination_portfolio_ids = destination_portfolio_ids
 
     @property
     def attachment_ids(self):

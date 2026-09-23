@@ -44,7 +44,7 @@ class ApiCredentials(DlResource):
     if hasattr(DlResource, "attribute_map"):
         attribute_map.update(DlResource.attribute_map)
 
-    def __init__(self, client_id=None, client_secret=None, grant_type=None, *args, **kwargs):  # noqa: E501
+    def __init__(self, client_id=None, client_secret=None, grant_type=None, _check_required=True, *args, **kwargs):  # noqa: E501
         """ApiCredentials - a model defined in Swagger"""  # noqa: E501
         self._client_id = None
         self._client_secret = None
@@ -56,7 +56,7 @@ class ApiCredentials(DlResource):
             self.client_secret = client_secret
         if grant_type is not None:
             self.grant_type = grant_type
-        DlResource.__init__(self, *args, **kwargs)
+        DlResource.__init__(self, *args, _check_required=_check_required, **kwargs)
 
     @property
     def client_id(self):

@@ -47,7 +47,7 @@ class Application(object):
         'updated_at': 'updatedAt'
     }
 
-    def __init__(self, id=None, group_id=None, name=None, description=None, mappings=None, created_at=None, updated_at=None):  # noqa: E501
+    def __init__(self, id=None, group_id=None, name=None, description=None, mappings=None, created_at=None, updated_at=None, _check_required=True):  # noqa: E501
         """Application - a model defined in Swagger"""  # noqa: E501
         self._id = None
         self._group_id = None
@@ -57,15 +57,20 @@ class Application(object):
         self._created_at = None
         self._updated_at = None
         self.discriminator = None
-        self.id = id
+        if _check_required or id is not None:
+            self.id = id
         if group_id is not None:
             self.group_id = group_id
-        self.name = name
+        if _check_required or name is not None:
+            self.name = name
         if description is not None:
             self.description = description
-        self.mappings = mappings
-        self.created_at = created_at
-        self.updated_at = updated_at
+        if _check_required or mappings is not None:
+            self.mappings = mappings
+        if _check_required or created_at is not None:
+            self.created_at = created_at
+        if _check_required or updated_at is not None:
+            self.updated_at = updated_at
 
     @property
     def id(self):

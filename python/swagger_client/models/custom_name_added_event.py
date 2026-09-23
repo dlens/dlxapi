@@ -45,7 +45,7 @@ class CustomNameAddedEvent(object):
         'portfolio_plan': 'portfolioPlan'
     }
 
-    def __init__(self, group_type=None, portfolio_id=None, id=None, type=None, value=None, portfolio_plan=None):  # noqa: E501
+    def __init__(self, group_type=None, portfolio_id=None, id=None, type=None, value=None, portfolio_plan=None, _check_required=True):  # noqa: E501
         """CustomNameAddedEvent - a model defined in Swagger"""  # noqa: E501
         self._group_type = None
         self._portfolio_id = None

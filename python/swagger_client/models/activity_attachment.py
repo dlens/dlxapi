@@ -35,11 +35,12 @@ class ActivityAttachment(object):
         'attachment_ids': 'attachmentIds'
     }
 
-    def __init__(self, attachment_ids=None):  # noqa: E501
+    def __init__(self, attachment_ids=None, _check_required=True):  # noqa: E501
         """ActivityAttachment - a model defined in Swagger"""  # noqa: E501
         self._attachment_ids = None
         self.discriminator = None
-        self.attachment_ids = attachment_ids
+        if _check_required or attachment_ids is not None:
+            self.attachment_ids = attachment_ids
 
     @property
     def attachment_ids(self):

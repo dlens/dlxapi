@@ -39,7 +39,7 @@ class AddUserRequest(object):
         'send_registration_email': 'sendRegistrationEmail'
     }
 
-    def __init__(self, user=None, message=None, send_registration_email=None):  # noqa: E501
+    def __init__(self, user=None, message=None, send_registration_email=None, _check_required=True):  # noqa: E501
         """AddUserRequest - a model defined in Swagger"""  # noqa: E501
         self._user = None
         self._message = None

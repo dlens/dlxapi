@@ -37,13 +37,15 @@ class DeleteTableGroupResponse(object):
         'message': 'message'
     }
 
-    def __init__(self, success=None, message=None):  # noqa: E501
+    def __init__(self, success=None, message=None, _check_required=True):  # noqa: E501
         """DeleteTableGroupResponse - a model defined in Swagger"""  # noqa: E501
         self._success = None
         self._message = None
         self.discriminator = None
-        self.success = success
-        self.message = message
+        if _check_required or success is not None:
+            self.success = success
+        if _check_required or message is not None:
+            self.message = message
 
     @property
     def success(self):

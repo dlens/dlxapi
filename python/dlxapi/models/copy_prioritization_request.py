@@ -55,7 +55,7 @@ class CopyPrioritizationRequest(object):
         'portfolio_context': 'portfolioContext'
     }
 
-    def __init__(self, name=None, description=None, copy_fields=None, copy_priority_surveys=None, copy_priority_survey_voters=None, copy_priority_survey_votes=None, copy_rating_surveys=None, copy_rating_survey_voters=None, copy_rating_survey_votes=None, to_portfolio_id=None, portfolio_context=None):  # noqa: E501
+    def __init__(self, name=None, description=None, copy_fields=None, copy_priority_surveys=None, copy_priority_survey_voters=None, copy_priority_survey_votes=None, copy_rating_surveys=None, copy_rating_survey_voters=None, copy_rating_survey_votes=None, to_portfolio_id=None, portfolio_context=None, _check_required=True):  # noqa: E501
         """CopyPrioritizationRequest - a model defined in Swagger"""  # noqa: E501
         self._name = None
         self._description = None

@@ -39,7 +39,7 @@ class ProjectChangePriorStage(object):
         'approved_at': 'approvedAt'
     }
 
-    def __init__(self, approval_id=None, approver_user_id=None, approved_at=None):  # noqa: E501
+    def __init__(self, approval_id=None, approver_user_id=None, approved_at=None, _check_required=True):  # noqa: E501
         """ProjectChangePriorStage - a model defined in Swagger"""  # noqa: E501
         self._approval_id = None
         self._approver_user_id = None

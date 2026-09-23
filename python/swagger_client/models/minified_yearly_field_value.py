@@ -39,7 +39,7 @@ class MinifiedYearlyFieldValue(object):
         'fmn': 'fmn'
     }
 
-    def __init__(self, nv=None, ct=None, fmn=None):  # noqa: E501
+    def __init__(self, nv=None, ct=None, fmn=None, _check_required=True):  # noqa: E501
         """MinifiedYearlyFieldValue - a model defined in Swagger"""  # noqa: E501
         self._nv = None
         self._ct = None

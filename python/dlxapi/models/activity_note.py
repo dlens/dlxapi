@@ -35,7 +35,7 @@ class ActivityNote(object):
         'note': 'note'
     }
 
-    def __init__(self, note=None):  # noqa: E501
+    def __init__(self, note=None, _check_required=True):  # noqa: E501
         """ActivityNote - a model defined in Swagger"""  # noqa: E501
         self._note = None
         self.discriminator = None

@@ -45,7 +45,7 @@ class UserLockedUpdatedEvent(object):
         'locked': 'locked'
     }
 
-    def __init__(self, id=None, username=None, email=None, group_id=None, previous_locked=None, locked=None):  # noqa: E501
+    def __init__(self, id=None, username=None, email=None, group_id=None, previous_locked=None, locked=None, _check_required=True):  # noqa: E501
         """UserLockedUpdatedEvent - a model defined in Swagger"""  # noqa: E501
         self._id = None
         self._username = None

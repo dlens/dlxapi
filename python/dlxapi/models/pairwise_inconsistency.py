@@ -45,7 +45,7 @@ class PairwiseInconsistency(object):
         'improved_inconsistency': 'improvedInconsistency'
     }
 
-    def __init__(self, parent_field_id=None, dominant_field_id=None, recessive_field_id=None, original_inconsistency=None, recommended=None, improved_inconsistency=None):  # noqa: E501
+    def __init__(self, parent_field_id=None, dominant_field_id=None, recessive_field_id=None, original_inconsistency=None, recommended=None, improved_inconsistency=None, _check_required=True):  # noqa: E501
         """PairwiseInconsistency - a model defined in Swagger"""  # noqa: E501
         self._parent_field_id = None
         self._dominant_field_id = None

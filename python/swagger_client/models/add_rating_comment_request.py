@@ -39,15 +39,18 @@ class AddRatingCommentRequest(object):
         'field_id': 'fieldId'
     }
 
-    def __init__(self, comment=None, project_id=None, field_id=None):  # noqa: E501
+    def __init__(self, comment=None, project_id=None, field_id=None, _check_required=True):  # noqa: E501
         """AddRatingCommentRequest - a model defined in Swagger"""  # noqa: E501
         self._comment = None
         self._project_id = None
         self._field_id = None
         self.discriminator = None
-        self.comment = comment
-        self.project_id = project_id
-        self.field_id = field_id
+        if _check_required or comment is not None:
+            self.comment = comment
+        if _check_required or project_id is not None:
+            self.project_id = project_id
+        if _check_required or field_id is not None:
+            self.field_id = field_id
 
     @property
     def comment(self):

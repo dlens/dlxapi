@@ -35,7 +35,7 @@ class IdPodBody(object):
         'pod_file': 'podFile'
     }
 
-    def __init__(self, pod_file=None):  # noqa: E501
+    def __init__(self, pod_file=None, _check_required=True):  # noqa: E501
         """IdPodBody - a model defined in Swagger"""  # noqa: E501
         self._pod_file = None
         self.discriminator = None

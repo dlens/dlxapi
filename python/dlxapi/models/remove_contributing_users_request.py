@@ -35,7 +35,7 @@ class RemoveContributingUsersRequest(object):
         'contributing_user_ids': 'contributingUserIds'
     }
 
-    def __init__(self, contributing_user_ids=None):  # noqa: E501
+    def __init__(self, contributing_user_ids=None, _check_required=True):  # noqa: E501
         """RemoveContributingUsersRequest - a model defined in Swagger"""  # noqa: E501
         self._contributing_user_ids = None
         self.discriminator = None

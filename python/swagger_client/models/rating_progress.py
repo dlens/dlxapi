@@ -45,7 +45,7 @@ class RatingProgress(object):
         'project_id': 'projectId'
     }
 
-    def __init__(self, last_updated_at=None, total=None, completed=None, projects=None, first_uncompleted_project_id=None, project_id=None):  # noqa: E501
+    def __init__(self, last_updated_at=None, total=None, completed=None, projects=None, first_uncompleted_project_id=None, project_id=None, _check_required=True):  # noqa: E501
         """RatingProgress - a model defined in Swagger"""  # noqa: E501
         self._last_updated_at = None
         self._total = None

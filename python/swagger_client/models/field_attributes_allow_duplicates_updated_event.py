@@ -45,7 +45,7 @@ class FieldAttributesAllowDuplicatesUpdatedEvent(object):
         'portfolio_plan': 'portfolioPlan'
     }
 
-    def __init__(self, portfolio_id=None, previous_allow_duplicates=None, name=None, id=None, allow_duplicates=None, portfolio_plan=None):  # noqa: E501
+    def __init__(self, portfolio_id=None, previous_allow_duplicates=None, name=None, id=None, allow_duplicates=None, portfolio_plan=None, _check_required=True):  # noqa: E501
         """FieldAttributesAllowDuplicatesUpdatedEvent - a model defined in Swagger"""  # noqa: E501
         self._portfolio_id = None
         self._previous_allow_duplicates = None

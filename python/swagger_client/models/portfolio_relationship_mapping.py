@@ -53,7 +53,7 @@ class PortfolioRelationshipMapping(object):
         'updated_at': 'updatedAt'
     }
 
-    def __init__(self, is_enabled=True, id=None, name=None, hub_portfolio_id=None, spoke_portfolio_ids=None, direction=None, source=None, portfolio_data_id_mappings=None, created_at=None, updated_at=None):  # noqa: E501
+    def __init__(self, is_enabled=True, id=None, name=None, hub_portfolio_id=None, spoke_portfolio_ids=None, direction=None, source=None, portfolio_data_id_mappings=None, created_at=None, updated_at=None, _check_required=True):  # noqa: E501
         """PortfolioRelationshipMapping - a model defined in Swagger"""  # noqa: E501
         self._is_enabled = None
         self._id = None
@@ -68,17 +68,24 @@ class PortfolioRelationshipMapping(object):
         self.discriminator = None
         if is_enabled is not None:
             self.is_enabled = is_enabled
-        self.id = id
-        self.name = name
-        self.hub_portfolio_id = hub_portfolio_id
-        self.spoke_portfolio_ids = spoke_portfolio_ids
+        if _check_required or id is not None:
+            self.id = id
+        if _check_required or name is not None:
+            self.name = name
+        if _check_required or hub_portfolio_id is not None:
+            self.hub_portfolio_id = hub_portfolio_id
+        if _check_required or spoke_portfolio_ids is not None:
+            self.spoke_portfolio_ids = spoke_portfolio_ids
         if direction is not None:
             self.direction = direction
         if source is not None:
             self.source = source
-        self.portfolio_data_id_mappings = portfolio_data_id_mappings
-        self.created_at = created_at
-        self.updated_at = updated_at
+        if _check_required or portfolio_data_id_mappings is not None:
+            self.portfolio_data_id_mappings = portfolio_data_id_mappings
+        if _check_required or created_at is not None:
+            self.created_at = created_at
+        if _check_required or updated_at is not None:
+            self.updated_at = updated_at
 
     @property
     def is_enabled(self):

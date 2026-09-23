@@ -43,7 +43,7 @@ class PortfolioPortfolioStateUpdatedEvent(object):
         'portfolio_state': 'portfolioState'
     }
 
-    def __init__(self, portfolio_id=None, previous_portfolio_state=None, name=None, id=None, portfolio_state=None):  # noqa: E501
+    def __init__(self, portfolio_id=None, previous_portfolio_state=None, name=None, id=None, portfolio_state=None, _check_required=True):  # noqa: E501
         """PortfolioPortfolioStateUpdatedEvent - a model defined in Swagger"""  # noqa: E501
         self._portfolio_id = None
         self._previous_portfolio_state = None

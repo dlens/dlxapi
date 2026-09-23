@@ -45,7 +45,7 @@ class FieldAttributesCategoryDisplayOrderUpdatedEvent(object):
         'portfolio_plan': 'portfolioPlan'
     }
 
-    def __init__(self, portfolio_id=None, category_display_order=None, previous_category_display_order=None, name=None, id=None, portfolio_plan=None):  # noqa: E501
+    def __init__(self, portfolio_id=None, category_display_order=None, previous_category_display_order=None, name=None, id=None, portfolio_plan=None, _check_required=True):  # noqa: E501
         """FieldAttributesCategoryDisplayOrderUpdatedEvent - a model defined in Swagger"""  # noqa: E501
         self._portfolio_id = None
         self._category_display_order = None

@@ -57,7 +57,7 @@ class TableGroup(object):
         'last_refreshed_at': 'lastRefreshedAt'
     }
 
-    def __init__(self, id=None, group_id=None, table_group_number=None, name=None, description=None, mappings=None, source_type=None, source_portfolio_id=None, source_portfolio_name=None, created_at=None, updated_at=None, last_refreshed_at=None):  # noqa: E501
+    def __init__(self, id=None, group_id=None, table_group_number=None, name=None, description=None, mappings=None, source_type=None, source_portfolio_id=None, source_portfolio_name=None, created_at=None, updated_at=None, last_refreshed_at=None, _check_required=True):  # noqa: E501
         """TableGroup - a model defined in Swagger"""  # noqa: E501
         self._id = None
         self._group_id = None
@@ -72,22 +72,28 @@ class TableGroup(object):
         self._updated_at = None
         self._last_refreshed_at = None
         self.discriminator = None
-        self.id = id
+        if _check_required or id is not None:
+            self.id = id
         if group_id is not None:
             self.group_id = group_id
-        self.table_group_number = table_group_number
-        self.name = name
+        if _check_required or table_group_number is not None:
+            self.table_group_number = table_group_number
+        if _check_required or name is not None:
+            self.name = name
         if description is not None:
             self.description = description
-        self.mappings = mappings
+        if _check_required or mappings is not None:
+            self.mappings = mappings
         if source_type is not None:
             self.source_type = source_type
         if source_portfolio_id is not None:
             self.source_portfolio_id = source_portfolio_id
         if source_portfolio_name is not None:
             self.source_portfolio_name = source_portfolio_name
-        self.created_at = created_at
-        self.updated_at = updated_at
+        if _check_required or created_at is not None:
+            self.created_at = created_at
+        if _check_required or updated_at is not None:
+            self.updated_at = updated_at
         if last_refreshed_at is not None:
             self.last_refreshed_at = last_refreshed_at
 

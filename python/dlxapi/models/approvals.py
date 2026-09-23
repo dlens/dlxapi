@@ -42,7 +42,7 @@ class Approvals(DlCollection):
     if hasattr(DlCollection, "attribute_map"):
         attribute_map.update(DlCollection.attribute_map)
 
-    def __init__(self, items=None, move_targets=None, *args, **kwargs):  # noqa: E501
+    def __init__(self, items=None, move_targets=None, _check_required=True, *args, **kwargs):  # noqa: E501
         """Approvals - a model defined in Swagger"""  # noqa: E501
         self._items = None
         self._move_targets = None
@@ -51,7 +51,7 @@ class Approvals(DlCollection):
             self.items = items
         if move_targets is not None:
             self.move_targets = move_targets
-        DlCollection.__init__(self, *args, **kwargs)
+        DlCollection.__init__(self, *args, _check_required=_check_required, **kwargs)
 
     @property
     def items(self):

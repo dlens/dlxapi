@@ -37,13 +37,15 @@ class LocationUploadBody(object):
         'file': 'file'
     }
 
-    def __init__(self, project_id=None, file=None):  # noqa: E501
+    def __init__(self, project_id=None, file=None, _check_required=True):  # noqa: E501
         """LocationUploadBody - a model defined in Swagger"""  # noqa: E501
         self._project_id = None
         self._file = None
         self.discriminator = None
-        self.project_id = project_id
-        self.file = file
+        if _check_required or project_id is not None:
+            self.project_id = project_id
+        if _check_required or file is not None:
+            self.file = file
 
     @property
     def project_id(self):

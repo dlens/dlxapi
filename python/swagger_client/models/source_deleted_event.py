@@ -41,7 +41,7 @@ class SourceDeletedEvent(object):
         'portfolio_plan': 'portfolioPlan'
     }
 
-    def __init__(self, source_type=None, name=None, id=None, portfolio_plan=None):  # noqa: E501
+    def __init__(self, source_type=None, name=None, id=None, portfolio_plan=None, _check_required=True):  # noqa: E501
         """SourceDeletedEvent - a model defined in Swagger"""  # noqa: E501
         self._source_type = None
         self._name = None

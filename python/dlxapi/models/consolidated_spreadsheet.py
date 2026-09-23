@@ -43,7 +43,7 @@ class ConsolidatedSpreadsheet(object):
         'consolidated_data': 'consolidatedData'
     }
 
-    def __init__(self, file_name=None, spreadsheet_name=None, sheet_name=None, fields_list=None, consolidated_data=None):  # noqa: E501
+    def __init__(self, file_name=None, spreadsheet_name=None, sheet_name=None, fields_list=None, consolidated_data=None, _check_required=True):  # noqa: E501
         """ConsolidatedSpreadsheet - a model defined in Swagger"""  # noqa: E501
         self._file_name = None
         self._spreadsheet_name = None

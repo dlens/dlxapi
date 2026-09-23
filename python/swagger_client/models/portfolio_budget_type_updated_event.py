@@ -45,7 +45,7 @@ class PortfolioBudgetTypeUpdatedEvent(object):
         'portfolio_plan': 'portfolioPlan'
     }
 
-    def __init__(self, budget_type=None, portfolio_id=None, name=None, id=None, previous_budget_type=None, portfolio_plan=None):  # noqa: E501
+    def __init__(self, budget_type=None, portfolio_id=None, name=None, id=None, previous_budget_type=None, portfolio_plan=None, _check_required=True):  # noqa: E501
         """PortfolioBudgetTypeUpdatedEvent - a model defined in Swagger"""  # noqa: E501
         self._budget_type = None
         self._portfolio_id = None

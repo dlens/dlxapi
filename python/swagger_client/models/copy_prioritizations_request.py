@@ -49,7 +49,7 @@ class CopyPrioritizationsRequest(object):
         'copy_rating_survey_votes': 'copyRatingSurveyVotes'
     }
 
-    def __init__(self, prioritization_ids=None, copy_fields=None, copy_priority_surveys=None, copy_priority_survey_voters=None, copy_priority_survey_votes=None, copy_rating_surveys=None, copy_rating_survey_voters=None, copy_rating_survey_votes=None):  # noqa: E501
+    def __init__(self, prioritization_ids=None, copy_fields=None, copy_priority_surveys=None, copy_priority_survey_voters=None, copy_priority_survey_votes=None, copy_rating_surveys=None, copy_rating_survey_voters=None, copy_rating_survey_votes=None, _check_required=True):  # noqa: E501
         """CopyPrioritizationsRequest - a model defined in Swagger"""  # noqa: E501
         self._prioritization_ids = None
         self._copy_fields = None

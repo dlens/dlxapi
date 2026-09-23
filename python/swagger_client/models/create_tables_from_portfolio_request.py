@@ -39,13 +39,14 @@ class CreateTablesFromPortfolioRequest(object):
         'table_display_name': 'tableDisplayName'
     }
 
-    def __init__(self, portfolio_id=None, table_name=None, table_display_name=None):  # noqa: E501
+    def __init__(self, portfolio_id=None, table_name=None, table_display_name=None, _check_required=True):  # noqa: E501
         """CreateTablesFromPortfolioRequest - a model defined in Swagger"""  # noqa: E501
         self._portfolio_id = None
         self._table_name = None
         self._table_display_name = None
         self.discriminator = None
-        self.portfolio_id = portfolio_id
+        if _check_required or portfolio_id is not None:
+            self.portfolio_id = portfolio_id
         if table_name is not None:
             self.table_name = table_name
         if table_display_name is not None:

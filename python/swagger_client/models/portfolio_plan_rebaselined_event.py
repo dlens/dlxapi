@@ -45,7 +45,7 @@ class PortfolioPlanRebaselinedEvent(object):
         'portfolio_plan': 'portfolioPlan'
     }
 
-    def __init__(self, portfolio_id=None, baseline_portfolio_plan_name=None, what_if_portfolio_plan=None, id=None, what_if_portfolio_plan_name=None, portfolio_plan=None):  # noqa: E501
+    def __init__(self, portfolio_id=None, baseline_portfolio_plan_name=None, what_if_portfolio_plan=None, id=None, what_if_portfolio_plan_name=None, portfolio_plan=None, _check_required=True):  # noqa: E501
         """PortfolioPlanRebaselinedEvent - a model defined in Swagger"""  # noqa: E501
         self._portfolio_id = None
         self._baseline_portfolio_plan_name = None

@@ -58,7 +58,7 @@ class Group(DlResource):
     if hasattr(DlResource, "attribute_map"):
         attribute_map.update(DlResource.attribute_map)
 
-    def __init__(self, name=None, domain=None, linked_domain=None, parent_domain=None, is_active=None, auth_type=None, auth_url=None, logout_url=None, users=None, roles=None, *args, **kwargs):  # noqa: E501
+    def __init__(self, name=None, domain=None, linked_domain=None, parent_domain=None, is_active=None, auth_type=None, auth_url=None, logout_url=None, users=None, roles=None, _check_required=True, *args, **kwargs):  # noqa: E501
         """Group - a model defined in Swagger"""  # noqa: E501
         self._name = None
         self._domain = None
@@ -91,7 +91,7 @@ class Group(DlResource):
             self.users = users
         if roles is not None:
             self.roles = roles
-        DlResource.__init__(self, *args, **kwargs)
+        DlResource.__init__(self, *args, _check_required=_check_required, **kwargs)
 
     @property
     def name(self):

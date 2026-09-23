@@ -47,7 +47,7 @@ class ConnectionExecution(object):
         'error': 'error'
     }
 
-    def __init__(self, id=None, connection_id=None, status=None, started_at=None, finished_at=None, rows_synced=None, error=None):  # noqa: E501
+    def __init__(self, id=None, connection_id=None, status=None, started_at=None, finished_at=None, rows_synced=None, error=None, _check_required=True):  # noqa: E501
         """ConnectionExecution - a model defined in Swagger"""  # noqa: E501
         self._id = None
         self._connection_id = None
@@ -57,10 +57,14 @@ class ConnectionExecution(object):
         self._rows_synced = None
         self._error = None
         self.discriminator = None
-        self.id = id
-        self.connection_id = connection_id
-        self.status = status
-        self.started_at = started_at
+        if _check_required or id is not None:
+            self.id = id
+        if _check_required or connection_id is not None:
+            self.connection_id = connection_id
+        if _check_required or status is not None:
+            self.status = status
+        if _check_required or started_at is not None:
+            self.started_at = started_at
         if finished_at is not None:
             self.finished_at = finished_at
         if rows_synced is not None:

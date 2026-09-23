@@ -43,7 +43,7 @@ class CategoryOptionNameUpdatedEvent(object):
         'field_id': 'fieldId'
     }
 
-    def __init__(self, portfolio_id=None, previous_name=None, name=None, id=None, field_id=None):  # noqa: E501
+    def __init__(self, portfolio_id=None, previous_name=None, name=None, id=None, field_id=None, _check_required=True):  # noqa: E501
         """CategoryOptionNameUpdatedEvent - a model defined in Swagger"""  # noqa: E501
         self._portfolio_id = None
         self._previous_name = None

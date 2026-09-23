@@ -35,11 +35,12 @@ class PortfolioStateUpdatedMessagePayload(object):
         'portfolio_state': 'portfolioState'
     }
 
-    def __init__(self, portfolio_state=None):  # noqa: E501
+    def __init__(self, portfolio_state=None, _check_required=True):  # noqa: E501
         """PortfolioStateUpdatedMessagePayload - a model defined in Swagger"""  # noqa: E501
         self._portfolio_state = None
         self.discriminator = None
-        self.portfolio_state = portfolio_state
+        if _check_required or portfolio_state is not None:
+            self.portfolio_state = portfolio_state
 
     @property
     def portfolio_state(self):

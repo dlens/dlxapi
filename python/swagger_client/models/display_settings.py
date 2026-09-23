@@ -35,7 +35,7 @@ class DisplaySettings(object):
         'color': 'color'
     }
 
-    def __init__(self, color=None):  # noqa: E501
+    def __init__(self, color=None, _check_required=True):  # noqa: E501
         """DisplaySettings - a model defined in Swagger"""  # noqa: E501
         self._color = None
         self.discriminator = None

@@ -37,7 +37,7 @@ class Scale(object):
         'points': 'points'
     }
 
-    def __init__(self, is_auto_scale=True, points=None):  # noqa: E501
+    def __init__(self, is_auto_scale=True, points=None, _check_required=True):  # noqa: E501
         """Scale - a model defined in Swagger"""  # noqa: E501
         self._is_auto_scale = None
         self._points = None

@@ -51,7 +51,7 @@ class FieldInsight(object):
         'categorization_insights': 'categorizationInsights'
     }
 
-    def __init__(self, field=None, grade=None, grading_boundaries=None, min_value=None, max_value=None, value=None, budget=None, allocation=None, categorization_insights=None):  # noqa: E501
+    def __init__(self, field=None, grade=None, grading_boundaries=None, min_value=None, max_value=None, value=None, budget=None, allocation=None, categorization_insights=None, _check_required=True):  # noqa: E501
         """FieldInsight - a model defined in Swagger"""  # noqa: E501
         self._field = None
         self._grade = None

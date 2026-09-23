@@ -39,7 +39,7 @@ class ConnectorSpecParameterUi(object):
         'help': 'help'
     }
 
-    def __init__(self, widget=None, placeholder=None, help=None):  # noqa: E501
+    def __init__(self, widget=None, placeholder=None, help=None, _check_required=True):  # noqa: E501
         """ConnectorSpecParameterUi - a model defined in Swagger"""  # noqa: E501
         self._widget = None
         self._placeholder = None

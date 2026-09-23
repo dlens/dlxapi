@@ -37,13 +37,15 @@ class ChartSeries(object):
         'data': 'data'
     }
 
-    def __init__(self, name=None, data=None):  # noqa: E501
+    def __init__(self, name=None, data=None, _check_required=True):  # noqa: E501
         """ChartSeries - a model defined in Swagger"""  # noqa: E501
         self._name = None
         self._data = None
         self.discriminator = None
-        self.name = name
-        self.data = data
+        if _check_required or name is not None:
+            self.name = name
+        if _check_required or data is not None:
+            self.data = data
 
     @property
     def name(self):

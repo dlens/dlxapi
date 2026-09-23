@@ -39,16 +39,18 @@ class CopyDashboardRequest(object):
         'content': 'content'
     }
 
-    def __init__(self, name=None, description=None, content=None):  # noqa: E501
+    def __init__(self, name=None, description=None, content=None, _check_required=True):  # noqa: E501
         """CopyDashboardRequest - a model defined in Swagger"""  # noqa: E501
         self._name = None
         self._description = None
         self._content = None
         self.discriminator = None
-        self.name = name
+        if _check_required or name is not None:
+            self.name = name
         if description is not None:
             self.description = description
-        self.content = content
+        if _check_required or content is not None:
+            self.content = content
 
     @property
     def name(self):

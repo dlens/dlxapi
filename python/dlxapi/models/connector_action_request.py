@@ -37,7 +37,7 @@ class ConnectorActionRequest(object):
         'parameter_values': 'parameterValues'
     }
 
-    def __init__(self, input=None, parameter_values=None):  # noqa: E501
+    def __init__(self, input=None, parameter_values=None, _check_required=True):  # noqa: E501
         """ConnectorActionRequest - a model defined in Swagger"""  # noqa: E501
         self._input = None
         self._parameter_values = None

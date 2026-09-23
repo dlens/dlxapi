@@ -51,7 +51,7 @@ class MinifiedProjectChange(object):
         'rt': 'rt'
     }
 
-    def __init__(self, id=None, fid=None, aid=None, s=None, fv=None, pfv=None, uid=None, auid=None, rt=None):  # noqa: E501
+    def __init__(self, id=None, fid=None, aid=None, s=None, fv=None, pfv=None, uid=None, auid=None, rt=None, _check_required=True):  # noqa: E501
         """MinifiedProjectChange - a model defined in Swagger"""  # noqa: E501
         self._id = None
         self._fid = None

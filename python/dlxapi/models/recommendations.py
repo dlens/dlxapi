@@ -48,7 +48,7 @@ class Recommendations(DlCollection):
     if hasattr(DlCollection, "attribute_map"):
         attribute_map.update(DlCollection.attribute_map)
 
-    def __init__(self, portfolio_plan_id=None, items=None, initial_portfolio_plan_insights=None, schedule_result_info=None, overconstrained_message=None, *args, **kwargs):  # noqa: E501
+    def __init__(self, portfolio_plan_id=None, items=None, initial_portfolio_plan_insights=None, schedule_result_info=None, overconstrained_message=None, _check_required=True, *args, **kwargs):  # noqa: E501
         """Recommendations - a model defined in Swagger"""  # noqa: E501
         self._portfolio_plan_id = None
         self._items = None
@@ -66,7 +66,7 @@ class Recommendations(DlCollection):
             self.schedule_result_info = schedule_result_info
         if overconstrained_message is not None:
             self.overconstrained_message = overconstrained_message
-        DlCollection.__init__(self, *args, **kwargs)
+        DlCollection.__init__(self, *args, _check_required=_check_required, **kwargs)
 
     @property
     def portfolio_plan_id(self):

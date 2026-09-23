@@ -45,7 +45,7 @@ class FieldAttributesDataFormatsNegativesUpdatedEvent(object):
         'portfolio_plan': 'portfolioPlan'
     }
 
-    def __init__(self, previous_negatives=None, portfolio_id=None, negatives=None, name=None, id=None, portfolio_plan=None):  # noqa: E501
+    def __init__(self, previous_negatives=None, portfolio_id=None, negatives=None, name=None, id=None, portfolio_plan=None, _check_required=True):  # noqa: E501
         """FieldAttributesDataFormatsNegativesUpdatedEvent - a model defined in Swagger"""  # noqa: E501
         self._previous_negatives = None
         self._portfolio_id = None

@@ -51,7 +51,7 @@ class FieldAttributes(object):
         'global_weight': 'globalWeight'
     }
 
-    def __init__(self, planning_window=None, time_period=None, category_display_order=None, data_formats=None, operator=None, operands=None, allow_duplicates=None, display_type=None, global_weight=None):  # noqa: E501
+    def __init__(self, planning_window=None, time_period=None, category_display_order=None, data_formats=None, operator=None, operands=None, allow_duplicates=None, display_type=None, global_weight=None, _check_required=True):  # noqa: E501
         """FieldAttributes - a model defined in Swagger"""  # noqa: E501
         self._planning_window = None
         self._time_period = None

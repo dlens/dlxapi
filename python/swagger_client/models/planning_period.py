@@ -39,7 +39,7 @@ class PlanningPeriod(object):
         'time_period_type': 'timePeriodType'
     }
 
-    def __init__(self, start_date=None, end_date=None, time_period_type=None):  # noqa: E501
+    def __init__(self, start_date=None, end_date=None, time_period_type=None, _check_required=True):  # noqa: E501
         """PlanningPeriod - a model defined in Swagger"""  # noqa: E501
         self._start_date = None
         self._end_date = None

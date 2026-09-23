@@ -48,7 +48,7 @@ class PairwiseVoteComment(DlResource):
     if hasattr(DlResource, "attribute_map"):
         attribute_map.update(DlResource.attribute_map)
 
-    def __init__(self, comment=None, prioritization_id=None, dominant_field_id=None, recessive_field_id=None, user=None, *args, **kwargs):  # noqa: E501
+    def __init__(self, comment=None, prioritization_id=None, dominant_field_id=None, recessive_field_id=None, user=None, _check_required=True, *args, **kwargs):  # noqa: E501
         """PairwiseVoteComment - a model defined in Swagger"""  # noqa: E501
         self._comment = None
         self._prioritization_id = None
@@ -66,7 +66,7 @@ class PairwiseVoteComment(DlResource):
             self.recessive_field_id = recessive_field_id
         if user is not None:
             self.user = user
-        DlResource.__init__(self, *args, **kwargs)
+        DlResource.__init__(self, *args, _check_required=_check_required, **kwargs)
 
     @property
     def comment(self):

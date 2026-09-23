@@ -65,7 +65,7 @@ class ProjectFieldValueUpdatedEvent(object):
         'category_id': 'categoryId'
     }
 
-    def __init__(self, previous_data_type=None, previous_category_id=None, numeric_value=None, previous_numeric_value=None, is_rebaseline=None, previous_value=None, is_from_import=None, portfolio_id=None, field=None, name=None, time_period=None, is_grouped=None, id=None, value=None, portfolio_plan=None, category_id=None):  # noqa: E501
+    def __init__(self, previous_data_type=None, previous_category_id=None, numeric_value=None, previous_numeric_value=None, is_rebaseline=None, previous_value=None, is_from_import=None, portfolio_id=None, field=None, name=None, time_period=None, is_grouped=None, id=None, value=None, portfolio_plan=None, category_id=None, _check_required=True):  # noqa: E501
         """ProjectFieldValueUpdatedEvent - a model defined in Swagger"""  # noqa: E501
         self._previous_data_type = None
         self._previous_category_id = None

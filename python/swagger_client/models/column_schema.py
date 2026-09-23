@@ -45,7 +45,7 @@ class ColumnSchema(object):
         'extra': 'extra'
     }
 
-    def __init__(self, column_name=None, column_type=None, nullable=None, key=None, default=None, extra=None):  # noqa: E501
+    def __init__(self, column_name=None, column_type=None, nullable=None, key=None, default=None, extra=None, _check_required=True):  # noqa: E501
         """ColumnSchema - a model defined in Swagger"""  # noqa: E501
         self._column_name = None
         self._column_type = None
@@ -54,8 +54,10 @@ class ColumnSchema(object):
         self._default = None
         self._extra = None
         self.discriminator = None
-        self.column_name = column_name
-        self.column_type = column_type
+        if _check_required or column_name is not None:
+            self.column_name = column_name
+        if _check_required or column_type is not None:
+            self.column_type = column_type
         if nullable is not None:
             self.nullable = nullable
         if key is not None:

@@ -35,11 +35,12 @@ class RemovedFromPortfolioMessagePayload(object):
         'portfolio': 'portfolio'
     }
 
-    def __init__(self, portfolio=None):  # noqa: E501
+    def __init__(self, portfolio=None, _check_required=True):  # noqa: E501
         """RemovedFromPortfolioMessagePayload - a model defined in Swagger"""  # noqa: E501
         self._portfolio = None
         self.discriminator = None
-        self.portfolio = portfolio
+        if _check_required or portfolio is not None:
+            self.portfolio = portfolio
 
     @property
     def portfolio(self):

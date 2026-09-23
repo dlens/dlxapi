@@ -56,7 +56,7 @@ class User(DlResource):
     if hasattr(DlResource, "attribute_map"):
         attribute_map.update(DlResource.attribute_map)
 
-    def __init__(self, username=None, email=None, first_name=None, last_name=None, status=None, last_login_at=None, invitation_url=None, invitation_url_expiration=None, roles=None, *args, **kwargs):  # noqa: E501
+    def __init__(self, username=None, email=None, first_name=None, last_name=None, status=None, last_login_at=None, invitation_url=None, invitation_url_expiration=None, roles=None, _check_required=True, *args, **kwargs):  # noqa: E501
         """User - a model defined in Swagger"""  # noqa: E501
         self._username = None
         self._email = None
@@ -86,7 +86,7 @@ class User(DlResource):
             self.invitation_url_expiration = invitation_url_expiration
         if roles is not None:
             self.roles = roles
-        DlResource.__init__(self, *args, **kwargs)
+        DlResource.__init__(self, *args, _check_required=_check_required, **kwargs)
 
     @property
     def username(self):

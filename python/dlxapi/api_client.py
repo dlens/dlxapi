@@ -72,7 +72,7 @@ class ApiClient(object):
             self.default_headers[header_name] = header_value
         self.cookie = cookie
         # Set default User-Agent.
-        self.user_agent = 'Swagger-Codegen/1.0.2/python'
+        self.user_agent = 'Swagger-Codegen/1.0.3/python'
 
     def __del__(self):
         self.pool.close()
@@ -617,7 +617,8 @@ class ApiClient(object):
                     value = data[klass.attribute_map[attr]]
                     kwargs[attr] = self.__deserialize(value, attr_type)
 
-        instance = klass(**kwargs)
+        # Responses may contain partial resource references.
+        instance = klass(_check_required=False, **kwargs)
 
         if (isinstance(instance, dict) and
                 klass.swagger_types is not None and

@@ -37,12 +37,13 @@ class ScoreWeightsUpdatedMessagePayload(object):
         'score_weights': 'scoreWeights'
     }
 
-    def __init__(self, portfolio_id=None, score_weights=None):  # noqa: E501
+    def __init__(self, portfolio_id=None, score_weights=None, _check_required=True):  # noqa: E501
         """ScoreWeightsUpdatedMessagePayload - a model defined in Swagger"""  # noqa: E501
         self._portfolio_id = None
         self._score_weights = None
         self.discriminator = None
-        self.portfolio_id = portfolio_id
+        if _check_required or portfolio_id is not None:
+            self.portfolio_id = portfolio_id
         if score_weights is not None:
             self.score_weights = score_weights
 

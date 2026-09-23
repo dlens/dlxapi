@@ -41,7 +41,7 @@ class OrphanedItem(object):
         'referenced_id': 'referencedId'
     }
 
-    def __init__(self, entity_type=None, referenced_entity_type=None, entity_id=None, referenced_id=None):  # noqa: E501
+    def __init__(self, entity_type=None, referenced_entity_type=None, entity_id=None, referenced_id=None, _check_required=True):  # noqa: E501
         """OrphanedItem - a model defined in Swagger"""  # noqa: E501
         self._entity_type = None
         self._referenced_entity_type = None

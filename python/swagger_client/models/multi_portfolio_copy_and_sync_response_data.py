@@ -37,7 +37,7 @@ class MultiPortfolioCopyAndSyncResponseData(object):
         'results': 'results'
     }
 
-    def __init__(self, total_projects_processed=None, results=None):  # noqa: E501
+    def __init__(self, total_projects_processed=None, results=None, _check_required=True):  # noqa: E501
         """MultiPortfolioCopyAndSyncResponseData - a model defined in Swagger"""  # noqa: E501
         self._total_projects_processed = None
         self._results = None

@@ -39,15 +39,18 @@ class ChartTable(object):
         'columns': 'columns'
     }
 
-    def __init__(self, id=None, label=None, columns=None):  # noqa: E501
+    def __init__(self, id=None, label=None, columns=None, _check_required=True):  # noqa: E501
         """ChartTable - a model defined in Swagger"""  # noqa: E501
         self._id = None
         self._label = None
         self._columns = None
         self.discriminator = None
-        self.id = id
-        self.label = label
-        self.columns = columns
+        if _check_required or id is not None:
+            self.id = id
+        if _check_required or label is not None:
+            self.label = label
+        if _check_required or columns is not None:
+            self.columns = columns
 
     @property
     def id(self):

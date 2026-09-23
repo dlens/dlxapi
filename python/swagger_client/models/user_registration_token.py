@@ -41,7 +41,7 @@ class UserRegistrationToken(object):
         'expires_at': 'expiresAt'
     }
 
-    def __init__(self, portfolio_id=None, group=None, role=None, expires_at=None):  # noqa: E501
+    def __init__(self, portfolio_id=None, group=None, role=None, expires_at=None, _check_required=True):  # noqa: E501
         """UserRegistrationToken - a model defined in Swagger"""  # noqa: E501
         self._portfolio_id = None
         self._group = None

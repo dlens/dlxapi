@@ -39,14 +39,16 @@ class PortfolioRelationshipMappingPortfolioDataIdMappingsMappingField(object):
         'portfolio_field_ids': 'portfolioFieldIDs'
     }
 
-    def __init__(self, field_type=None, mapping_field_name=None, portfolio_field_ids=None):  # noqa: E501
+    def __init__(self, field_type=None, mapping_field_name=None, portfolio_field_ids=None, _check_required=True):  # noqa: E501
         """PortfolioRelationshipMappingPortfolioDataIdMappingsMappingField - a model defined in Swagger"""  # noqa: E501
         self._field_type = None
         self._mapping_field_name = None
         self._portfolio_field_ids = None
         self.discriminator = None
-        self.field_type = field_type
-        self.mapping_field_name = mapping_field_name
+        if _check_required or field_type is not None:
+            self.field_type = field_type
+        if _check_required or mapping_field_name is not None:
+            self.mapping_field_name = mapping_field_name
         if portfolio_field_ids is not None:
             self.portfolio_field_ids = portfolio_field_ids
 

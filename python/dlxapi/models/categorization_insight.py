@@ -51,7 +51,7 @@ class CategorizationInsight(object):
         'max_value': 'maxValue'
     }
 
-    def __init__(self, name=None, likert_scale_type=None, risk_type=None, allocation=None, expected_allocation=None, project_count=None, project_ids=None, min_value=None, max_value=None):  # noqa: E501
+    def __init__(self, name=None, likert_scale_type=None, risk_type=None, allocation=None, expected_allocation=None, project_count=None, project_ids=None, min_value=None, max_value=None, _check_required=True):  # noqa: E501
         """CategorizationInsight - a model defined in Swagger"""  # noqa: E501
         self._name = None
         self._likert_scale_type = None

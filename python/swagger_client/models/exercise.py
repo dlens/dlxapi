@@ -45,7 +45,7 @@ class Exercise(object):
         'workflow_id': 'workflowId'
     }
 
-    def __init__(self, id=None, name=None, description=None, created_at=None, updated_at=None, workflow_id=None):  # noqa: E501
+    def __init__(self, id=None, name=None, description=None, created_at=None, updated_at=None, workflow_id=None, _check_required=True):  # noqa: E501
         """Exercise - a model defined in Swagger"""  # noqa: E501
         self._id = None
         self._name = None
@@ -56,14 +56,16 @@ class Exercise(object):
         self.discriminator = None
         if id is not None:
             self.id = id
-        self.name = name
+        if _check_required or name is not None:
+            self.name = name
         if description is not None:
             self.description = description
         if created_at is not None:
             self.created_at = created_at
         if updated_at is not None:
             self.updated_at = updated_at
-        self.workflow_id = workflow_id
+        if _check_required or workflow_id is not None:
+            self.workflow_id = workflow_id
 
     @property
     def id(self):

@@ -39,15 +39,18 @@ class ExecuteSyncRequest(object):
         'to_portfolio_mappings': 'toPortfolioMappings'
     }
 
-    def __init__(self, mapping_id=None, _from=None, to_portfolio_mappings=None):  # noqa: E501
+    def __init__(self, mapping_id=None, _from=None, to_portfolio_mappings=None, _check_required=True):  # noqa: E501
         """ExecuteSyncRequest - a model defined in Swagger"""  # noqa: E501
         self._mapping_id = None
         self.__from = None
         self._to_portfolio_mappings = None
         self.discriminator = None
-        self.mapping_id = mapping_id
-        self._from = _from
-        self.to_portfolio_mappings = to_portfolio_mappings
+        if _check_required or mapping_id is not None:
+            self.mapping_id = mapping_id
+        if _check_required or _from is not None:
+            self._from = _from
+        if _check_required or to_portfolio_mappings is not None:
+            self.to_portfolio_mappings = to_portfolio_mappings
 
     @property
     def mapping_id(self):

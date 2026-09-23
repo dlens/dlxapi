@@ -37,14 +37,15 @@ class BudgetsUpdatedMessagePayload(object):
         'budgets': 'budgets'
     }
 
-    def __init__(self, portfolio_plan_id=None, budgets=None):  # noqa: E501
+    def __init__(self, portfolio_plan_id=None, budgets=None, _check_required=True):  # noqa: E501
         """BudgetsUpdatedMessagePayload - a model defined in Swagger"""  # noqa: E501
         self._portfolio_plan_id = None
         self._budgets = None
         self.discriminator = None
         if portfolio_plan_id is not None:
             self.portfolio_plan_id = portfolio_plan_id
-        self.budgets = budgets
+        if _check_required or budgets is not None:
+            self.budgets = budgets
 
     @property
     def portfolio_plan_id(self):

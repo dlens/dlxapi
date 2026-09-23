@@ -39,7 +39,7 @@ class ProjectChangesUpdatedMessagePayload(object):
         'project_changes': 'projectChanges'
     }
 
-    def __init__(self, portfolio_id=None, portfolio_plan_id=None, project_changes=None):  # noqa: E501
+    def __init__(self, portfolio_id=None, portfolio_plan_id=None, project_changes=None, _check_required=True):  # noqa: E501
         """ProjectChangesUpdatedMessagePayload - a model defined in Swagger"""  # noqa: E501
         self._portfolio_id = None
         self._portfolio_plan_id = None
@@ -49,7 +49,8 @@ class ProjectChangesUpdatedMessagePayload(object):
             self.portfolio_id = portfolio_id
         if portfolio_plan_id is not None:
             self.portfolio_plan_id = portfolio_plan_id
-        self.project_changes = project_changes
+        if _check_required or project_changes is not None:
+            self.project_changes = project_changes
 
     @property
     def portfolio_id(self):

@@ -39,14 +39,16 @@ class ChartCategoryOption(object):
         'color': 'color'
     }
 
-    def __init__(self, id=None, name=None, color=None):  # noqa: E501
+    def __init__(self, id=None, name=None, color=None, _check_required=True):  # noqa: E501
         """ChartCategoryOption - a model defined in Swagger"""  # noqa: E501
         self._id = None
         self._name = None
         self._color = None
         self.discriminator = None
-        self.id = id
-        self.name = name
+        if _check_required or id is not None:
+            self.id = id
+        if _check_required or name is not None:
+            self.name = name
         if color is not None:
             self.color = color
 

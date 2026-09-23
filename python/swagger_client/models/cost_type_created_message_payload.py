@@ -35,11 +35,12 @@ class CostTypeCreatedMessagePayload(object):
         'cost_type': 'costType'
     }
 
-    def __init__(self, cost_type=None):  # noqa: E501
+    def __init__(self, cost_type=None, _check_required=True):  # noqa: E501
         """CostTypeCreatedMessagePayload - a model defined in Swagger"""  # noqa: E501
         self._cost_type = None
         self.discriminator = None
-        self.cost_type = cost_type
+        if _check_required or cost_type is not None:
+            self.cost_type = cost_type
 
     @property
     def cost_type(self):

@@ -45,7 +45,7 @@ class PortfolioData(object):
         'updated_at': 'updatedAt'
     }
 
-    def __init__(self, id=None, portfolio_id=None, json_data=None, source=None, created_at=None, updated_at=None):  # noqa: E501
+    def __init__(self, id=None, portfolio_id=None, json_data=None, source=None, created_at=None, updated_at=None, _check_required=True):  # noqa: E501
         """PortfolioData - a model defined in Swagger"""  # noqa: E501
         self._id = None
         self._portfolio_id = None
@@ -56,9 +56,12 @@ class PortfolioData(object):
         self.discriminator = None
         if id is not None:
             self.id = id
-        self.portfolio_id = portfolio_id
-        self.json_data = json_data
-        self.source = source
+        if _check_required or portfolio_id is not None:
+            self.portfolio_id = portfolio_id
+        if _check_required or json_data is not None:
+            self.json_data = json_data
+        if _check_required or source is not None:
+            self.source = source
         if created_at is not None:
             self.created_at = created_at
         if updated_at is not None:

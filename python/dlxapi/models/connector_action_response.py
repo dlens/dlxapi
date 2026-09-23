@@ -37,7 +37,7 @@ class ConnectorActionResponse(object):
         'message': 'message'
     }
 
-    def __init__(self, option=None, message=None):  # noqa: E501
+    def __init__(self, option=None, message=None, _check_required=True):  # noqa: E501
         """ConnectorActionResponse - a model defined in Swagger"""  # noqa: E501
         self._option = None
         self._message = None

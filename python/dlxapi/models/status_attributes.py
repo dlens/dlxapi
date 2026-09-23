@@ -41,7 +41,7 @@ class StatusAttributes(object):
         'is_archived': 'isArchived'
     }
 
-    def __init__(self, is_draft=None, is_idea=None, is_funded=None, is_archived=None):  # noqa: E501
+    def __init__(self, is_draft=None, is_idea=None, is_funded=None, is_archived=None, _check_required=True):  # noqa: E501
         """StatusAttributes - a model defined in Swagger"""  # noqa: E501
         self._is_draft = None
         self._is_idea = None

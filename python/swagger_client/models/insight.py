@@ -41,7 +41,7 @@ class Insight(object):
         'field_insights': 'fieldInsights'
     }
 
-    def __init__(self, insight_type=None, grade=None, score=0.0, field_insights=None):  # noqa: E501
+    def __init__(self, insight_type=None, grade=None, score=0.0, field_insights=None, _check_required=True):  # noqa: E501
         """Insight - a model defined in Swagger"""  # noqa: E501
         self._insight_type = None
         self._grade = None

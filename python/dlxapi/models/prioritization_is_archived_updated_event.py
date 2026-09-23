@@ -41,7 +41,7 @@ class PrioritizationIsArchivedUpdatedEvent(object):
         'previous_is_archived': 'previousIsArchived'
     }
 
-    def __init__(self, id=None, prioritization=None, is_archived=None, previous_is_archived=None):  # noqa: E501
+    def __init__(self, id=None, prioritization=None, is_archived=None, previous_is_archived=None, _check_required=True):  # noqa: E501
         """PrioritizationIsArchivedUpdatedEvent - a model defined in Swagger"""  # noqa: E501
         self._id = None
         self._prioritization = None

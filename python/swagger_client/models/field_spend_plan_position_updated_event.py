@@ -45,7 +45,7 @@ class FieldSpendPlanPositionUpdatedEvent(object):
         'portfolio_plan': 'portfolioPlan'
     }
 
-    def __init__(self, id=None, name=None, spend_plan_position=None, previous_spend_plan_position=None, portfolio_id=None, portfolio_plan=None):  # noqa: E501
+    def __init__(self, id=None, name=None, spend_plan_position=None, previous_spend_plan_position=None, portfolio_id=None, portfolio_plan=None, _check_required=True):  # noqa: E501
         """FieldSpendPlanPositionUpdatedEvent - a model defined in Swagger"""  # noqa: E501
         self._id = None
         self._name = None

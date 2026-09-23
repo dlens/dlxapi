@@ -46,7 +46,7 @@ class PrioritizationField(Field):
     if hasattr(Field, "attribute_map"):
         attribute_map.update(Field.attribute_map)
 
-    def __init__(self, is_system=None, prioritization_id=None, portfolio_field_id=None, minified_id=None, *args, **kwargs):  # noqa: E501
+    def __init__(self, is_system=None, prioritization_id=None, portfolio_field_id=None, minified_id=None, _check_required=True, *args, **kwargs):  # noqa: E501
         """PrioritizationField - a model defined in Swagger"""  # noqa: E501
         self._is_system = None
         self._prioritization_id = None
@@ -61,7 +61,7 @@ class PrioritizationField(Field):
             self.portfolio_field_id = portfolio_field_id
         if minified_id is not None:
             self.minified_id = minified_id
-        Field.__init__(self, *args, **kwargs)
+        Field.__init__(self, *args, _check_required=_check_required, **kwargs)
 
     @property
     def is_system(self):

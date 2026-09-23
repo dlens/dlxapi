@@ -39,7 +39,7 @@ class PortfolioPodResponse(object):
         'data': 'data'
     }
 
-    def __init__(self, success=None, message=None, data=None):  # noqa: E501
+    def __init__(self, success=None, message=None, data=None, _check_required=True):  # noqa: E501
         """PortfolioPodResponse - a model defined in Swagger"""  # noqa: E501
         self._success = None
         self._message = None

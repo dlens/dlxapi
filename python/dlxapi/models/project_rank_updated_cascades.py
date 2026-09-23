@@ -49,7 +49,7 @@ class ProjectRankUpdatedCascades(object):
         'value': 'value'
     }
 
-    def __init__(self, project_id=None, project_name=None, field_id=None, field_name=None, cascaded_projects_count=None, direction=None, previous_value=None, value=None):  # noqa: E501
+    def __init__(self, project_id=None, project_name=None, field_id=None, field_name=None, cascaded_projects_count=None, direction=None, previous_value=None, value=None, _check_required=True):  # noqa: E501
         """ProjectRankUpdatedCascades - a model defined in Swagger"""  # noqa: E501
         self._project_id = None
         self._project_name = None

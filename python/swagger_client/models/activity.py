@@ -46,7 +46,7 @@ class Activity(DlResource):
     if hasattr(DlResource, "attribute_map"):
         attribute_map.update(DlResource.attribute_map)
 
-    def __init__(self, type=None, user=None, note=None, data=None, *args, **kwargs):  # noqa: E501
+    def __init__(self, type=None, user=None, note=None, data=None, _check_required=True, *args, **kwargs):  # noqa: E501
         """Activity - a model defined in Swagger"""  # noqa: E501
         self._type = None
         self._user = None
@@ -61,7 +61,7 @@ class Activity(DlResource):
             self.note = note
         if data is not None:
             self.data = data
-        DlResource.__init__(self, *args, **kwargs)
+        DlResource.__init__(self, *args, _check_required=_check_required, **kwargs)
 
     @property
     def type(self):

@@ -41,7 +41,7 @@ class ChartValueFormat(object):
         'parenthesize_negatives': 'parenthesizeNegatives'
     }
 
-    def __init__(self, decimal_places=None, currency=None, percentage=None, parenthesize_negatives=None):  # noqa: E501
+    def __init__(self, decimal_places=None, currency=None, percentage=None, parenthesize_negatives=None, _check_required=True):  # noqa: E501
         """ChartValueFormat - a model defined in Swagger"""  # noqa: E501
         self._decimal_places = None
         self._currency = None

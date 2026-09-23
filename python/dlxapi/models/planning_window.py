@@ -37,7 +37,7 @@ class PlanningWindow(object):
         'end': 'end'
     }
 
-    def __init__(self, start=None, end=None):  # noqa: E501
+    def __init__(self, start=None, end=None, _check_required=True):  # noqa: E501
         """PlanningWindow - a model defined in Swagger"""  # noqa: E501
         self._start = None
         self._end = None

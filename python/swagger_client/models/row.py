@@ -39,7 +39,7 @@ class Row(object):
         'data_formats': 'dataFormats'
     }
 
-    def __init__(self, size=None, columns=None, data_formats=None):  # noqa: E501
+    def __init__(self, size=None, columns=None, data_formats=None, _check_required=True):  # noqa: E501
         """Row - a model defined in Swagger"""  # noqa: E501
         self._size = None
         self._columns = None

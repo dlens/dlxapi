@@ -35,7 +35,7 @@ class CacheStats(object):
         'servers': 'servers'
     }
 
-    def __init__(self, servers=None):  # noqa: E501
+    def __init__(self, servers=None, _check_required=True):  # noqa: E501
         """CacheStats - a model defined in Swagger"""  # noqa: E501
         self._servers = None
         self.discriminator = None

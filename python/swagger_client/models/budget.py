@@ -48,7 +48,7 @@ class Budget(DlResource):
     if hasattr(DlResource, "attribute_map"):
         attribute_map.update(DlResource.attribute_map)
 
-    def __init__(self, name=None, budget_amounts=None, field_id=None, category_id=None, position=None, *args, **kwargs):  # noqa: E501
+    def __init__(self, name=None, budget_amounts=None, field_id=None, category_id=None, position=None, _check_required=True, *args, **kwargs):  # noqa: E501
         """Budget - a model defined in Swagger"""  # noqa: E501
         self._name = None
         self._budget_amounts = None
@@ -66,7 +66,7 @@ class Budget(DlResource):
             self.category_id = category_id
         if position is not None:
             self.position = position
-        DlResource.__init__(self, *args, **kwargs)
+        DlResource.__init__(self, *args, _check_required=_check_required, **kwargs)
 
     @property
     def name(self):

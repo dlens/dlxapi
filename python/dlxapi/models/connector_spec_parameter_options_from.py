@@ -35,7 +35,7 @@ class ConnectorSpecParameterOptionsFrom(object):
         'discover': 'discover'
     }
 
-    def __init__(self, discover=None):  # noqa: E501
+    def __init__(self, discover=None, _check_required=True):  # noqa: E501
         """ConnectorSpecParameterOptionsFrom - a model defined in Swagger"""  # noqa: E501
         self._discover = None
         self.discriminator = None

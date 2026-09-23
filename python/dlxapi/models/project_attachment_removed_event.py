@@ -49,7 +49,7 @@ class ProjectAttachmentRemovedEvent(object):
         'portfolio_plan': 'portfolioPlan'
     }
 
-    def __init__(self, attachment_size=None, portfolio_id=None, name=None, attachment_name=None, is_grouped=None, id=None, attachment_id=None, portfolio_plan=None):  # noqa: E501
+    def __init__(self, attachment_size=None, portfolio_id=None, name=None, attachment_name=None, is_grouped=None, id=None, attachment_id=None, portfolio_plan=None, _check_required=True):  # noqa: E501
         """ProjectAttachmentRemovedEvent - a model defined in Swagger"""  # noqa: E501
         self._attachment_size = None
         self._portfolio_id = None

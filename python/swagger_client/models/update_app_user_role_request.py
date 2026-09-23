@@ -35,7 +35,7 @@ class UpdateAppUserRoleRequest(object):
         'app_role': 'appRole'
     }
 
-    def __init__(self, app_role=None):  # noqa: E501
+    def __init__(self, app_role=None, _check_required=True):  # noqa: E501
         """UpdateAppUserRoleRequest - a model defined in Swagger"""  # noqa: E501
         self._app_role = None
         self.discriminator = None

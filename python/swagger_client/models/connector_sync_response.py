@@ -41,18 +41,21 @@ class ConnectorSyncResponse(object):
         'results': 'results'
     }
 
-    def __init__(self, connector_id=None, status=None, last_synced_at=None, results=None):  # noqa: E501
+    def __init__(self, connector_id=None, status=None, last_synced_at=None, results=None, _check_required=True):  # noqa: E501
         """ConnectorSyncResponse - a model defined in Swagger"""  # noqa: E501
         self._connector_id = None
         self._status = None
         self._last_synced_at = None
         self._results = None
         self.discriminator = None
-        self.connector_id = connector_id
-        self.status = status
+        if _check_required or connector_id is not None:
+            self.connector_id = connector_id
+        if _check_required or status is not None:
+            self.status = status
         if last_synced_at is not None:
             self.last_synced_at = last_synced_at
-        self.results = results
+        if _check_required or results is not None:
+            self.results = results
 
     @property
     def connector_id(self):

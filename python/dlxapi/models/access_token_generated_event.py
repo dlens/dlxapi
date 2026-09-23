@@ -43,7 +43,7 @@ class AccessTokenGeneratedEvent(object):
         'group_id': 'groupId'
     }
 
-    def __init__(self, id=None, user=None, grant_type=None, client_id=None, group_id=None):  # noqa: E501
+    def __init__(self, id=None, user=None, grant_type=None, client_id=None, group_id=None, _check_required=True):  # noqa: E501
         """AccessTokenGeneratedEvent - a model defined in Swagger"""  # noqa: E501
         self._id = None
         self._user = None

@@ -41,17 +41,21 @@ class FilterConfig(object):
         'value': 'value'
     }
 
-    def __init__(self, table_id=None, column_id=None, operator=None, value=None):  # noqa: E501
+    def __init__(self, table_id=None, column_id=None, operator=None, value=None, _check_required=True):  # noqa: E501
         """FilterConfig - a model defined in Swagger"""  # noqa: E501
         self._table_id = None
         self._column_id = None
         self._operator = None
         self._value = None
         self.discriminator = None
-        self.table_id = table_id
-        self.column_id = column_id
-        self.operator = operator
-        self.value = value
+        if _check_required or table_id is not None:
+            self.table_id = table_id
+        if _check_required or column_id is not None:
+            self.column_id = column_id
+        if _check_required or operator is not None:
+            self.operator = operator
+        if _check_required or value is not None:
+            self.value = value
 
     @property
     def table_id(self):

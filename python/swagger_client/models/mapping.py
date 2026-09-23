@@ -70,7 +70,7 @@ class Mapping(DlResource):
     if hasattr(DlResource, "attribute_map"):
         attribute_map.update(DlResource.attribute_map)
 
-    def __init__(self, name=None, original_name=None, type=None, initital_type=None, target_type=None, data_type=None, import_type=None, position=None, date_format=None, raw_date_formats=None, values=None, numeric_values=None, boolean_values=None, time_period=None, is_duplicated=False, is_project_identifier=False, *args, **kwargs):  # noqa: E501
+    def __init__(self, name=None, original_name=None, type=None, initital_type=None, target_type=None, data_type=None, import_type=None, position=None, date_format=None, raw_date_formats=None, values=None, numeric_values=None, boolean_values=None, time_period=None, is_duplicated=False, is_project_identifier=False, _check_required=True, *args, **kwargs):  # noqa: E501
         """Mapping - a model defined in Swagger"""  # noqa: E501
         self._name = None
         self._original_name = None
@@ -121,7 +121,7 @@ class Mapping(DlResource):
             self.is_duplicated = is_duplicated
         if is_project_identifier is not None:
             self.is_project_identifier = is_project_identifier
-        DlResource.__init__(self, *args, **kwargs)
+        DlResource.__init__(self, *args, _check_required=_check_required, **kwargs)
 
     @property
     def name(self):

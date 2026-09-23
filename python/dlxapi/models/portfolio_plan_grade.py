@@ -41,7 +41,7 @@ class PortfolioPlanGrade(object):
         'score': 'score'
     }
 
-    def __init__(self, type=None, grade=None, field_grades=None, score=0.0):  # noqa: E501
+    def __init__(self, type=None, grade=None, field_grades=None, score=0.0, _check_required=True):  # noqa: E501
         """PortfolioPlanGrade - a model defined in Swagger"""  # noqa: E501
         self._type = None
         self._grade = None

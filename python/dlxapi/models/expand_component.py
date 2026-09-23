@@ -49,7 +49,7 @@ class ExpandComponent(object):
         'match_keys': 'matchKeys'
     }
 
-    def __init__(self, path=None, match=None, all_possible=None, unique=None, limit=None, offset=None, order_by=None, match_keys=None):  # noqa: E501
+    def __init__(self, path=None, match=None, all_possible=None, unique=None, limit=None, offset=None, order_by=None, match_keys=None, _check_required=True):  # noqa: E501
         """ExpandComponent - a model defined in Swagger"""  # noqa: E501
         self._path = None
         self._match = None

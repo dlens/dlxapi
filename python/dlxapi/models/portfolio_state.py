@@ -49,7 +49,7 @@ class PortfolioState(object):
         'budgets_set_up': 'budgetsSetUp'
     }
 
-    def __init__(self, names_customized=False, statuses_created=False, spreadsheet_imported=False, has_projects=False, fields_created=False, people_invited=False, value_fields_created=False, budgets_set_up=False):  # noqa: E501
+    def __init__(self, names_customized=False, statuses_created=False, spreadsheet_imported=False, has_projects=False, fields_created=False, people_invited=False, value_fields_created=False, budgets_set_up=False, _check_required=True):  # noqa: E501
         """PortfolioState - a model defined in Swagger"""  # noqa: E501
         self._names_customized = None
         self._statuses_created = None

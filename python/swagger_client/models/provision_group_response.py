@@ -53,7 +53,7 @@ class ProvisionGroupResponse(object):
         'users': 'users'
     }
 
-    def __init__(self, app_urls=None, errors=None, schemas=None, groups=None, dlc_group=None, dli_applications=None, dli_properties=None, dlx_properties=None, dlc_properties=None, users=None):  # noqa: E501
+    def __init__(self, app_urls=None, errors=None, schemas=None, groups=None, dlc_group=None, dli_applications=None, dli_properties=None, dlx_properties=None, dlc_properties=None, users=None, _check_required=True):  # noqa: E501
         """ProvisionGroupResponse - a model defined in Swagger"""  # noqa: E501
         self._app_urls = None
         self._errors = None

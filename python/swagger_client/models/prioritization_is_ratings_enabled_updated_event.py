@@ -41,7 +41,7 @@ class PrioritizationIsRatingsEnabledUpdatedEvent(object):
         'previous_is_ratings_enabled': 'previousIsRatingsEnabled'
     }
 
-    def __init__(self, id=None, prioritization=None, is_ratings_enabled=None, previous_is_ratings_enabled=None):  # noqa: E501
+    def __init__(self, id=None, prioritization=None, is_ratings_enabled=None, previous_is_ratings_enabled=None, _check_required=True):  # noqa: E501
         """PrioritizationIsRatingsEnabledUpdatedEvent - a model defined in Swagger"""  # noqa: E501
         self._id = None
         self._prioritization = None

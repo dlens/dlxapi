@@ -35,7 +35,7 @@ class AppManagementAccess(object):
         'has_access': 'hasAccess'
     }
 
-    def __init__(self, has_access=None):  # noqa: E501
+    def __init__(self, has_access=None, _check_required=True):  # noqa: E501
         """AppManagementAccess - a model defined in Swagger"""  # noqa: E501
         self._has_access = None
         self.discriminator = None

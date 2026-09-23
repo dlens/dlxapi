@@ -41,7 +41,7 @@ class AddUsersRequest(object):
         'do_not_notify': 'doNotNotify'
     }
 
-    def __init__(self, email_ids=None, role=None, message=None, do_not_notify=None):  # noqa: E501
+    def __init__(self, email_ids=None, role=None, message=None, do_not_notify=None, _check_required=True):  # noqa: E501
         """AddUsersRequest - a model defined in Swagger"""  # noqa: E501
         self._email_ids = None
         self._role = None

@@ -38,10 +38,10 @@ class AllOfChartColumnValueFormat(ChartValueFormat):
     if hasattr(ChartValueFormat, "attribute_map"):
         attribute_map.update(ChartValueFormat.attribute_map)
 
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, _check_required=True, *args, **kwargs):  # noqa: E501
         """AllOfChartColumnValueFormat - a model defined in Swagger"""  # noqa: E501
         self.discriminator = None
-        ChartValueFormat.__init__(self, *args, **kwargs)
+        ChartValueFormat.__init__(self, *args, _check_required=_check_required, **kwargs)
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -47,7 +47,7 @@ class BudgetAmount(object):
         'details': 'details'
     }
 
-    def __init__(self, budget=None, time_period=None, amount=None, allocation_amount=None, constrained_allocation_amount=None, baseline_amount=None, details=None):  # noqa: E501
+    def __init__(self, budget=None, time_period=None, amount=None, allocation_amount=None, constrained_allocation_amount=None, baseline_amount=None, details=None, _check_required=True):  # noqa: E501
         """BudgetAmount - a model defined in Swagger"""  # noqa: E501
         self._budget = None
         self._time_period = None

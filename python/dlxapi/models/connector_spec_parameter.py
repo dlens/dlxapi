@@ -51,7 +51,7 @@ class ConnectorSpecParameter(object):
         'ui': 'ui'
     }
 
-    def __init__(self, name=None, label=None, scope=None, type=None, required=None, options=None, options_from=None, actions=None, ui=None):  # noqa: E501
+    def __init__(self, name=None, label=None, scope=None, type=None, required=None, options=None, options_from=None, actions=None, ui=None, _check_required=True):  # noqa: E501
         """ConnectorSpecParameter - a model defined in Swagger"""  # noqa: E501
         self._name = None
         self._label = None
@@ -63,11 +63,16 @@ class ConnectorSpecParameter(object):
         self._actions = None
         self._ui = None
         self.discriminator = None
-        self.name = name
-        self.label = label
-        self.scope = scope
-        self.type = type
-        self.required = required
+        if _check_required or name is not None:
+            self.name = name
+        if _check_required or label is not None:
+            self.label = label
+        if _check_required or scope is not None:
+            self.scope = scope
+        if _check_required or type is not None:
+            self.type = type
+        if _check_required or required is not None:
+            self.required = required
         if options is not None:
             self.options = options
         if options_from is not None:

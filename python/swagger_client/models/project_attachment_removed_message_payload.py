@@ -39,15 +39,18 @@ class ProjectAttachmentRemovedMessagePayload(object):
         'project_id': 'projectId'
     }
 
-    def __init__(self, attachment_id=None, portfolio_id=None, project_id=None):  # noqa: E501
+    def __init__(self, attachment_id=None, portfolio_id=None, project_id=None, _check_required=True):  # noqa: E501
         """ProjectAttachmentRemovedMessagePayload - a model defined in Swagger"""  # noqa: E501
         self._attachment_id = None
         self._portfolio_id = None
         self._project_id = None
         self.discriminator = None
-        self.attachment_id = attachment_id
-        self.portfolio_id = portfolio_id
-        self.project_id = project_id
+        if _check_required or attachment_id is not None:
+            self.attachment_id = attachment_id
+        if _check_required or portfolio_id is not None:
+            self.portfolio_id = portfolio_id
+        if _check_required or project_id is not None:
+            self.project_id = project_id
 
     @property
     def attachment_id(self):

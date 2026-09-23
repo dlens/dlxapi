@@ -53,7 +53,7 @@ class SpreadsheetReportProgressMessagePayload(object):
         'budget_amounts': 'budgetAmounts'
     }
 
-    def __init__(self, portfolio_id=None, spreadsheet_id=None, sheet_name=None, new_fields=None, new_budget_fields=None, new_projects=None, update_projects=None, new_budgets=None, update_budgets=None, budget_amounts=None):  # noqa: E501
+    def __init__(self, portfolio_id=None, spreadsheet_id=None, sheet_name=None, new_fields=None, new_budget_fields=None, new_projects=None, update_projects=None, new_budgets=None, update_budgets=None, budget_amounts=None, _check_required=True):  # noqa: E501
         """SpreadsheetReportProgressMessagePayload - a model defined in Swagger"""  # noqa: E501
         self._portfolio_id = None
         self._spreadsheet_id = None

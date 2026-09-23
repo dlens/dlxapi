@@ -37,13 +37,15 @@ class ProjectScoresUpdatedMessagePayload(object):
         'data_id': 'dataId'
     }
 
-    def __init__(self, portfolio_id=None, data_id=None):  # noqa: E501
+    def __init__(self, portfolio_id=None, data_id=None, _check_required=True):  # noqa: E501
         """ProjectScoresUpdatedMessagePayload - a model defined in Swagger"""  # noqa: E501
         self._portfolio_id = None
         self._data_id = None
         self.discriminator = None
-        self.portfolio_id = portfolio_id
-        self.data_id = data_id
+        if _check_required or portfolio_id is not None:
+            self.portfolio_id = portfolio_id
+        if _check_required or data_id is not None:
+            self.data_id = data_id
 
     @property
     def portfolio_id(self):

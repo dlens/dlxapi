@@ -53,7 +53,7 @@ class ScalePointAutoValueUpdatedEvent(object):
         'auto_value': 'autoValue'
     }
 
-    def __init__(self, previous_auto_value=None, portfolio_id=None, field=None, name=None, project=None, id=None, position=None, category=None, portfolio_plan=None, auto_value=None):  # noqa: E501
+    def __init__(self, previous_auto_value=None, portfolio_id=None, field=None, name=None, project=None, id=None, position=None, category=None, portfolio_plan=None, auto_value=None, _check_required=True):  # noqa: E501
         """ScalePointAutoValueUpdatedEvent - a model defined in Swagger"""  # noqa: E501
         self._previous_auto_value = None
         self._portfolio_id = None

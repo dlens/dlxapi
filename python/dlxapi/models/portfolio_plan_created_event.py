@@ -47,7 +47,7 @@ class PortfolioPlanCreatedEvent(object):
         'parent_portfolio_plan': 'parentPortfolioPlan'
     }
 
-    def __init__(self, portfolio_id=None, name=None, description=None, is_baseline=None, id=None, portfolio_plan=None, parent_portfolio_plan=None):  # noqa: E501
+    def __init__(self, portfolio_id=None, name=None, description=None, is_baseline=None, id=None, portfolio_plan=None, parent_portfolio_plan=None, _check_required=True):  # noqa: E501
         """PortfolioPlanCreatedEvent - a model defined in Swagger"""  # noqa: E501
         self._portfolio_id = None
         self._name = None

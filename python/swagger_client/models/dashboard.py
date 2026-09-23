@@ -47,7 +47,7 @@ class Dashboard(object):
         'content': 'content'
     }
 
-    def __init__(self, id=None, name=None, description=None, created_by=None, created_at=None, updated_at=None, content=None):  # noqa: E501
+    def __init__(self, id=None, name=None, description=None, created_by=None, created_at=None, updated_at=None, content=None, _check_required=True):  # noqa: E501
         """Dashboard - a model defined in Swagger"""  # noqa: E501
         self._id = None
         self._name = None
@@ -57,13 +57,18 @@ class Dashboard(object):
         self._updated_at = None
         self._content = None
         self.discriminator = None
-        self.id = id
-        self.name = name
+        if _check_required or id is not None:
+            self.id = id
+        if _check_required or name is not None:
+            self.name = name
         if description is not None:
             self.description = description
-        self.created_by = created_by
-        self.created_at = created_at
-        self.updated_at = updated_at
+        if _check_required or created_by is not None:
+            self.created_by = created_by
+        if _check_required or created_at is not None:
+            self.created_at = created_at
+        if _check_required or updated_at is not None:
+            self.updated_at = updated_at
         if content is not None:
             self.content = content
 

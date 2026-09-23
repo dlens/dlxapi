@@ -41,15 +41,17 @@ class MoveProjectChangesRequest(object):
         'attachment_ids': 'attachmentIds'
     }
 
-    def __init__(self, target_approval_id=None, project_change_ids=None, note=None, attachment_ids=None):  # noqa: E501
+    def __init__(self, target_approval_id=None, project_change_ids=None, note=None, attachment_ids=None, _check_required=True):  # noqa: E501
         """MoveProjectChangesRequest - a model defined in Swagger"""  # noqa: E501
         self._target_approval_id = None
         self._project_change_ids = None
         self._note = None
         self._attachment_ids = None
         self.discriminator = None
-        self.target_approval_id = target_approval_id
-        self.project_change_ids = project_change_ids
+        if _check_required or target_approval_id is not None:
+            self.target_approval_id = target_approval_id
+        if _check_required or project_change_ids is not None:
+            self.project_change_ids = project_change_ids
         if note is not None:
             self.note = note
         if attachment_ids is not None:

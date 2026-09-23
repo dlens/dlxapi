@@ -52,7 +52,7 @@ class PortfolioPlan(DlResource):
     if hasattr(DlResource, "attribute_map"):
         attribute_map.update(DlResource.attribute_map)
 
-    def __init__(self, name=None, is_baseline=None, portfolio=None, parent_portfolio_plan=None, portfolio_plan_users=None, current_portfolio_plan_user=None, description=None, *args, **kwargs):  # noqa: E501
+    def __init__(self, name=None, is_baseline=None, portfolio=None, parent_portfolio_plan=None, portfolio_plan_users=None, current_portfolio_plan_user=None, description=None, _check_required=True, *args, **kwargs):  # noqa: E501
         """PortfolioPlan - a model defined in Swagger"""  # noqa: E501
         self._name = None
         self._is_baseline = None
@@ -76,7 +76,7 @@ class PortfolioPlan(DlResource):
             self.current_portfolio_plan_user = current_portfolio_plan_user
         if description is not None:
             self.description = description
-        DlResource.__init__(self, *args, **kwargs)
+        DlResource.__init__(self, *args, _check_required=_check_required, **kwargs)
 
     @property
     def name(self):

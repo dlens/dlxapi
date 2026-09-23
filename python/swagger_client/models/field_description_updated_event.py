@@ -47,7 +47,7 @@ class FieldDescriptionUpdatedEvent(object):
         'portfolio_plan': 'portfolioPlan'
     }
 
-    def __init__(self, portfolio_id=None, name=None, description=None, id=None, previous_description=None, field_type=None, portfolio_plan=None):  # noqa: E501
+    def __init__(self, portfolio_id=None, name=None, description=None, id=None, previous_description=None, field_type=None, portfolio_plan=None, _check_required=True):  # noqa: E501
         """FieldDescriptionUpdatedEvent - a model defined in Swagger"""  # noqa: E501
         self._portfolio_id = None
         self._name = None

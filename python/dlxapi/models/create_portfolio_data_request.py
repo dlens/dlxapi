@@ -37,12 +37,13 @@ class CreatePortfolioDataRequest(object):
         'source': 'source'
     }
 
-    def __init__(self, portfolio_id=None, source=None):  # noqa: E501
+    def __init__(self, portfolio_id=None, source=None, _check_required=True):  # noqa: E501
         """CreatePortfolioDataRequest - a model defined in Swagger"""  # noqa: E501
         self._portfolio_id = None
         self._source = None
         self.discriminator = None
-        self.portfolio_id = portfolio_id
+        if _check_required or portfolio_id is not None:
+            self.portfolio_id = portfolio_id
         if source is not None:
             self.source = source
 

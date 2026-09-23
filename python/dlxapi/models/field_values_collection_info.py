@@ -41,7 +41,7 @@ class FieldValuesCollectionInfo(object):
         'balance_uniqueness_exceeded': 'balanceUniquenessExceeded'
     }
 
-    def __init__(self, has_duplicate_values=None, has_blank_values=None, total_value=None, balance_uniqueness_exceeded=None):  # noqa: E501
+    def __init__(self, has_duplicate_values=None, has_blank_values=None, total_value=None, balance_uniqueness_exceeded=None, _check_required=True):  # noqa: E501
         """FieldValuesCollectionInfo - a model defined in Swagger"""  # noqa: E501
         self._has_duplicate_values = None
         self._has_blank_values = None

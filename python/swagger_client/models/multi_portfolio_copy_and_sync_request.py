@@ -41,16 +41,19 @@ class MultiPortfolioCopyAndSyncRequest(object):
         'field_ids': 'fieldIds'
     }
 
-    def __init__(self, source_portfolio_id=None, project_ids=None, destination_portfolio_mappings=None, field_ids=None):  # noqa: E501
+    def __init__(self, source_portfolio_id=None, project_ids=None, destination_portfolio_mappings=None, field_ids=None, _check_required=True):  # noqa: E501
         """MultiPortfolioCopyAndSyncRequest - a model defined in Swagger"""  # noqa: E501
         self._source_portfolio_id = None
         self._project_ids = None
         self._destination_portfolio_mappings = None
         self._field_ids = None
         self.discriminator = None
-        self.source_portfolio_id = source_portfolio_id
-        self.project_ids = project_ids
-        self.destination_portfolio_mappings = destination_portfolio_mappings
+        if _check_required or source_portfolio_id is not None:
+            self.source_portfolio_id = source_portfolio_id
+        if _check_required or project_ids is not None:
+            self.project_ids = project_ids
+        if _check_required or destination_portfolio_mappings is not None:
+            self.destination_portfolio_mappings = destination_portfolio_mappings
         if field_ids is not None:
             self.field_ids = field_ids
 

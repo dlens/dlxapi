@@ -49,7 +49,7 @@ class Workflow(object):
         'workflow_steps': 'workflowSteps'
     }
 
-    def __init__(self, id=None, name=None, description=None, state=None, created_at=None, updated_at=None, allow_rerun=None, workflow_steps=None):  # noqa: E501
+    def __init__(self, id=None, name=None, description=None, state=None, created_at=None, updated_at=None, allow_rerun=None, workflow_steps=None, _check_required=True):  # noqa: E501
         """Workflow - a model defined in Swagger"""  # noqa: E501
         self._id = None
         self._name = None

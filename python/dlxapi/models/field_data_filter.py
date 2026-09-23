@@ -35,7 +35,7 @@ class FieldDataFilter(object):
         'field_filter': 'fieldFilter'
     }
 
-    def __init__(self, field_filter=None):  # noqa: E501
+    def __init__(self, field_filter=None, _check_required=True):  # noqa: E501
         """FieldDataFilter - a model defined in Swagger"""  # noqa: E501
         self._field_filter = None
         self.discriminator = None

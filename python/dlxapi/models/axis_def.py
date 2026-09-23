@@ -51,7 +51,7 @@ class AxisDef(object):
         'scope': 'scope'
     }
 
-    def __init__(self, table_id=None, column_id=None, aggregation=None, label=None, colors=None, default_color=None, sort_categories=None, stacked=None, scope=None):  # noqa: E501
+    def __init__(self, table_id=None, column_id=None, aggregation=None, label=None, colors=None, default_color=None, sort_categories=None, stacked=None, scope=None, _check_required=True):  # noqa: E501
         """AxisDef - a model defined in Swagger"""  # noqa: E501
         self._table_id = None
         self._column_id = None
@@ -63,8 +63,10 @@ class AxisDef(object):
         self._stacked = None
         self._scope = None
         self.discriminator = None
-        self.table_id = table_id
-        self.column_id = column_id
+        if _check_required or table_id is not None:
+            self.table_id = table_id
+        if _check_required or column_id is not None:
+            self.column_id = column_id
         if aggregation is not None:
             self.aggregation = aggregation
         if label is not None:

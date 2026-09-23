@@ -37,7 +37,7 @@ class TimeInterval(object):
         'type': 'type'
     }
 
-    def __init__(self, start_month=None, type=None):  # noqa: E501
+    def __init__(self, start_month=None, type=None, _check_required=True):  # noqa: E501
         """TimeInterval - a model defined in Swagger"""  # noqa: E501
         self._start_month = None
         self._type = None

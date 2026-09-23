@@ -73,7 +73,7 @@ class FieldCreatedEvent(object):
         'portfolio_plan': 'portfolioPlan'
     }
 
-    def __init__(self, source_id=None, parent=None, is_field_type_approved=None, type_position=None, data_type=None, target_type=None, is_from_import=None, original_name=None, is_idea_field=None, field_requirement=None, portfolio_id=None, cost_type=None, name=None, is_grouped=None, id=None, position=None, category_options=None, idea_field_position=None, field_type=None, portfolio_plan=None):  # noqa: E501
+    def __init__(self, source_id=None, parent=None, is_field_type_approved=None, type_position=None, data_type=None, target_type=None, is_from_import=None, original_name=None, is_idea_field=None, field_requirement=None, portfolio_id=None, cost_type=None, name=None, is_grouped=None, id=None, position=None, category_options=None, idea_field_position=None, field_type=None, portfolio_plan=None, _check_required=True):  # noqa: E501
         """FieldCreatedEvent - a model defined in Swagger"""  # noqa: E501
         self._source_id = None
         self._parent = None

@@ -37,13 +37,15 @@ class AddColumnRequest(object):
         'column_type': 'columnType'
     }
 
-    def __init__(self, column_name=None, column_type=None):  # noqa: E501
+    def __init__(self, column_name=None, column_type=None, _check_required=True):  # noqa: E501
         """AddColumnRequest - a model defined in Swagger"""  # noqa: E501
         self._column_name = None
         self._column_type = None
         self.discriminator = None
-        self.column_name = column_name
-        self.column_type = column_type
+        if _check_required or column_name is not None:
+            self.column_name = column_name
+        if _check_required or column_type is not None:
+            self.column_type = column_type
 
     @property
     def column_name(self):

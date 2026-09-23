@@ -42,14 +42,16 @@ class TableGroupDetails(TableGroup):
     if hasattr(TableGroup, "attribute_map"):
         attribute_map.update(TableGroup.attribute_map)
 
-    def __init__(self, table_count=None, table_details=None, *args, **kwargs):  # noqa: E501
+    def __init__(self, table_count=None, table_details=None, _check_required=True, *args, **kwargs):  # noqa: E501
         """TableGroupDetails - a model defined in Swagger"""  # noqa: E501
         self._table_count = None
         self._table_details = None
         self.discriminator = None
-        self.table_count = table_count
-        self.table_details = table_details
-        TableGroup.__init__(self, *args, **kwargs)
+        if _check_required or table_count is not None:
+            self.table_count = table_count
+        if _check_required or table_details is not None:
+            self.table_details = table_details
+        TableGroup.__init__(self, *args, _check_required=_check_required, **kwargs)
 
     @property
     def table_count(self):

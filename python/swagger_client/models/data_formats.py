@@ -43,7 +43,7 @@ class DataFormats(object):
         'date_format': 'dateFormat'
     }
 
-    def __init__(self, decimal_places=None, currency=None, negatives=None, number_format=None, date_format=None):  # noqa: E501
+    def __init__(self, decimal_places=None, currency=None, negatives=None, number_format=None, date_format=None, _check_required=True):  # noqa: E501
         """DataFormats - a model defined in Swagger"""  # noqa: E501
         self._decimal_places = None
         self._currency = None

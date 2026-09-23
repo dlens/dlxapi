@@ -43,7 +43,7 @@ class CostTypeTimePeriodTypeUpdatedEvent(object):
         'portfolio_plan': 'portfolioPlan'
     }
 
-    def __init__(self, portfolio_id=None, previous_time_period_type=None, id=None, time_period_type=None, portfolio_plan=None):  # noqa: E501
+    def __init__(self, portfolio_id=None, previous_time_period_type=None, id=None, time_period_type=None, portfolio_plan=None, _check_required=True):  # noqa: E501
         """CostTypeTimePeriodTypeUpdatedEvent - a model defined in Swagger"""  # noqa: E501
         self._portfolio_id = None
         self._previous_time_period_type = None

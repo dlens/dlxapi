@@ -35,11 +35,12 @@ class DeleteRowsRequest(object):
         'ids': 'ids'
     }
 
-    def __init__(self, ids=None):  # noqa: E501
+    def __init__(self, ids=None, _check_required=True):  # noqa: E501
         """DeleteRowsRequest - a model defined in Swagger"""  # noqa: E501
         self._ids = None
         self.discriminator = None
-        self.ids = ids
+        if _check_required or ids is not None:
+            self.ids = ids
 
     @property
     def ids(self):

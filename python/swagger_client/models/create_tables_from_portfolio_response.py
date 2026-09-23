@@ -39,14 +39,16 @@ class CreateTablesFromPortfolioResponse(object):
         'table_group': 'tableGroup'
     }
 
-    def __init__(self, success=None, tables=None, table_group=None):  # noqa: E501
+    def __init__(self, success=None, tables=None, table_group=None, _check_required=True):  # noqa: E501
         """CreateTablesFromPortfolioResponse - a model defined in Swagger"""  # noqa: E501
         self._success = None
         self._tables = None
         self._table_group = None
         self.discriminator = None
-        self.success = success
-        self.tables = tables
+        if _check_required or success is not None:
+            self.success = success
+        if _check_required or tables is not None:
+            self.tables = tables
         if table_group is not None:
             self.table_group = table_group
 

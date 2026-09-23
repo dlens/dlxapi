@@ -100,7 +100,7 @@ class DlCollection(object):
 'ScoreWeights': 'ScoreWeights',
 'SpreadsheetWarnings': 'SpreadsheetWarnings'    }
 
-    def __init__(self, href=None, offset=None, limit=None, size=0):  # noqa: E501
+    def __init__(self, href=None, offset=None, limit=None, size=0, _check_required=True):  # noqa: E501
         """DlCollection - a model defined in Swagger"""  # noqa: E501
         self._href = None
         self._offset = None

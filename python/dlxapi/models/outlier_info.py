@@ -37,7 +37,7 @@ class OutlierInfo(object):
         'context': 'context'
     }
 
-    def __init__(self, user_name=None, context=None):  # noqa: E501
+    def __init__(self, user_name=None, context=None, _check_required=True):  # noqa: E501
         """OutlierInfo - a model defined in Swagger"""  # noqa: E501
         self._user_name = None
         self._context = None

@@ -39,13 +39,14 @@ class PortfolioRelationshipMappingOperation(object):
         'value': 'value'
     }
 
-    def __init__(self, op=None, path=None, value=None):  # noqa: E501
+    def __init__(self, op=None, path=None, value=None, _check_required=True):  # noqa: E501
         """PortfolioRelationshipMappingOperation - a model defined in Swagger"""  # noqa: E501
         self._op = None
         self._path = None
         self._value = None
         self.discriminator = None
-        self.op = op
+        if _check_required or op is not None:
+            self.op = op
         if path is not None:
             self.path = path
         if value is not None:

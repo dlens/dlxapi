@@ -44,7 +44,7 @@ class PlanGrade(DlResource):
     if hasattr(DlResource, "attribute_map"):
         attribute_map.update(DlResource.attribute_map)
 
-    def __init__(self, type=None, grade=None, field_grades=None, *args, **kwargs):  # noqa: E501
+    def __init__(self, type=None, grade=None, field_grades=None, _check_required=True, *args, **kwargs):  # noqa: E501
         """PlanGrade - a model defined in Swagger"""  # noqa: E501
         self._type = None
         self._grade = None
@@ -56,7 +56,7 @@ class PlanGrade(DlResource):
             self.grade = grade
         if field_grades is not None:
             self.field_grades = field_grades
-        DlResource.__init__(self, *args, **kwargs)
+        DlResource.__init__(self, *args, _check_required=_check_required, **kwargs)
 
     @property
     def type(self):

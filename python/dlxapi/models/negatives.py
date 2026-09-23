@@ -39,7 +39,7 @@ class Negatives(object):
     attribute_map = {
     }
 
-    def __init__(self):  # noqa: E501
+    def __init__(self, _check_required=True):  # noqa: E501
         """Negatives - a model defined in Swagger"""  # noqa: E501
         self.discriminator = None
 

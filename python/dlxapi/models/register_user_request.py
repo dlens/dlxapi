@@ -41,15 +41,17 @@ class RegisterUserRequest(object):
         'do_not_notify': 'doNotNotify'
     }
 
-    def __init__(self, user_registration_token=None, email_id=None, landing_page=None, do_not_notify=False):  # noqa: E501
+    def __init__(self, user_registration_token=None, email_id=None, landing_page=None, do_not_notify=False, _check_required=True):  # noqa: E501
         """RegisterUserRequest - a model defined in Swagger"""  # noqa: E501
         self._user_registration_token = None
         self._email_id = None
         self._landing_page = None
         self._do_not_notify = None
         self.discriminator = None
-        self.user_registration_token = user_registration_token
-        self.email_id = email_id
+        if _check_required or user_registration_token is not None:
+            self.user_registration_token = user_registration_token
+        if _check_required or email_id is not None:
+            self.email_id = email_id
         if landing_page is not None:
             self.landing_page = landing_page
         if do_not_notify is not None:

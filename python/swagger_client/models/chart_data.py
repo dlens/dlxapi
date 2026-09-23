@@ -37,12 +37,13 @@ class ChartData(object):
         'x_categories': 'xCategories'
     }
 
-    def __init__(self, series=None, x_categories=None):  # noqa: E501
+    def __init__(self, series=None, x_categories=None, _check_required=True):  # noqa: E501
         """ChartData - a model defined in Swagger"""  # noqa: E501
         self._series = None
         self._x_categories = None
         self.discriminator = None
-        self.series = series
+        if _check_required or series is not None:
+            self.series = series
         if x_categories is not None:
             self.x_categories = x_categories
 

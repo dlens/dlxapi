@@ -39,7 +39,7 @@ class MailRequest(object):
         'message': 'message'
     }
 
-    def __init__(self, to=None, subject=None, message=None):  # noqa: E501
+    def __init__(self, to=None, subject=None, message=None, _check_required=True):  # noqa: E501
         """MailRequest - a model defined in Swagger"""  # noqa: E501
         self._to = None
         self._subject = None

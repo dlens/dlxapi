@@ -51,7 +51,7 @@ class FieldTagRemovedEvent(object):
         'portfolio_plan': 'portfolioPlan'
     }
 
-    def __init__(self, portfolio_id=None, tag_parent_name=None, tag_id=None, tag_color=None, name=None, id=None, tag_name=None, tag_parent_id=None, portfolio_plan=None):  # noqa: E501
+    def __init__(self, portfolio_id=None, tag_parent_name=None, tag_id=None, tag_color=None, name=None, id=None, tag_name=None, tag_parent_id=None, portfolio_plan=None, _check_required=True):  # noqa: E501
         """FieldTagRemovedEvent - a model defined in Swagger"""  # noqa: E501
         self._portfolio_id = None
         self._tag_parent_name = None

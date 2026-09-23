@@ -39,15 +39,18 @@ class MessageToken(object):
         'destination': 'destination'
     }
 
-    def __init__(self, token=None, expiration_in_millis=None, destination=None):  # noqa: E501
+    def __init__(self, token=None, expiration_in_millis=None, destination=None, _check_required=True):  # noqa: E501
         """MessageToken - a model defined in Swagger"""  # noqa: E501
         self._token = None
         self._expiration_in_millis = None
         self._destination = None
         self.discriminator = None
-        self.token = token
-        self.expiration_in_millis = expiration_in_millis
-        self.destination = destination
+        if _check_required or token is not None:
+            self.token = token
+        if _check_required or expiration_in_millis is not None:
+            self.expiration_in_millis = expiration_in_millis
+        if _check_required or destination is not None:
+            self.destination = destination
 
     @property
     def token(self):

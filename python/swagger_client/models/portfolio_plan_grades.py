@@ -46,7 +46,7 @@ class PortfolioPlanGrades(DlCollection):
     if hasattr(DlCollection, "attribute_map"):
         attribute_map.update(DlCollection.attribute_map)
 
-    def __init__(self, items=None, portfolio=None, details=None, grading_type=None, *args, **kwargs):  # noqa: E501
+    def __init__(self, items=None, portfolio=None, details=None, grading_type=None, _check_required=True, *args, **kwargs):  # noqa: E501
         """PortfolioPlanGrades - a model defined in Swagger"""  # noqa: E501
         self._items = None
         self._portfolio = None
@@ -61,7 +61,7 @@ class PortfolioPlanGrades(DlCollection):
             self.details = details
         if grading_type is not None:
             self.grading_type = grading_type
-        DlCollection.__init__(self, *args, **kwargs)
+        DlCollection.__init__(self, *args, _check_required=_check_required, **kwargs)
 
     @property
     def items(self):

@@ -49,7 +49,7 @@ class ChartColumn(object):
         'value_format': 'valueFormat'
     }
 
-    def __init__(self, id=None, label=None, type=None, aggregatable=None, default_aggregation=None, data_type=None, category_options=None, value_format=None):  # noqa: E501
+    def __init__(self, id=None, label=None, type=None, aggregatable=None, default_aggregation=None, data_type=None, category_options=None, value_format=None, _check_required=True):  # noqa: E501
         """ChartColumn - a model defined in Swagger"""  # noqa: E501
         self._id = None
         self._label = None
@@ -60,10 +60,14 @@ class ChartColumn(object):
         self._category_options = None
         self._value_format = None
         self.discriminator = None
-        self.id = id
-        self.label = label
-        self.type = type
-        self.aggregatable = aggregatable
+        if _check_required or id is not None:
+            self.id = id
+        if _check_required or label is not None:
+            self.label = label
+        if _check_required or type is not None:
+            self.type = type
+        if _check_required or aggregatable is not None:
+            self.aggregatable = aggregatable
         if default_aggregation is not None:
             self.default_aggregation = default_aggregation
         if data_type is not None:

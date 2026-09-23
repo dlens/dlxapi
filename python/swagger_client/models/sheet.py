@@ -37,7 +37,7 @@ class Sheet(object):
         'rows': 'rows'
     }
 
-    def __init__(self, name=None, rows=None):  # noqa: E501
+    def __init__(self, name=None, rows=None, _check_required=True):  # noqa: E501
         """Sheet - a model defined in Swagger"""  # noqa: E501
         self._name = None
         self._rows = None

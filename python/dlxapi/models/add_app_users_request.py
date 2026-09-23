@@ -41,7 +41,7 @@ class AddAppUsersRequest(object):
         'role': 'role'
     }
 
-    def __init__(self, email_ids=None, message=None, do_not_notify=None, role=None):  # noqa: E501
+    def __init__(self, email_ids=None, message=None, do_not_notify=None, role=None, _check_required=True):  # noqa: E501
         """AddAppUsersRequest - a model defined in Swagger"""  # noqa: E501
         self._email_ids = None
         self._message = None

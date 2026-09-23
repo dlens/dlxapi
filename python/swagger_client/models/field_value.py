@@ -60,7 +60,7 @@ class FieldValue(object):
     discriminator_value_class_map = {
           'FieldData': 'FieldData'    }
 
-    def __init__(self, field=None, project=None, value=None, numeric_value=None, boolean_value=None, numeric_values=None, values=None, time_period=None, details=None, location=None, created_at=None, modified_at=None):  # noqa: E501
+    def __init__(self, field=None, project=None, value=None, numeric_value=None, boolean_value=None, numeric_values=None, values=None, time_period=None, details=None, location=None, created_at=None, modified_at=None, _check_required=True):  # noqa: E501
         """FieldValue - a model defined in Swagger"""  # noqa: E501
         self._field = None
         self._project = None

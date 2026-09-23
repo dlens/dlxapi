@@ -48,7 +48,7 @@ class ScoreWeight(DlResource):
     if hasattr(DlResource, "attribute_map"):
         attribute_map.update(DlResource.attribute_map)
 
-    def __init__(self, name=None, is_default=None, type=None, survey_id=None, field_weights=None, *args, **kwargs):  # noqa: E501
+    def __init__(self, name=None, is_default=None, type=None, survey_id=None, field_weights=None, _check_required=True, *args, **kwargs):  # noqa: E501
         """ScoreWeight - a model defined in Swagger"""  # noqa: E501
         self._name = None
         self._is_default = None
@@ -66,7 +66,7 @@ class ScoreWeight(DlResource):
             self.survey_id = survey_id
         if field_weights is not None:
             self.field_weights = field_weights
-        DlResource.__init__(self, *args, **kwargs)
+        DlResource.__init__(self, *args, _check_required=_check_required, **kwargs)
 
     @property
     def name(self):

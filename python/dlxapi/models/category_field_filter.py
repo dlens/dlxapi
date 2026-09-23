@@ -37,7 +37,7 @@ class CategoryFieldFilter(object):
         'option_ids': 'optionIds'
     }
 
-    def __init__(self, field_id=None, option_ids=None):  # noqa: E501
+    def __init__(self, field_id=None, option_ids=None, _check_required=True):  # noqa: E501
         """CategoryFieldFilter - a model defined in Swagger"""  # noqa: E501
         self._field_id = None
         self._option_ids = None

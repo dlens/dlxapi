@@ -55,7 +55,7 @@ class ExerciseStepExecution(object):
         'updated_at': 'updatedAt'
     }
 
-    def __init__(self, id=None, exercise_id=None, workflow_step_id=None, status=None, started_at=None, ended_at=None, result_json=None, created_by=None, updated_by=None, created_at=None, updated_at=None):  # noqa: E501
+    def __init__(self, id=None, exercise_id=None, workflow_step_id=None, status=None, started_at=None, ended_at=None, result_json=None, created_by=None, updated_by=None, created_at=None, updated_at=None, _check_required=True):  # noqa: E501
         """ExerciseStepExecution - a model defined in Swagger"""  # noqa: E501
         self._id = None
         self._exercise_id = None

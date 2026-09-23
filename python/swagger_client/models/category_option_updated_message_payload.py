@@ -35,11 +35,12 @@ class CategoryOptionUpdatedMessagePayload(object):
         'category_option': 'categoryOption'
     }
 
-    def __init__(self, category_option=None):  # noqa: E501
+    def __init__(self, category_option=None, _check_required=True):  # noqa: E501
         """CategoryOptionUpdatedMessagePayload - a model defined in Swagger"""  # noqa: E501
         self._category_option = None
         self.discriminator = None
-        self.category_option = category_option
+        if _check_required or category_option is not None:
+            self.category_option = category_option
 
     @property
     def category_option(self):

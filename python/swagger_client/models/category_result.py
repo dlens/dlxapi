@@ -37,7 +37,7 @@ class CategoryResult(object):
         'user_ids': 'userIds'
     }
 
-    def __init__(self, category_id=None, user_ids=None):  # noqa: E501
+    def __init__(self, category_id=None, user_ids=None, _check_required=True):  # noqa: E501
         """CategoryResult - a model defined in Swagger"""  # noqa: E501
         self._category_id = None
         self._user_ids = None

@@ -43,7 +43,7 @@ class ProjectFieldValue(object):
         'portfolio_plan': 'portfolioPlan'
     }
 
-    def __init__(self, field=None, value=None, numeric_value=None, time_period=None, portfolio_plan=None):  # noqa: E501
+    def __init__(self, field=None, value=None, numeric_value=None, time_period=None, portfolio_plan=None, _check_required=True):  # noqa: E501
         """ProjectFieldValue - a model defined in Swagger"""  # noqa: E501
         self._field = None
         self._value = None

@@ -37,7 +37,7 @@ class Mappings(object):
         'items': 'items'
     }
 
-    def __init__(self, size=None, items=None):  # noqa: E501
+    def __init__(self, size=None, items=None, _check_required=True):  # noqa: E501
         """Mappings - a model defined in Swagger"""  # noqa: E501
         self._size = None
         self._items = None

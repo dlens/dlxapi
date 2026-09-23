@@ -37,7 +37,7 @@ class IdNamePair(object):
         'name': 'name'
     }
 
-    def __init__(self, id=None, name=None):  # noqa: E501
+    def __init__(self, id=None, name=None, _check_required=True):  # noqa: E501
         """IdNamePair - a model defined in Swagger"""  # noqa: E501
         self._id = None
         self._name = None

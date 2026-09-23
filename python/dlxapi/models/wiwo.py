@@ -37,7 +37,7 @@ class Wiwo(object):
         'out_projects': 'outProjects'
     }
 
-    def __init__(self, in_projects=None, out_projects=None):  # noqa: E501
+    def __init__(self, in_projects=None, out_projects=None, _check_required=True):  # noqa: E501
         """Wiwo - a model defined in Swagger"""  # noqa: E501
         self._in_projects = None
         self._out_projects = None

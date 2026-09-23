@@ -39,13 +39,14 @@ class TestConnectorResponse(object):
         'account_display_name': 'accountDisplayName'
     }
 
-    def __init__(self, success=None, message=None, account_display_name=None):  # noqa: E501
+    def __init__(self, success=None, message=None, account_display_name=None, _check_required=True):  # noqa: E501
         """TestConnectorResponse - a model defined in Swagger"""  # noqa: E501
         self._success = None
         self._message = None
         self._account_display_name = None
         self.discriminator = None
-        self.success = success
+        if _check_required or success is not None:
+            self.success = success
         if message is not None:
             self.message = message
         if account_display_name is not None:

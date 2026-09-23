@@ -46,7 +46,7 @@ class Snapshot(DlResource):
     if hasattr(DlResource, "attribute_map"):
         attribute_map.update(DlResource.attribute_map)
 
-    def __init__(self, name=None, description=None, portfolio_id=None, user=None, *args, **kwargs):  # noqa: E501
+    def __init__(self, name=None, description=None, portfolio_id=None, user=None, _check_required=True, *args, **kwargs):  # noqa: E501
         """Snapshot - a model defined in Swagger"""  # noqa: E501
         self._name = None
         self._description = None
@@ -61,7 +61,7 @@ class Snapshot(DlResource):
             self.portfolio_id = portfolio_id
         if user is not None:
             self.user = user
-        DlResource.__init__(self, *args, **kwargs)
+        DlResource.__init__(self, *args, _check_required=_check_required, **kwargs)
 
     @property
     def name(self):

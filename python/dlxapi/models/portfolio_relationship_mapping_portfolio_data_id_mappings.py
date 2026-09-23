@@ -45,7 +45,7 @@ class PortfolioRelationshipMappingPortfolioDataIdMappings(object):
         'mapping_field': 'mappingField'
     }
 
-    def __init__(self, project_associations=None, field_associations=None, category_option_associations=None, tag_associations=None, attachment_associations=None, mapping_field=None):  # noqa: E501
+    def __init__(self, project_associations=None, field_associations=None, category_option_associations=None, tag_associations=None, attachment_associations=None, mapping_field=None, _check_required=True):  # noqa: E501
         """PortfolioRelationshipMappingPortfolioDataIdMappings - a model defined in Swagger"""  # noqa: E501
         self._project_associations = None
         self._field_associations = None
@@ -54,12 +54,18 @@ class PortfolioRelationshipMappingPortfolioDataIdMappings(object):
         self._attachment_associations = None
         self._mapping_field = None
         self.discriminator = None
-        self.project_associations = project_associations
-        self.field_associations = field_associations
-        self.category_option_associations = category_option_associations
-        self.tag_associations = tag_associations
-        self.attachment_associations = attachment_associations
-        self.mapping_field = mapping_field
+        if _check_required or project_associations is not None:
+            self.project_associations = project_associations
+        if _check_required or field_associations is not None:
+            self.field_associations = field_associations
+        if _check_required or category_option_associations is not None:
+            self.category_option_associations = category_option_associations
+        if _check_required or tag_associations is not None:
+            self.tag_associations = tag_associations
+        if _check_required or attachment_associations is not None:
+            self.attachment_associations = attachment_associations
+        if _check_required or mapping_field is not None:
+            self.mapping_field = mapping_field
 
     @property
     def project_associations(self):

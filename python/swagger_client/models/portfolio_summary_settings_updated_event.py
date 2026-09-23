@@ -45,7 +45,7 @@ class PortfolioSummarySettingsUpdatedEvent(object):
         'previous_summary_settings': 'previousSummarySettings'
     }
 
-    def __init__(self, portfolio_id=None, summary_settings=None, name=None, id=None, portfolio_plan=None, previous_summary_settings=None):  # noqa: E501
+    def __init__(self, portfolio_id=None, summary_settings=None, name=None, id=None, portfolio_plan=None, previous_summary_settings=None, _check_required=True):  # noqa: E501
         """PortfolioSummarySettingsUpdatedEvent - a model defined in Swagger"""  # noqa: E501
         self._portfolio_id = None
         self._summary_settings = None

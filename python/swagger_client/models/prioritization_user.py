@@ -42,7 +42,7 @@ class PrioritizationUser(User):
     if hasattr(User, "attribute_map"):
         attribute_map.update(User.attribute_map)
 
-    def __init__(self, rating_progress=None, pairwise_progress=None, *args, **kwargs):  # noqa: E501
+    def __init__(self, rating_progress=None, pairwise_progress=None, _check_required=True, *args, **kwargs):  # noqa: E501
         """PrioritizationUser - a model defined in Swagger"""  # noqa: E501
         self._rating_progress = None
         self._pairwise_progress = None
@@ -51,7 +51,7 @@ class PrioritizationUser(User):
             self.rating_progress = rating_progress
         if pairwise_progress is not None:
             self.pairwise_progress = pairwise_progress
-        User.__init__(self, *args, **kwargs)
+        User.__init__(self, *args, _check_required=_check_required, **kwargs)
 
     @property
     def rating_progress(self):

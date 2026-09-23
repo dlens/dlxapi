@@ -53,7 +53,7 @@ class MinifiedProject(object):
         'pcs': 'pcs'
     }
 
-    def __init__(self, id=None, n=None, pos=None, mt=None, fvs=None, cus=None, doi=None, hdi=None, r=None, pcs=None):  # noqa: E501
+    def __init__(self, id=None, n=None, pos=None, mt=None, fvs=None, cus=None, doi=None, hdi=None, r=None, pcs=None, _check_required=True):  # noqa: E501
         """MinifiedProject - a model defined in Swagger"""  # noqa: E501
         self._id = None
         self._n = None

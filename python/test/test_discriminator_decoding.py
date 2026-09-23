@@ -5,6 +5,21 @@ from types import SimpleNamespace
 
 
 class TestDiscriminatorDecoding(unittest.TestCase):
+    def test_partial_source_response_and_required_constructor(self):
+        payload = {"items": [{"id": "field-id", "source": {"id": "source-id"}}]}
+        for namespace in ("dlxapi", "swagger_client"):
+            with self.subTest(namespace=namespace):
+                package = importlib.import_module(namespace)
+                fields = package.ApiClient().deserialize(
+                    SimpleNamespace(data=json.dumps(payload)), "Fields"
+                )
+                self.assertEqual(fields.items[0].source.id, "source-id")
+                self.assertIsNone(fields.items[0].source.type)
+                with self.assertRaises(ValueError):
+                    package.Source()
+                with self.assertRaises(ValueError):
+                    fields.items[0].source.type = None
+
     def test_nested_field_values_decode_in_both_namespaces(self):
         payload = {
             "items": [{
